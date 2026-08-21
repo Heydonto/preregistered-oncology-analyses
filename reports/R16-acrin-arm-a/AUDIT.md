@@ -3,7 +3,7 @@
 Audited 19 August 2026 (retrospectively; the report was written 16 August and this audit was
 missing). Run evidence in `evidence/`, plan SHA-256
 `752b7462fce5689993dd6c05bca956ff50799794528ec3f4abf9048cb74e6770`, exposure table frozen at
-`854378633ea6992c…`. Held for IP.
+`854378633ea6992c…`. Peer-review audit copy.
 
 ## Verdict
 

@@ -79,7 +79,7 @@ def main():
          "post_hoc_and_labelled_as_such": [
              "relative inflation vs site-disjoint performance across encoders -- noticed after "
              "seeing all five, reported with rank correlation and n, NOT tested as a hypothesis"],
-         "status": "HELD FOR IP - not for publication pending patent"}, [])
+         "status": "peer-review audit copy"}, [])
 
     A, rows = {}, []
     for d, repo, corpus in ENC:
@@ -165,7 +165,7 @@ def main():
                       for v in A.values()]}
     run.log("POST_HOC", rho=round(float(rs.statistic), 4), p=round(float(rs.pvalue), 4), n=len(A))
 
-    out = {"status": "HELD FOR IP - not for publication pending patent",
+    out = {"status": "peer-review audit copy",
            "VERDICT": {"subtype": "SUBTYPE_LEAKAGE_UNIVERSAL" if sub_all else "MIXED",
                        "methylation": verdict,
                        "corrects_R18": "R18 secondary verdict attributed methylation leakage to "

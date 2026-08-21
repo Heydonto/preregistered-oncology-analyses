@@ -1,7 +1,7 @@
 # R22 audit — a gate halted the run, and it was right to
 
 Audited 19 August 2026. Run `20260819T003001Z-R22extfive-def4440`, config
-`025add55f381b264bd7d8d3e449e18b47c32ba0de0bb443f9cc311784c7c3bad`. Held for IP.
+`025add55f381b264bd7d8d3e449e18b47c32ba0de0bb443f9cc311784c7c3bad`. Peer-review audit copy.
 
 ## Verdict
 

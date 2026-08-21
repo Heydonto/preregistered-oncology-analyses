@@ -31,5 +31,5 @@
     "otherwise -> INTERMEDIATE",
     "secondary, independent of the above: n_meth > n_globalmean -> CARRIES_CPG_SPECIFIC_STRUCTURE_BEYOND_GLOBAL_AXIS, else GLOBAL_AXIS_ONLY"
   ],
-  "status": "HELD FOR IP - not for publication pending patent"
+  "status": "peer-review audit copy"
 }

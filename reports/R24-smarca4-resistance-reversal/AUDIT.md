@@ -2,7 +2,7 @@
 
 Audited 20 August 2026. Plan `PREREG_PLAN_R24.yaml`, SHA-256 `bffbaad89936c522…`, hashed after
 reading only the TPM column headers and before any expression value was compared between groups.
-All eight gates passed. Held for IP.
+All eight gates passed. Peer-review audit copy.
 
 ## Verdict
 

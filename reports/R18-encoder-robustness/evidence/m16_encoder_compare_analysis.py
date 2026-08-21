@@ -87,7 +87,7 @@ def main():
              "otherwise -> INTERMEDIATE",
              "secondary: sign agreement across all 6 methylation targets -> "
              "METHYLATION_LEAKAGE_ALSO_REPRODUCES"],
-         "status": "HELD FOR IP - not for publication pending patent"},
+         "status": "peer-review audit copy"},
         [])
 
     A = {}
@@ -180,7 +180,7 @@ def main():
             dinov2_relative_inflation=round(dv, 4),
             phikon_relative_inflation=round(sub["tcga"]["subtype_relative_inflation"], 4))
 
-    out = {"status": "HELD FOR IP - not for publication pending patent",
+    out = {"status": "peer-review audit copy",
            "question": "archive or encoder?",
            "VERDICT": {"primary": verdict, "secondary": secondary,
                        "rules_pre_declared_in": "config.yaml, hash " + cfg_hash},

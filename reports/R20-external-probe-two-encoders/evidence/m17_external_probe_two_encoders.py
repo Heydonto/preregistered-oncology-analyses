@@ -102,7 +102,7 @@ def main():
              f"dinov2 SET_HE >= {CONFIRM} -> EXTERNAL_SIGNATURE_ENCODER_INDEPENDENT",
              f"dinov2 SET_HE >= {WEAK} -> EXTERNAL_SIGNATURE_WEAKER_UNDER_SECOND_ENCODER",
              f"dinov2 SET_HE < {WEAK} -> EXTERNAL_SIGNATURE_PHIKON_SPECIFIC"],
-         "status": "HELD FOR IP - not for publication pending patent"},
+         "status": "peer-review audit copy"},
         [PH, DV, R19_SET])
 
     E = {}
@@ -164,7 +164,7 @@ def main():
     run.log("VERDICT", primary=verdict, dinov2_set_he=round(prim, 4),
             phikon_set_he=round(res["phikon-v2"]["SET_HE"]["balanced_accuracy"], 4))
 
-    out = {"status": "HELD FOR IP - not for publication pending patent",
+    out = {"status": "peer-review audit copy",
            "VERDICT": {"primary": verdict, "primary_arm": "dinov2-large / SET_HE",
                        "value": prim, "rules_pre_declared_in": "config.yaml, hash " + cfg_hash},
            "arms": res,

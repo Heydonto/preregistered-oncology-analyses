@@ -35,7 +35,7 @@ What the diagnostic buys, beyond rescuing the experiment: identical data, identi
 identical hyperparameters, ONLY the fold assignment changed. That isolates site leakage more
 cleanly than R12 could, because R12 compared different training regimes.
 
-Held for IP: not for publication pending patent.
+Peer-review audit copy.
 """
 import csv, gzip, json, os, sys, collections
 import numpy as np
@@ -61,7 +61,7 @@ def main():
     run = Run("R15wsimeth")
     cfg = {
         "report": "R15",
-        "status": "HELD FOR IP - not for publication pending patent filing",
+        "status": "peer-review audit copy",
         "question": "can H&E morphology predict DNA-methylation state, and what does "
                     "site leakage cost?",
         "cohort": "760 TCGA patients with BOTH Phikon-v2 WSI features and 450k methylation",
@@ -229,7 +229,7 @@ def main():
     run.log("Q3_bulk", rho=round(float(rb.statistic), 4), p=float(rb.pvalue))
 
     results = {
-        "status": "HELD FOR IP - not for publication pending patent",
+        "status": "peer-review audit copy",
         "cohort": {"n": len(pg), "lusc": int(sub.sum()), "luad": int((1 - sub).sum()),
                    "keap1_mutant": int(kea.sum()), "sites": len(set(site)),
                    "probes": int(Y.shape[1])},

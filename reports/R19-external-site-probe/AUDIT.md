@@ -1,7 +1,7 @@
 # R19 audit — a manuscript number with no artefact behind it
 
 Audited 17 August 2026. Run `20260817T010512Z-R19extsiteprobe-a6b6353`, config
-`5985b7c75d064a204d4d512e8cd3fb7b6389768c596f07d0b4d719788ea92039`. Held for IP.
+`5985b7c75d064a204d4d512e8cd3fb7b6389768c596f07d0b4d719788ea92039`. Peer-review audit copy.
 
 ## Verdict
 

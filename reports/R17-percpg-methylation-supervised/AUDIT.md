@@ -1,8 +1,8 @@
 # R17 audit — the genome-wide null, re-examined
 
 Audited 17 August 2026. Run `20260817T002058Z-R17percpgmeth-6626d09`, config
-`4779152747f14818e8f1279733a0fe2dd9209dfcbef8eb8662890f6f5b016a42`. Held for IP; the written
-record is the deliverable, so this audit is the safeguard rather than peer review.
+`4779152747f14818e8f1279733a0fe2dd9209dfcbef8eb8662890f6f5b016a42`. Peer-review audit copy. This audit was written as an internal adversarial check before the work
+was submitted for review.
 
 ## Verdict
 

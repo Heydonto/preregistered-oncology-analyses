@@ -1,8 +1,8 @@
 # R15 audit — H&E and the methylome
 
 Audited 15 August 2026. Run `20260814T211255Z-R15wsimeth-3f8bece`, config
-`3d8b9658f679e069bd0cc4fded832dcd636c859cdc5bbf7cc848df5c2c5a5ef3`. Held for IP; the written
-record is the deliverable, so this audit is the safeguard rather than peer review.
+`3d8b9658f679e069bd0cc4fded832dcd636c859cdc5bbf7cc848df5c2c5a5ef3`. Peer-review audit copy. This audit was written as an internal adversarial check before the work
+was submitted for review.
 
 ## Verdict
 

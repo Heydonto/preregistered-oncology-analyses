@@ -139,7 +139,7 @@ def main():
              "otherwise -> INTERMEDIATE",
              "secondary, independent of the above: n_meth > n_globalmean -> "
              "CARRIES_CPG_SPECIFIC_STRUCTURE_BEYOND_GLOBAL_AXIS, else GLOBAL_AXIS_ONLY"],
-         "status": "HELD FOR IP - not for publication pending patent"},
+         "status": "peer-review audit copy"},
         [ARM + "mil_meth_output.npz", ARM + "mil_output.npz", ARM + "mil_input.json",
          R08 + "beta_450k.npy", R08 + "samples.tsv", R15 + "per_cpg_rho_grouped.npy",
          R15 + "per_cpg_rho_subtype_only.npy", MANIFEST])
@@ -314,7 +314,7 @@ def main():
     run.log("VERDICT", primary=verdict, secondary=secondary)
 
     results = {
-        "status": "HELD FOR IP - not for publication pending patent",
+        "status": "peer-review audit copy",
         "question": "is R15's genome-wide null an artefact of subtype supervision?",
         "VERDICT": {"primary": verdict, "secondary": secondary,
                     "rules_were_pre_declared_in": "config.yaml, hash " + cfg_hash},

@@ -123,7 +123,7 @@ def main():
              f"all SET_HE >= {TOTAL_BAR} -> EXTERNAL_SIGNATURE_TOTAL_IN_ALL_ENCODERS",
              "all SET_HE clear their null p95 -> EXTERNAL_SIGNATURE_PRESENT_MAGNITUDE_VARIES",
              "any fails to clear its null -> EXTERNAL_SIGNATURE_NOT_UNIVERSAL"],
-         "status": "HELD FOR IP - not for publication pending patent"},
+         "status": "peer-review audit copy"},
         [p for _, p, _ in ENC] + [R19_SET])
 
     D = {}
@@ -190,7 +190,7 @@ def main():
     vals = sorted(v["balanced_accuracy"] for v in he.values())
     run.log("VERDICT", primary=verdict, he_range=[round(vals[0], 4), round(vals[-1], 4)])
 
-    out = {"status": "HELD FOR IP - not for publication pending patent",
+    out = {"status": "peer-review audit copy",
            "VERDICT": {"primary": verdict, "primary_arm": "SET_HE (76 H&E slides)",
                        "he_balanced_accuracy_range": [vals[0], vals[-1]],
                        "n_encoders": len(res),

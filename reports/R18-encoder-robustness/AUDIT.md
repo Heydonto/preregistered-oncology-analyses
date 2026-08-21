@@ -1,7 +1,7 @@
 # R18 audit — the answer strengthens one claim and narrows another
 
 Audited 17 August 2026. Run `20260817T060045Z-R18encodercmp-5002607`, config
-`143b3b9d0a92fabbef0a926121b7a75a1eeacc003bdbb8b0b690e884757b1944`. Held for IP.
+`143b3b9d0a92fabbef0a926121b7a75a1eeacc003bdbb8b0b690e884757b1944`. Peer-review audit copy.
 
 ## Verdict
 

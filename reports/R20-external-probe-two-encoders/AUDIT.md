@@ -1,7 +1,7 @@
 # R20 audit — a third defect in the same file, and a word Paper 1 has to give up
 
 Audited 17 August 2026. Run `20260817T061230Z-R20extprobe2enc-977a613`, config
-`ab01b9847dedcfcf3db9cffc98a66a29a04c2ece09f2cf27937b4a42aab0f0e2`. Held for IP.
+`ab01b9847dedcfcf3db9cffc98a66a29a04c2ece09f2cf27937b4a42aab0f0e2`. Peer-review audit copy.
 
 ## Verdict
 

@@ -36,7 +36,7 @@ def main():
     cfg = run.start({"executes": "PREREG_PLAN_R24.yaml", "declared_sha256": PLAN_SHA,
                      "observed_sha256": got, "seed": SEED, "n_perm": N_PERM, "fc_cut": FC,
                      "isolation": "hash-before-outcome only; author and executor are the same",
-                     "status": "HELD FOR IP - not for publication pending patent"}, [PLAN])
+                     "status": "peer-review audit copy"}, [PLAN])
     run.gate("G0_plan_unmodified", PLAN_SHA, got, got == PLAN_SHA)
 
     fh = gzip.open(TPM, "rt", errors="ignore")
@@ -152,7 +152,7 @@ def main():
         verdict = "NULL_no_reversal"
     run.log("VERDICT", primary=verdict)
 
-    out = {"status": "HELD FOR IP - not for publication pending patent",
+    out = {"status": "peer-review audit copy",
            "plan_sha256": got,
            "VERDICT": {"H2_primary": verdict,
                        "rules_pre_declared_in": "PREREG_PLAN_R24.yaml " + PLAN_SHA[:16]},

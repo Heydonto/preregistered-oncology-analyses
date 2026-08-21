@@ -105,7 +105,7 @@ histology.}}\\[6pt]
 
 \medskip
 \noindent 17 August 2026 \quad\textbullet\quad Quantara \quad\textbullet\quad
-{{\color{{qred}}HELD FOR IP --- not for publication pending patent}}
+{{\color{{qred}}Peer-review audit copy.}}
 
 \medskip
 \noindent{{\small\color{{qgrey}}\emph{{Every number in this report is substituted from

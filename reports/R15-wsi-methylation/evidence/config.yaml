@@ -1,6 +1,6 @@
 {
   "report": "R15",
-  "status": "HELD FOR IP - not for publication pending patent filing",
+  "status": "peer-review audit copy",
   "question": "can H&E morphology predict DNA-methylation state, and what does site leakage cost?",
   "cohort": "760 TCGA patients with BOTH Phikon-v2 WSI features and 450k methylation",
   "model": "gated attention-MIL, architecture copied verbatim from armC/fl_train.py (the one R12 validated), over tile-level features",

@@ -139,7 +139,7 @@ def main():
              f"ARM_HE >= {HE_CONFIRM} -> EXTERNAL_SITE_SIGNATURE_CONFIRMED_HE_ONLY",
              f"ARM_HE >= {HE_WEAK} -> PRESENT_BUT_WEAKER_THAN_PUBLISHED",
              f"ARM_HE < {HE_WEAK} -> PUBLISHED_NUMBER_WAS_STAIN_DRIVEN"],
-         "status": "HELD FOR IP - not for publication pending patent"},
+         "status": "peer-review audit copy"},
         [EXT, TCGA])
 
     d = np.load(EXT, allow_pickle=True)
@@ -215,7 +215,7 @@ def main():
             stain_contribution=round(delta, 4))
 
     out = {
-        "status": "HELD FOR IP - not for publication pending patent",
+        "status": "peer-review audit copy",
         "question": "does the external site signature survive H&E restriction, and does Paper 1's "
                     "unevidenced 1.0000 reproduce?",
         "VERDICT": {"primary": verdict,

@@ -1,7 +1,7 @@
 # R21 audit — the third time I generalised from too few arms
 
 Audited 18 August 2026. Run `20260818T124806Z-R21fiveenc-03974b7`, config
-`b23ba9307a6081c4f2d18460252862254084d899d9c344163dd4f0fc13ebcc54`. Held for IP.
+`b23ba9307a6081c4f2d18460252862254084d899d9c344163dd4f0fc13ebcc54`. Peer-review audit copy.
 
 ## Verdict
 

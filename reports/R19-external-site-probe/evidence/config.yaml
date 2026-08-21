@@ -30,5 +30,5 @@
     "ARM_HE >= 0.75 -> PRESENT_BUT_WEAKER_THAN_PUBLISHED",
     "ARM_HE < 0.75 -> PUBLISHED_NUMBER_WAS_STAIN_DRIVEN"
   ],
-  "status": "HELD FOR IP - not for publication pending patent"
+  "status": "peer-review audit copy"
 }

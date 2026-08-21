@@ -25,5 +25,5 @@
     "dinov2 SET_HE >= 0.75 -> EXTERNAL_SIGNATURE_WEAKER_UNDER_SECOND_ENCODER",
     "dinov2 SET_HE < 0.75 -> EXTERNAL_SIGNATURE_PHIKON_SPECIFIC"
   ],
-  "status": "HELD FOR IP - not for publication pending patent"
+  "status": "peer-review audit copy"
 }

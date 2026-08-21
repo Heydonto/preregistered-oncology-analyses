@@ -1,7 +1,7 @@
 # R23 audit — a pre-registered verdict killed by a control the plan forgot
 
 Audited 20 August 2026. Plan `PREREG_PLAN.yaml`, SHA-256 `7e0322ba804aef2f…`, hashed before any
-IC50 was joined to any methylation value. All eight gates passed. Held for IP.
+IC50 was joined to any methylation value. All eight gates passed. Peer-review audit copy.
 
 ## Verdict
 

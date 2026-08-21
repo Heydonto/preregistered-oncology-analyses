@@ -84,7 +84,7 @@ def main():
          "soc_agents": SOC, "thesis_thresholds": {"supported": THESIS_NEG,
                                                   "contradicted": THESIS_POS},
          "isolation": "hash-before-label only; plan author and executor are the same person",
-         "status": "HELD FOR IP - not for publication pending patent"},
+         "status": "peer-review audit copy"},
         [PLAN])
     run.gate("G0_plan_unmodified", PLAN_SHA, got, got == PLAN_SHA,
              "the plan executed must be the plan that was hashed before outcomes were joined")
@@ -275,7 +275,7 @@ def main():
     run.log("H3_PRIMARY", n_lines=len(common), rho=round(rho, 4), perm_p=round(p3, 5),
             null_mean=round(float(nullv.mean()), 4), verdict=verdict)
 
-    out = {"status": "HELD FOR IP - not for publication pending patent",
+    out = {"status": "peer-review audit copy",
            "plan_sha256": got,
            "VERDICT": {"H3_primary": verdict, "rho": rho, "perm_p": p3,
                        "n_lines": len(common),
