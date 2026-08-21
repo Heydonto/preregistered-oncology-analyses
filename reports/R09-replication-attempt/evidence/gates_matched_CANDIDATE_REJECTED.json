@@ -1,0 +1,42 @@
+[
+  {
+    "gate": "G0_overlap_removed",
+    "expected": 57,
+    "observed": 57,
+    "result": "PASS",
+    "note": "shared patients removed before outcomes were read",
+    "t": "2026-08-07T13:22:17Z"
+  },
+  {
+    "gate": "G1_disjoint_n",
+    "expected": 709,
+    "observed": 709,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:22:17Z"
+  },
+  {
+    "gate": "G2_mutation_records",
+    "expected": "> 400",
+    "observed": 2857,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:22:26Z"
+  },
+  {
+    "gate": "G3_events",
+    "expected": 209,
+    "observed": 209,
+    "result": "PASS",
+    "note": "R06's failed replication cohort had 45",
+    "t": "2026-08-07T13:22:26Z"
+  },
+  {
+    "gate": "G4_setting_matched",
+    "expected": "median OS closer to R06's 28.8 than TCGA's 50.3 months",
+    "observed": 93.8,
+    "result": "FAIL",
+    "note": "confirms this is the advanced-disease setting, not a resected one",
+    "t": "2026-08-07T13:22:26Z"
+  }
+]

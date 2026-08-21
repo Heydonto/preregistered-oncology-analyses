@@ -1,0 +1,123 @@
+{
+  "acquisition": {
+    "files": "919",
+    "probes": "486427",
+    "probe_vector_sha256": "fb330207245ef0f0d9357584d5a3084e8a8c3a13b06d0be9bde8b5f85276114a",
+    "matrix_shape": "(486427, 919)",
+    "fraction_nan": "0.147601",
+    "dtype": "float32",
+    "column_order": "see samples.tsv"
+  },
+  "cohort": {
+    "tumours": 841,
+    "normals": 74,
+    "probes_kept": 392489,
+    "survival_n": 811,
+    "events": 316
+  },
+  "PC1_tumour_vs_normal": {
+    "probes_tested": 20000,
+    "n_sig_q05": 16609,
+    "frac_sig": 0.83045
+  },
+  "PC2_sex": {
+    "auroc": 0.9994174034211032,
+    "probe": "cg12026625"
+  },
+  "PC3_AHRR_smoking": {
+    "probe_present": true,
+    "n_current": 220,
+    "n_never": 81,
+    "median_current": 0.6610228419303894,
+    "median_never": 0.716702401638031,
+    "lower_in_smokers": true,
+    "p": 0.005567476153373718,
+    "holds": true
+  },
+  "PC4_luad_vs_lusc": {
+    "best_probe_auroc": 0.9552298920016801
+  },
+  "Q1_differential_methylation": {
+    "KEAP1": {
+      "n_mutated": 117,
+      "n_wt": 724,
+      "probes_tested": 20000,
+      "n_sig_q05": 4832,
+      "frac_sig": 0.2416,
+      "min_q": 1.7278931194491952e-20
+    },
+    "SMARCA4": {
+      "n_mutated": 52,
+      "n_wt": 789,
+      "probes_tested": 20000,
+      "n_sig_q05": 1156,
+      "frac_sig": 0.0578,
+      "min_q": 1.2832188645006681e-05
+    },
+    "KMT2D": {
+      "n_mutated": 111,
+      "n_wt": 730,
+      "probes_tested": 20000,
+      "n_sig_q05": 4131,
+      "frac_sig": 0.20655,
+      "min_q": 8.367979920098634e-08
+    }
+  },
+  "Q2_methylation_signature": {
+    "cindex": 0.4858203720977317,
+    "ci95": [
+      0.44955343226240935,
+      0.5228706838194396
+    ]
+  },
+  "Q3_incremental": {
+    "covariates_base": [
+      "age",
+      "late_stage",
+      "lusc",
+      "KEAP1",
+      "SMARCA4"
+    ],
+    "lr_chi2": 0.034172649192441895,
+    "lr_p": 0.8533400556986495,
+    "cindex_base": 0.6059713667761804,
+    "cindex_with_methylation": 0.6020685371311396,
+    "cox_terms": {
+      "age": {
+        "HR": 1.1091403680543963,
+        "p": 0.08620509779966708
+      },
+      "late_stage": {
+        "HR": 1.8483386471864252,
+        "p": 1.4455753366902833e-07
+      },
+      "lusc": {
+        "HR": 1.0049369072166066,
+        "p": 0.9668461072387681
+      },
+      "KEAP1": {
+        "HR": 1.0846223171591336,
+        "p": 0.6132583509722169
+      },
+      "SMARCA4": {
+        "HR": 1.4497526105271297,
+        "p": 0.0790993472952965
+      },
+      "meth": {
+        "HR": 1.0106375227625268,
+        "p": 0.8532008404363127
+      }
+    }
+  },
+  "_decision": {
+    "rule": "methylation adds only if LR p<0.05 and the audit's seed check agrees",
+    "observed_lr_p": 0.8533400556986495,
+    "provisional": "methylation does NOT add beyond mutation+stage+age",
+    "note": "provisional pending the audit seed-stability check, per config",
+    "prespecified_in_config_sha256": "07be4547c08128d0b7d02a1e0208a55eec2f90f7972619df8fa26c4de448a240"
+  },
+  "_provenance": {
+    "config_sha256": "07be4547c08128d0b7d02a1e0208a55eec2f90f7972619df8fa26c4de448a240",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260807T130716Z-R08tcgameth-3f8bece"
+  }
+}

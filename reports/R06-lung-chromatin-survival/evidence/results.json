@@ -1,0 +1,245 @@
+{
+  "cohorts": {
+    "luad_mskcc_2020": {
+      "n": 604,
+      "events": 45,
+      "mutated": {
+        "KMT2D": 28,
+        "SMARCA4": 33,
+        "KEAP1": 68,
+        "STK11": 90,
+        "TP53": 219
+      },
+      "api_records": 477
+    },
+    "nsclc_ctdx_msk_2022": {
+      "n": 1127,
+      "events": 618,
+      "mutated": {
+        "KMT2D": 39,
+        "SMARCA4": 57,
+        "KEAP1": 113,
+        "STK11": 106,
+        "TP53": 580
+      },
+      "api_records": 1836
+    }
+  },
+  "per_cohort": {
+    "luad_mskcc_2020": {
+      "KMT2D": {
+        "n_mutated": 28,
+        "n_total": 604,
+        "hr": 1.1647196108676041e-07,
+        "ci95": [
+          0.0,
+          Infinity
+        ],
+        "p_cox": 0.9944531483143516,
+        "p_logrank": 0.20201073100691078,
+        "median_months_mut": Infinity,
+        "median_months_wt": Infinity,
+        "q_bh": 0.9944531483143516,
+        "significant_q05": false
+      },
+      "SMARCA4": {
+        "n_mutated": 33,
+        "n_total": 604,
+        "hr": 3.9682515569872123,
+        "ci95": [
+          1.899264788204392,
+          8.291113760087674
+        ],
+        "p_cox": 0.0002461852793723919,
+        "p_logrank": 7.42987317494793e-05,
+        "median_months_mut": 51.26666667,
+        "median_months_wt": Infinity,
+        "q_bh": 0.0012309263968619596,
+        "significant_q05": true
+      },
+      "KEAP1": {
+        "n_mutated": 68,
+        "n_total": 604,
+        "hr": 0.871638169738937,
+        "ci95": [
+          0.3437082917295026,
+          2.210459035255883
+        ],
+        "p_cox": 0.7723152408495763,
+        "p_logrank": 0.7721411365384367,
+        "median_months_mut": Infinity,
+        "median_months_wt": Infinity,
+        "q_bh": 0.9944531483143516,
+        "significant_q05": false
+      },
+      "TP53": {
+        "n_mutated": 219,
+        "n_total": 604,
+        "hr": 1.1838971663769289,
+        "ci95": [
+          0.6492714777550552,
+          2.158746454413165
+        ],
+        "p_cox": 0.5817817123922167,
+        "p_logrank": 0.5813458950039665,
+        "median_months_mut": Infinity,
+        "median_months_wt": Infinity,
+        "q_bh": 0.9944531483143516,
+        "significant_q05": false
+      },
+      "STK11": {
+        "n_mutated": 90,
+        "n_total": 604,
+        "hr": 1.0441064714637438,
+        "ci95": [
+          0.48569179122392375,
+          2.244547557629736
+        ],
+        "p_cox": 0.911987383369861,
+        "p_logrank": 0.9118194757510635,
+        "median_months_mut": 58.26666667,
+        "median_months_wt": Infinity,
+        "q_bh": 0.9944531483143516,
+        "significant_q05": false
+      }
+    },
+    "nsclc_ctdx_msk_2022": {
+      "KMT2D": {
+        "n_mutated": 39,
+        "n_total": 1127,
+        "hr": 0.9832772687040343,
+        "ci95": [
+          0.6479474572824753,
+          1.4921490566611955
+        ],
+        "p_cox": 0.9368349478358093,
+        "p_logrank": 0.9372715022334802,
+        "median_months_mut": 27.79237845,
+        "median_months_wt": 27.3653088,
+        "q_bh": 0.9368349478358093,
+        "significant_q05": false
+      },
+      "SMARCA4": {
+        "n_mutated": 57,
+        "n_total": 1127,
+        "hr": 1.726044189881984,
+        "ci95": [
+          1.2684646491378602,
+          2.348688666609868
+        ],
+        "p_cox": 0.0005144217466986008,
+        "p_logrank": 0.00043712307259408556,
+        "median_months_mut": 18.2325887,
+        "median_months_wt": 28.38370565,
+        "q_bh": 0.0008573695778310012,
+        "significant_q05": true
+      },
+      "KEAP1": {
+        "n_mutated": 113,
+        "n_total": 1127,
+        "hr": 2.0708048822000307,
+        "ci95": [
+          1.6343635869678546,
+          2.623793686017692
+        ],
+        "p_cox": 1.6599846548886194e-09,
+        "p_logrank": 7.290941794829051e-10,
+        "median_months_mut": 11.30091984,
+        "median_months_wt": 28.77792378,
+        "q_bh": 8.299923274443097e-09,
+        "significant_q05": true
+      },
+      "TP53": {
+        "n_mutated": 580,
+        "n_total": 1127,
+        "hr": 1.249806356939984,
+        "ci95": [
+          1.0663346097804356,
+          1.4648459456541723
+        ],
+        "p_cox": 0.005907532021278889,
+        "p_logrank": 0.005833000029777565,
+        "median_months_mut": 23.78449409,
+        "median_months_wt": 32.26018397,
+        "q_bh": 0.007384415026598611,
+        "significant_q05": true
+      },
+      "STK11": {
+        "n_mutated": 106,
+        "n_total": 1127,
+        "hr": 1.6318357659367007,
+        "ci95": [
+          1.2652566500111324,
+          2.1046227790755254
+        ],
+        "p_cox": 0.00016170703840477163,
+        "p_logrank": 0.00013934750998446515,
+        "median_months_mut": 14.02759527,
+        "median_months_wt": 27.95663601,
+        "q_bh": 0.0004042675960119291,
+        "significant_q05": true
+      }
+    }
+  },
+  "replication": {
+    "KMT2D": {
+      "luad_mskcc_2020": {
+        "hr": 1.1647196108676041e-07,
+        "p_cox": 0.9944531483143516,
+        "q_bh": 0.9944531483143516,
+        "n_mutated": 28
+      },
+      "nsclc_ctdx_msk_2022": {
+        "hr": 0.9832772687040343,
+        "p_cox": 0.9368349478358093,
+        "q_bh": 0.9368349478358093,
+        "n_mutated": 39
+      },
+      "significant_in_both": false,
+      "same_direction": true
+    },
+    "SMARCA4": {
+      "luad_mskcc_2020": {
+        "hr": 3.9682515569872123,
+        "p_cox": 0.0002461852793723919,
+        "q_bh": 0.0012309263968619596,
+        "n_mutated": 33
+      },
+      "nsclc_ctdx_msk_2022": {
+        "hr": 1.726044189881984,
+        "p_cox": 0.0005144217466986008,
+        "q_bh": 0.0008573695778310012,
+        "n_mutated": 57
+      },
+      "significant_in_both": true,
+      "same_direction": true
+    },
+    "KEAP1": {
+      "luad_mskcc_2020": {
+        "hr": 0.871638169738937,
+        "p_cox": 0.7723152408495763,
+        "q_bh": 0.9944531483143516,
+        "n_mutated": 68
+      },
+      "nsclc_ctdx_msk_2022": {
+        "hr": 2.0708048822000307,
+        "p_cox": 1.6599846548886194e-09,
+        "q_bh": 8.299923274443097e-09,
+        "n_mutated": 113
+      },
+      "significant_in_both": false,
+      "same_direction": false
+    }
+  },
+  "_decision": {
+    "chromatin_genes_replicating": [
+      "SMARCA4"
+    ],
+    "interpretation": "chromatin-regulator mutation(s) replicate as prognostic",
+    "prespecified_in_config_sha256": "d3919b8554ae5d89f34c003163b2875c5a7aecdd4c42a2c32a98539177daecb3"
+  },
+  "_provenance": {
+    "config_sha256": "d3919b8554ae5d89f34c003163b2875c5a7aecdd4c42a2c32a98539177daecb3",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260807T081212Z-R06lungchrom-3f8bece"
+  }
+}

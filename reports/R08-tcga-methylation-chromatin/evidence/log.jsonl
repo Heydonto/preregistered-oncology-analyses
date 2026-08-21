@@ -1,0 +1,33 @@
+{"t": "2026-08-07T13:07:16Z", "event": "config_written", "sha256": "07be4547c08128d0b7d02a1e0208a55eec2f90f7972619df8fa26c4de448a240"}
+{"t": "2026-08-07T13:07:16Z", "event": "gate", "gate": "G0_files", "expected": 919, "observed": 919, "result": "PASS"}
+{"t": "2026-08-07T13:07:16Z", "event": "gate", "gate": "G1_shape", "expected": [486427, 919], "observed": [486427, 919], "result": "PASS"}
+{"t": "2026-08-07T13:07:16Z", "event": "acquisition", "files": "919", "probes": "486427", "probe_vector_sha256": "fb330207245ef0f0d9357584d5a3084e8a8c3a13b06d0be9bde8b5f85276114a", "matrix_shape": "(486427, 919)", "fraction_nan": "0.147601", "dtype": "float32", "column_order": "see samples.tsv"}
+{"t": "2026-08-07T13:07:16Z", "event": "gate", "gate": "G2_replicates", "expected": 4, "observed": 4, "result": "PASS"}
+{"t": "2026-08-07T13:07:16Z", "event": "gate", "gate": "G3_tissue_split", "expected": {"tumour": 843, "normal": 74}, "observed": {"tumour": 841, "normal": 74}, "result": "PASS"}
+{"t": "2026-08-07T13:07:18Z", "event": "probe_filter", "kept": 392489, "dropped": 93938, "frac_kept": 0.8069}
+{"t": "2026-08-07T13:07:18Z", "event": "gate", "gate": "G4_probes_kept", "expected": "> 300,000 probes survive the NA filter", "observed": 392489, "result": "PASS"}
+{"t": "2026-08-07T13:07:22Z", "event": "gate", "gate": "PC1_tumour_vs_normal", "expected": "> 2,000 of 20,000 probes differential at q<0.05", "observed": 16609, "result": "PASS"}
+{"t": "2026-08-07T13:07:22Z", "event": "gate", "gate": "G5_clinical_join", "expected": "> 95% of samples match a clinical record", "observed": "900/915", "result": "PASS"}
+{"t": "2026-08-07T13:07:30Z", "event": "gate", "gate": "PC2_sex", "expected": "a probe separates sexes at AUROC>0.95", "observed": {"auroc": 0.9994, "probe": "cg12026625", "n": 829}, "result": "PASS"}
+{"t": "2026-08-07T13:07:30Z", "event": "PC3_AHRR_smoking", "probe_present": true, "n_current": 220, "n_never": 81, "median_current": 0.6610228419303894, "median_never": 0.716702401638031, "lower_in_smokers": true, "p": 0.005567476153373718, "holds": true}
+{"t": "2026-08-07T13:07:31Z", "event": "PC4_luad_vs_lusc", "best_probe_auroc": 0.9552, "n_luad": 471, "n_lusc": 370, "holds": true}
+{"t": "2026-08-07T13:07:34Z", "event": "gate", "gate": "G6_mutation_api", "expected": "> 500 records", "observed": 1228, "result": "PASS"}
+{"t": "2026-08-07T13:07:34Z", "event": "mutation_counts", "KEAP1": 117, "SMARCA4": 52, "KMT2D": 111, "STK11": 69, "TP53": 552}
+{"t": "2026-08-07T13:07:37Z", "event": "Q1", "gene": "KEAP1", "n_mutated": 117, "n_wt": 724, "n_sig_q05": 4832, "frac_sig": 0.2416, "min_q": 1.7278931194491952e-20}
+{"t": "2026-08-07T13:07:41Z", "event": "Q1", "gene": "SMARCA4", "n_mutated": 52, "n_wt": 789, "n_sig_q05": 1156, "frac_sig": 0.0578, "min_q": 1.2832188645006681e-05}
+{"t": "2026-08-07T13:07:44Z", "event": "Q1", "gene": "KMT2D", "n_mutated": 111, "n_wt": 730, "n_sig_q05": 4131, "frac_sig": 0.20655, "min_q": 8.367979920098634e-08}
+{"t": "2026-08-07T13:07:44Z", "event": "gate", "gate": "G7_survival_n", "expected": "> 700 tumours with usable survival", "observed": 811, "result": "PASS"}
+{"t": "2026-08-07T13:07:44Z", "event": "survival_cohort", "n": 811, "events": 316}
+{"t": "2026-08-07T13:07:44Z", "event": "gate", "gate": "G8_stage_parsed", "expected": "late-stage fraction in 0.20-0.60", "observed": 0.4797, "result": "PASS"}
+{"t": "2026-08-07T13:07:44Z", "event": "gate", "gate": "G9_variance_KEAP1", "expected": "covariate is not constant", "observed": 2, "result": "PASS"}
+{"t": "2026-08-07T13:07:44Z", "event": "gate", "gate": "G9_variance_SMARCA4", "expected": "covariate is not constant", "observed": 2, "result": "PASS"}
+{"t": "2026-08-07T13:07:44Z", "event": "gate", "gate": "G9_variance_late_stage", "expected": "covariate is not constant", "observed": 2, "result": "PASS"}
+{"t": "2026-08-07T13:07:44Z", "event": "gate", "gate": "G9_variance_lusc", "expected": "covariate is not constant", "observed": 2, "result": "PASS"}
+{"t": "2026-08-07T13:07:54Z", "event": "cv_fold_done", "n_test": 163}
+{"t": "2026-08-07T13:08:00Z", "event": "cv_fold_done", "n_test": 162}
+{"t": "2026-08-07T13:08:06Z", "event": "cv_fold_done", "n_test": 162}
+{"t": "2026-08-07T13:08:11Z", "event": "cv_fold_done", "n_test": 162}
+{"t": "2026-08-07T13:08:16Z", "event": "cv_fold_done", "n_test": 162}
+{"t": "2026-08-07T13:08:18Z", "event": "Q2", "cindex": 0.4858, "ci95": [0.4496, 0.5229]}
+{"t": "2026-08-07T13:08:18Z", "event": "Q3", "lr_chi2": 0.034, "lr_p": 0.8533400556986495, "c_base": 0.606, "c_full": 0.6021}
+{"t": "2026-08-07T13:08:18Z", "event": "decision", "rule": "methylation adds only if LR p<0.05 and the audit's seed check agrees", "observed_lr_p": 0.8533400556986495, "provisional": "methylation does NOT add beyond mutation+stage+age", "note": "provisional pending the audit seed-stability check, per config", "prespecified_in_config_sha256": "07be4547c08128d0b7d02a1e0208a55eec2f90f7972619df8fa26c4de448a240"}

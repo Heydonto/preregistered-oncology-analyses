@@ -1,0 +1,68 @@
+[
+ {
+  "gate": "g1_no_silent_exclusions",
+  "expected": "every dropped slide/patient in exclusions.json with reason",
+  "observed": {
+   "qc_status": 1,
+   "qc_lt100": 1,
+   "non_tumor_by_design": 741,
+   "ambiguous_slides": 132,
+   "patients_ambiguous_tissue_only": 24,
+   "egfr_lscc_no_mutation_file": 203,
+   "egfr_unlabeled_luad": 124,
+   "os_missing": 432
+  },
+  "pass": true
+ },
+ {
+  "gate": "g2_zeroshot_subtype",
+  "expected": ">= 0.85 seed-mean zero-shot AUROC",
+  "observed": 0.981447933440687,
+  "pass": true
+ },
+ {
+  "gate": "g3_egfr_permutation_null",
+  "expected": "null mean in [0.45, 0.55]",
+  "observed": 0.5041603018978252,
+  "pass": true
+ },
+ {
+  "gate": "g4_nan_degeneracy",
+  "expected": "no NaN loss; prediction std > 1e-6 per run",
+  "observed": {
+   "nan_runs": [],
+   "degenerate_runs": [],
+   "perm_nan": []
+  },
+  "pass": true
+ },
+ {
+  "gate": "g5_grid_completes",
+  "expected": "166 jobs (8 seeds x 4 k x 2 methods x 2 endpoints + per-seed & full zero-shot + 20 perm)",
+  "observed": {
+   "missing_runs": []
+  },
+  "pass": true
+ },
+ {
+  "gate": "g6_egfr_power_honesty",
+  "expected": "label shift + MDE statement in results.json",
+  "observed": "EGFR eval sets carry 11-17 mutants (13.1 mean of ~40 labeled eval patients/seed; only 105/229 post-QC CPTAC-LUAD patients are sequenced). At alpha=0.05 the pipeline can only detect AUROC >= 0.645 (95th pct of the 20-shuffle permutation null on the seed-0 eval set); weaker effects are invisible by construction and are not claimed.",
+  "pass": true
+ },
+ {
+  "gate": "g7_os_maturity_honesty",
+  "expected": "OS decision per maturity_rule recorded before CPTAC training",
+  "observed": "OS endpoint DROPPED for Arm B (columns empty -> '<10 events or columns empty' branch). No OS pretraining run; absence reported honestly.",
+  "pass": true
+ },
+ {
+  "gate": "g8_subtype_monotone_trend",
+  "expected": "REPORTED, not gated: Spearman rho of seed-mean subtype AUROC vs k",
+  "observed": {
+   "finetune": 1.0,
+   "linear_probe": 1.0
+  },
+  "pass": null
+ }
+]

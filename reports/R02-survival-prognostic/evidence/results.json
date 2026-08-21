@@ -1,0 +1,46 @@
+{
+  "primary_radiomics": {
+    "cindex": 0.6024019381071802,
+    "ci95": [
+      0.5763946279889873,
+      0.6291337624029092
+    ],
+    "spearman_rho_pred_vs_obs": 0.3023416518328061,
+    "spearman_p": 1.344321174341242e-13,
+    "prognostic_by_prespecified_rule": true
+  },
+  "positive_controls": {
+    "age": {
+      "cindex": 0.6217373572593801,
+      "ci95": [
+        0.5938555168301625,
+        0.6474295269319909
+      ],
+      "spearman_rho": -0.3538860286023832,
+      "spearman_p": 2.2384609290951117e-18,
+      "direction": "older = shorter survival",
+      "recovered": true
+    },
+    "mgmt": {
+      "n": 247,
+      "median_days_methylated": 595.0,
+      "median_days_unmethylated": 371.0,
+      "logrank_p": 5.831120711860514e-08,
+      "direction_expected": "methylated = longer survival",
+      "direction_observed": "methylated longer",
+      "recovered": true
+    }
+  },
+  "_decision": {
+    "rule": "C-index CI lower > 0.55",
+    "observed_ci_low": 0.5763946279889873,
+    "decision": "radiomics prognostic",
+    "prespecified_in_config_sha256": "f683cfed7f48b11af61d315d4b6e8e1ad0ea8bba47ed1e9bbf7ce24858c444ae"
+  },
+  "_provenance": {
+    "config_sha256": "f683cfed7f48b11af61d315d4b6e8e1ad0ea8bba47ed1e9bbf7ce24858c444ae",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260806T225005Z-R02surv-3f8bece",
+    "n": 574,
+    "n_features": 1728
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "gate": "G0_integrity",
+    "expected": 16121402,
+    "observed": 16121402,
+    "result": "PASS",
+    "note": "CaPTk feature archive byte size",
+    "t": "2026-08-06T22:38:56Z"
+  },
+  {
+    "gate": "G_featcount",
+    "expected": 1728,
+    "observed": 1728,
+    "result": "PASS",
+    "note": "12 files x 144 features",
+    "t": "2026-08-06T22:38:56Z"
+  },
+  {
+    "gate": "G1_join_n",
+    "expected": 256,
+    "observed": 256,
+    "result": "PASS",
+    "note": "features \u2229 definite MGMT; ID suffix _11 present in both sources",
+    "t": "2026-08-06T22:38:56Z"
+  },
+  {
+    "gate": "G1_join_balance",
+    "expected": [
+      108,
+      148
+    ],
+    "observed": [
+      108,
+      148
+    ],
+    "result": "PASS",
+    "note": "class counts",
+    "t": "2026-08-06T22:38:56Z"
+  },
+  {
+    "gate": "G6_missingness",
+    "expected": "<=10% per feature",
+    "observed": "0 dropped, 1728 kept",
+    "result": "PASS",
+    "note": "median-imputed within-cohort after dropping",
+    "t": "2026-08-06T22:38:56Z"
+  },
+  {
+    "gate": "G2_leakage_external",
+    "expected": "external labels not loaded",
+    "observed": "no external file opened",
+    "result": "PASS",
+    "note": "M1 opens only the CaPTk archive and the UPENN clinical csv",
+    "t": "2026-08-06T22:38:56Z"
+  },
+  {
+    "gate": "G3_negative_control",
+    "expected": "null 95% interval contains 0.50",
+    "observed": "[0.490, 0.510] mean=0.498",
+    "result": "PASS",
+    "note": "200 permutations; p=1.0000",
+    "t": "2026-08-06T22:40:53Z"
+  },
+  {
+    "gate": "G5_determinism",
+    "expected": "0c22666adc31c3f290c790f9016fa8186b07f90d3a68a65c4077c6d5e6635809",
+    "observed": "0c22666adc31c3f290c790f9016fa8186b07f90d3a68a65c4077c6d5e6635809",
+    "result": "PASS",
+    "note": "same seed reproduces identical predictions",
+    "t": "2026-08-06T22:42:10Z"
+  }
+]

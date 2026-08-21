@@ -1,0 +1,67 @@
+[
+  {
+    "gate": "G0_luad_mskcc_2020_patients",
+    "expected": 604,
+    "observed": 604,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T08:12:12Z"
+  },
+  {
+    "gate": "G1_luad_mskcc_2020_api_mutations",
+    "expected": "> 100 records from REST API",
+    "observed": 477,
+    "result": "PASS",
+    "note": "repository files are LFS stubs; API is the working route",
+    "t": "2026-08-07T08:12:13Z"
+  },
+  {
+    "gate": "G2_luad_mskcc_2020_survival",
+    "expected": "> 400 usable",
+    "observed": 604,
+    "result": "PASS",
+    "note": "OS time > 0 and status present",
+    "t": "2026-08-07T08:12:13Z"
+  },
+  {
+    "gate": "G0_nsclc_ctdx_msk_2022_patients",
+    "expected": 1127,
+    "observed": 1127,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T08:12:13Z"
+  },
+  {
+    "gate": "G1_nsclc_ctdx_msk_2022_api_mutations",
+    "expected": "> 100 records from REST API",
+    "observed": 1836,
+    "result": "PASS",
+    "note": "repository files are LFS stubs; API is the working route",
+    "t": "2026-08-07T08:12:15Z"
+  },
+  {
+    "gate": "G2_nsclc_ctdx_msk_2022_survival",
+    "expected": "> 400 usable",
+    "observed": 1127,
+    "result": "PASS",
+    "note": "OS time > 0 and status present",
+    "t": "2026-08-07T08:12:15Z"
+  },
+  {
+    "gate": "G3_positive_controls",
+    "expected": "TP53 or STK11 significant in the larger cohort",
+    "observed": {
+      "TP53": {
+        "q": 0.0074,
+        "hr": 1.25
+      },
+      "STK11": {
+        "q": 0.0004,
+        "hr": 1.632
+      }
+    },
+    "result": "PASS",
+    "note": "established NSCLC biology",
+    "t": "2026-08-07T08:12:15Z"
+  }
+]

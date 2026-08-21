@@ -1,0 +1,121 @@
+{
+  "status": "peer-review audit copy",
+  "VERDICT": {
+    "primary": "EXTERNAL_SIGNATURE_WEAKER_UNDER_SECOND_ENCODER",
+    "primary_arm": "dinov2-large / SET_HE",
+    "value": 0.8767951625094482,
+    "rules_pre_declared_in": "config.yaml, hash ab01b9847dedcfcf3db9cffc98a66a29a04c2ece09f2cf27937b4a42aab0f0e2"
+  },
+  "arms": {
+    "phikon-v2": {
+      "SET_R19": {
+        "balanced_accuracy": 1.0,
+        "n": 78,
+        "classes": {
+          "eagle": 49,
+          "htmcp": 29
+        },
+        "null_mean": 0.5071604503870514,
+        "null_sd": 0.07079735424338009,
+        "null_p95": 0.6221323011963406,
+        "permutation_p": 0.004975124378109453
+      },
+      "SET_HE": {
+        "balanced_accuracy": 1.0,
+        "n": 76,
+        "classes": {
+          "eagle": 49,
+          "htmcp": 27
+        },
+        "null_mean": 0.5022883597883597,
+        "null_sd": 0.06658615950144303,
+        "null_p95": 0.6016628873771731,
+        "permutation_p": 0.004975124378109453
+      },
+      "SET_ALL": {
+        "balanced_accuracy": 1.0,
+        "n": 129,
+        "classes": {
+          "eagle": 49,
+          "htmcp": 80
+        },
+        "null_mean": 0.5010644132653062,
+        "null_sd": 0.05285070236060507,
+        "null_p95": 0.5775765306122446,
+        "permutation_p": 0.004975124378109453
+      }
+    },
+    "dinov2-large": {
+      "SET_R19": {
+        "balanced_accuracy": 0.8933849401829697,
+        "n": 78,
+        "classes": {
+          "eagle": 49,
+          "htmcp": 29
+        },
+        "null_mean": 0.5069809992962702,
+        "null_sd": 0.06911548080707139,
+        "null_p95": 0.6293279380717804,
+        "permutation_p": 0.004975124378109453
+      },
+      "SET_HE": {
+        "balanced_accuracy": 0.8767951625094482,
+        "n": 76,
+        "classes": {
+          "eagle": 49,
+          "htmcp": 27
+        },
+        "null_mean": 0.4990230536659108,
+        "null_sd": 0.07061295956536975,
+        "null_p95": 0.6169123204837489,
+        "permutation_p": 0.004975124378109453
+      },
+      "SET_ALL": {
+        "balanced_accuracy": 0.9443877551020408,
+        "n": 129,
+        "classes": {
+          "eagle": 49,
+          "htmcp": 80
+        },
+        "null_mean": 0.5019623724489796,
+        "null_sd": 0.05145873125378518,
+        "null_p95": 0.5857780612244897,
+        "permutation_p": 0.004975124378109453
+      }
+    }
+  },
+  "sets": {
+    "SET_R19": {
+      "n": 78,
+      "cohorts": {
+        "eagle": 49,
+        "htmcp": 29
+      }
+    },
+    "SET_HE": {
+      "n": 76,
+      "cohorts": {
+        "eagle": 49,
+        "htmcp": 27
+      }
+    },
+    "SET_ALL": {
+      "n": 129,
+      "cohorts": {
+        "eagle": 49,
+        "htmcp": 80
+      }
+    }
+  },
+  "r19_subset_defect": {
+    "r19_n": 78,
+    "archive_htmcp": 80,
+    "htmcp_omitted_by_r19": 51,
+    "note": "R19's input was built from a partial local staging; neither R19 nor Paper 1 records that 51 of 80 HTMCP slides were absent"
+  },
+  "set_all_caveat": "SET_ALL mixes IHC and H&E; a probe can separate on stain alone, so it is an upper bound and not a measurement of site signal",
+  "_provenance": {
+    "config_sha256": "ab01b9847dedcfcf3db9cffc98a66a29a04c2ece09f2cf27937b4a42aab0f0e2",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260817T061230Z-R20extprobe2enc-977a613"
+  }
+}

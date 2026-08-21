@@ -1,0 +1,67 @@
+{
+  "report": "R10",
+  "question": "does R06's KEAP1/SMARCA4 association replicate in a setting-matched, patient-disjoint advanced-disease cohort?",
+  "history": {
+    "R09": "TCGA cannot adjudicate - 385 events, both controls failed in the full cohort and the late-stage subgroup; median OS 50.3mo (resected disease)",
+    "R10_first_attempt": "luad_mskcc_2023_met_organotropism rejected by a pre-registered setting gate (median OS 93.8mo); that run is retained",
+    "screen": "all 41 cBioPortal lung studies screened on 5 requirements fixed before any hazard ratio was computed; 2 qualified"
+  },
+  "cohorts": [
+    "bm_nsclc_mskcc_2023",
+    "lung_msk_pdx"
+  ],
+  "model": "R06's exactly - per-gene UNADJUSTED Cox on OS, BH across the same 5 genes",
+  "pooled_model": "Cox stratified by cohort, so all comparisons stay within-cohort while recovering power; the two selections are never contrasted",
+  "positive_controls": [
+    "TP53",
+    "STK11"
+  ],
+  "prerun_power_note": "computed BEFORE running: at 231 pooled events STK11 (HR 1.63) gives z~2.6 and should fire; TP53 (HR 1.25) gives z~1.7 and may not. STK11 is the load-bearing control",
+  "control_rule": "TP53 or STK11 at q<0.05 in the POOLED analysis (where power is greatest). If neither fires this is a power failure of public data, not evidence against R06",
+  "replication_rule": "a gene replicates only if q<0.05 AND same direction as R06",
+  "overlap_rule": "patients present in nsclc_ctdx_msk_2022 removed before any outcome is read",
+  "institutional_caveat": "both cohorts are MSK, as R06's was. Patients are disjoint; this is NOT institutional independence",
+  "r06_reference_values": {
+    "KEAP1": {
+      "hr": 2.07,
+      "ci": [
+        1.63,
+        2.62
+      ],
+      "q": 0.0001
+    },
+    "SMARCA4": {
+      "hr": 1.73,
+      "ci": [
+        1.27,
+        2.35
+      ],
+      "q": 0.0009
+    },
+    "KMT2D": {
+      "hr": null,
+      "ci": null,
+      "q": null
+    },
+    "STK11": {
+      "hr": 1.63,
+      "ci": null,
+      "q": 0.0004
+    },
+    "TP53": {
+      "hr": 1.25,
+      "ci": null,
+      "q": 0.0074
+    }
+  },
+  "seed": 20260807,
+  "expectations": {
+    "pooled_events": 231,
+    "cohorts": 2,
+    "prerun_power": {
+      "STK11_z": 2.6,
+      "TP53_z": 1.7,
+      "KEAP1_z": 3.8
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260807T135447Z-R10keap1pheno-3f8bece",
+  "A_nrf2": {
+    "observed": 0.35700123657650107,
+    "matched_null_mean": 0.23928236361096994,
+    "matched_p": 0.002997002997002997,
+    "survives": true,
+    "spearman_probes_vs_frac": [
+      0.08936962136912102,
+      1.334881773952526e-32
+    ],
+    "n_nrf2_genes": 33
+  },
+  "B_overlap": {
+    "keap1_size": 115557,
+    "smoking_size": 37008,
+    "observed": 14306,
+    "expected_if_independent": 10895.932003189899,
+    "max_possible": 37008,
+    "obs_over_exp": 1.3129670776039872,
+    "frac_of_keap1": 0.12380037557222842,
+    "n_never_smokers_wt": 65,
+    "n_keap1_mutant": 84
+  },
+  "C_no_smoking_probes": {
+    "auroc_all": 0.9098375784422296,
+    "auroc_smoking_removed": 0.903900578319183,
+    "probes_retained": 355481,
+    "holds": true
+  },
+  "D_seed_stability": {
+    "aucs": [
+      0.9098375784422296,
+      0.8683401008982404,
+      0.9098991017595668,
+      0.8921496247077642,
+      0.8983942414174972
+    ],
+    "median": 0.8983942414174972,
+    "range": [
+      0.8683401008982404,
+      0.9098991017595668
+    ]
+  }
+}

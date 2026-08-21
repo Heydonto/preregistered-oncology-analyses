@@ -1,0 +1,124 @@
+[
+  {
+    "gate": "G0_cohort",
+    "expected": 760,
+    "observed": 760,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T00:20:58Z"
+  },
+  {
+    "gate": "G0b_same_order",
+    "expected": "both arms cover the same patients in the same order",
+    "observed": true,
+    "result": "PASS",
+    "note": "the two embeddings are compared elementwise, so order equality is load-bearing",
+    "t": "2026-08-17T00:20:58Z"
+  },
+  {
+    "gate": "G1_folds_nest",
+    "expected": "MIL fold_of == GroupKFold(5) by site, and identical across both arms",
+    "observed": {
+      "meth_matches_groupkfold": true,
+      "arms_identical": true
+    },
+    "result": "PASS",
+    "note": "using the MIL's own folds makes the ridge folds nest inside the representation's folds; re-deriving them would only be safe if they agree",
+    "t": "2026-08-17T00:20:58Z"
+  },
+  {
+    "gate": "G2_sites_disjoint",
+    "expected": "train/test sites disjoint in every fold",
+    "observed": "verified",
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T00:20:58Z"
+  },
+  {
+    "gate": "G3_probes",
+    "expected": 399579,
+    "observed": 399579,
+    "result": "PASS",
+    "note": "same probe filter as m13; a different count would break comparability",
+    "t": "2026-08-17T00:21:05Z"
+  },
+  {
+    "gate": "G4_reproduces_m13",
+    "expected": "vectorised Spearman reproduces m13's per-CpG vectors, r > 0.999",
+    "observed": {
+      "subtype_embedding_r": 1.0,
+      "subtype_label_r": 1.0
+    },
+    "result": "PASS",
+    "note": "validates the rank-transform shortcut and the fold_of substitution against the loop-over-spearmanr implementation that produced the published numbers",
+    "t": "2026-08-17T00:22:03Z"
+  },
+  {
+    "gate": "G5_spearman_exact",
+    "expected": "max abs deviation from scipy spearmanr < 1e-5",
+    "observed": 2.1e-08,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T00:22:03Z"
+  },
+  {
+    "gate": "G6_finite_meth",
+    "expected": "no NaN/inf in the rho vector",
+    "observed": 0,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T00:24:31Z"
+  },
+  {
+    "gate": "G6_finite_sub",
+    "expected": "no NaN/inf in the rho vector",
+    "observed": 0,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T00:24:31Z"
+  },
+  {
+    "gate": "G6_finite_sublabel",
+    "expected": "no NaN/inf in the rho vector",
+    "observed": 0,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T00:24:31Z"
+  },
+  {
+    "gate": "G6_finite_globalmean",
+    "expected": "no NaN/inf in the rho vector",
+    "observed": 0,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T00:24:31Z"
+  },
+  {
+    "gate": "G6_finite_null",
+    "expected": "no NaN/inf in the rho vector",
+    "observed": 0,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T00:24:31Z"
+  },
+  {
+    "gate": "G7_null_centred",
+    "expected": "single-permutation null median near zero",
+    "observed": -0.0071,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T00:24:31Z"
+  },
+  {
+    "gate": "G8_reproduces_m13_counts",
+    "expected": "m13's published counts recovered on m13's own null threshold (110212, 220925), within 1%",
+    "observed": {
+      "subtype_emb": 110212,
+      "subtype_label": 220925,
+      "thr": 0.04605
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T00:24:31Z"
+  }
+]

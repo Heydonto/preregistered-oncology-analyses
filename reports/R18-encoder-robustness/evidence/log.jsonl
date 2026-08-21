@@ -1,0 +1,12 @@
+{"t": "2026-08-17T06:00:45Z", "event": "config_written", "sha256": "143b3b9d0a92fabbef0a926121b7a75a1eeacc003bdbb8b0b690e884757b1944"}
+{"t": "2026-08-17T06:01:13Z", "event": "gate", "gate": "G0_encoder_identity", "expected": "each feature dir carries exactly one encoder, and it is the intended one", "observed": {"tcga": ["owkin/phikon-v2"], "dinov2-tcga": ["facebook/dinov2-large"]}, "result": "PASS"}
+{"t": "2026-08-17T06:01:13Z", "event": "gate", "gate": "G1_same_cohort", "expected": "all eight arms cover 760 patients", "observed": [760], "result": "PASS"}
+{"t": "2026-08-17T06:01:13Z", "event": "gate", "gate": "G2_repro_subtype_grouped", "expected": "0.799 +- 0.01", "observed": 0.7992, "result": "PASS"}
+{"t": "2026-08-17T06:01:13Z", "event": "gate", "gate": "G3_repro_subtype_random", "expected": "0.9703 +- 0.01", "observed": 0.9703, "result": "PASS"}
+{"t": "2026-08-17T06:01:13Z", "event": "gate", "gate": "G4_repro_keap1_grouped", "expected": "0.664 +- 0.01", "observed": 0.6642, "result": "PASS"}
+{"t": "2026-08-17T06:01:13Z", "event": "subtype_arm", "encoder": "owkin/phikon-v2", "grouped": 0.7992, "random": 0.9703, "inflation": 0.171, "relative_inflation": 0.8518}
+{"t": "2026-08-17T06:01:13Z", "event": "subtype_arm", "encoder": "facebook/dinov2-large", "grouped": 0.7356, "random": 0.939, "inflation": 0.2034, "relative_inflation": 0.7694}
+{"t": "2026-08-17T06:01:13Z", "event": "meth_arm", "encoder": "owkin/phikon-v2", "mean_grouped": 0.2856, "mean_random": 0.3705, "mean_inflation": 0.0849, "n_inflated": 6}
+{"t": "2026-08-17T06:01:13Z", "event": "meth_arm", "encoder": "facebook/dinov2-large", "mean_grouped": 0.1658, "mean_random": 0.1662, "mean_inflation": 0.0004, "n_inflated": 3}
+{"t": "2026-08-17T06:01:13Z", "event": "gate", "gate": "G5_repro_meth_inflation", "expected": "phikon mean methylation inflation 0.0849 +- 0.02", "observed": 0.0849, "result": "PASS"}
+{"t": "2026-08-17T06:01:13Z", "event": "VERDICT", "primary": "SITE_SIGNATURE_IS_ARCHIVE_NOT_ENCODER", "secondary": "METHYLATION_LEAKAGE_DID_NOT_REPRODUCE", "dinov2_relative_inflation": 0.7694, "phikon_relative_inflation": 0.8518}

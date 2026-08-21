@@ -1,0 +1,32 @@
+{"t": "2026-08-15T22:50:14Z", "event": "config_written", "sha256": "c1ce41434f94f7e52f6b441f969af5f9973949aab8eae02c1fc8c6fe9614b8c0"}
+{"t": "2026-08-15T22:50:14Z", "event": "plan_binding", "plan_sha256": "752b7462fce5689993dd6c05bca956ff50799794528ec3f4abf9048cb74e6770", "note": "the plan is fixed; this run cannot alter it"}
+{"t": "2026-08-15T22:50:14Z", "event": "gate", "gate": "G1_recombination", "expected": {"filesets": 2, "cn_overlap": 0, "A0_rows": 251, "A0_cn": 251}, "observed": {"filesets": 2, "cn_overlap": 0, "A0_rows": 251, "A0_cn": 251}, "result": "PASS"}
+{"t": "2026-08-15T22:50:14Z", "event": "gate", "gate": "G2_join_integrity", "expected": {"A0": 251, "F1_cn": 243, "IM_cn": 246, "Q2_cn": 244, "A0_and_F1": 243, "A0_F1_Q2": 240}, "observed": {"A0": 251, "F1_cn": 243, "IM_cn": 246, "Q2_cn": 244, "A0_and_F1": 243, "A0_F1_Q2": 240}, "result": "PASS"}
+{"t": "2026-08-15T22:50:14Z", "event": "gate", "gate": "G2b_LE_uniqueness_resolved", "expected": "duplicates resolved by the plan's declared duplicate_row_rule", "observed": {"raw_rows": 244, "distinct_cn": 243, "cn_with_duplicates": 1, "rows_after_rule": 243}, "result": "PASS"}
+{"t": "2026-08-15T22:50:14Z", "event": "orphans_by_form", "IM": 0, "Q2": 0, "LE": 0, "I1": 0, "T1": 0}
+{"t": "2026-08-15T22:50:14Z", "event": "gate", "gate": "G3_no_cutoff_row_inflation", "expected": "SS keyed by sse2 with >1 row per cn", "observed": {"rows": 1185, "distinct_sse2": [0.0, 2.0, 2.5, 3.0, 3.5], "modal_rows_per_cn": [5, 237]}, "result": "PASS"}
+{"t": "2026-08-15T22:50:14Z", "event": "PC0_exposure_validity", "n_both": 179, "frac_post_lower": 0.9441, "median_ratio": 0.0, "verdict": "PASS"}
+{"t": "2026-08-15T22:50:14Z", "event": "gate", "gate": "PC0_gate", "expected": "fraction(post<pre) >= 0.60 for LE to remain the primary exposure", "observed": {"frac": 0.9441, "median_ratio": 0.0, "verdict": "PASS"}, "result": "PASS"}
+{"t": "2026-08-15T22:50:14Z", "event": "t0_landmark_sources", "TA": 188, "Q2_added": 4, "IM_added": 0, "n_with_t0": 192}
+{"t": "2026-08-15T22:50:14Z", "event": "gate", "gate": "G7_exposure_adequacy", "expected": ">= 180 patients with lee11 and a defined t0", "observed": 180, "result": "PASS"}
+{"t": "2026-08-15T22:50:14Z", "event": "STAGE1_EXPOSURE_FROZEN", "n": 180, "floored_at_0_5": 106, "exposure_source": "LE.lee11", "sha256": "854378633ea6992c94b577aa09bcb5b11dc4cd11d8f7645b3cd8d4e78cdcd65c"}
+{"t": "2026-08-15T22:50:14Z", "event": "gate", "gate": "STAGE1_freeze", "expected": "exposure table written and hashed before any outcome read", "observed": {"n": 180, "sha256": "854378633ea6992c94b577aa09bcb5b1..."}, "result": "PASS"}
+{"t": "2026-08-15T22:50:15Z", "event": "gate", "gate": "G5_exclusion_accounting", "expected": {"identity": "251 == n_analysed + n_excluded"}, "observed": {"n_listed": 251, "n_analysed": 166, "n_excluded": 85, "ledger": {"E1": 0, "E2": 18, "E3": 15, "E4": 38, "E5": 10, "E6": 0, "E7": 0, "E8": 4}}, "result": "PASS"}
+{"t": "2026-08-15T22:50:15Z", "event": "exclusion_ledger", "E1": 0, "E2": 18, "E3": 15, "E4": 38, "E5": 10, "E6": 0, "E7": 0, "E8": 4, "n_analysed": 166}
+{"t": "2026-08-15T22:50:15Z", "event": "gate", "gate": "G4_no_outcome_leakage", "expected": {"4a_exposure_from_PET_forms_only": true, "4b_min_T>=0": true, "4c_inband>=0.95": ">=0.95", "4e_exposure_hash_unchanged": "854378633ea6992c"}, "observed": {"4a": "LE.lee11 only", "4b_min_T": 0.164, "4c_inband": 1.0, "4e": "854378633ea6992c"}, "result": "PASS"}
+{"t": "2026-08-15T22:50:15Z", "event": "gate", "gate": "G8_outcome_completeness", "expected": "tally sums to n_analysed", "observed": {"tally": {"2": 125, "1": 38, "3": 3}, "events": 125, "ds_only": 0, "alive_after_dead": 0, "median_reverse_km_months": 49.18}, "result": "PASS"}
+{"t": "2026-08-15T22:50:31Z", "event": "gate", "gate": "G6_permutation_calibration", "expected": {"|mean z|<0.10": true, "sd z in [0.85,1.15]": true, "rej in [0.035,0.065]": true}, "observed": {"mean_z": 0.0344, "sd_z": 0.982, "rejection_rate": 0.042, "B_effective": 2000}, "result": "PASS"}
+{"t": "2026-08-15T22:50:31Z", "event": "PRIMARY", "hr_per_doubling": 1.2023, "ci95": [1.0995, 1.3148], "z": 4.0405, "wald_p": 5.333987739873052e-05, "permutation_p": 0.0004997501249375312, "schoenfeld_p": 0.06417445644149271, "n": 166, "events": 125}
+{"t": "2026-08-15T22:50:31Z", "event": "S5_status9_censored", "hr": 1.2023, "wald_p": 5.333987739873052e-05, "n_status9": 0}
+{"t": "2026-08-15T22:50:31Z", "event": "PC1_endpoint_construction", "verdict": "PASS", "hr": 2.463, "p": 3.784451749371916e-05, "n": 130, "events": 89}
+{"t": "2026-08-15T22:50:31Z", "event": "PC2_performance_status", "verdict": "PASS-WEAK", "n": 166, "smaller_group": 82, "smaller_group_events": 59, "hr": 1.3821, "p": 0.07197127517404033}
+{"t": "2026-08-15T22:50:31Z", "event": "PC3_weight_loss", "verdict": "UNINFORMATIVE-BY-N", "n": 147, "exposed_n": 26, "exposed_events": 22, "frac_missing": 0.1145, "hr": null, "p": null}
+{"t": "2026-08-15T22:50:31Z", "event": "secondary", "test": "S1_adjusted", "hr": 1.2136, "raw_p": 2.9398915238475142e-05, "holm_p": 0.0002, "n": 165}
+{"t": "2026-08-15T22:50:31Z", "event": "secondary", "test": "S2_tumor_max_suv", "hr": 1.1964, "raw_p": 4.6738660270412996e-05, "holm_p": 0.0002, "n": 166}
+{"t": "2026-08-15T22:50:31Z", "event": "secondary", "test": "S3_fixed_threshold_3.5", "hr": 1.7886, "raw_p": 0.0013361024413429724, "holm_p": 0.0013, "n": 166}
+{"t": "2026-08-15T22:50:31Z", "event": "secondary", "test": "S4_metabolic_change", "hr": 1.1946, "raw_p": 5.6706009260083445e-05, "holm_p": 0.0002, "n": 165}
+{"t": "2026-08-15T22:50:31Z", "event": "secondary", "test": "S5_status9_censored", "hr": 1.2023, "raw_p": 5.333987739873052e-05, "holm_p": 0.0002, "n": 166}
+{"t": "2026-08-15T22:50:31Z", "event": "secondary", "test": "S6_exclude_upstaged_IV", "hr": 1.2152, "raw_p": 2.6673877715770497e-05, "holm_p": 0.0002, "n": 161}
+{"t": "2026-08-15T22:50:31Z", "event": "secondary", "test": "S7_untransformed", "hr": 1.0863, "raw_p": 2.3982856058602074e-06, "holm_p": 0.0, "n": 166}
+{"t": "2026-08-15T22:50:31Z", "event": "gate", "gate": "G9_primary_coherence", "expected": "point estimate lies inside its own 95% CI", "observed": {"hr": 1.2023, "ci95": [1.0995, 1.3148]}, "result": "PASS"}
+{"t": "2026-08-15T22:50:31Z", "event": "STAGE4_VERDICT", "verdict": "CONFIRMED", "aggregate_control_rule_satisfied": true, "PC0": "PASS", "PC1": "PASS", "PC2": "PASS-WEAK", "PC3": "UNINFORMATIVE-BY-N"}

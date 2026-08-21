@@ -1,0 +1,466 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{parskip}
+
+\definecolor{qnavy}{RGB}{20,40,75}
+\definecolor{qgrey}{RGB}{90,90,90}
+\definecolor{qgreen}{RGB}{20,110,70}
+\definecolor{qred}{RGB}{150,30,30}
+\titleformat{\section}{\large\bfseries\color{qnavy}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{qnavy}}{\thesubsection}{0.6em}{}
+
+\newcommand{\ver}{\textcolor{qgreen}{\textbf{V}}}
+\newcommand{\src}{\textcolor{qgrey}{\textbf{S}}}
+\newcommand{\gap}{\textcolor{qred}{\textbf{--}}}
+
+\title{\vspace{-1.6em}\color{qnavy}\bfseries Data Inventory\\[4pt]
+\large\normalfont\color{qgrey}Quantara three-study data programme --- glioma, hepatocellular
+carcinoma, lung}
+\author{\normalsize Quantara \;\textperiodcentered\; Reza Nehzati \;\textperiodcentered\;
+\texttt{reza@heydonto.com}}
+\date{\normalsize 4 August 2026 \;\textperiodcentered\; Internal --- team reference}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent
+This document inventories the corpus assembled for the three-study programme and held in
+Google Cloud Storage. It totals approximately \textbf{2.16\,TiB}: a DICOM imaging layer of 2{,}031 patients
+across 2.13 million objects, five spatial/multiplex imaging cohorts, eighteen molecular and
+clinical label datasets, and --- added since the 4 August edition --- a whole-slide-imaging
+layer of 1{,}053 TCGA lung slides with their encoded tile features and an assembled
+TCGA lung methylation matrix.
+Every item was screened for licence before acquisition and no item under a
+non-commercial restriction was taken. Counts marked \ver{} were verified by comparing what
+arrived against what was planned; counts marked \src{} come from the source publication
+and were not independently confirmed. That distinction is deliberate and is explained in
+\S2.
+
+\medskip
+\noindent\textbf{Revision, 16 August 2026.} Layer~D gains an external whole-slide
+holding (\S5) --- 133 slides from two institutions outside TCGA, acquired to test whether the
+site signature reported in R12--R15 reproduces across archives --- and Layer~C gains the
+ACRIN 6668 clinical archive used in R16. One row of Layer~B is \textbf{corrected}: the LUSC
+imaging mass-spectrometry deposit holds four images, not 330 patients (\S4). Sizes for the new
+items were measured directly on 16 August; earlier layers were not re-measured.
+
+\medskip
+\noindent\textbf{Revision, 14 August 2026.} Layers A--C are unchanged from the 4 August
+edition and their object counts are \emph{carried forward} from that verification rather than
+re-walked --- the DICOM prefix holds over two million objects and a fresh enumeration costs
+more than it adds when nothing was written to it. What is new is Layer D (\S5), measured
+directly on 14 August. Readers who need Layer A re-verified should say so; the exact-match
+check is reproducible from \texttt{\_provenance/}.
+\end{abstract}
+
+\section{Location and access}
+
+\begin{itemize}[leftmargin=1.4em,nosep]
+\item \textbf{Bucket:} \texttt{gs://heydonto-quantara-lungcdx/data-request-2026-08/}
+(project \texttt{heydonto-425716}, region \texttt{US-CENTRAL1}).
+\item \textbf{Layout:} \texttt{imaging/} (DICOM, by disease), \texttt{glioma/spatial/},
+\texttt{lung/mif/}, \texttt{lung/msi/}, \texttt{hcc/imaging/}, \texttt{labels/} (by
+disease), \texttt{\_provenance/}, \texttt{\_run/}.
+\item \textbf{Provenance:} \texttt{\_provenance/} holds the acquisition manifest with a
+per-item licence and the exclusion list; \texttt{\_run/} holds the acquisition job, the
+transfer log and per-collection completion markers. The pull is re-runnable and
+idempotent.
+\item \textbf{Read-only external access} can be granted per-prefix; see \S8.
+\end{itemize}
+
+\section{How to read this document}
+
+Two symbols appear throughout, because during assembly several transfers reported success
+while delivering little or nothing, and several published patient counts did not survive
+checking.
+
+\begin{itemize}[leftmargin=1.4em,nosep]
+\item \ver{} --- \textbf{verified by us.} Delivered file or object counts were compared
+against planned counts for that dataset. Where a source of truth existed (the imaging
+index, a cohort's own metadata table), the values were recomputed from it.
+\item \src{} --- \textbf{from the source publication.} Typically patient or subject
+totals, where the deposited metadata carries no such field. The files are verified; the
+subject count is taken on trust.
+\end{itemize}
+
+\noindent
+Sizes are binary (GiB/TiB) as reported by object storage. Patient counts and series
+counts for the DICOM layer were recomputed from the imaging index rather than taken from
+collection pages, which are known to overstate what actually shipped.
+
+\section{Layer A --- DICOM imaging}
+
+Copied server-side from the public imaging commons. All ten collections complete:
+\textbf{2{,}091{,}646 of 2{,}091{,}646 expected DICOM instances}, an exact match with no
+series or instance dropped. \ver
+
+\begin{center}
+\small
+\begin{longtable}{@{}lrrrrl@{}}
+\toprule
+\textbf{Collection} & \textbf{Patients} & \textbf{Series} & \textbf{Objects} &
+\textbf{GiB} & \textbf{Licence} \\
+\midrule
+\endfirsthead
+\toprule \textbf{Collection} & \textbf{Patients} & \textbf{Series} & \textbf{Objects} &
+\textbf{GiB} & \textbf{Licence} \\ \midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{6}{@{}l}{\itshape Glioma} \\
+UPENN-GBM (MR $+$ segmentations) & 630 & 6{,}064 & 830{,}618 & 138.0 & CC BY 4.0 \\
+CPTAC-GBM (pathology WSI only) & 178 & 462 & 2{,}835 & 98.6 & CC BY 4.0 \\
+\addlinespace
+\multicolumn{6}{@{}l}{\itshape Lung} \\
+NSCLC-Radiogenomics (CT/PET $+$ EGFR/KRAS) & 211 & 1{,}722 & 287{,}125 & 97.4 & CC BY 3.0 \\
+Lung-PET-CT-Dx & 355 & 2{,}606 & 252{,}446 & 124.6 & CC BY 4.0 \\
+ACRIN-NSCLC-FDG-PET & 242 & 3{,}762 & 497{,}752 & 142.2 & CC BY 3.0/4.0 \\
+Anti-PD-1-Lung (2 timepoints) & 46 & 819 & 134{,}607 & 60.3 & CC BY 3.0 \\
+LungCT-Diagnosis & 61 & 61 & 4{,}682 & 2.4 & CC BY 3.0 \\
+Lung-Fused-CT-Pathology & 6 & 52 & 11{,}210 & 5.8 & CC BY 3.0 \\
+\addlinespace
+\multicolumn{6}{@{}l}{\itshape Liver} \\
+HCC-TACE-Seg (CT $+$ segmentations) & 105 & 1{,}020 & 52{,}311 & 29.1 & CC BY 4.0 \\
+Colorectal-Liver-Metastases & 197 & 618 & 18{,}060 & 11.4 & CC BY 4.0 \\
+\midrule
+\textbf{Total} & \textbf{2{,}031} & \textbf{17{,}186} & \textbf{2{,}091{,}646} &
+\textbf{709.8} & \\
+\end{longtable}
+\end{center}
+
+\noindent
+All 26{,}258 candidate series were licence-screened before acquisition; none carried a
+non-commercial restriction. \ver{} Two properties worth noting for study design:
+\textbf{CPTAC-GBM contains no MRI} (its 462 series are all slide microscopy), and
+\textbf{UPENN-GBM contains no clinical table} in the DICOM layer --- its molecular
+annotations are a separate file, held in Layer~C.
+
+\section{Layer B --- spatial, multiplex and non-DICOM imaging}
+
+\begin{center}
+\small
+\begin{longtable}{@{}p{5.1cm}rrp{3.0cm}p{3.4cm}@{}}
+\toprule
+\textbf{Dataset} & \textbf{Files} & \textbf{GiB} & \textbf{Licence} & \textbf{Content} \\
+\midrule
+\endfirsthead
+\toprule \textbf{Dataset} & \textbf{Files} & \textbf{GiB} & \textbf{Licence} &
+\textbf{Content} \\ \midrule
+\endhead
+\bottomrule
+\endfoot
+Glioma spatial multi-omics & 4{,}599 \ver & 335.6 & \textbf{CC0} & Multiplexed ion-beam
+imaging $+$ spatial transcriptomics $+$ glycomics; 310 patients \src \\
+NSCLC multiplex immunofluorescence & 1{,}097 \ver & 103.8 & EBI default (no additional
+restriction) & PD-L1 / CD3 / CD8 antibody comparison; 431 patients \src \\
+GBM mpMRI, multi-centre & 7{,}071 \ver & 41.5 & \textbf{CC0} & T1/T1CE/T2/FLAIR;
+\textbf{337 participants} \ver, MGMT on all 337 \ver, \textbf{21 distinct scanner
+models} \ver \\
+HCC multiphase CT (WAW-TACE) & 10 \ver & 44.9 & CC BY 4.0 & Native/arterial/portal/delayed
+CT $+$ 377 tumour masks $+$ radiomics; 233 treatment-naive patients \src \\
+LUSC imaging mass spectrometry & 7 \ver & 14.5 & CC BY 4.0 & \textcolor{qred}{\textbf{Correction
+2026-08-16:}} the deposit (S-BIAD814) is \textbf{four} \texttt{.czi} whole-slide
+MALDI/cytokeratin--vimentin overlay images plus three manifest files --- \emph{not}
+per-patient data for 330 patients. Its own \texttt{Files\_list.tsv} lists exactly four
+images \ver. The 330-patient figure was the publication's cohort, not the deposit's
+contents; the same error class as the anti-PD-1 methylation row (\S5.3). Usable as imaging,
+not as a cohort \\
+\midrule
+\textbf{Total} & \textbf{12{,}784} & \textbf{540.3} & & \\
+\end{longtable}
+\end{center}
+
+\section{Layer C --- molecular and clinical labels}
+
+Eighteen datasets, approximately 27\,GiB. Marker counts below were recomputed from the
+delivered files. \ver
+
+\subsection*{5.1 Glioma}
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{4.0cm}p{10.4cm}@{}}
+\toprule
+\textbf{Dataset} & \textbf{Content} \\
+\midrule
+MSK glioma panel & 923 patients / 1{,}004 samples. TERT promoter status determinable for
+all 1{,}004 (every panel used includes TERT), with \textbf{596 promoter-mutation records
+across 594 samples}; \textbf{302 CDKN2A homozygous deletions}. Plus WHO grade, prior
+therapy lines, TMB, treatment timeline. \emph{No imaging.} \\
+TCGA pan-glioma marker table & $n=1{,}122$. TERT promoter status on \textbf{329}
+(162 mutant / 167 wild-type); MGMT promoter 932; IDH 995; IDH/1p19q subtype 1{,}093
+(171 co-deleted); methylation and expression clusters. \emph{No imaging.} \\
+UPENN-GBM clinical & The \textbf{same 630 patients as the imaging layer} (exact join
+after normalising a timepoint suffix). IDH1 recorded for all 630, of which \textbf{533
+definite} (wild-type/mutated) and 97 NOS/NEC; \textbf{MGMT definite on 275}; survival on
+630. \\
+UTSW-Glioma metadata & 625 patients, adult diffuse glioma grades 2--4. IDH \textbf{622}
+(\emph{413 by immunohistochemistry only}, which detects IDH1-R132H alone); 1p/19q
+\textbf{335}; MGMT \textbf{281}. \emph{Labels only --- the images moved behind controlled
+access.} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{5.2 Hepatocellular carcinoma}
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{4.0cm}p{10.4cm}@{}}
+\toprule
+\textbf{Dataset} & \textbf{Content} \\
+\midrule
+Chinese Liver Cancer Atlas & 494 samples; RNA-seq TPM on 238, with FASN present in both
+raw and $z$-scored matrices. Independently reproduced here: FASN co-expression
+$\rho=+0.546$ ACACA, $+0.510$ SCD, $+0.495$ SREBF1. \ver \\
+HCC lncRNA arrays & 400 arrays (200 tumour, 200 matched non-cancerous),
+prognosis-annotated. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The TCGA-LIHC layer (371 primary tumours, 50 solid-tissue normals with 50 matched pairs;
+FASN protein on 184 by RPPA; 165 tumour/normal proteomic pairs) is reachable openly and
+was used for analysis, but is not mirrored into this bucket.
+
+\subsection*{5.3 Lung}
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{4.0cm}p{10.4cm}@{}}
+\toprule
+\textbf{Dataset} & \textbf{Content} \\
+\midrule
+MSK NSCLC ctDx & 2{,}621 patients; circulating-tumour-DNA panel $+$ treatment timeline. \\
+MSK LUAD & 604 patients with treatment context. \\
+Post-osimertinib-failure cohort & \textbf{183 patients}, EGFR-mutant NSCLC after
+first-line osimertinib failure; panel genomics and clinical course. \emph{See licence
+caveat, \S7.} \\
+Cell-line methylation & \textbf{9.02\,GB} archive (GSE68379), GEO declares 1{,}028 lines on
+450k linked by COSMIC identifier to dose--response. \textcolor{qred}{\textbf{Correction
+2026-08-20:} our mirror is \emph{silently corrupt}. It is byte-complete against both GCS and GEO's
+declared size (9{,}020{,}579{,}840), ends with a valid tar terminator and raises no error, yet
+enumerates \textbf{1{,}302 of 2{,}056 members} --- 649 of 1{,}028 cell lines, 127 of 198 lung. Two
+extraction modes gave the identical truncation. R23 bypassed it and fetched the 198 lung samples
+per-sample from GEO (396/396, zero failures). The 1{,}028 figure describes GEO's copy, not ours.
+\textbf{Every other bulk archive in this inventory should be assumed suspect until its members are
+counted}, since size and checksum both passed here. A processed matrix now exists at
+\texttt{.../GSE68379/processed/}: \textbf{485{,}512 probes $\times$ 198 lung cell lines}
+(313\,MB \texttt{lung\_betas.npz} plus \texttt{lung\_meta.csv} with cell line, histology and COSMIC
+identifier), built from IDATs fetched per sample rather than from the archive. 187 of those lines
+carry GDSC2 dose--response; report R23 uses them.} \\
+EGFR-TKI-treated methylation & 79 advanced LUAD, all TKI-treated, 450k $+$
+objective-response and disease-control endpoints. \\
+Anti-PD-1 methylation & 81 patients, EPIC array. \textcolor{qred}{\textbf{Correction
+2026-08-10:}} the deposit (GSE115246, EPIMMUNE) carries \emph{no outcome labels} ---
+metadata is disease status / tissue / cohort only; responder status exists solely in the
+paywalled journal appendix. Arrays verified real (signal supplement with detection
+$p$-values present; no IDATs, processed betas only). Previously described here as
+``responder / non-responder'' --- that was the publication's design, not the deposit's
+contents. \\
+Paired pre/post-osimertinib & \textbf{4 patients} sampled before and after osimertinib,
+profiled by \emph{spatial} transcriptomics (Visium~HD with StarDist segmentation). To our
+knowledge the only public paired pre/post-progression tissue resource in EGFR-mutant
+NSCLC. \\
+SWI/SNF resistance series & PC-9 and its osimertinib-resistant derivative:
+\textbf{11 of 14} accessibility tracks (three failed transfer, \S6); matched RNA
+expression; H1975 / HCC827 copy-number and variant calls. \\
+Persister chromatin & PC-9 (osimertinib) and H358 (sotorasib) persisters,
+single-cell ATAC. \\
+ACRIN 6668 clinical & \textbf{Added 2026-08-16.} 251 registered patients, stage-III NSCLC
+treated with chemoradiotherapy; core-lab PET assessments, survival, staging, performance
+status and follow-up across 15 case-report forms (two release samples, 525\,kB). Distributed
+by TCIA directly under CC BY 3.0 --- \emph{no} NCTN application. This is the cohort of
+report R16. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{5.4 Derived cohort available from Layer C}
+
+Verified by intersection rather than asserted: \textbf{137 KMT2D, 52 SMARCA4 and 133
+KEAP1} chromatin-regulator-mutant patients with methylome, diagnostic-slide morphology
+\emph{and} survival all present, plus \textbf{125} patients with matched tumour/normal
+methylation. These sit correctly below independently derived mutant totals of 152, 63 and
+151 respectively. \ver
+
+\section{Layer D --- whole-slide imaging and derived features}
+
+Added between 10 and 14 August 2026 to support the NSCLC whole-slide work (reports R12--R15).
+All three items were measured directly on 14 August.
+
+\begin{center}
+\begin{tabular}{@{}llrl@{}}
+\toprule
+\textbf{Item} & \textbf{Contents} & \textbf{Size} & \textbf{Licence} \\
+\midrule
+\texttt{wsi/TCGA-LUAD} & 541 diagnostic slides & \multirow{2}{*}{767.1 GiB} & TCGA open \ver{} \\
+\texttt{wsi/TCGA-LUSC} & 512 diagnostic slides & & TCGA open \ver{} \\
+\texttt{features/phikon-v2/} & tile embeddings: TCGA, CPTAC, Vanguri PD-L1 & 59.9 GiB & derived \ver{} \\
+\texttt{lung/tcga\_methylation\_450k/} & assembled 450k beta matrix & 1.7 GiB & TCGA open \ver{} \\
+\midrule
+\multicolumn{4}{@{}l}{\itshape Added 16 August 2026 --- external institutions, outside TCGA} \\
+\texttt{wsi\_external/} & 133 slides: EAGLE (49) and HTMCP-LC (84) & 101.1 GiB & open \ver{} \\
+\texttt{features/phikon-v2/external/} & tile embeddings for 129 of those slides & 1.6 GiB & derived \ver{} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Four things about this layer are worth stating because they are not obvious from the sizes.
+
+\textbf{The slides were processed, not merely stored.} The 1{,}053 TCGA slides were tiled into
+14{,}721{,}903 tiles at approximately 0.5\,\textmu m/px with an Otsu tissue filter, then encoded
+with Phikon-v2. The per-slide manifest at
+\texttt{features/phikon-v2/tcga/\_manifest.csv} records tile count, measured microns-per-pixel
+and whether that value was read from the file or assumed, for every slide.
+
+\textbf{CPTAC slides are not retained --- only their features.} The CPTAC-LUAD/LSCC set
+(432 patients, 1{,}343 slides) was tiled and encoded, and the encoded features are held, but the
+source slides were not kept. They are re-obtainable from NCI on demand, and storing a second
+copy of a public archive was not worth 500-odd GiB.
+
+\textbf{The methylation matrix is derived, and deliberately so.} It represents 919 GDC
+files totalling 11.23 GiB of source data, assembled into a single
+486{,}427\,$\times$\,919 float32 matrix. The raw files were parsed and discarded; GDC is a
+permanent archive keyed by \texttt{file\_id}, so \texttt{MANIFEST\_450k.tsv} with its MD5s is
+sufficient provenance to reconstitute them. This is why 11.23 GiB of input appears as 1.7 GiB of
+stored object, which would otherwise look like a transfer failure.
+
+\textbf{Four of the 133 external slides did not encode, and the reason matters more than the
+count.} The four failures returned \texttt{empty\_no\_tissue} under the tissue filter: they are
+immunohistochemistry, not H\&E. That is a property of HTMCP-LC generally --- only 30 of its 84
+slides are H\&E. Any analysis that pools all 84 and calls the result an \emph{institutional}
+signature is at risk of measuring a \emph{stain} signature instead, so the H\&E subset is the
+unit to use and the manifest records stain per slide.
+
+\section{Known gaps}
+
+\subsection*{6.1 Residual transfer gaps on our side}
+\begin{itemize}[leftmargin=1.4em,nosep]
+\item Three of fourteen accessibility tracks in the SWI/SNF series (a size-check bug on
+our side, not an availability problem).
+\item One 198-slide lung cohort with per-slide molecular group labels is catalogued but
+not mirrored at any public path.
+\end{itemize}
+
+\subsection*{6.2 Available only behind a permission gate}
+Obtainable by asking, not by downloading:
+\begin{itemize}[leftmargin=1.4em,nosep]
+\item A 192-patient Central European cohort with eight-sequence MRI \emph{plus} TERT
+promoter and CDKN2A --- the only dataset located that pairs multiparametric MRI with both
+markers. Non-commercial licence; permits commercial use by explicit written permission.
+It has no MGMT, and only 156 of its 192 examinations are pre-treatment.
+\item A pan-cancer registry ($\sim$228k patients) and an immunotherapy cohort with PD-L1
+immunohistochemistry (247 patients) --- both click-through registrations not yet completed.
+\item Glioma MRI at UCSF, UT~Southwestern, Missouri and Río~Hortega, which moved behind
+controlled access during 2025. We hold UT~Southwestern's molecular labels but not its
+images.
+\end{itemize}
+
+\subsection*{6.3 Not obtainable at any price}
+\begin{itemize}[leftmargin=1.4em,nosep]
+\item A resolvable genomic locus for the transcript designated HELC.
+\item FASN enzymatic activity in human HCC tissue at any scale approaching 100 patients;
+it is not recoverable from archival material.
+\item A glioma cohort with all five markers \emph{and} multiparametric MRI beyond
+\textbf{eight} patients. Four MRI sequences plus IDH reaches roughly 1{,}840 patients and
+adding 1p/19q about 944, but the five-marker intersection collapses to eight.
+\end{itemize}
+
+\section{Licence register}
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{3.6cm}p{4.4cm}p{6.4cm}@{}}
+\toprule
+\textbf{Licence} & \textbf{Applies to} & \textbf{Commercial position} \\
+\midrule
+CC0 & Glioma spatial multi-omics; multi-centre GBM mpMRI & Unrestricted \\
+CC BY 3.0 / 4.0 & All ten DICOM collections; HCC multiphase CT; LUSC mass spectrometry;
+UTSW and UPENN metadata & Permitted, with attribution \\
+No additional restriction & NSCLC multiplex immunofluorescence & Permitted (repository
+default) \\
+Open Database Licence & MSK glioma panel; MSK NSCLC ctDx; Chinese Liver Cancer Atlas &
+Commercial use \emph{explicitly} permitted. Share-alike attaches only to
+\textbf{derivative databases}: a trained model is a ``produced work'' and is not itself
+copyleft, but a curated training table is a derivative database and must be offered on
+the same terms. Legal read required before any data product ships. \\
+Broad GDAC / NIH terms & TCGA pan-glioma marker table & Permitted; no restriction on
+commercial product development \\
+NCBI (no restrictions) & All expression, methylation and chromatin series & Permitted;
+residual submitter-IP caveat \\
+\textbf{No licence stated} & Post-osimertinib-failure cohort & Open access, direct
+download, no data-use agreement --- but commercial use is addressed in neither direction.
+\textbf{No affirmative grant; do not build product on it, and do not redistribute.} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+\textbf{Excluded on licence grounds}, recorded so the absence is not mistaken for
+oversight: a lung PD-L1 immunohistochemistry set (non-commercial share-alike, and regions
+of interest rather than whole slides, with no slide-level tumour proportion score); a
+clinico-genomic cohort (non-commercial, no-derivatives); a longitudinal glioma resource
+whose agreement forbids commercialising any product containing it; a CNS methylation
+classifier whose terms bar revenue-generating use of even its outputs; and one lung
+radiomics collection under a non-commercial licence.
+
+\section{External access}
+
+Read-only access can be granted per-prefix without exposing the rest of the bucket, which
+also holds the separate lung companion-diagnostic programme. Two options, both tested:
+
+\begin{itemize}[leftmargin=1.4em,nosep]
+\item \textbf{Prefix-conditioned IAM} on this bucket grants object reads inside
+\texttt{data-request-2026-08/} and denies everything else, including the bucket root.
+Verified. Note that object \emph{listing} is a bucket-level permission and cannot be
+prefix-scoped, so a conditioned grant yields read-by-path with no browsing --- workable
+when paired with this inventory, awkward for exploration.
+\item \textbf{A separate share bucket} containing the 27\,GiB analytic layer gives normal
+browsing with full isolation, at trivial storage cost. Preferred for an external reviewer.
+\end{itemize}
+
+\noindent
+Access should be bound to the reviewer's own Google identity rather than granted through
+an exported service-account key, so that it is attributable, auditable and revocable per
+person. An IAM expiry condition is recommended.
+
+\section*{Bottom line}
+
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Layer & Size \\
+\midrule
+A --- DICOM imaging (2{,}031 patients, 17{,}186 series) & 709.8 GiB \\
+B --- spatial, multiplex, non-DICOM imaging (5 cohorts) & 540.3 GiB \\
+C --- molecular and clinical labels (19 datasets) & $\sim$27 GiB \\
+D --- whole-slide imaging + derived features (1{,}186 slides) & 931.4 GiB \\
+\midrule
+\textbf{Total} & \textbf{$\sim$2{,}209 GiB ($\approx$2.16 TiB)} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The lung programme is well supported end to end. The glioma programme has a defensible
+imaging cohort (630 development, 337 independent validation) and rich molecular reference
+tables, but the imaging and the full marker panel belong to \emph{different patients} and
+cannot be combined into one cohort --- \S6.3 is the binding constraint. The HCC programme
+supports a descriptive lipogenic-phenotype analysis and cannot support a mechanistic one.
+
+\end{document}

@@ -1,0 +1,63 @@
+[
+  {
+    "gate": "G0_integrity",
+    "expected": 16121402,
+    "observed": 16121402,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-06T22:50:05Z"
+  },
+  {
+    "gate": "G1_complete_features",
+    "expected": 599,
+    "observed": 599,
+    "result": "PASS",
+    "note": "same complete-case rule as R01",
+    "t": "2026-08-06T22:50:05Z"
+  },
+  {
+    "gate": "G2_survival_n",
+    "expected": 574,
+    "observed": 574,
+    "result": "PASS",
+    "note": "complete features AND survival time > 0",
+    "t": "2026-08-06T22:50:05Z"
+  },
+  {
+    "gate": "G3_no_censoring",
+    "expected": "all Deceased",
+    "observed": [
+      "Deceased"
+    ],
+    "result": "PASS",
+    "note": "uncensored cohort validates log-time regression",
+    "t": "2026-08-06T22:50:05Z"
+  },
+  {
+    "gate": "G4_features",
+    "expected": 1728,
+    "observed": 1728,
+    "result": "PASS",
+    "note": "no feature exceeded 10% missingness",
+    "t": "2026-08-06T22:50:06Z"
+  },
+  {
+    "gate": "G5_mgmt_subset",
+    "expected": 247,
+    "observed": 247,
+    "result": "PASS",
+    "note": "definite MGMT within the survival cohort",
+    "t": "2026-08-06T22:50:09Z"
+  },
+  {
+    "gate": "G6_positive_controls",
+    "expected": "at least one known prognostic association recovered",
+    "observed": {
+      "age_recovered": true,
+      "mgmt_recovered": true
+    },
+    "result": "PASS",
+    "note": "if both fail, the pipeline cannot be trusted to detect real signal",
+    "t": "2026-08-06T22:50:09Z"
+  }
+]

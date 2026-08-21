@@ -1,0 +1,10 @@
+{
+  "like_for_like_permutation_p": 0.297029702970297,
+  "auroc_ci95": [
+    0.4206775071717113,
+    0.687508267195767
+  ],
+  "min_detectable_auroc_80pct_power": 0.6854043411661801,
+  "n_pr": 40,
+  "n_pd": 29
+}

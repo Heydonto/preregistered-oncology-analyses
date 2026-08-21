@@ -1,0 +1,153 @@
+{
+  "status": "peer-review audit copy",
+  "question": "is R15's genome-wide null an artefact of subtype supervision?",
+  "VERDICT": {
+    "primary": "ARM1_NEGATIVE_ROBUST_TO_SUPERVISION",
+    "secondary": "GLOBAL_AXIS_ONLY",
+    "rules_were_pre_declared_in": "config.yaml, hash 4779152747f14818e8f1279733a0fe2dd9209dfcbef8eb8662890f6f5b016a42"
+  },
+  "cohort": {
+    "n": 760,
+    "sites": 67,
+    "probes": 399579,
+    "lusc": 347,
+    "luad": 413
+  },
+  "null": {
+    "single_permutation_p95": 0.05762680619955063,
+    "single_permutation_median": -0.007113038562238216,
+    "m13_two_permutation_p95": 0.059528712183237076,
+    "m13_two_permutation_median": 0.002125978469848633,
+    "note": "m13 drew two independent permutations; this run uses one and reports both so the threshold effect is visible"
+  },
+  "arms": {
+    "meth": {
+      "n_above_null": 83369,
+      "frac_above_null": 0.2086,
+      "median_rho": 0.00725494185462594,
+      "max_rho": 0.35005733370780945
+    },
+    "sub": {
+      "n_above_null": 90137,
+      "frac_above_null": 0.2256,
+      "median_rho": 0.005689110606908798,
+      "max_rho": 0.4853599965572357
+    },
+    "sublabel": {
+      "n_above_null": 206412,
+      "frac_above_null": 0.5166,
+      "median_rho": 0.06306839734315872,
+      "max_rho": 0.6751483678817749
+    },
+    "globalmean": {
+      "n_above_null": 298320,
+      "frac_above_null": 0.7466,
+      "median_rho": 0.20869530737400055,
+      "max_rho": 0.7773376703262329
+    }
+  },
+  "m13_reference": {
+    "n_above_null_subtype_emb": 110212,
+    "n_above_null_subtype_label": 220925,
+    "reproduced_here": {
+      "subtype_emb": 110212,
+      "subtype_label": 220925
+    }
+  },
+  "genomic_context": {
+    "A_meth": {
+      "Island": {
+        "n_probes": 134095,
+        "frac_of_predictable": 0.3746,
+        "frac_of_array": 0.3356,
+        "enrichment": 1.116
+      },
+      "N_Shore": {
+        "n_probes": 52913,
+        "frac_of_predictable": 0.1305,
+        "frac_of_array": 0.1324,
+        "enrichment": 0.986
+      },
+      "S_Shore": {
+        "n_probes": 41383,
+        "frac_of_predictable": 0.1025,
+        "frac_of_array": 0.1036,
+        "enrichment": 0.99
+      },
+      "N_Shelf": {
+        "n_probes": 18917,
+        "frac_of_predictable": 0.043,
+        "frac_of_array": 0.0473,
+        "enrichment": 0.908
+      },
+      "S_Shelf": {
+        "n_probes": 16887,
+        "frac_of_predictable": 0.0382,
+        "frac_of_array": 0.0423,
+        "enrichment": 0.904
+      },
+      "OpenSea": {
+        "n_probes": 135384,
+        "frac_of_predictable": 0.3112,
+        "frac_of_array": 0.3388,
+        "enrichment": 0.918
+      }
+    },
+    "A_sub": {
+      "Island": {
+        "n_probes": 134095,
+        "frac_of_predictable": 0.3319,
+        "frac_of_array": 0.3356,
+        "enrichment": 0.989
+      },
+      "N_Shore": {
+        "n_probes": 52913,
+        "frac_of_predictable": 0.1312,
+        "frac_of_array": 0.1324,
+        "enrichment": 0.99
+      },
+      "S_Shore": {
+        "n_probes": 41383,
+        "frac_of_predictable": 0.1036,
+        "frac_of_array": 0.1036,
+        "enrichment": 1.0
+      },
+      "N_Shelf": {
+        "n_probes": 18917,
+        "frac_of_predictable": 0.0461,
+        "frac_of_array": 0.0473,
+        "enrichment": 0.974
+      },
+      "S_Shelf": {
+        "n_probes": 16887,
+        "frac_of_predictable": 0.0414,
+        "frac_of_array": 0.0423,
+        "enrichment": 0.98
+      },
+      "OpenSea": {
+        "n_probes": 135384,
+        "frac_of_predictable": 0.3459,
+        "frac_of_array": 0.3388,
+        "enrichment": 1.021
+      }
+    }
+  },
+  "context_spread": {
+    "A_meth": 0.212,
+    "A_sub": 0.047
+  },
+  "r10_reference_context": {
+    "Island": 0.54,
+    "OpenSea": 1.44
+  },
+  "circularity_control": {
+    "baseline": "observed global mean methylation as a 1-d predictor",
+    "n_above_null": 298320,
+    "reading": "GLOBAL_AXIS_ONLY",
+    "caveat": "each CpG contributes 1/399579 to that mean, so self-inclusion is negligible but not literally zero"
+  },
+  "_provenance": {
+    "config_sha256": "4779152747f14818e8f1279733a0fe2dd9209dfcbef8eb8662890f6f5b016a42",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260817T002058Z-R17percpgmeth-6626d09"
+  }
+}

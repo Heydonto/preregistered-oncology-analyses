@@ -1,0 +1,1686 @@
+{
+  "arm": "B-meth",
+  "config_sha256": "5d3d9d15a85d6917f97f630f88cf9b9adea9f0763b7a2803fdb8812c679e172d",
+  "unsealing_event": {
+    "cohort": "Anti-PD-1 EPIC methylation (81 pts)",
+    "event_number": 2,
+    "arm": "B-meth",
+    "geo_series": "GSE115246",
+    "gcs_prefix": "gs://heydonto-quantara-lungcdx/data-request-2026-08/labels/lung/GSE115246/",
+    "timestamp_utc": "2026-08-10T10:46:56Z",
+    "config_sha256": "5d3d9d15a85d6917f97f630f88cf9b9adea9f0763b7a2803fdb8812c679e172d",
+    "config_path": "nsclc-rwpr-study/armB-meth/evidence/config.yaml",
+    "models_frozen_before_unseal": [
+      "M1_keap1_full",
+      "M1_keap1_overlap",
+      "M2_os_cox",
+      "PC_sex_overlap"
+    ],
+    "endpoints_preregistered": [
+      "anti-PD-1 response AUROC (primary)",
+      "OS/PFS association of the Cox score (if deposited)",
+      "measured minimum-detectable AUROC by permutation"
+    ],
+    "gates_preregistered": [
+      "G1_R10_reproduction",
+      "G2_R10_sex_control",
+      "G3_preregistered_before_unseal",
+      "G4_probe_overlap_reported",
+      "G5_epic_sex_transfer",
+      "G6_permutation_null_centred",
+      "G7_no_silent_drops"
+    ],
+    "power_statement_preregistered": "n=81 is expected to be unable to resolve a modest AUROC; the minimum-detectable AUROC at 80% power is reported alongside the point estimate and an inconclusive verdict is a pre-declared success mode",
+    "tcga_training_numbers_at_seal": {
+      "repro_keap1_full_nestedcv": {
+        "auroc": 0.9098375784422296,
+        "ci95": [
+          0.8690399119421341,
+          0.945582322184861
+        ],
+        "n": 471,
+        "positives": 84
+      },
+      "repro_sex_full_nestedcv": {
+        "auroc": 1.0,
+        "ci95": [
+          0.9999999999999999,
+          1.0
+        ],
+        "n": 468,
+        "positives": 219
+      },
+      "keap1_overlap_nestedcv": {
+        "auroc": 0.8941183708625567,
+        "ci95": [
+          0.8483564369580282,
+          0.9378837691295283
+        ],
+        "n": 471,
+        "positives": 84
+      },
+      "sex_overlap_nestedcv": {
+        "auroc": 1.0,
+        "ci95": [
+          0.9999999999999999,
+          1.0
+        ],
+        "n": 468,
+        "positives": 219
+      },
+      "os_cox_cv_cindex": 0.6023496170719013,
+      "os_cox_cv_cindex_ci95": [
+        0.5496902467552162,
+        0.6530427139645322
+      ],
+      "os_cox_n": 459,
+      "os_cox_events": 164
+    },
+    "probe_overlap_at_seal": {
+      "manifest_450k_loci": 485577,
+      "manifest_epic_loci": 867926,
+      "manifest_overlap_loci": 454181,
+      "r08_retained_probes": 392489,
+      "r08_retained_on_epic": 366316,
+      "r08_retained_on_epic_frac": 0.9333
+    },
+    "access_mode": "READ-ONLY on data-request-2026-08/",
+    "operator": "Reza Nehzati (agent-executed)",
+    "sealed_scopes_untouched": [
+      "nsclc-rwpr-study/sealed/"
+    ],
+    "declared_prehash_reads": "GCS object listings and byte counts under the GSE115246 prefix; suppl/filelist.txt; the Illumina EPIC v1.0 manifest shipped inside GSE115246_RAW.tar (array design, not sample data). No sample metadata, no beta values and no outcome field was read before this event.",
+    "note": "event_number is the protocol-assigned index (Arm B methylation track), not a line number in this file. Event #1 is the CPTAC/Arm-B-WSI exposure."
+  },
+  "gate_R10_reproduction": {
+    "R10_published_auroc": 0.9098375784422296,
+    "reproduced_auroc": 0.9098375784422296,
+    "reproduced_ci95": [
+      0.8690399119421341,
+      0.945582322184861
+    ],
+    "bit_identical": true,
+    "sex_control": 1.0
+  },
+  "tcga_models": {
+    "repro_keap1_full_nestedcv": {
+      "auroc": 0.9098375784422296,
+      "ci95": [
+        0.8690399119421341,
+        0.945582322184861
+      ],
+      "n": 471,
+      "positives": 84
+    },
+    "repro_sex_full_nestedcv": {
+      "auroc": 1.0,
+      "ci95": [
+        0.9999999999999999,
+        1.0
+      ],
+      "n": 468,
+      "positives": 219
+    },
+    "keap1_overlap_nestedcv": {
+      "auroc": 0.8941183708625567,
+      "ci95": [
+        0.8483564369580282,
+        0.9378837691295283
+      ],
+      "n": 471,
+      "positives": 84
+    },
+    "sex_overlap_nestedcv": {
+      "auroc": 1.0,
+      "ci95": [
+        0.9999999999999999,
+        1.0
+      ],
+      "n": 468,
+      "positives": 219
+    },
+    "os_cox_cv_cindex": 0.6023496170719013,
+    "os_cox_cv_cindex_ci95": [
+      0.5496902467552162,
+      0.6530427139645322
+    ],
+    "os_cox_n": 459,
+    "os_cox_events": 164
+  },
+  "probe_overlap": {
+    "manifest_450k_loci": 485577,
+    "manifest_epic_loci": 867926,
+    "manifest_overlap_loci": 454181,
+    "r08_retained_probes": 392489,
+    "r08_retained_on_epic": 366316,
+    "r08_retained_on_epic_frac": 0.9333
+  },
+  "model_probe_coverage_on_epic": {
+    "M1_keap1_full": {
+      "n_selected": 5000,
+      "n_selected_on_epic_manifest": 4698,
+      "n_selected_in_deposit": 4687,
+      "n_active_nonzero_coef": 15,
+      "n_active_on_epic_manifest": 15,
+      "n_active_in_deposit": 15,
+      "frac_active_recovered": 1.0
+    },
+    "M1_keap1_overlap": {
+      "n_selected": 5000,
+      "n_selected_on_epic_manifest": 5000,
+      "n_selected_in_deposit": 4989,
+      "n_active_nonzero_coef": 15,
+      "n_active_on_epic_manifest": 15,
+      "n_active_in_deposit": 15,
+      "frac_active_recovered": 1.0
+    },
+    "PC_sex_overlap": {
+      "n_selected": 5000,
+      "n_selected_on_epic_manifest": 5000,
+      "n_selected_in_deposit": 4981,
+      "n_active_nonzero_coef": 176,
+      "n_active_on_epic_manifest": 176,
+      "n_active_in_deposit": 174,
+      "frac_active_recovered": 0.9886
+    },
+    "active_probe_identity_check": {
+      "n_active_full_array_model": 15,
+      "n_active_overlap_model": 15,
+      "n_shared": 15,
+      "identical_active_sets": true,
+      "active_probes_full_model": [
+        "cg00230120",
+        "cg03248837",
+        "cg03331715",
+        "cg03585280",
+        "cg04018325",
+        "cg04909257",
+        "cg05089897",
+        "cg08869857",
+        "cg08911237",
+        "cg09489844",
+        "cg10880599",
+        "cg14420550",
+        "cg16659413",
+        "cg18756557",
+        "cg20372666"
+      ],
+      "interpretation": "the full-array model's active probes were all already on EPIC, so restricting the feature space to the manifest overlap costs the KEAP1 model nothing at the level that matters for transfer."
+    },
+    "M2_os_cox": {
+      "n_screened_probes": 500,
+      "n_in_deposit": 496,
+      "n_active_nonzero_coef": 500,
+      "n_active_on_epic_manifest": 500
+    }
+  },
+  "epic_deposit_contents": {
+    "n_samples": 81,
+    "processed_matrix": "GSE115246_series_matrix.txt.gz \u2014 865,859 probes x 81, submitter-processed betas, '!Sample_data_processing: minfi R package standard protocol.'",
+    "raw_idats": "NONE. GSE115246_RAW.tar contains only GPL21145_MethylationEPIC_15073387_v-1-0.csv.gz (the array manifest), so methylprep/IDAT processing is not possible and the submitters' betas are used, as documented.",
+    "signal_supplement": "GSE115246_methylated_unmethylated_signal_intensities.txt.gz \u2014 Unmethylated / Methylated signal + Detection Pval per sample (used here for QC and the orthogonal sex call)",
+    "sample_metadata_fields": {
+      "disease status": [
+        "disease status: non-small-cell lung cancer (NSCLC)"
+      ],
+      "tissue": [
+        "tissue: lung"
+      ],
+      "cohort": [
+        "cohort: discovery",
+        "cohort: validation"
+      ]
+    },
+    "cohort_split": {
+      "discovery": 34,
+      "validation": 47
+    },
+    "gsm_range": [
+      "GSM3172590",
+      "GSM3172676"
+    ],
+    "gsm_gap_note": "GSM3172618-GSM3172623 are absent from this series (the accession block is not contiguous); 81 samples are present, matching the inventory count.",
+    "pubmed": "30100403"
+  },
+  "endpoint_verdicts": {
+    "E1_response_auroc": {
+      "status": "NOT TESTABLE",
+      "reason": "the deposit carries no responder/non-responder field. The only sample-level characteristics are 'disease status' (constant), 'tissue' (constant) and 'cohort' (discovery/validation). Verified against the series matrix and independently against the live GEO record for GSM3172590. The response data behind this series exist only in the paywalled Lancet Respir Med supplementary appendix (PMID 30100403), not in the deposit and not in the corpus.",
+      "corrects": "the corpus inventory row 'GSE115246 | 81 EPIC anti-PD-1 responder/non-responder' overstates what was deposited: the arrays are there, the response labels are not.",
+      "what_would_unblock_it": "a per-sample table mapping EPIMMUNE ids (or 'discovery/validation cohort patient N') to RECIST best overall response. Every model, gate and permutation harness here runs against it unchanged."
+    },
+    "E2_survival": {
+      "status": "NOT TESTABLE",
+      "reason": "no PFS, OS, event or follow-up field is deposited, so the TCGA OS Cox head cannot be validated here. Its score IS computed on all 81 samples and its distribution reported, so the transfer itself is demonstrated even though the association is not testable.",
+      "tcga_internal_cv_cindex": 0.6023496170719013,
+      "tcga_internal_cv_ci95": [
+        0.5496902467552162,
+        0.6530427139645322
+      ]
+    },
+    "E3_measured_power": "REPORTED \u2014 see measured_power_at_n81"
+  },
+  "sex_transfer_positive_control": {
+    "ground_truth_source": "minfi getSex logic (median log2 total intensity of chrX vs chrY probes) computed from the deposited signal supplement \u2014 orthogonal to the beta-value classifier",
+    "n_male_minfi": 62,
+    "n_female_minfi": 19,
+    "minfi_cutoff": -2.0,
+    "bimodality_largest_gap": 0.942721915428641,
+    "two_means_threshold": -1.719796563795644,
+    "n_male_two_means": 60,
+    "minfi_vs_two_means_agreement": 0.9753086419753086,
+    "chrY_minus_chrX_log2_deciles": [
+      -5.475845947822879,
+      -3.7396970998364907,
+      -3.0252915223416883,
+      -0.7814005476230843,
+      0.03482380203440627,
+      0.17415367691544859,
+      0.30380046747573,
+      0.3587464683637407,
+      0.428148399035722,
+      0.566358539148883,
+      1.0762195322718835
+    ],
+    "caveat": "the minfi cutoff (-2.0) and the 2-means split disagree on 2 of 81 samples. Sex is inferred here, not deposited, so the cutoff-free Spearman correlation between the model's linear predictor and the raw chrY-minus-chrX contrast is also reported \u2014 it does not depend on where the threshold is drawn. Its magnitude is much lower than the AUROC because the contrast carries little within-sex information and the logistic linear predictor saturates; the binary agreement is the meaningful read of this control.",
+    "results": {
+      "T1_naive|minfi_cutoff": {
+        "auroc": 0.9889643463497454,
+        "ci95": [
+          0.9626654411764705,
+          1.0
+        ],
+        "n": 81,
+        "positives": 62,
+        "perm_null_mean": 0.49910950764006795,
+        "perm_null_sd": 0.07639530540901816,
+        "perm_null_p95": 0.6298811544991512,
+        "perm_p_one_sided": 0.000999000999000999,
+        "perm_p_two_sided": 0.000999000999000999,
+        "n_permutations": 1000,
+        "se_from_bootstrap": 0.009524122148859577,
+        "min_detectable_auroc_80pct_power": 0.5266826398277473
+      },
+      "T1_naive|data_driven": {
+        "auroc": 0.988095238095238,
+        "ci95": [
+          0.9561332767402377,
+          1.0
+        ],
+        "n": 81,
+        "positives": 60,
+        "perm_null_mean": 0.4991214285714286,
+        "perm_null_sd": 0.0746420767830064,
+        "perm_null_p95": 0.6270238095238094,
+        "perm_p_one_sided": 0.000999000999000999,
+        "perm_p_two_sided": 0.000999000999000999,
+        "n_permutations": 1000,
+        "se_from_bootstrap": 0.011190490627490373,
+        "min_detectable_auroc_80pct_power": 0.5313511131254087
+      },
+      "T2_cohort_z|minfi_cutoff": {
+        "auroc": 0.9889643463497454,
+        "ci95": [
+          0.9626654411764706,
+          1.0
+        ],
+        "n": 81,
+        "positives": 62,
+        "perm_null_mean": 0.49917911714770796,
+        "perm_null_sd": 0.07639522670130998,
+        "perm_null_p95": 0.6282258064516129,
+        "perm_p_one_sided": 0.000999000999000999,
+        "perm_p_two_sided": 0.000999000999000999,
+        "n_permutations": 1000,
+        "se_from_bootstrap": 0.00952412214885955,
+        "min_detectable_auroc_80pct_power": 0.5266826398277472
+      },
+      "T2_cohort_z|data_driven": {
+        "auroc": 0.9888888888888888,
+        "ci95": [
+          0.9590537119453045,
+          1.0
+        ],
+        "n": 81,
+        "positives": 60,
+        "perm_null_mean": 0.4992015873015873,
+        "perm_null_sd": 0.07464678716774835,
+        "perm_null_p95": 0.6261904761904762,
+        "perm_p_one_sided": 0.000999000999000999,
+        "perm_p_two_sided": 0.000999000999000999,
+        "n_permutations": 1000,
+        "se_from_bootstrap": 0.010445481646605987,
+        "min_detectable_auroc_80pct_power": 0.5292639069772016
+      },
+      "T1_naive|continuous_spearman": {
+        "spearman_rho": 0.4421409214092141,
+        "p": 3.588215841078675e-05,
+        "n": 81
+      },
+      "T2_cohort_z|continuous_spearman": {
+        "spearman_rho": 0.43981481481481477,
+        "p": 3.986774288905771e-05,
+        "n": 81
+      }
+    }
+  },
+  "keap1_phenotype_on_epic": {
+    "M1_keap1_full|T1_naive": {
+      "n_scored": 81,
+      "prob_mean": 0.32657566041223063,
+      "prob_sd": 0.12662368374340655,
+      "prob_min": 0.17318364713761553,
+      "prob_max": 0.6974633677322767,
+      "predicted_keap1_prevalence_at_0.5": 0.09876543209876543,
+      "tcga_observed_prevalence": 0.17834394904458598,
+      "batch_check_cohort_membership": {
+        "auroc": 0.5225281602002504,
+        "ci95": [
+          0.38957475994513036,
+          0.6510503685503685
+        ],
+        "n": 81,
+        "positives": 47,
+        "perm_null_mean": 0.4966113892365457,
+        "perm_null_sd": 0.0675164991354098,
+        "perm_null_p95": 0.6089799749687108,
+        "perm_p_one_sided": 0.3436563436563437,
+        "perm_p_two_sided": 0.7312687312687313,
+        "n_permutations": 1000,
+        "se_from_bootstrap": 0.06670296137888727,
+        "min_detectable_auroc_80pct_power": 0.6868740306034509
+      }
+    },
+    "M1_keap1_full|T2_cohort_z": {
+      "n_scored": 81,
+      "prob_mean": 0.22521535605391516,
+      "prob_sd": 0.12125215262048249,
+      "prob_min": 0.09547492708954514,
+      "prob_max": 0.6236725072933283,
+      "predicted_keap1_prevalence_at_0.5": 0.08641975308641975,
+      "tcga_observed_prevalence": 0.17834394904458598,
+      "batch_check_cohort_membership": {
+        "auroc": 0.5175219023779725,
+        "ci95": [
+          0.38569051069051075,
+          0.6455831421648066
+        ],
+        "n": 81,
+        "positives": 47,
+        "perm_null_mean": 0.49641614518147686,
+        "perm_null_sd": 0.06780480378590553,
+        "perm_null_p95": 0.6076345431789736,
+        "perm_p_one_sided": 0.3756243756243756,
+        "perm_p_two_sided": 0.7882117882117882,
+        "n_permutations": 1000,
+        "se_from_bootstrap": 0.06629914068221833,
+        "min_detectable_auroc_80pct_power": 0.685742692508895
+      }
+    },
+    "M1_keap1_overlap|T1_naive": {
+      "n_scored": 81,
+      "prob_mean": 0.32659940022091793,
+      "prob_sd": 0.12662172471207767,
+      "prob_min": 0.17317761801211484,
+      "prob_max": 0.6974688231721835,
+      "predicted_keap1_prevalence_at_0.5": 0.09876543209876543,
+      "tcga_observed_prevalence": 0.17834394904458598,
+      "batch_check_cohort_membership": {
+        "auroc": 0.5225281602002504,
+        "ci95": [
+          0.38957475994513036,
+          0.6510503685503685
+        ],
+        "n": 81,
+        "positives": 47,
+        "perm_null_mean": 0.4966113892365457,
+        "perm_null_sd": 0.0675164991354098,
+        "perm_null_p95": 0.6089799749687108,
+        "perm_p_one_sided": 0.3436563436563437,
+        "perm_p_two_sided": 0.7312687312687313,
+        "n_permutations": 1000,
+        "se_from_bootstrap": 0.06670296137888727,
+        "min_detectable_auroc_80pct_power": 0.6868740306034509
+      }
+    },
+    "M1_keap1_overlap|T2_cohort_z": {
+      "n_scored": 81,
+      "prob_mean": 0.2252291742566709,
+      "prob_sd": 0.12124717452922239,
+      "prob_min": 0.09547424832053256,
+      "prob_max": 0.6236588867233493,
+      "predicted_keap1_prevalence_at_0.5": 0.08641975308641975,
+      "tcga_observed_prevalence": 0.17834394904458598,
+      "batch_check_cohort_membership": {
+        "auroc": 0.5168961201501877,
+        "ci95": [
+          0.3833918333918334,
+          0.6449691168441168
+        ],
+        "n": 81,
+        "positives": 47,
+        "perm_null_mean": 0.49643366708385483,
+        "perm_null_sd": 0.06782871550884949,
+        "perm_null_p95": 0.6070400500625782,
+        "perm_p_one_sided": 0.3806193806193806,
+        "perm_p_two_sided": 0.7992007992007992,
+        "n_permutations": 1000,
+        "se_from_bootstrap": 0.06672889883986823,
+        "min_detectable_auroc_80pct_power": 0.6869466966107305
+      }
+    }
+  },
+  "os_cox_score_on_epic": {
+    "T1_naive": {
+      "mean": 3.4807879481634476,
+      "sd": 1.9279150327339973
+    },
+    "T2_cohort_z": {
+      "mean": 3.1250722174634037e-16,
+      "sd": 1.6256787809498232
+    }
+  },
+  "cross_array_mismatch": {
+    "n_probes_compared": 365072,
+    "pearson_r_probe_means": 0.9771872396708232,
+    "mean_beta_tcga_450k": 0.48264389735496627,
+    "mean_beta_epic_deposit": 0.466576718351759,
+    "mean_abs_per_probe_shift": 0.06349684841649102,
+    "note": "TCGA betas are GDC 450k pipeline betas; the deposit supplies the submitters' own minfi-processed EPIC betas. This shift is why T2_cohort_z (label-free per-probe re-centring in the target cohort) is the pre-declared primary transfer and T1_naive is reported only to quantify the raw offset."
+  },
+  "measured_power_at_n81": {
+    "n_usable": 81,
+    "note": "computed against the REALISED score vector, so it is this cohort's actual resolving power, not a textbook approximation. perm_null_p95 is the AUROC a study of this size must exceed for one-sided p<0.05; mde_80pct_power is the true AUROC needed for an 80% chance of exceeding it.",
+    "responders_16_of_81": {
+      "responder_fraction": 0.1975,
+      "perm_null_mean": 0.5015192307692307,
+      "perm_null_sd": 0.08138770533613573,
+      "perm_null_p95": 0.6385576923076923,
+      "mde_auroc_80pct_power": 0.6997304852119931,
+      "hanley_mcneil_se_at_null": 0.08105869984469787
+    },
+    "responders_20_of_81": {
+      "responder_fraction": 0.2469,
+      "perm_null_mean": 0.5022745901639344,
+      "perm_null_sd": 0.07590255272881011,
+      "perm_null_p95": 0.6246311475409836,
+      "mde_auroc_80pct_power": 0.6843748941697334,
+      "hanley_mcneil_se_at_null": 0.07484044959896262
+    },
+    "responders_24_of_81": {
+      "responder_fraction": 0.2963,
+      "perm_null_mean": 0.49687573099415205,
+      "perm_null_sd": 0.06982059915278951,
+      "perm_null_p95": 0.6111476608187134,
+      "mde_auroc_80pct_power": 0.6738951824856144,
+      "hanley_mcneil_se_at_null": 0.07067621032322702
+    },
+    "responders_28_of_81": {
+      "responder_fraction": 0.3457,
+      "perm_null_mean": 0.49864083557951483,
+      "perm_null_sd": 0.06774805640997328,
+      "perm_null_p95": 0.6219676549865228,
+      "mde_auroc_80pct_power": 0.6666464285328615,
+      "hanley_mcneil_se_at_null": 0.06785773395496085
+    },
+    "responders_32_of_81": {
+      "responder_fraction": 0.3951,
+      "perm_null_mean": 0.5034432397959183,
+      "perm_null_sd": 0.0657586369359071,
+      "perm_null_p95": 0.6071428571428571,
+      "mde_auroc_80pct_power": 0.6617473658235229,
+      "hanley_mcneil_se_at_null": 0.06601509825243701
+    },
+    "responders_40_of_81": {
+      "responder_fraction": 0.4938,
+      "perm_null_mean": 0.5004274390243902,
+      "perm_null_sd": 0.06510492834684323,
+      "perm_null_p95": 0.6079268292682927,
+      "mde_auroc_80pct_power": 0.6572565931748559,
+      "hanley_mcneil_se_at_null": 0.06454972243679027
+    }
+  },
+  "per_sample": [
+    {
+      "gsm": "GSM3172590",
+      "epimmune_id": "EPIMMUNE36",
+      "title": "discovery cohort patient 1",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000402,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.73677,
+      "mean_beta_z": 1.292,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.2813,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172591",
+      "epimmune_id": "EPIMMUNE62",
+      "title": "discovery cohort patient 2",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.48521,
+      "mean_beta_z": -2.462,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -1.2383,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172592",
+      "epimmune_id": "EPIMMUNE1",
+      "title": "discovery cohort patient 3",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000201,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.64014,
+      "mean_beta_z": -0.15,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -4.2224,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172593",
+      "epimmune_id": "EPIMMUNE60",
+      "title": "discovery cohort patient 4",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.6441,
+      "mean_beta_z": -0.091,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3379,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172594",
+      "epimmune_id": "EPIMMUNE63",
+      "title": "discovery cohort patient 5",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.64068,
+      "mean_beta_z": -0.142,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.418,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172595",
+      "epimmune_id": "EPIMMUNE72",
+      "title": "discovery cohort patient 6",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.6299,
+      "mean_beta_z": -0.303,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.9134,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172596",
+      "epimmune_id": "EPIMMUNE88",
+      "title": "discovery cohort patient 7",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.69722,
+      "mean_beta_z": 0.702,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3931,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172597",
+      "epimmune_id": "EPIMMUNE94",
+      "title": "discovery cohort patient 8",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000703,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.5706,
+      "mean_beta_z": -1.188,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 1.0762,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172598",
+      "epimmune_id": "EPIMMUNE68",
+      "title": "discovery cohort patient 9",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000201,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.40308,
+      "mean_beta_z": -3.688,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -1.9486,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172599",
+      "epimmune_id": "EPIMMUNE71",
+      "title": "discovery cohort patient 10",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.5416,
+      "mean_beta_z": -1.621,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.7643,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172600",
+      "epimmune_id": "EPIMMUNE74",
+      "title": "discovery cohort patient 11",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.72795,
+      "mean_beta_z": 1.16,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.7523,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172601",
+      "epimmune_id": "EPIMMUNE64",
+      "title": "discovery cohort patient 12",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.71357,
+      "mean_beta_z": 0.946,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.86,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172602",
+      "epimmune_id": "EPIMMUNE66",
+      "title": "discovery cohort patient 13",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.55196,
+      "mean_beta_z": -1.466,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -0.5148,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172603",
+      "epimmune_id": "EPIMMUNE79",
+      "title": "discovery cohort patient 14",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000201,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.66755,
+      "mean_beta_z": 0.259,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.2373,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172604",
+      "epimmune_id": "EPIMMUNE80",
+      "title": "discovery cohort patient 15",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000502,
+      "model_probe_missing_frac": 0.0026,
+      "mean_beta": 0.66115,
+      "mean_beta_z": 0.163,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.5093,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172605",
+      "epimmune_id": "EPIMMUNE82",
+      "title": "discovery cohort patient 16",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000201,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.60513,
+      "mean_beta_z": -0.673,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.0531,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172606",
+      "epimmune_id": "EPIMMUNE83",
+      "title": "discovery cohort patient 17",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.53792,
+      "mean_beta_z": -1.676,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.7002,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172607",
+      "epimmune_id": "EPIMMUNE86",
+      "title": "discovery cohort patient 18",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000603,
+      "model_probe_missing_frac": 0.0026,
+      "mean_beta": 0.71357,
+      "mean_beta_z": 0.946,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.4281,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172608",
+      "epimmune_id": "EPIMMUNE73",
+      "title": "discovery cohort patient 19",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.67111,
+      "mean_beta_z": 0.312,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.5323,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172609",
+      "epimmune_id": "EPIMMUNE7",
+      "title": "discovery cohort patient 20",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.004319,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.59723,
+      "mean_beta_z": -0.791,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -0.445,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172610",
+      "epimmune_id": "EPIMMUNE65",
+      "title": "discovery cohort patient 21",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000201,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.57267,
+      "mean_beta_z": -1.157,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -0.0051,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172611",
+      "epimmune_id": "EPIMMUNE18",
+      "title": "discovery cohort patient 22",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.002712,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.62986,
+      "mean_beta_z": -0.304,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3587,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172612",
+      "epimmune_id": "EPIMMUNE37",
+      "title": "discovery cohort patient 23",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000402,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.59808,
+      "mean_beta_z": -0.778,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.0275,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172613",
+      "epimmune_id": "EPIMMUNE78",
+      "title": "discovery cohort patient 24",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000301,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.57147,
+      "mean_beta_z": -1.175,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -0.7814,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172614",
+      "epimmune_id": "EPIMMUNE93",
+      "title": "discovery cohort patient 25",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.001908,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.62998,
+      "mean_beta_z": -0.302,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -0.1383,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172615",
+      "epimmune_id": "EPIMMUNE38",
+      "title": "discovery cohort patient 26",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.004921,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.62939,
+      "mean_beta_z": -0.311,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -1.5055,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172616",
+      "epimmune_id": "EPIMMUNE90",
+      "title": "discovery cohort patient 27",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000201,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.68853,
+      "mean_beta_z": 0.572,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.7397,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172617",
+      "epimmune_id": "EPIMMUNE41",
+      "title": "discovery cohort patient 28",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.001707,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.70777,
+      "mean_beta_z": 0.859,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.2389,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172624",
+      "epimmune_id": "EPIMMUNE67",
+      "title": "discovery cohort patient 29",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.000703,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.65241,
+      "mean_beta_z": 0.033,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.1053,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172625",
+      "epimmune_id": "EPIMMUNE69",
+      "title": "discovery cohort patient 30",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.65846,
+      "mean_beta_z": 0.123,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -2.6594,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172626",
+      "epimmune_id": "EPIMMUNE76",
+      "title": "discovery cohort patient 31",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.74044,
+      "mean_beta_z": 1.347,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.4044,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172627",
+      "epimmune_id": "EPIMMUNE77",
+      "title": "discovery cohort patient 32",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.65457,
+      "mean_beta_z": 0.065,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.1742,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172628",
+      "epimmune_id": "EPIMMUNE40",
+      "title": "discovery cohort patient 33",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.001205,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.66878,
+      "mean_beta_z": 0.277,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.4015,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172629",
+      "epimmune_id": "EPIMMUNE45",
+      "title": "discovery cohort patient 34",
+      "cohort": "discovery",
+      "detp_fail_frac": 0.001707,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.68538,
+      "mean_beta_z": 0.525,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.2946,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172630",
+      "epimmune_id": "EPIMMUNE100",
+      "title": "validation cohort patient 1",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000703,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.67177,
+      "mean_beta_z": 0.322,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.0295,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172631",
+      "epimmune_id": "EPIMMUNE101",
+      "title": "validation cohort patient 2",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.68816,
+      "mean_beta_z": 0.566,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -1.0023,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172632",
+      "epimmune_id": "EPIMMUNE102",
+      "title": "validation cohort patient 3",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.67009,
+      "mean_beta_z": 0.297,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.0253,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172633",
+      "epimmune_id": "EPIMMUNE103",
+      "title": "validation cohort patient 4",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.65864,
+      "mean_beta_z": 0.126,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.305,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172634",
+      "epimmune_id": "EPIMMUNE104",
+      "title": "validation cohort patient 5",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.58587,
+      "mean_beta_z": -0.96,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.5845,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172635",
+      "epimmune_id": "EPIMMUNE105",
+      "title": "validation cohort patient 6",
+      "cohort": "validation",
+      "detp_fail_frac": 0.002511,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.72574,
+      "mean_beta_z": 1.127,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.8187,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172636",
+      "epimmune_id": "EPIMMUNE106",
+      "title": "validation cohort patient 7",
+      "cohort": "validation",
+      "detp_fail_frac": 0.006327,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.65347,
+      "mean_beta_z": 0.049,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3206,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172637",
+      "epimmune_id": "EPIMMUNE107",
+      "title": "validation cohort patient 8",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000703,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.42764,
+      "mean_beta_z": -3.322,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.0451,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172638",
+      "epimmune_id": "EPIMMUNE108",
+      "title": "validation cohort patient 9",
+      "cohort": "validation",
+      "detp_fail_frac": 0.010344,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.62107,
+      "mean_beta_z": -0.435,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3648,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172639",
+      "epimmune_id": "EPIMMUNE109",
+      "title": "validation cohort patient 10",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.59266,
+      "mean_beta_z": -0.859,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -4.2879,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172640",
+      "epimmune_id": "EPIMMUNE110",
+      "title": "validation cohort patient 11",
+      "cohort": "validation",
+      "detp_fail_frac": 0.007332,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.68586,
+      "mean_beta_z": 0.532,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.6508,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172641",
+      "epimmune_id": "EPIMMUNE111",
+      "title": "validation cohort patient 12",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.63831,
+      "mean_beta_z": -0.178,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.4971,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172642",
+      "epimmune_id": "EPIMMUNE112",
+      "title": "validation cohort patient 13",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000201,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.68695,
+      "mean_beta_z": 0.548,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3528,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172643",
+      "epimmune_id": "EPIMMUNE113",
+      "title": "validation cohort patient 14",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.73935,
+      "mean_beta_z": 1.33,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3073,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172644",
+      "epimmune_id": "EPIMMUNE114",
+      "title": "validation cohort patient 15",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.69021,
+      "mean_beta_z": 0.597,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3376,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172645",
+      "epimmune_id": "EPIMMUNE115",
+      "title": "validation cohort patient 16",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.70016,
+      "mean_beta_z": 0.745,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.2806,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172646",
+      "epimmune_id": "EPIMMUNE116",
+      "title": "validation cohort patient 17",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.68068,
+      "mean_beta_z": 0.455,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.0602,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172647",
+      "epimmune_id": "EPIMMUNE117",
+      "title": "validation cohort patient 18",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000201,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.74749,
+      "mean_beta_z": 1.452,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -5.4758,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172648",
+      "epimmune_id": "EPIMMUNE118",
+      "title": "validation cohort patient 19",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000301,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.51452,
+      "mean_beta_z": -2.025,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.8759,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172649",
+      "epimmune_id": "EPIMMUNE119",
+      "title": "validation cohort patient 20",
+      "cohort": "validation",
+      "detp_fail_frac": 0.00221,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.69626,
+      "mean_beta_z": 0.687,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.0539,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172650",
+      "epimmune_id": "EPIMMUNE120",
+      "title": "validation cohort patient 21",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.68917,
+      "mean_beta_z": 0.581,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.2809,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172651",
+      "epimmune_id": "EPIMMUNE121",
+      "title": "validation cohort patient 22",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.69301,
+      "mean_beta_z": 0.639,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -5.3173,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172652",
+      "epimmune_id": "EPIMMUNE122",
+      "title": "validation cohort patient 23",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.65769,
+      "mean_beta_z": 0.112,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.0483,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172653",
+      "epimmune_id": "EPIMMUNE123",
+      "title": "validation cohort patient 24",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.62696,
+      "mean_beta_z": -0.347,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.2964,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172654",
+      "epimmune_id": "EPIMMUNE124",
+      "title": "validation cohort patient 25",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.78973,
+      "mean_beta_z": 2.082,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.1261,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172655",
+      "epimmune_id": "EPIMMUNE125",
+      "title": "validation cohort patient 26",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.7475,
+      "mean_beta_z": 1.452,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -5.2952,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172656",
+      "epimmune_id": "EPIMMUNE126",
+      "title": "validation cohort patient 27",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.67089,
+      "mean_beta_z": 0.309,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.0348,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172657",
+      "epimmune_id": "EPIMMUNE127",
+      "title": "validation cohort patient 28",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.71408,
+      "mean_beta_z": 0.953,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.5577,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172658",
+      "epimmune_id": "EPIMMUNE128",
+      "title": "validation cohort patient 29",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.64917,
+      "mean_beta_z": -0.015,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.33,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172659",
+      "epimmune_id": "EPIMMUNE129",
+      "title": "validation cohort patient 30",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.65334,
+      "mean_beta_z": 0.047,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -5.2306,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172660",
+      "epimmune_id": "EPIMMUNE130",
+      "title": "validation cohort patient 31",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.66905,
+      "mean_beta_z": 0.281,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.2191,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172661",
+      "epimmune_id": "EPIMMUNE131",
+      "title": "validation cohort patient 32",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000803,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.64689,
+      "mean_beta_z": -0.05,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3813,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172662",
+      "epimmune_id": "EPIMMUNE132",
+      "title": "validation cohort patient 33",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000603,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.71335,
+      "mean_beta_z": 0.942,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3642,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172663",
+      "epimmune_id": "EPIMMUNE133",
+      "title": "validation cohort patient 34",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0001,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.63737,
+      "mean_beta_z": -0.192,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3038,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172664",
+      "epimmune_id": "EPIMMUNE134",
+      "title": "validation cohort patient 35",
+      "cohort": "validation",
+      "detp_fail_frac": 0.001004,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.61578,
+      "mean_beta_z": -0.514,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.4287,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172665",
+      "epimmune_id": "EPIMMUNE135",
+      "title": "validation cohort patient 36",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000301,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.5879,
+      "mean_beta_z": -0.93,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -0.1018,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172666",
+      "epimmune_id": "EPIMMUNE136",
+      "title": "validation cohort patient 37",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.59835,
+      "mean_beta_z": -0.774,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.5614,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172667",
+      "epimmune_id": "EPIMMUNE137",
+      "title": "validation cohort patient 38",
+      "cohort": "validation",
+      "detp_fail_frac": 0.0,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.64434,
+      "mean_beta_z": -0.088,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.3674,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172668",
+      "epimmune_id": "EPIMMUNE138",
+      "title": "validation cohort patient 39",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000201,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.71238,
+      "mean_beta_z": 0.928,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.5381,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172669",
+      "epimmune_id": "EPIMMUNE139",
+      "title": "validation cohort patient 40",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000402,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.65389,
+      "mean_beta_z": 0.055,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.3078,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172670",
+      "epimmune_id": "EPIMMUNE140",
+      "title": "validation cohort patient 41",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000201,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.71541,
+      "mean_beta_z": 0.973,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.0123,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172671",
+      "epimmune_id": "EPIMMUNE141",
+      "title": "validation cohort patient 42",
+      "cohort": "validation",
+      "detp_fail_frac": 0.039972,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.64004,
+      "mean_beta_z": -0.152,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.5664,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172672",
+      "epimmune_id": "EPIMMUNE142",
+      "title": "validation cohort patient 43",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000301,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.69238,
+      "mean_beta_z": 0.629,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.4608,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172673",
+      "epimmune_id": "EPIMMUNE143",
+      "title": "validation cohort patient 44",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000402,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.69284,
+      "mean_beta_z": 0.636,
+      "sex_call_intensity": "F",
+      "chrY_minus_chrX_log2": -3.3059,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172674",
+      "epimmune_id": "EPIMMUNE144",
+      "title": "validation cohort patient 45",
+      "cohort": "validation",
+      "detp_fail_frac": 0.000402,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.64049,
+      "mean_beta_z": -0.145,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.0859,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172675",
+      "epimmune_id": "EPIMMUNE145",
+      "title": "validation cohort patient 46",
+      "cohort": "validation",
+      "detp_fail_frac": 0.002611,
+      "model_probe_missing_frac": 0.0024,
+      "mean_beta": 0.67627,
+      "mean_beta_z": 0.389,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": 0.5471,
+      "used": true,
+      "exclusion_reasons": []
+    },
+    {
+      "gsm": "GSM3172676",
+      "epimmune_id": "EPIMMUNE146",
+      "title": "validation cohort patient 47",
+      "cohort": "validation",
+      "detp_fail_frac": 0.017375,
+      "model_probe_missing_frac": 0.0022,
+      "mean_beta": 0.63966,
+      "mean_beta_z": -0.157,
+      "sex_call_intensity": "M",
+      "chrY_minus_chrX_log2": -1.8261,
+      "used": true,
+      "exclusion_reasons": []
+    }
+  ],
+  "_decision": {
+    "r10_reproduced": true,
+    "cross_array_transfer_demonstrated": true,
+    "response_endpoint": "NOT TESTABLE \u2014 no labels in the deposit",
+    "verdict": "Cross-array 450k->EPIC transfer is PROVEN on this cohort by an orthogonal positive control, and the R10 model reproduces bit-exactly upstream. The pre-declared response endpoint cannot be evaluated because the deposit contains arrays without outcomes. The measured power statement is delivered anyway: at n=81 this cohort could only ever have detected a large effect, so even with labels the pre-declared honest-inconclusive was the likely outcome.",
+    "prespecified_in_config_sha256": "5d3d9d15a85d6917f97f630f88cf9b9adea9f0763b7a2803fdb8812c679e172d"
+  }
+}

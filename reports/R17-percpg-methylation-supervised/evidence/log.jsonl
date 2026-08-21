@@ -1,0 +1,21 @@
+{"t": "2026-08-17T00:20:58Z", "event": "config_written", "sha256": "4779152747f14818e8f1279733a0fe2dd9209dfcbef8eb8662890f6f5b016a42"}
+{"t": "2026-08-17T00:20:58Z", "event": "gate", "gate": "G0_cohort", "expected": 760, "observed": 760, "result": "PASS"}
+{"t": "2026-08-17T00:20:58Z", "event": "gate", "gate": "G0b_same_order", "expected": "both arms cover the same patients in the same order", "observed": true, "result": "PASS"}
+{"t": "2026-08-17T00:20:58Z", "event": "gate", "gate": "G1_folds_nest", "expected": "MIL fold_of == GroupKFold(5) by site, and identical across both arms", "observed": {"meth_matches_groupkfold": true, "arms_identical": true}, "result": "PASS"}
+{"t": "2026-08-17T00:20:58Z", "event": "gate", "gate": "G2_sites_disjoint", "expected": "train/test sites disjoint in every fold", "observed": "verified", "result": "PASS"}
+{"t": "2026-08-17T00:21:05Z", "event": "gate", "gate": "G3_probes", "expected": 399579, "observed": 399579, "result": "PASS"}
+{"t": "2026-08-17T00:22:03Z", "event": "gate", "gate": "G4_reproduces_m13", "expected": "vectorised Spearman reproduces m13's per-CpG vectors, r > 0.999", "observed": {"subtype_embedding_r": 1.0, "subtype_label_r": 1.0}, "result": "PASS"}
+{"t": "2026-08-17T00:22:03Z", "event": "gate", "gate": "G5_spearman_exact", "expected": "max abs deviation from scipy spearmanr < 1e-5", "observed": 2.1e-08, "result": "PASS"}
+{"t": "2026-08-17T00:24:31Z", "event": "gate", "gate": "G6_finite_meth", "expected": "no NaN/inf in the rho vector", "observed": 0, "result": "PASS"}
+{"t": "2026-08-17T00:24:31Z", "event": "gate", "gate": "G6_finite_sub", "expected": "no NaN/inf in the rho vector", "observed": 0, "result": "PASS"}
+{"t": "2026-08-17T00:24:31Z", "event": "gate", "gate": "G6_finite_sublabel", "expected": "no NaN/inf in the rho vector", "observed": 0, "result": "PASS"}
+{"t": "2026-08-17T00:24:31Z", "event": "gate", "gate": "G6_finite_globalmean", "expected": "no NaN/inf in the rho vector", "observed": 0, "result": "PASS"}
+{"t": "2026-08-17T00:24:31Z", "event": "gate", "gate": "G6_finite_null", "expected": "no NaN/inf in the rho vector", "observed": 0, "result": "PASS"}
+{"t": "2026-08-17T00:24:31Z", "event": "gate", "gate": "G7_null_centred", "expected": "single-permutation null median near zero", "observed": -0.0071, "result": "PASS"}
+{"t": "2026-08-17T00:24:31Z", "event": "null_thresholds", "single_perm_p95": 0.05763, "m13_two_perm_p95": 0.05953, "single_perm_median": -0.00711, "m13_style_median": 0.00213}
+{"t": "2026-08-17T00:24:31Z", "event": "HEADLINE_per_cpg", "threshold": 0.05763, "n_above_meth": 83369, "n_above_sub": 90137, "n_above_sublabel": 206412, "n_above_globalmean": 298320, "frac_meth": 0.2086, "frac_sub": 0.2256, "frac_sublabel": 0.5166, "frac_globalmean": 0.7466, "median_rho_meth": 0.0073, "median_rho_sub": 0.0057, "max_rho_meth": 0.3501}
+{"t": "2026-08-17T00:24:31Z", "event": "gate", "gate": "G8_reproduces_m13_counts", "expected": "m13's published counts recovered on m13's own null threshold (110212, 220925), within 1%", "observed": {"subtype_emb": 110212, "subtype_label": 220925, "thr": 0.04605}, "result": "PASS"}
+{"t": "2026-08-17T00:24:32Z", "event": "context", "arm": "A_meth", "Island": 1.116, "N_Shore": 0.986, "S_Shore": 0.99, "N_Shelf": 0.908, "S_Shelf": 0.904, "OpenSea": 0.918}
+{"t": "2026-08-17T00:24:32Z", "event": "context", "arm": "A_sub", "Island": 0.989, "N_Shore": 0.99, "S_Shore": 1.0, "N_Shelf": 0.974, "S_Shelf": 0.98, "OpenSea": 1.021}
+{"t": "2026-08-17T00:24:32Z", "event": "context_spread", "note": "m13/Arm-1 was flat at 0.97-1.01 (spread 0.04); R10 from the assay itself was structured (Island 0.54, OpenSea 1.44, spread 0.90)", "A_meth": 0.212, "A_sub": 0.047}
+{"t": "2026-08-17T00:24:32Z", "event": "VERDICT", "primary": "ARM1_NEGATIVE_ROBUST_TO_SUPERVISION", "secondary": "GLOBAL_AXIS_ONLY"}

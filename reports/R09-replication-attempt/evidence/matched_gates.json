@@ -1,0 +1,59 @@
+[
+  {
+    "gate": "G_setting_bm_nsclc_mskcc_2023",
+    "expected": "median OS nearer R06's 28.8mo than TCGA's 50.3mo",
+    "observed": 29.7,
+    "result": "PASS",
+    "note": "the gate that rejected the first R10 candidate at 93.8mo",
+    "t": "2026-08-07T13:26:16Z"
+  },
+  {
+    "gate": "G_setting_lung_msk_pdx",
+    "expected": "median OS nearer R06's 28.8mo than TCGA's 50.3mo",
+    "observed": 24.7,
+    "result": "PASS",
+    "note": "the gate that rejected the first R10 candidate at 93.8mo",
+    "t": "2026-08-07T13:26:18Z"
+  },
+  {
+    "gate": "G0_pooled_events",
+    "expected": 231,
+    "observed": 231,
+    "result": "PASS",
+    "note": "R06's failed replication cohort had 45",
+    "t": "2026-08-07T13:26:18Z"
+  },
+  {
+    "gate": "G1_cohorts",
+    "expected": 2,
+    "observed": 2,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:26:18Z"
+  },
+  {
+    "gate": "G2_no_overlap_remains",
+    "expected": 0,
+    "observed": 0,
+    "result": "PASS",
+    "note": "no R06 patient survives into the pooled frame",
+    "t": "2026-08-07T13:26:18Z"
+  },
+  {
+    "gate": "G3_positive_controls",
+    "expected": "TP53 or STK11 at q<0.05 in the pooled analysis",
+    "observed": {
+      "TP53": {
+        "hr": 1.136,
+        "q": 0.57771
+      },
+      "STK11": {
+        "hr": 0.852,
+        "q": 0.57771
+      }
+    },
+    "result": "FAIL",
+    "note": "STK11 is load-bearing per the pre-run power note",
+    "t": "2026-08-07T13:26:18Z"
+  }
+]

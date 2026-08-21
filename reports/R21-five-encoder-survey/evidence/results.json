@@ -1,0 +1,315 @@
+{
+  "status": "peer-review audit copy",
+  "VERDICT": {
+    "subtype": "SUBTYPE_LEAKAGE_UNIVERSAL",
+    "methylation": "METHYLATION_LEAKAGE_IS_A_PROPERTY_OF_HISTOLOGY_PRETRAINING",
+    "corrects_R18": "R18 secondary verdict attributed methylation leakage to Phikon-v2; four histology encoders show it and only the natural-image encoder does not",
+    "rules_reused_from": "R18 config 143b3b9d0a92fabb..., pre-declared"
+  },
+  "encoders": {
+    "tcga": {
+      "encoder": "owkin/phikon-v2",
+      "corpus": "histology",
+      "n_patients": 760,
+      "subtype_grouped": 0.7992338341090356,
+      "subtype_random": 0.9702535046158355,
+      "subtype_inflation": 0.1710196705067999,
+      "subtype_relative_inflation": 0.8518351174753231,
+      "keap1_grouped": 0.6642097579825679,
+      "keap1_random": 0.6659987691603098,
+      "keap1_inflation": 0.0017890111777418838,
+      "meth_mean_grouped": 0.2856114891582496,
+      "meth_mean_random": 0.3705438056141845,
+      "meth_mean_inflation": 0.08493231645593491,
+      "meth_targets_inflated": 6,
+      "meth_per_target": {
+        "keap1_sig": {
+          "grouped_rho": 0.31724838968138613,
+          "random_rho": 0.39271651858997786,
+          "inflation": 0.07546812890859173
+        },
+        "global": {
+          "grouped_rho": 0.2896952456817382,
+          "random_rho": 0.36797825772587994,
+          "inflation": 0.07828301204414173
+        },
+        "island": {
+          "grouped_rho": 0.21822859075149662,
+          "random_rho": 0.3358321621966651,
+          "inflation": 0.1176035714451685
+        },
+        "opensea": {
+          "grouped_rho": 0.2867928040770591,
+          "random_rho": 0.3478305974614878,
+          "inflation": 0.06103779338442872
+        },
+        "tss200": {
+          "grouped_rho": 0.3028776201591689,
+          "random_rho": 0.42122834991786784,
+          "inflation": 0.11835072975869892
+        },
+        "body": {
+          "grouped_rho": 0.29882628459864846,
+          "random_rho": 0.3576769477932286,
+          "inflation": 0.058850663194580155
+        }
+      },
+      "subtype_verdict": "LEAKAGE_PRESENT",
+      "meth_verdict": "METHYLATION_LEAKAGE_PRESENT"
+    },
+    "dinov2-large": {
+      "encoder": "facebook/dinov2-large",
+      "corpus": "natural images",
+      "n_patients": 760,
+      "subtype_grouped": 0.7355890336401253,
+      "subtype_random": 0.9390137533057477,
+      "subtype_inflation": 0.20342471966562237,
+      "subtype_relative_inflation": 0.7693505396775131,
+      "keap1_grouped": 0.5595311359505374,
+      "keap1_random": 0.5796968699460434,
+      "keap1_inflation": 0.02016573399550603,
+      "meth_mean_grouped": 0.16579221643571515,
+      "meth_mean_random": 0.1661673218744638,
+      "meth_mean_inflation": 0.000375105438748663,
+      "meth_targets_inflated": 3,
+      "meth_per_target": {
+        "keap1_sig": {
+          "grouped_rho": 0.21393314119493392,
+          "random_rho": 0.19818212981670674,
+          "inflation": -0.01575101137822718
+        },
+        "global": {
+          "grouped_rho": 0.17482216992466365,
+          "random_rho": 0.16034235552784254,
+          "inflation": -0.014479814396821111
+        },
+        "island": {
+          "grouped_rho": 0.08131139241475213,
+          "random_rho": 0.12307538803327496,
+          "inflation": 0.04176399561852283
+        },
+        "opensea": {
+          "grouped_rho": 0.17195152054589685,
+          "random_rho": 0.17225006130186296,
+          "inflation": 0.00029854075596610907
+        },
+        "tss200": {
+          "grouped_rho": 0.18546275183994432,
+          "random_rho": 0.19027600736661138,
+          "inflation": 0.00481325552666706
+        },
+        "body": {
+          "grouped_rho": 0.16727232269410003,
+          "random_rho": 0.15287798920048432,
+          "inflation": -0.014394333493615713
+        }
+      },
+      "subtype_verdict": "LEAKAGE_PRESENT",
+      "meth_verdict": "METHYLATION_LEAKAGE_ABSENT"
+    },
+    "uni-tcga": {
+      "encoder": "MahmoodLab/UNI",
+      "corpus": "histology",
+      "n_patients": 760,
+      "subtype_grouped": 0.9328418614063122,
+      "subtype_random": 0.974154112384953,
+      "subtype_inflation": 0.041312250978640774,
+      "subtype_relative_inflation": 0.6151488389007214,
+      "keap1_grouped": 0.6175809706459046,
+      "keap1_random": 0.6449456856206437,
+      "keap1_inflation": 0.027364714974739135,
+      "meth_mean_grouped": 0.3164994271658693,
+      "meth_mean_random": 0.37709985191875517,
+      "meth_mean_inflation": 0.06060042475288585,
+      "meth_targets_inflated": 6,
+      "meth_per_target": {
+        "keap1_sig": {
+          "grouped_rho": 0.3323897721429573,
+          "random_rho": 0.4127934322673871,
+          "inflation": 0.08040366012442979
+        },
+        "global": {
+          "grouped_rho": 0.3258868267832145,
+          "random_rho": 0.38447052275659105,
+          "inflation": 0.05858369597337654
+        },
+        "island": {
+          "grouped_rho": 0.2820647560896601,
+          "random_rho": 0.33529713429850855,
+          "inflation": 0.05323237820884846
+        },
+        "opensea": {
+          "grouped_rho": 0.2882819267893105,
+          "random_rho": 0.34553461375179156,
+          "inflation": 0.057252686962481036
+        },
+        "tss200": {
+          "grouped_rho": 0.3486653962533285,
+          "random_rho": 0.4082897340633609,
+          "inflation": 0.0596243378100324
+        },
+        "body": {
+          "grouped_rho": 0.32170788493674496,
+          "random_rho": 0.37621367437489184,
+          "inflation": 0.05450578943814688
+        }
+      },
+      "subtype_verdict": "LEAKAGE_PRESENT",
+      "meth_verdict": "METHYLATION_LEAKAGE_PRESENT"
+    },
+    "hopt-tcga": {
+      "encoder": "bioptimus/H-optimus-0",
+      "corpus": "histology",
+      "n_patients": 760,
+      "subtype_grouped": 0.921087704363238,
+      "subtype_random": 0.9684078682027198,
+      "subtype_inflation": 0.0473201638394819,
+      "subtype_relative_inflation": 0.5996551419223616,
+      "keap1_grouped": 0.704741595225487,
+      "keap1_random": 0.748364843783544,
+      "keap1_inflation": 0.04362324855805699,
+      "meth_mean_grouped": 0.3431449892253604,
+      "meth_mean_random": 0.36048858701005554,
+      "meth_mean_inflation": 0.01734359778469513,
+      "meth_targets_inflated": 6,
+      "meth_per_target": {
+        "keap1_sig": {
+          "grouped_rho": 0.3854895141694097,
+          "random_rho": 0.4062315496427544,
+          "inflation": 0.02074203547334469
+        },
+        "global": {
+          "grouped_rho": 0.3395693479203975,
+          "random_rho": 0.35654303418115335,
+          "inflation": 0.01697368626075585
+        },
+        "island": {
+          "grouped_rho": 0.30880078794421295,
+          "random_rho": 0.31443003482383197,
+          "inflation": 0.005629246879619021
+        },
+        "opensea": {
+          "grouped_rho": 0.3366325171324014,
+          "random_rho": 0.3535115921344448,
+          "inflation": 0.016879075002043387
+        },
+        "tss200": {
+          "grouped_rho": 0.35456931921718415,
+          "random_rho": 0.3839309296806809,
+          "inflation": 0.029361610463496723
+        },
+        "body": {
+          "grouped_rho": 0.3338084489685568,
+          "random_rho": 0.3482843815974677,
+          "inflation": 0.014475932628910892
+        }
+      },
+      "subtype_verdict": "LEAKAGE_PRESENT",
+      "meth_verdict": "METHYLATION_LEAKAGE_PRESENT"
+    },
+    "virchow2-tcga": {
+      "encoder": "paige-ai/Virchow2",
+      "corpus": "histology",
+      "n_patients": 760,
+      "subtype_grouped": 0.9496619240672384,
+      "subtype_random": 0.9719874957260782,
+      "subtype_inflation": 0.02232557165883986,
+      "subtype_relative_inflation": 0.44351261436096456,
+      "keap1_grouped": 0.6818995005080792,
+      "keap1_random": 0.6924618225014669,
+      "keap1_inflation": 0.010562321993387691,
+      "meth_mean_grouped": 0.29143353962287255,
+      "meth_mean_random": 0.368736951997566,
+      "meth_mean_inflation": 0.07730341237469346,
+      "meth_targets_inflated": 6,
+      "meth_per_target": {
+        "keap1_sig": {
+          "grouped_rho": 0.3102565875925029,
+          "random_rho": 0.3920086973470303,
+          "inflation": 0.0817521097545274
+        },
+        "global": {
+          "grouped_rho": 0.28462191170508844,
+          "random_rho": 0.3596170116565117,
+          "inflation": 0.07499509995142328
+        },
+        "island": {
+          "grouped_rho": 0.2874561490074019,
+          "random_rho": 0.3621745226450585,
+          "inflation": 0.0747183736376566
+        },
+        "opensea": {
+          "grouped_rho": 0.26692151475331505,
+          "random_rho": 0.33728449012295086,
+          "inflation": 0.07036297536963582
+        },
+        "tss200": {
+          "grouped_rho": 0.31455001425592927,
+          "random_rho": 0.40384366097732527,
+          "inflation": 0.089293646721396
+        },
+        "body": {
+          "grouped_rho": 0.2847950604229979,
+          "random_rho": 0.35749332923651916,
+          "inflation": 0.07269826881352126
+        }
+      },
+      "subtype_verdict": "LEAKAGE_PRESENT",
+      "meth_verdict": "METHYLATION_LEAKAGE_PRESENT"
+    }
+  },
+  "by_corpus": {
+    "histology": {
+      "n": 4,
+      "meth_inflation_range": [
+        0.0173,
+        0.0849
+      ],
+      "all_six_targets_inflated": true
+    },
+    "natural_images": {
+      "n": 1,
+      "meth_inflation": 0.0004,
+      "targets_inflated": 3
+    }
+  },
+  "post_hoc_observation": {
+    "claim": "relative subtype inflation falls as site-disjoint performance rises",
+    "spearman_rho": -0.7999999999999999,
+    "p": 0.10408803866182788,
+    "n_encoders": 5,
+    "STATUS": "POST-HOC OBSERVATION, NOT A TESTED FINDING",
+    "why": "noticed after all five encoders were read. n=5, so even a perfect rank correlation cannot reach p<0.05 by this test. Reported so it can be pre-registered and tested on encoders not used here; it licenses a protocol, not a conclusion.",
+    "pairs": [
+      {
+        "encoder": "owkin/phikon-v2",
+        "site_disjoint_auroc": 0.7992338341090356,
+        "relative_inflation": 0.8518351174753231
+      },
+      {
+        "encoder": "facebook/dinov2-large",
+        "site_disjoint_auroc": 0.7355890336401253,
+        "relative_inflation": 0.7693505396775131
+      },
+      {
+        "encoder": "MahmoodLab/UNI",
+        "site_disjoint_auroc": 0.9328418614063122,
+        "relative_inflation": 0.6151488389007214
+      },
+      {
+        "encoder": "bioptimus/H-optimus-0",
+        "site_disjoint_auroc": 0.921087704363238,
+        "relative_inflation": 0.5996551419223616
+      },
+      {
+        "encoder": "paige-ai/Virchow2",
+        "site_disjoint_auroc": 0.9496619240672384,
+        "relative_inflation": 0.44351261436096456
+      }
+    ]
+  },
+  "_provenance": {
+    "config_sha256": "b23ba9307a6081c4f2d18460252862254084d899d9c344163dd4f0fc13ebcc54",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260818T124806Z-R21fiveenc-03974b7"
+  }
+}

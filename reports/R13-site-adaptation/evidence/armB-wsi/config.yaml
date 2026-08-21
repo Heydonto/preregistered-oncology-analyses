@@ -1,0 +1,235 @@
+# Arm B — WSI track: k-shot adaptation learning curves, TCGA -> CPTAC
+# NSCLC RWPR study (nsclc-rwpr-study/PROTOCOL.md §4 Arm B.1, §5 evidence harness)
+#
+# PRE-REGISTRATION. Written and SHA-256-hashed BEFORE any CPTAC label VALUE was
+# read. This hash is recorded in CPTAC unsealing event #1
+# (gs://heydonto-quantara-lungcdx/nsclc-rwpr-study/_provenance/unsealing_events.jsonl)
+# and only after that event are CPTAC label files opened.
+#
+# What WAS read before hashing (declared, all pixels-derived or schema-only):
+#   - features/phikon-v2/cptac/_manifest.csv (full): series_id, patient_id,
+#     series_uid, cohort, n_tiles, mpp, mpp_assumed, status. Pixels-derived.
+#   - features/phikon-v2/tcga/_manifest.csv (full) + all Arm C artifacts
+#     (armC/config.yaml, labels.csv, silos.json, results.json) — TCGA is the
+#     development pool, freely readable; TCGA EGFR counts (74 mut / 852 wt
+#     post-QC) were already published in armC evidence.
+#   - manifests/cptac_idc_manifest.csv: collection_id, PatientID,
+#     SeriesInstanceUID, series_gcs_url only (no clinical content).
+#   - DICOM imaging headers of one instance per CPTAC series (2,218 ranged
+#     reads, stop_before_pixels; probe_slide_semantics.py): PatientID,
+#     ContainerIdentifier, SeriesDescription, SpecimenDescriptionSequence
+#     (SpecimenIdentifier/ShortDescription). This resolves tumor-vs-normal
+#     slide semantics ("HE tumor" / "HE normal" / ambiguous "HE") and is
+#     imaging metadata, not an outcome label. Result written to
+#     data/cptac_slide_semantics.csv before hashing.
+#   - Column HEADERS / field names ONLY of the CPTAC label files (schema, to
+#     pin extraction rules): clinical_extra_cptac_{luad,lscc}.csv header row
+#     (both identical to the TCGA clinical_extra schema, incl. OS_MONTHS,
+#     OS_STATUS, PFS_MONTHS, PFS_STATUS, MUTATION_COUNT);
+#     raw_mutations_cptac_luad.json first-record field names (same cBioPortal
+#     schema as armC: entrezGeneId, mutationType, mutationStatus, patientId);
+#     prevalence_cptac_{luad,lscc}.csv column names + the 13 gene names in the
+#     'gene' column (names only, no counts).
+#   - Observed staging gap (an ls fact, not a label value): there is NO
+#     raw_mutations_cptac_lscc.json in gs://heydonto-quantara-lungcdx/labels/;
+#     CPTAC-LSCC has only aggregate prevalence. The EGFR endpoint is therefore
+#     pre-registered as CPTAC-LUAD-only (see labels.egfr).
+#   - No CPTAC OS/PFS value, no mutation record content, no prevalence count,
+#     no clinical field value was read before this file was hashed.
+registered_utc: "2026-08-10T10:43:00Z"
+study: nsclc-rwpr-armB-wsi-kshot
+protocol: nsclc-rwpr-study/PROTOCOL.md
+arm: B-WSI
+unsealing: {cohort: CPTAC-LUAD/LSCC labels, event_number: 1}
+
+inputs:
+  tcga_features_prefix: gs://heydonto-quantara-lungcdx/features/phikon-v2/tcga/
+  tcga_manifest_sha256: c0b9a79b3e46ee0dcedd930e46a2d1ccc308e0417653c8b31cc395df1205ad02
+  cptac_features_prefix: gs://heydonto-quantara-lungcdx/features/phikon-v2/cptac/
+  cptac_manifest:
+    path: gs://heydonto-quantara-lungcdx/features/phikon-v2/cptac/_manifest.csv
+    sha256: 1d49376fe939bedbd9cf0573949e19f31ae0d2d2dcecbfe7e3b9ec15525d1007
+  cptac_slide_semantics:
+    path: armB/data/cptac_slide_semantics.csv   # built pre-hash from DICOM headers
+    sha256: 9e36c9c1d483aa01f954c6bed76d8f701c1cebe657c78963a080e10694b42f18
+  tcga_labels:   # reused unchanged from Arm C (development pool)
+    path: armC/data/labels.csv
+    sha256: 611eab41f912f5a3964abff1e74d7b3c1a28c0dcd9d290d2b2ea2ff89f1f6ae9
+  cptac_label_files:   # hashed UNOPENED except declared headers/field names
+    clinical_extra_cptac_luad: {path: gs://heydonto-quantara-lungcdx/labels/clinical_extra_cptac_luad.csv, sha256: 5244b78e76227e25439f24ff45489f33a95e8a5430140e7147c8543398c3d01c}
+    clinical_extra_cptac_lscc: {path: gs://heydonto-quantara-lungcdx/labels/clinical_extra_cptac_lscc.csv, sha256: 5d4020e52ae20987478a2e54595160748aab2b84982598bd719523d4bb556cec}
+    raw_mutations_cptac_luad: {path: gs://heydonto-quantara-lungcdx/labels/raw_mutations_cptac_luad.json, sha256: e113755ff417acbf9046fd106eafcf377510c63bc3afc3b7d1e7878f45c438a8}
+    prevalence_cptac_luad: {path: gs://heydonto-quantara-lungcdx/labels/prevalence_cptac_luad.csv, sha256: 1b3afdbd1329fc4cac5ecca478ecac4f85247c573c3c8ec7121c1c540adcb6d3}
+    prevalence_cptac_lscc: {path: gs://heydonto-quantara-lungcdx/labels/prevalence_cptac_lscc.csv, sha256: 21b8dfbf06120757c34d86c404e6321a9c1c690b3dec49471462af0cc1d7b4d7}
+  excluded_scopes:   # hard constraints, never read
+    - gs://heydonto-quantara-lungcdx/nsclc-rwpr-study/sealed/
+    - gs://heydonto-quantara-lungcdx/data-request-2026-08/
+
+# ---------------------------------------------------------------- cohorts & QC
+tcga_pool:   # identical to armC post-QC spine
+  rule: manifest status ok AND n_tiles >= 100 (4 slides excluded, same 4 as armC)
+  slides: 1049
+  patients: 956
+  role: pretraining ONLY (development pool). Internal 90/10 patient split
+    (stratified by cohort, random.Random(1234)) for early stopping only.
+
+cptac_pool:
+  slide_semantics:
+    source: DICOM SeriesDescription per series (probe pre-hash, see above)
+    observed: {HE tumor: 1343, HE normal: 743, ambiguous HE: 132}
+    rule: >
+      A slide enters the study iff manifest status == ok AND n_tiles >= 100
+      AND series_desc == "HE tumor". Adjacent-normal slides (743) are excluded
+      by design. Ambiguous "HE" slides (132) are excluded and logged; the 24
+      patients whose slides are ALL ambiguous are excluded and listed
+      individually in exclusions.json (reason: ambiguous_tissue_only).
+      Fallback pre-registration: none needed — tumor/normal resolved for 94%
+      of slides and 432/456 patients; the ambiguity is reported, not hidden.
+  qc_exclusions:   # from pixels-side manifest, logged
+    - {series_id: a6f6d9fe-2afc-476d-b1ad-05f1272b1f30, patient: C3N-04457, rule: status == empty_no_tissue}
+    - {series_id: f32df5e3-e0c1-4529-afcb-74b19dafb0eb, patient: C3N-03762, rule: n_tiles < 100 (n_tiles=4; an HE-normal slide, excluded by tissue rule anyway)}
+  post_qc: {slides: 1343, patients: 432, LUAD_patients: 229, LSCC_patients: 203}
+  patient_bag: all post-QC tumor slides of a patient; patient-level prediction
+    = mean of slide-level probabilities (risk scores for Cox), as in armC.
+
+# ---------------------------------------------------------------- labels
+labels:   # extraction rules pinned from schema only; CPTAC values unread at hash time
+  subtype:
+    source: manifest cohort column (pixels-side; LUAD=1, LSCC/LUSC=0)
+    tcga_coding: {TCGA-LUAD: 1, TCGA-LUSC: 0}   # armC labels.csv column 'subtype'
+    cptac_coding: {LUAD: 1, LSCC: 0}
+    metric: patient-level AUROC
+    role: positive control; zero-shot expected high
+  egfr:
+    tcga: armC labels.csv column 'egfr' (74 mut / 852 wt post-QC, published)
+    cptac: >
+      CPTAC-LUAD ONLY (no per-patient LSCC mutation file staged; LSCC patients
+      excluded from this endpoint, logged). Same rule as armC:
+      mutant = >=1 record in raw_mutations_cptac_luad.json with
+      entrezGeneId == 1956, mutationType not in [Silent, silent,
+      synonymous_variant], mutationStatus != Germline; wildtype = patient in
+      clinical_extra_cptac_luad.csv with non-null MUTATION_COUNT and no
+      qualifying record; otherwise unlabeled (excluded, logged).
+    metric: patient-level AUROC
+    label_shift: report measured EGFR prevalence TCGA (74/926) vs CPTAC-LUAD
+      (post-unsealing) + the aggregate EGFR rows of prevalence_cptac_*.csv;
+      the shift is expected from prior work and is reported, not "fixed".
+    power_rule: report minimum-detectable AUROC from the permutation null; if
+      eval-set mutants are thin, say so explicitly; never manufacture a positive
+  os:
+    tcga: armC labels.csv os_time/os_event
+    cptac: clinical_extra_cptac_{luad,lscc}.csv OS_MONTHS / OS_STATUS, parsed
+      exactly as armC ("0:LIVING"/"1:DECEASED"; exclude missing or time <= 0,
+      logged)
+    metric: Harrell C-index (patient-level mean risk)
+    maturity_rule: >
+      run the full k-shot grid iff >= 40 OS events among post-QC CPTAC
+      patients; if 10-39 events, zero-shot only + power statement; if < 10
+      events or columns empty, report absence honestly and drop with a power
+      statement. Decision recorded in results.json BEFORE any Arm B CPTAC
+      training run.
+
+# ---------------------------------------------------------------- model
+model: identical to armC (gated attention-MIL, Ilse et al. 2018)
+  # projection 1024->512 ReLU dropout 0.25; gated attention hidden 256;
+  # head linear 512->1; tile_cap 4096 deterministic subsample seeded by
+  # sha1(slide_id) ^ seed; fp32 training. Verbatim reuse of armC build_model().
+
+# ---------------------------------------------------------------- pretraining
+pretraining:
+  data: ALL post-QC TCGA (both cohorts; per-endpoint labeled subset)
+  one_model_per_endpoint: true   # ONE pretrained checkpoint per endpoint,
+    # shared by all 8 adaptation seeds (seed variance measures adaptation/eval
+    # split noise, not pretraining noise)
+  seed: 1234   # weights init, tile subsample, internal split
+  optimizer: AdamW, lr 2.0e-4, weight_decay 1.0e-5, constant lr (armC)
+  batch: 32 bags binary (BCE-with-logits), 64 bags Cox (Breslow, skip
+    event-free batches)  # armC
+  early_stopping: internal 90/10 patient split (stratified by cohort,
+    random.Random(1234)); evaluate patient-level metric on the 10% each epoch;
+    max 30 epochs, patience 5, restore best-val weights. Internal val used for
+    early stopping ONLY — never reported as a result.
+
+# ---------------------------------------------------------------- eval design
+adaptation_design:
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7]
+  eval_set: per seed, a stratified (by cohort, random.Random(2000+seed)) draw
+    of 40% of the 432 post-QC CPTAC patients (n=173, rounded per stratum) —
+    FIXED per seed; every (k, method) and zero-shot at that seed is evaluated
+    on exactly this set. Site-preserved by construction (TCGA != CPTAC).
+  adaptation_pool: the other 60% (n=259 patients)
+  k_grid: [10, 25, 50, 100]   # patients; NESTED per seed and endpoint —
+    # per endpoint, order the adaptation-pool patients that carry that
+    # endpoint's label by a stratified shuffle (random.Random(3000+seed);
+    # strata: subtype -> cohort, egfr -> mutant status, os -> event status)
+    # and take prefixes of length k. k=0 denotes zero-shot.
+  methods:
+    finetune: full fine-tune of the pretrained checkpoint, AdamW lr 2.0e-5
+      (10x below pretraining), weight_decay 1.0e-5, 20 epochs, batch as in
+      pretraining, final-epoch weights (no val peeking at adaptation time)
+    linear_probe: freeze projection + attention; train head (512->1) only,
+      AdamW lr 1.0e-3, weight_decay 0.0, 40 epochs, final-epoch weights
+  zero_shot:
+    - per seed: pretrained checkpoint evaluated on that seed's eval set (the
+      k=0 point of every curve)
+    - once: pretrained checkpoint evaluated on ALL 432 post-QC CPTAC patients
+      (full-cohort zero-shot external validation, reported alongside)
+  tile_subsample_seed: adaptation seed s (armC convention), for both
+    adaptation training and eval prediction at that seed
+  ci: mean +/- 1.96 * sd/sqrt(8) across the 8 seeds, per (endpoint, method, k)
+  headline_question: smallest k whose seed-mean metric is within 0.02 of the
+    same method's k=100 seed-mean (per endpoint x method), reported from
+    learning_curve.csv
+
+permutation_null:
+  endpoint: egfr
+  n_shuffles: 20
+  procedure: >
+    replicate r: EGFR labels of ALL labeled post-QC CPTAC-LUAD patients are
+    shuffled once (random.Random(7000+r), consistent across adaptation/eval);
+    the pretrained EGFR checkpoint is fine-tuned (method=finetune) on the
+    seed-0 k=100 adaptation set against the shuffled labels and evaluated on
+    the seed-0 eval set AGAINST THE SHUFFLED LABELS. Expect AUROC centered
+    ~0.50 regardless of any real signal in the pretrained weights (labels are
+    random w.r.t. any fixed scorer). The 95th percentile of the null is the
+    minimum-detectable AUROC quoted in the power statement.
+
+# ---------------------------------------------------------------- gates
+gates:   # expected values pre-declared; failures retained, never deleted
+  g1_no_silent_exclusions: {expect: every dropped slide/patient in
+      exclusions.json with a reason (QC, non-tumor, ambiguous, unlabeled),
+      kind: mechanical}
+  g2_zeroshot_subtype: {expect: seed-mean zero-shot subtype AUROC >= 0.85 on
+      the per-seed eval sets, kind: positive_control}
+  g3_egfr_permutation_null: {expect: null mean AUROC in [0.45, 0.55],
+      kind: null_control}
+  g4_nan_degeneracy: {expect: no NaN loss in any retained run; eval prediction
+      std > 1e-6 per run, kind: sanity}
+  g5_grid_completes: {expect: 8 seeds x 4 k x 2 methods per active endpoint +
+      zero-shot, all finish, kind: mechanical}
+  g6_egfr_power_honesty: {expect: results.json carries the measured label
+      shift + a minimum-detectable-AUROC statement keyed to eval-set mutant
+      count, kind: honesty}
+  g7_os_maturity_honesty: {expect: OS decision per labels.os.maturity_rule
+      recorded before CPTAC training; absence reported with power statement if
+      immature, kind: honesty}
+  g8_subtype_monotone_trend: {expect: REPORTED (not gated) — Spearman rho of
+      seed-mean subtype AUROC vs k (incl. k=0) per method, kind: descriptive}
+
+# ---------------------------------------------------------------- evidence
+evidence_bundle:
+  dir: nsclc-rwpr-study/armB/evidence/
+  mirror: gs://heydonto-quantara-lungcdx/nsclc-rwpr-study/armB/
+  files: [results.json (embeds this file's sha256), gates.json,
+    exclusions.json, inputs.json, env.txt, permutation_null.json,
+    learning_curve.csv (tidy: endpoint, method, k incl. 0, seed, metric, n_eval),
+    oof_{endpoint}_{method}_k{k}_seed{s}.csv, oof_{endpoint}_zeroshot_seed{s}.csv,
+    oof_{endpoint}_zeroshot_full.csv, MANIFEST.sha256]
+
+infra:
+  modal_profile: reza-29145
+  app: nsclc-rwpr-armB
+  gpu: L4 workers; TCGA volume nsclc-rwpr-features-tcga (retained from armC);
+    CPTAC tumor-slide npz staged to new volume nsclc-rwpr-features-cptac
+    (~24.3 GiB fp16, post-QC tumor slides only)
+  budget_usd_max: 45

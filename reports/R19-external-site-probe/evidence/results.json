@@ -1,0 +1,94 @@
+{
+  "status": "peer-review audit copy",
+  "question": "does the external site signature survive H&E restriction, and does Paper 1's unevidenced 1.0000 reproduce?",
+  "VERDICT": {
+    "primary": "EXTERNAL_SITE_SIGNATURE_CONFIRMED_HE_ONLY",
+    "he_only_balanced_accuracy": 1.0,
+    "published_set_balanced_accuracy": 1.0,
+    "difference_attributable_to_non_he_slides": 0.0,
+    "rules_pre_declared_in": "config.yaml, hash 5985b7c75d064a204d4d512e8cd3fb7b6389768c596f07d0b4d719788ea92039"
+  },
+  "arms": {
+    "ARM_ALL": {
+      "label": "EAGLE vs HTMCP, published 78",
+      "balanced_accuracy": 1.0,
+      "n": 78,
+      "classes": {
+        "eagle": 49,
+        "htmcp": 29
+      },
+      "chance": 0.5,
+      "null_mean": 0.5073680506685432,
+      "null_sd": 0.07075915105114368,
+      "null_p95": 0.6221323011963406,
+      "permutation_p": 0.004975124378109453,
+      "n_permutations": 200
+    },
+    "ARM_HE": {
+      "label": "EAGLE vs HTMCP, H&E only",
+      "balanced_accuracy": 1.0,
+      "n": 75,
+      "classes": {
+        "eagle": 49,
+        "htmcp": 26
+      },
+      "chance": 0.5,
+      "null_mean": 0.5058222135007849,
+      "null_sd": 0.06514662707334598,
+      "null_p95": 0.617405808477237,
+      "permutation_p": 0.004975124378109453,
+      "n_permutations": 200
+    },
+    "ARM3_ALL": {
+      "balanced_accuracy": 0.9816091954022987,
+      "sd_over_subsamples": 0.01313196713971217,
+      "per_cohort_n": 29,
+      "chance": 0.3333,
+      "null_mean": 0.33448275862068966,
+      "null_sd": 0.05580151518248936,
+      "permutation_p": 0.047619047619047616,
+      "n_subsamples": 20
+    },
+    "ARM3_HE": {
+      "balanced_accuracy": 0.9814102564102566,
+      "sd_over_subsamples": 0.018821557112676614,
+      "per_cohort_n": 26,
+      "chance": 0.3333,
+      "null_mean": 0.36602564102564106,
+      "null_sd": 0.06840804189460863,
+      "permutation_p": 0.047619047619047616,
+      "n_subsamples": 20
+    }
+  },
+  "stain_contamination": {
+    "n_non_he_in_published_set": 3,
+    "slides": [
+      "HTMCP-02-06-01032-CHR",
+      "HTMCP-02-07-01065-06-P16",
+      "HTMCP-02-15-01090-CHR"
+    ],
+    "source_file": "/Users/rezanehzati/quantara-staging/ext_feat/external_he_mean.npz",
+    "note": "filename asserts H&E; contents do not"
+  },
+  "paper1_rows": {
+    "row1_within_tcga": {
+      "published": 0.7062,
+      "evidence": "R12 evidence/results.json silo_signature_probe.balanced_accuracy",
+      "status": "already evidenced, not recomputed here"
+    },
+    "row2_eagle_vs_htmcp": {
+      "published": 1.0,
+      "recomputed_published_set": 1.0,
+      "recomputed_he_only": 1.0
+    },
+    "row3_three_way": {
+      "published": 0.9957,
+      "recomputed_published_set": 0.9816091954022987,
+      "recomputed_he_only": 0.9814102564102566
+    }
+  },
+  "_provenance": {
+    "config_sha256": "5985b7c75d064a204d4d512e8cd3fb7b6389768c596f07d0b4d719788ea92039",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260817T010512Z-R19extsiteprobe-a6b6353"
+  }
+}

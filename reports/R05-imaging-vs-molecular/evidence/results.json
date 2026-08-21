@@ -1,0 +1,52 @@
+{
+  "cohort": {
+    "n": 247,
+    "idh_mutant": 5,
+    "mgmt_methylated": 100,
+    "all_deceased": true
+  },
+  "Q1_positive_control_MGMT": {
+    "p": 5.831120711860514e-08,
+    "median_days_methylated": 595.0,
+    "median_days_unmethylated": 371.0
+  },
+  "Q2_molecular_alone_cindex": 0.5725012349744772,
+  "Q3_imaging_alone_cindex": 0.5237938415939404,
+  "Q4_combined_cindex": 0.5913057796805533,
+  "Q4b_combined_plus_age_cindex": 0.6418574016137,
+  "LR_imaging_beyond_molecular": {
+    "chi2": 3.710637315650729,
+    "df": 1,
+    "p": 0.054066743212768414
+  },
+  "LR_molecular_beyond_imaging": {
+    "chi2": 33.68741829811779,
+    "df": 2,
+    "p": 4.840275278786316e-08
+  },
+  "cox_terms": {
+    "idh": {
+      "HR": 0.5910922618536658,
+      "p": 0.2537006367624326
+    },
+    "mgmt": {
+      "HR": 0.47328916326334625,
+      "p": 1.1683246687574647e-07
+    },
+    "rad": {
+      "HR": 0.8808358361972143,
+      "p": 0.055336325325540676
+    }
+  },
+  "_decision": {
+    "rule": "imaging adds independent value if LR p < 0.05",
+    "observed_p": 0.054066743212768414,
+    "decision": "imaging does NOT add beyond IDH1+MGMT in this subset",
+    "prespecified_in_config_sha256": "70713fdd7ba5ba9fcbc6c775b4e4f6d9085c6626873dd4284ce04743d9992f89"
+  },
+  "_provenance": {
+    "config_sha256": "70713fdd7ba5ba9fcbc6c775b4e4f6d9085c6626873dd4284ce04743d9992f89",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260806T235753Z-R05head2head-3f8bece",
+    "n_features": 1728
+  }
+}

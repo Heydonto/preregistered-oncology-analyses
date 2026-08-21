@@ -1,0 +1,180 @@
+[
+  {
+    "gate": "G0_probes",
+    "expected": 392489,
+    "observed": 392489,
+    "result": "PASS",
+    "note": "identical filter to R08/R10",
+    "t": "2026-08-10T10:38:11Z",
+    "stage": "stage1_tcga"
+  },
+  {
+    "gate": "G1_luad",
+    "expected": 471,
+    "observed": 471,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-10T10:38:11Z",
+    "stage": "stage1_tcga"
+  },
+  {
+    "gate": "G2_keap1_luad",
+    "expected": 84,
+    "observed": 84,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-10T10:38:18Z",
+    "stage": "stage1_tcga"
+  },
+  {
+    "gate": "G1_R10_reproduction",
+    "expected": ">= 0.88 (R10 reported 0.9098)",
+    "observed": 0.909838,
+    "result": "PASS",
+    "note": "same inputs, same config, same pipeline as R10 m11",
+    "t": "2026-08-10T10:39:42Z",
+    "stage": "stage1_tcga"
+  },
+  {
+    "gate": "G2_R10_sex_control",
+    "expected": "> 0.95",
+    "observed": 1.0,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-10T10:42:49Z",
+    "stage": "stage1_tcga"
+  },
+  {
+    "gate": "G3_preregistered_before_unseal",
+    "expected": "config sha256 present in gs://.../unsealing_events.jsonl before label read",
+    "observed": {
+      "config_sha256": "5d3d9d15a85d6917f97f630f88cf9b9adea9f0763b7a2803fdb8812c679e172d",
+      "found_in_remote": true,
+      "event_ts": "2026-08-10T10:46:56Z"
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-10T10:47:42Z",
+    "stage": "stage3_unseal_parse"
+  },
+  {
+    "gate": "G3_preregistered_before_unseal",
+    "expected": "stage-1 config sha256 present in gs://.../unsealing_events.jsonl",
+    "observed": {
+      "config_sha256": "5d3d9d15a85d6917f97f630f88cf9b9adea9f0763b7a2803fdb8812c679e172d",
+      "found_in_remote": true
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-10T10:58:39Z",
+    "stage": "stage4_eval"
+  },
+  {
+    "gate": "G4_probe_overlap_reported",
+    "expected": "coverage reported for every deployed model",
+    "observed": {
+      "M1_keap1_full": {
+        "n_selected": 5000,
+        "n_selected_on_epic_manifest": 4698,
+        "n_selected_in_deposit": 4687,
+        "n_active_nonzero_coef": 15,
+        "n_active_on_epic_manifest": 15,
+        "n_active_in_deposit": 15,
+        "frac_active_recovered": 1.0
+      },
+      "M1_keap1_overlap": {
+        "n_selected": 5000,
+        "n_selected_on_epic_manifest": 5000,
+        "n_selected_in_deposit": 4989,
+        "n_active_nonzero_coef": 15,
+        "n_active_on_epic_manifest": 15,
+        "n_active_in_deposit": 15,
+        "frac_active_recovered": 1.0
+      },
+      "PC_sex_overlap": {
+        "n_selected": 5000,
+        "n_selected_on_epic_manifest": 5000,
+        "n_selected_in_deposit": 4981,
+        "n_active_nonzero_coef": 176,
+        "n_active_on_epic_manifest": 176,
+        "n_active_in_deposit": 174,
+        "frac_active_recovered": 0.9886
+      },
+      "active_probe_identity_check": {
+        "n_active_full_array_model": 15,
+        "n_active_overlap_model": 15,
+        "n_shared": 15,
+        "identical_active_sets": true,
+        "active_probes_full_model": [
+          "cg00230120",
+          "cg03248837",
+          "cg03331715",
+          "cg03585280",
+          "cg04018325",
+          "cg04909257",
+          "cg05089897",
+          "cg08869857",
+          "cg08911237",
+          "cg09489844",
+          "cg10880599",
+          "cg14420550",
+          "cg16659413",
+          "cg18756557",
+          "cg20372666"
+        ],
+        "interpretation": "the full-array model's active probes were all already on EPIC, so restricting the feature space to the manifest overlap costs the KEAP1 model nothing at the level that matters for transfer."
+      },
+      "M2_os_cox": {
+        "n_screened_probes": 500,
+        "n_in_deposit": 496,
+        "n_active_nonzero_coef": 500,
+        "n_active_on_epic_manifest": 500
+      }
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-10T10:58:40Z",
+    "stage": "stage4_eval"
+  },
+  {
+    "gate": "G7_no_silent_drops",
+    "expected": "every deposited sample carries a used/excluded record with a reason",
+    "observed": {
+      "n_deposited": 81,
+      "n_used": 81,
+      "n_excluded": 0,
+      "excluded": []
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-10T10:58:46Z",
+    "stage": "stage4_eval"
+  },
+  {
+    "gate": "G5_epic_sex_transfer",
+    "expected": "sex recovered zero-shot on EPIC at AUROC >= 0.95 (ground truth = orthogonal minfi total-intensity chrX/chrY call, since sex is NOT in the deposited metadata)",
+    "observed": {
+      "T1_naive|minfi_cutoff": 0.989,
+      "T1_naive|data_driven": 0.9881,
+      "T2_cohort_z|minfi_cutoff": 0.989,
+      "T2_cohort_z|data_driven": 0.9889
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-10T10:58:49Z",
+    "stage": "stage4_eval"
+  },
+  {
+    "gate": "G6_permutation_null_centred",
+    "expected": "permutation null mean AUROC in 0.5 +/- 0.05",
+    "observed": {
+      "null_mean": 0.4964,
+      "null_sd": 0.0678,
+      "n_permutations": 1000
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-10T10:58:53Z",
+    "stage": "stage4_eval"
+  }
+]

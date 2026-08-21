@@ -1,0 +1,4532 @@
+{
+ "subtype_seed0": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  }
+ ],
+ "subtype_seed1": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  }
+ ],
+ "subtype_seed2": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  }
+ ],
+ "subtype_seed3": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  }
+ ],
+ "subtype_seed4": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 153
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 152
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    }
+   }
+  }
+ ],
+ "egfr_seed0": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    }
+   }
+  }
+ ],
+ "egfr_seed1": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  }
+ ],
+ "egfr_seed2": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  }
+ ],
+ "egfr_seed3": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 151
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  }
+ ],
+ "egfr_seed4": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 150
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    }
+   }
+  }
+ ],
+ "os_seed0": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  }
+ ],
+ "os_seed1": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  }
+ ],
+ "os_seed2": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 143
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 144
+    }
+   }
+  }
+ ],
+ "os_seed3": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 146
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 149
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 142
+    }
+   }
+  }
+ ],
+ "os_seed4": [
+  {
+   "round": 0,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 141
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 1,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 141
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 2,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 141
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 3,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 141
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 4,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 141
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 5,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 141
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 6,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 141
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 7,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 141
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 8,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 141
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  },
+  {
+   "round": 9,
+   "per_silo": {
+    "0": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 147
+    },
+    "1": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "2": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 141
+    },
+    "3": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 148
+    },
+    "4": {
+     "bytes_down": 3155896,
+     "bytes_up": 3155896,
+     "n_train_patients": 145
+    }
+   }
+  }
+ ]
+}

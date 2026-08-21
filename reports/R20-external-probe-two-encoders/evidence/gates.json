@@ -1,0 +1,60 @@
+[
+  {
+    "gate": "G0_matched_slides",
+    "expected": "both encoders cover the same 129 slides in the same order",
+    "observed": {
+      "phikon_n": 129,
+      "dinov2_n": 129,
+      "identical": true
+    },
+    "result": "PASS",
+    "note": "any difference below is then attributable to the encoder alone",
+    "t": "2026-08-17T06:12:30Z"
+  },
+  {
+    "gate": "G1_encoder_identity",
+    "expected": "each file declares the intended encoder",
+    "observed": {
+      "phikon": "owkin/phikon-v2",
+      "dinov2": "facebook/dinov2-large"
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T06:12:30Z"
+  },
+  {
+    "gate": "G2_r19_subset_confirmed",
+    "expected": "R19's 78-slide set is a strict subset, and the number of HTMCP slides it omitted",
+    "observed": {
+      "r19_n": 78,
+      "archive_htmcp": 80,
+      "htmcp_omitted_by_r19": 51
+    },
+    "result": "PASS",
+    "note": "asserts the defect is present and quantified; if this changes, the premise of this run needs re-checking",
+    "t": "2026-08-17T06:12:30Z"
+  },
+  {
+    "gate": "G3_reproduces_r19",
+    "expected": "phikon on SET_R19 recovers R19's 1.0",
+    "observed": 1.0,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T06:12:55Z"
+  },
+  {
+    "gate": "G4_nulls_centred",
+    "expected": "every null sits at chance 0.5 (within 0.06)",
+    "observed": {
+      "phikon-v2/SET_R19": 0.5072,
+      "phikon-v2/SET_HE": 0.5023,
+      "phikon-v2/SET_ALL": 0.5011,
+      "dinov2-large/SET_R19": 0.507,
+      "dinov2-large/SET_HE": 0.499,
+      "dinov2-large/SET_ALL": 0.502
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T06:12:55Z"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "/Users/rezanehzati/quantara-staging/glioma-figs/upenn.csv": {
+    "bytes": 66491,
+    "sha256": "fd5749ae5a8d77e599e02264d961d94107752f0244e34bf0bc711a75fe0e2ec5"
+  },
+  "/Users/rezanehzati/quantara-staging/glioma-figs/rf.zip": {
+    "bytes": 16121402,
+    "sha256": "e3d9df986fb64a0d42674c7c79527f4110fb920e58e80981b3d317aa1f188fbb"
+  },
+  "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260806T225005Z-R02surv-3f8bece/oof_survival.csv": {
+    "bytes": 43096,
+    "sha256": "0e8c639c7ef1a8409eaeb5dd4835d11e6a5b5c27d8e3b466e383677ec5c03fd4"
+  },
+  "/Users/rezanehzati/quantara-staging/staged/labels/glioma/lgggbm_tcga_pub/data_clinical_sample.txt": {
+    "bytes": 374033,
+    "sha256": "cf622c83218f6a1a6f02a5e2cc8cc5c365ec90c71193faa693e113c5326e45ac"
+  },
+  "/Users/rezanehzati/quantara-staging/staged/imaging/glioma/ds007045/participants.tsv": {
+    "bytes": 12715,
+    "sha256": "ba12edea32dccab880d1d42c75b710860911f3e89b74b5f959530483b9f19686"
+  }
+}

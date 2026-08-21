@@ -1,0 +1,40 @@
+[
+  {
+    "gate": "G0_integrity",
+    "expected": 16121402,
+    "observed": 16121402,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-06T23:57:53Z"
+  },
+  {
+    "gate": "G1_head2head_n",
+    "expected": "<= 291 (subset with both markers)",
+    "observed": 247,
+    "result": "PASS",
+    "note": "features + survival + definite IDH1 + definite MGMT",
+    "t": "2026-08-06T23:57:53Z"
+  },
+  {
+    "gate": "G2_uncensored",
+    "expected": "all deceased",
+    "observed": [
+      "Deceased"
+    ],
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-06T23:57:53Z"
+  },
+  {
+    "gate": "G3_positive_control_MGMT",
+    "expected": "MGMT prognostic p<0.05",
+    "observed": {
+      "p": "5.831e-08",
+      "median_meth": 595.0,
+      "median_unmeth": 371.0
+    },
+    "result": "PASS",
+    "note": "R02 found p=5.8e-8 on the larger subset",
+    "t": "2026-08-06T23:57:53Z"
+  }
+]

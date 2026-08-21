@@ -1,0 +1,59 @@
+[
+  {
+    "gate": "G0_encoder_identity",
+    "expected": "each feature dir carries exactly one encoder, and it is the intended one",
+    "observed": {
+      "tcga": [
+        "owkin/phikon-v2"
+      ],
+      "dinov2-tcga": [
+        "facebook/dinov2-large"
+      ]
+    },
+    "result": "PASS",
+    "note": "read from the npz 'encoder' field, not inferred from the directory name",
+    "t": "2026-08-17T06:01:13Z"
+  },
+  {
+    "gate": "G1_same_cohort",
+    "expected": "all eight arms cover 760 patients",
+    "observed": [
+      760
+    ],
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T06:01:13Z"
+  },
+  {
+    "gate": "G2_repro_subtype_grouped",
+    "expected": "0.799 +- 0.01",
+    "observed": 0.7992,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T06:01:13Z"
+  },
+  {
+    "gate": "G3_repro_subtype_random",
+    "expected": "0.9703 +- 0.01",
+    "observed": 0.9703,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T06:01:13Z"
+  },
+  {
+    "gate": "G4_repro_keap1_grouped",
+    "expected": "0.664 +- 0.01",
+    "observed": 0.6642,
+    "result": "PASS",
+    "note": "if any of G2-G4 fails the harness is not the published one and the dinov2 comparison is void",
+    "t": "2026-08-17T06:01:13Z"
+  },
+  {
+    "gate": "G5_repro_meth_inflation",
+    "expected": "phikon mean methylation inflation 0.0849 +- 0.02",
+    "observed": 0.0849,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T06:01:13Z"
+  }
+]

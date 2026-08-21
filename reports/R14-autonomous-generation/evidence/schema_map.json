@@ -1,0 +1,75 @@
+{
+ "executed_utc": "2026-08-10T23:59:41.045431+00:00",
+ "decisions": [
+  {
+   "kind": "dedup",
+   "detail": "duplicate record_id rows collapsed; alias map = {'3369788': '190828', '504928': '191182'}"
+  },
+  {
+   "kind": "response",
+   "detail": "bor numeric->text decoded via msk_mind join; response := bor in {1,2}; codes 3..8 (SD + all POD variants) -> 0; no NE codes present"
+  },
+  {
+   "kind": "os",
+   "detail": "OS available for 246 patients (msk_mind discovery only: censored follow-up time absent from patient_listing)"
+  },
+  {
+   "kind": "pfs",
+   "detail": "pfs_censor==1 == '1:PROGRESS' (event) verified by msk_mind crosstab"
+  },
+  {
+   "kind": "clin_unmatched",
+   "detail": "pattern 'histolog' matched no column"
+  },
+  {
+   "kind": "clin_unmatched",
+   "detail": "pattern 'line.*(therapy|treatment)|treatment.*line' matched no column"
+  },
+  {
+   "kind": "clin_unmatched",
+   "detail": "pattern 'stage' matched no column"
+  },
+  {
+   "kind": "clin",
+   "detail": "strict CLIN columns = ['age', 'sex', 'smoking_status', 'ecog', 'albumin']"
+  },
+  {
+   "kind": "pdl1",
+   "detail": "Sauter score primary (n=201), CLINICAL_PDL1_SCORE fallback fills 45; total 246"
+  },
+  {
+   "kind": "gen",
+   "detail": "TMB from genomic_alterations.csv (continuous); ['TP53', 'KRAS', 'EGFR', 'STK11', 'KEAP1', 'SMARCA4'] nonsynonymous binaries from data_mutations.txt; sequenced universe = 247 msk_mind samples; validation-cohort patients have no genomic layer (logged)"
+  },
+  {
+   "kind": "rad",
+   "detail": "job_tag values ['filtered-radiomics', 'pertubation-radiomics', 'unfiltered-radiomics']; using 'unfiltered-radiomics' (unmodified image) as the single representation; per-patient aggregation = mean over lesions (lesion count/burden carried by the TB block); no timepoint column exists -> table is baseline by construction"
+  },
+  {
+   "kind": "rad",
+   "detail": "RAD: 233 patients x 1688 features (train 187 / val 46)"
+  },
+  {
+   "kind": "pathg",
+   "detail": "PATHG: 157 patients x 150 GLCM features (train+val concat)"
+  },
+  {
+   "kind": "pathf",
+   "detail": "PATHF: 233 patients x 1024 dims (pooled Phikon-v2)"
+  },
+  {
+   "kind": "tb",
+   "detail": "TB: 235 patients from 235 readable masks; 2 unreadable masks logged"
+  }
+ ],
+ "deviations": [
+  {
+   "what": "identifier columns excluded from covariate regex matching",
+   "detail": "the pre-registered pattern 'age' substring-matches 'pdl1_image_id'/'he_image_id'; identifier columns are not covariates, so columns matching _id/index/row/acc are removed from the candidate set before applying the pre-registered patterns. Without this, CLIN would have ingested an image accession number as 'age'."
+  },
+  {
+   "what": "CLIN_plus sensitivity block",
+   "detail": "columns histo (histology), io_line (treatment line), pack_years, dnlr exist and are clinically standard but the pre-registered regexes fail to match their names (histolog vs 'histo'; line.*therapy vs 'io_line'). Primary models use the strict match; a post-hoc, clearly-labelled sensitivity re-runs M_clin/M_base/M_full with CLIN+ = strict + [histo, io_line, dnlr, pack_years]. Descriptive only."
+  }
+ ]
+}

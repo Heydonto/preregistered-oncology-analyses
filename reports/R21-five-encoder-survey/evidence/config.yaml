@@ -1,0 +1,36 @@
+{
+  "question": "does the site-leakage pattern hold across pathology foundation models, or was R18's dissociation specific to Phikon-v2?",
+  "encoders": {
+    "tcga": {
+      "repo": "owkin/phikon-v2",
+      "corpus": "histology"
+    },
+    "dinov2-large": {
+      "repo": "facebook/dinov2-large",
+      "corpus": "natural images"
+    },
+    "uni-tcga": {
+      "repo": "MahmoodLab/UNI",
+      "corpus": "histology"
+    },
+    "hopt-tcga": {
+      "repo": "bioptimus/H-optimus-0",
+      "corpus": "histology"
+    },
+    "virchow2-tcga": {
+      "repo": "paige-ai/Virchow2",
+      "corpus": "histology"
+    }
+  },
+  "design": "identical tiles (byte-identical grids), identical folds, architecture, hyperparameters and seeds; per-model prescribed normalisation; CLS readout throughout. Feature width varies (1024/1536/1280) and the MIL projects to 512.",
+  "reused_pre_declared_rules": {
+    "source": "R18 config 143b3b9d0a92fabb..., fixed before R18's arms were read",
+    "leak_real": 0.05,
+    "leak_absent": 0.02,
+    "note": "same rule applied to new data, which is legitimate; no threshold was chosen after seeing these five encoders"
+  },
+  "post_hoc_and_labelled_as_such": [
+    "relative inflation vs site-disjoint performance across encoders -- noticed after seeing all five, reported with rank correlation and n, NOT tested as a hypothesis"
+  ],
+  "status": "HELD FOR IP - not for publication pending patent"
+}

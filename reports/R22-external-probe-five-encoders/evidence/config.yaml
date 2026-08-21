@@ -1,0 +1,35 @@
+{
+  "question": "does the external EAGLE-vs-HTMCP separation hold across all five encoders?",
+  "why": "R20 measured it on two. R21 showed two-point claims in this series have been wrong twice; this is the last two-point claim left.",
+  "encoders": {
+    "owkin/phikon-v2": "histology",
+    "facebook/dinov2-large": "natural images",
+    "MahmoodLab/UNI": "histology",
+    "bioptimus/H-optimus-0": "histology",
+    "paige-ai/Virchow2": "histology"
+  },
+  "sets": {
+    "SET_R19": "78, the set R19 and Paper 1 used",
+    "SET_HE": "76, every H&E slide in the archive (PRIMARY)",
+    "SET_ALL": "129, upper bound only -- mixes IHC with H&E"
+  },
+  "probe": {
+    "model": "StandardScaler + LogisticRegression",
+    "C": 1.0,
+    "cv": "StratifiedKFold(5, shuffled)",
+    "metric": "out-of-fold balanced accuracy"
+  },
+  "permutations": 200,
+  "seed": 20260817,
+  "reused_pre_declared_threshold": {
+    "total_bar": 0.95,
+    "source": "R20 config ab01b9847dedcfcf..., fixed before R20's arms were read"
+  },
+  "known_confound": "feature width varies 1024/1536/1280; a wider representation gives a linear probe more room, which bears on absolute magnitude",
+  "verdict_rules": [
+    "all SET_HE >= 0.95 -> EXTERNAL_SIGNATURE_TOTAL_IN_ALL_ENCODERS",
+    "all SET_HE clear their null p95 -> EXTERNAL_SIGNATURE_PRESENT_MAGNITUDE_VARIES",
+    "any fails to clear its null -> EXTERNAL_SIGNATURE_NOT_UNIVERSAL"
+  ],
+  "status": "HELD FOR IP - not for publication pending patent"
+}

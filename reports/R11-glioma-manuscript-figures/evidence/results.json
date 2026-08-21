@@ -1,0 +1,86 @@
+{
+  "figures_produced": [
+    "fig1_cohort_overview",
+    "fig3_km_curves",
+    "fig5_comparison",
+    "fig_calibration"
+  ],
+  "figures_not_producible": {
+    "fig4_habitat": "habitat features never computed (unstarted preprocessing/GPU arm)"
+  },
+  "panels_dropped_from_spec": {
+    "fig5_imaging_external": "no external validation exists; R02 states the 337-patient cohort intended for it has no survival data"
+  },
+  "fig1": {
+    "cohorts": {
+      "upenn_survival": 574,
+      "upenn_mgmt": 247,
+      "tcga_idh_survival": 919,
+      "eight_hospital": 337
+    },
+    "prevalence": {
+      "upenn_mgmt_methylated": 0.4048582995951417,
+      "upenn_idh1_mutant": 0.020242914979757085,
+      "tcga_idh_mutant": 0.4592964824120603,
+      "tcga_mgmt_methylated": 0.657725321888412,
+      "eight_mgmt_methylated": 0.4540059347181009
+    },
+    "scanner_manufacturer": {
+      "Philips": 89,
+      "GE": 20,
+      "Siemens": 228
+    },
+    "field_strength": {
+      "1.5": 109,
+      "3": 227,
+      "1": 1
+    },
+    "median_os_months": {
+      "upenn_km": 12.76281208935611,
+      "upenn_mgmt_km": 14.126149802890932,
+      "tcga_km": 20.7,
+      "tcga_raw_incorrect": 11.8,
+      "note": "UPENN uncensored so raw==KM; TCGA 50% censored"
+    }
+  },
+  "fig3": {
+    "A_idh_tcga": {
+      "n": 919,
+      "median_months": {
+        "Mutant": 89.7,
+        "WT": 14.0
+      },
+      "logrank_p": 5.7243106451257225e-71
+    },
+    "B_mgmt_upenn": {
+      "n": 247,
+      "median_days_meth": 595.0,
+      "median_days_unmeth": 371.0,
+      "logrank_p": 5.831120711860514e-08
+    },
+    "C_risk_tertiles": {
+      "n": 574,
+      "median_days_low_risk": 490.0,
+      "median_days_high_risk": 268.5,
+      "logrank_p_low_vs_high": 3.270491684225602e-08
+    }
+  },
+  "fig5": {
+    "imaging_gbm": 0.6024019381071802,
+    "imaging_ci95": [
+      0.5763946279889873,
+      0.6291337624029092
+    ],
+    "molecular_gbm_idh": 0.541,
+    "molecular_gbm_idh_mgmt": 0.561,
+    "molecular_all_grades_NOT_COMPARABLE": 0.7193457649053193
+  },
+  "calibration": {
+    "spearman_rho_pred_vs_obs": 0.29231300862852544,
+    "scale": "log10 on both axes"
+  },
+  "_provenance": {
+    "config_sha256": "084e0f49335df86185f388b23c262a1c036f4f30f0c005f6b102a43e747ac4ee",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260808T115133Z-R11figures-3f8bece"
+  }
+}

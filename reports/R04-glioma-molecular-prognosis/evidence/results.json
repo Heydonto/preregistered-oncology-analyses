@@ -1,0 +1,175 @@
+{
+  "Q1_positive_control_IDH": {
+    "p": 5.7243106451257225e-71,
+    "median_months": {
+      "Mutant": 89.7,
+      "WT": 14.0
+    },
+    "n": 919,
+    "recovered": true
+  },
+  "Q2_marker_cooccurrence": {
+    "IDH_STATUS__TERT_PROMOTER_STATUS": {
+      "table": [
+        [
+          93,
+          142
+        ],
+        [
+          67,
+          19
+        ]
+      ],
+      "odds_ratio": 0.18572629808702965,
+      "p": 7.633115657818687e-10,
+      "n": 321,
+      "levels": {
+        "IDH_STATUS": [
+          "Mutant",
+          "WT"
+        ],
+        "TERT_PROMOTER_STATUS": [
+          "Mutant",
+          "WT"
+        ]
+      },
+      "q_bh": 1.144967348672803e-09
+    },
+    "IDH_STATUS__MGMT_PROMOTER_STATUS": {
+      "table": [
+        [
+          363,
+          31
+        ],
+        [
+          167,
+          244
+        ]
+      ],
+      "odds_ratio": 17.10875024145258,
+      "p": 3.4838218811008804e-58,
+      "n": 805,
+      "levels": {
+        "IDH_STATUS": [
+          "Mutant",
+          "WT"
+        ],
+        "MGMT_PROMOTER_STATUS": [
+          "Methylated",
+          "Unmethylated"
+        ]
+      },
+      "q_bh": 1.0451465643302641e-57
+    },
+    "TERT_PROMOTER_STATUS__MGMT_PROMOTER_STATUS": {
+      "table": [
+        [
+          121,
+          31
+        ],
+        [
+          126,
+          34
+        ]
+      ],
+      "odds_ratio": 1.0532514080901179,
+      "p": 0.8896795090194585,
+      "n": 312,
+      "levels": {
+        "TERT_PROMOTER_STATUS": [
+          "Mutant",
+          "WT"
+        ],
+        "MGMT_PROMOTER_STATUS": [
+          "Methylated",
+          "Unmethylated"
+        ]
+      },
+      "q_bh": 0.8896795090194584
+    }
+  },
+  "Q3_panel_prognostic_cindex": {
+    "IDH_only": {
+      "n": 919,
+      "cindex": 0.7193457649053193,
+      "hr": {
+        "IDH_STATUS": 0.1226099965233761
+      },
+      "p": {
+        "IDH_STATUS": 6.95238906131043e-54
+      }
+    },
+    "IDH_plus_MGMT": {
+      "n": 805,
+      "cindex": 0.7472124113966899,
+      "hr": {
+        "IDH_STATUS": 0.11317598552392107,
+        "MGMT_PROMOTER_STATUS": 0.9925123444959851
+      },
+      "p": {
+        "IDH_STATUS": 2.8600463187705284e-42,
+        "MGMT_PROMOTER_STATUS": 0.9519418238520638
+      }
+    },
+    "IDH_MGMT_TERT": {
+      "n": 311,
+      "cindex": 0.7974778240889174,
+      "hr": {
+        "IDH_STATUS": 0.08721472374290794,
+        "MGMT_PROMOTER_STATUS": 1.5553710206104647,
+        "TERT_PROMOTER_STATUS": 1.343671673516708
+      },
+      "p": {
+        "IDH_STATUS": 6.034366228298944e-14,
+        "MGMT_PROMOTER_STATUS": 0.17273048422492412,
+        "TERT_PROMOTER_STATUS": 0.26402659365340464
+      }
+    }
+  },
+  "Q4_subtype_stratification": {
+    "n": 901,
+    "p": 2.3202679990580675e-70,
+    "median_by_group": {
+      "IDHmut-codel": {
+        "n": 151,
+        "median_months": 115.8
+      },
+      "IDHmut-non-codel": {
+        "n": 247,
+        "median_months": 75.1
+      },
+      "IDHwt": {
+        "n": 503,
+        "median_months": 14.0
+      }
+    }
+  },
+  "MSK_replication": {
+    "TERT": {
+      "n": 923,
+      "n_positive": 548,
+      "hr": 1.689831029633571,
+      "p": 2.8418390957033394e-06,
+      "cindex": 0.5906452768854704
+    },
+    "CDKN2A": {
+      "n": 923,
+      "n_positive": 283,
+      "hr": 2.3650790815581066,
+      "p": 4.334889417447404e-14,
+      "cindex": 0.5876409383518691
+    },
+    "TERT_plus_CDKN2A": {
+      "cindex": 0.6269341029217912,
+      "n": 923
+    }
+  },
+  "_comparison_to_R02": {
+    "imaging_cindex_R02": 0.602,
+    "note": "R02 achieved C-index 0.602 from imaging alone on UPENN-GBM (n=574). The molecular panel C-index here is the like-for-like reference."
+  },
+  "_provenance": {
+    "config_sha256": "db6ee7d331d05fd34b5212771db70ddf22815eb7695dc13e916274a972049bbe",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260806T235340Z-R04glioma-3f8bece"
+  }
+}

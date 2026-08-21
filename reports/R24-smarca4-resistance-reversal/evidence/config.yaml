@@ -1,0 +1,10 @@
+{
+  "executes": "PREREG_PLAN_R24.yaml",
+  "declared_sha256": "bffbaad89936c5222c6e7fec678a88aba5c613358c8a8502ab39a7a83baa4087",
+  "observed_sha256": "bffbaad89936c5222c6e7fec678a88aba5c613358c8a8502ab39a7a83baa4087",
+  "seed": 20260820,
+  "n_perm": 2000,
+  "fc_cut": 1.0,
+  "isolation": "hash-before-outcome only; author and executor are the same",
+  "status": "HELD FOR IP - not for publication pending patent"
+}

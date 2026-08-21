@@ -1,0 +1,24 @@
+{
+  "report": "R02",
+  "milestone": "prognostic endpoint + positive controls",
+  "primary": "radiomics -> overall survival, nested-CV Harrell C-index",
+  "positive_controls": [
+    "age -> survival",
+    "MGMT status -> survival"
+  ],
+  "signal_rule": "radiomics judged prognostic only if C-index 95% CI lower bound > 0.55",
+  "control_rule": "if BOTH positive controls fail to recover a known association, the pipeline is suspect and R01 must be reconsidered",
+  "censoring": "none - all subjects with a survival time are deceased; log-time regression is valid",
+  "model": "elastic-net regression on log10(survival days), selection inside folds",
+  "cv": "10x repeated 5-fold nested CV",
+  "master_seed": 20260807,
+  "expectations": {
+    "zip_bytes": 16121402,
+    "n_complete_features": 599,
+    "n_with_survival": 574,
+    "all_deceased": true,
+    "n_mgmt_definite": 247,
+    "signal_rule_cindex_ci_low": 0.55
+  },
+  "relates_to": "R01 (MGMT classification, null)"
+}

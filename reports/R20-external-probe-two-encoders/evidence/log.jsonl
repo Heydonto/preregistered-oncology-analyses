@@ -1,0 +1,13 @@
+{"t": "2026-08-17T06:12:30Z", "event": "config_written", "sha256": "ab01b9847dedcfcf3db9cffc98a66a29a04c2ece09f2cf27937b4a42aab0f0e2"}
+{"t": "2026-08-17T06:12:30Z", "event": "gate", "gate": "G0_matched_slides", "expected": "both encoders cover the same 129 slides in the same order", "observed": {"phikon_n": 129, "dinov2_n": 129, "identical": true}, "result": "PASS"}
+{"t": "2026-08-17T06:12:30Z", "event": "gate", "gate": "G1_encoder_identity", "expected": "each file declares the intended encoder", "observed": {"phikon": "owkin/phikon-v2", "dinov2": "facebook/dinov2-large"}, "result": "PASS"}
+{"t": "2026-08-17T06:12:30Z", "event": "gate", "gate": "G2_r19_subset_confirmed", "expected": "R19's 78-slide set is a strict subset, and the number of HTMCP slides it omitted", "observed": {"r19_n": 78, "archive_htmcp": 80, "htmcp_omitted_by_r19": 51}, "result": "PASS"}
+{"t": "2026-08-17T06:12:33Z", "event": "probe", "encoder": "phikon-v2", "set": "SET_R19", "n": 78, "bal_acc": 1.0, "null_mean": 0.5072, "p": 0.00498}
+{"t": "2026-08-17T06:12:35Z", "event": "probe", "encoder": "phikon-v2", "set": "SET_HE", "n": 76, "bal_acc": 1.0, "null_mean": 0.5023, "p": 0.00498}
+{"t": "2026-08-17T06:12:40Z", "event": "probe", "encoder": "phikon-v2", "set": "SET_ALL", "n": 129, "bal_acc": 1.0, "null_mean": 0.5011, "p": 0.00498}
+{"t": "2026-08-17T06:12:44Z", "event": "probe", "encoder": "dinov2-large", "set": "SET_R19", "n": 78, "bal_acc": 0.8934, "null_mean": 0.507, "p": 0.00498}
+{"t": "2026-08-17T06:12:49Z", "event": "probe", "encoder": "dinov2-large", "set": "SET_HE", "n": 76, "bal_acc": 0.8768, "null_mean": 0.499, "p": 0.00498}
+{"t": "2026-08-17T06:12:55Z", "event": "probe", "encoder": "dinov2-large", "set": "SET_ALL", "n": 129, "bal_acc": 0.9444, "null_mean": 0.502, "p": 0.00498}
+{"t": "2026-08-17T06:12:55Z", "event": "gate", "gate": "G3_reproduces_r19", "expected": "phikon on SET_R19 recovers R19's 1.0", "observed": 1.0, "result": "PASS"}
+{"t": "2026-08-17T06:12:55Z", "event": "gate", "gate": "G4_nulls_centred", "expected": "every null sits at chance 0.5 (within 0.06)", "observed": {"phikon-v2/SET_R19": 0.5072, "phikon-v2/SET_HE": 0.5023, "phikon-v2/SET_ALL": 0.5011, "dinov2-large/SET_R19": 0.507, "dinov2-large/SET_HE": 0.499, "dinov2-large/SET_ALL": 0.502}, "result": "PASS"}
+{"t": "2026-08-17T06:12:55Z", "event": "VERDICT", "primary": "EXTERNAL_SIGNATURE_WEAKER_UNDER_SECOND_ENCODER", "dinov2_set_he": 0.8768, "phikon_set_he": 1.0}

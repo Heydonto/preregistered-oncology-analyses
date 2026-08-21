@@ -1,0 +1,112 @@
+{
+ "G1_prereg_order": {
+  "expected": "config sha in unsealing event #3 strictly before any sealed-content read",
+  "observed": "config registered 2026-08-10T23:39:01Z, sha 64726b\u20263795 mirrored to GCS, event #3 appended 2026-08-10T23:39:35Z with generation precondition (1786358822769469 -> 1786405175752862); first sealed content staged 2026-08-10T23:43Z (local mtimes + GCS audit)",
+  "pass": true
+ },
+ "G2_pc1": {
+  "expected": "PD-L1 TPS -> response AUROC>0.55 & perm p<0.05",
+  "observed": {
+   "auroc": 0.7473637571998228,
+   "perm_p": 9.999000099990002e-05,
+   "n": 246
+  },
+  "pass": true
+ },
+ "G3_pc2": {
+  "expected": "seg-derived tumor volume -> OS C>0.55 & p<0.05",
+  "observed": {
+   "cindex": 0.5035235280745624,
+   "wald_p": 0.6982452182419279,
+   "hr_per_sd": 0.9647818139723227,
+   "n": 187,
+   "events": 111
+  },
+  "pass": false,
+  "adjudication": "FAILED EXPECTATION, pipeline competence separately established: seg-derived lesion counts match the listing's own n_lesions for 91.4% of 187 patients (r=0.93), and the OS endpoint construction is validated by albumin (HR/SD 0.63, p=6.2e-9) and dNLR (HR/SD 1.46, p=1.3e-9) univariate controls. The failure is a genuine cohort-level null for RECIST target-lesion volume, not an integrity failure. Per verdict_rules G3 participates in H1 confirmation; H1 is a null regardless."
+ },
+ "G4_pc3_competence": {
+  "expected": "PATHF -> TPS>=50 AUROC>0.65 (competence for the IHC encoder)",
+  "observed": {
+   "auroc_of_mean_oof": 0.8697139303482586,
+   "ci95_mean_oof": [
+    0.8111095848595848,
+    0.9220789694176792
+   ],
+   "n": 163
+  },
+  "pass": true
+ },
+ "G5_no_silent_exclusions": {
+  "expected": "per-endpoint accounting reconciles",
+  "observed": {
+   "accounting": {
+    "E1": {
+     "listing_rows": 368,
+     "dedup_patients": 366,
+     "with_endpoint": 366,
+     "without_endpoint": 0,
+     "logged_exclusions": 0,
+     "reconciles": true
+    },
+    "E2": {
+     "listing_rows": 368,
+     "dedup_patients": 366,
+     "with_endpoint": 246,
+     "without_endpoint": 120,
+     "logged_exclusions": 120,
+     "reconciles": true
+    },
+    "E3": {
+     "listing_rows": 368,
+     "dedup_patients": 366,
+     "with_endpoint": 366,
+     "without_endpoint": 0,
+     "logged_exclusions": 0,
+     "reconciles": true
+    }
+   },
+   "note": "per-model n < with_endpoint is block availability, reported in results.availability and results.models[*].n; block-level absences logged in exclusions.json (GEN: validation cohorts; PATHF: 14 missing/empty slides; TB: 2 unreadable masks)"
+  },
+  "pass": true
+ },
+ "G6_nan_degeneracy": {
+  "expected": "no NaN predictions, no constant OOF vector, 100% OOF coverage",
+  "observed": "clean",
+  "pass": true
+ },
+ "G7_null_centred": {
+  "expected": "|null mean - 0.5| < 0.02 for every archived null",
+  "observed": {
+   "E1_M_clin": 0.4941,
+   "E1_M_base": 0.495,
+   "E1_M_rad": 0.4987,
+   "E1_M_pathg": 0.498,
+   "E1_M_pathf": 0.4971,
+   "E1_M_full": 0.5001,
+   "E2_M_base": 0.4991,
+   "E2_M_full": 0.4976
+  },
+  "pass": true
+ },
+ "G8_pretreatment_only": {
+  "expected": "RAD/TB from baseline scans only; PATHF/PATHG from the PD-L1 diagnostic slide",
+  "observed": "rad_inventory carries exactly one scan+segmentation per patient (237 rows, 237 unique accessions) = the RECIST baseline; the radiomics parquet has no timepoint axis; PD-L1 slides are the diagnostic (pre-IO) specimens per cohort design; raw longitudinal volumes/ (1,033 nii, multiple SCANS/<n>) were never read",
+  "pass": true
+ },
+ "G9_budget": {
+  "expected": "Modal spend <= $60, wall <= 24h",
+  "observed": "encode_vanguri: 234 L4-container tasks, sum task wall 69.2 min GPU (~1.2 L4-h, ~$1); tumor_burden: 237 CPU tasks (~20 CPU-min); smoke + retries + idle containers < $5 total by Modal dashboard; everything else local CPU",
+  "pass": true
+ },
+ "G10_no_leakage": {
+  "expected": "all preprocessing/hyperparameter selection inside training folds",
+  "observed": "single code path: every fold constructs a fresh sklearn Pipeline (ColumnTransformer[SimpleImputer,StandardScaler,PCA] + GridSearchCV(cv=inner 3-fold)); fit called on X.iloc[tr] only; Cox path fits preprocessor + rank-guard PCA + variance filter on train only (run_analysis.py cv_response/cox_risk_cv); paired comparisons share the fold subset (H1 fold_subset_hash 5fdc9069655724db)",
+  "pass": true
+ },
+ "G11_firewall": {
+  "expected": "zero reads under sealed code/ and tests/",
+  "observed": "no pipeline file references those prefixes (grep-verifiable in armA/*.py); only staged sealed files are the 16 listed in inputs.json",
+  "pass": true
+ }
+}

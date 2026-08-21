@@ -1,0 +1,21 @@
+{
+  "report": "R05",
+  "question": "imaging vs molecular markers, head to head in the same UPENN patients",
+  "motivation": "R04 audit: R02 (imaging) and R04 (molecular) used different cohorts",
+  "Q1_positive_control": "MGMT prognostic within this subset",
+  "Q2": "molecular alone (IDH1 + MGMT), cross-validated C-index",
+  "Q3": "imaging alone, same patients, cross-validated C-index",
+  "Q4": "combined; LR test for imaging adding beyond molecular",
+  "decision_rule": "imaging adds independent value only if LR p < 0.05",
+  "cv": "5-fold, out-of-fold predictions, selection inside folds",
+  "seed": 20260807,
+  "expectations": {
+    "zip_bytes": 16121402,
+    "n_both_markers": 291,
+    "lr_alpha": 0.05
+  },
+  "relates_to": [
+    "R02 imaging C=0.602 (n=574)",
+    "R04 molecular within-GBM C=0.541-0.561"
+  ]
+}

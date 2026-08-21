@@ -1,0 +1,28 @@
+{
+  "executes": "PREREG_PLAN.yaml",
+  "declared_sha256": "7e0322ba804aef2f84ecf559d2e348f146c09fab1086cb2148235a377cde2a66",
+  "observed_sha256": "7e0322ba804aef2f84ecf559d2e348f146c09fab1086cb2148235a377cde2a66",
+  "seed": 20260820,
+  "n_perm": 2000,
+  "n_var_probes": 5000,
+  "cv": 5,
+  "soc_agents": [
+    "Docetaxel",
+    "Cisplatin",
+    "Gemcitabine",
+    "Paclitaxel",
+    "Afatinib",
+    "Gefitinib",
+    "Erlotinib",
+    "Osimertinib",
+    "Olaparib",
+    "Navitoclax",
+    "Camptothecin"
+  ],
+  "thesis_thresholds": {
+    "supported": -0.2,
+    "contradicted": 0.2
+  },
+  "isolation": "hash-before-label only; plan author and executor are the same person",
+  "status": "HELD FOR IP - not for publication pending patent"
+}

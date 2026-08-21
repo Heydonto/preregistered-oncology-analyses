@@ -1,0 +1,247 @@
+{
+  "audited_at_utc": "2026-08-10T10:59:07Z",
+  "run_dirs": {
+    "stage1": "runs/20260810T103808Z-armBmeth-s1-3f8bece",
+    "stage3": "runs/20260810T104741Z-armBmeth-s3-parse-3f8bece",
+    "stage4": "runs/20260810T105836Z-armBmeth-s4-eval-3f8bece"
+  },
+  "A_config_hash_matches_file": {
+    "sha256_of_config.yaml": "5d3d9d15a85d6917f97f630f88cf9b9adea9f0763b7a2803fdb8812c679e172d",
+    "claimed_in_results": "5d3d9d15a85d6917f97f630f88cf9b9adea9f0763b7a2803fdb8812c679e172d",
+    "match": true,
+    "stage1_config_same_bytes": true
+  },
+  "B_r10_reproduction": {
+    "auroc_recomputed_from_oof": 0.9098375784422296,
+    "r10_published": 0.9098375784422296,
+    "abs_diff": 0.0,
+    "gate_threshold": 0.88,
+    "gate_pass": true,
+    "oof_predictions_bit_identical_to_r10": true,
+    "r10_archived_oof_sha256": "976b25274d9513d8e5509d99b54323498fc3d27e8e897fd2adb44abbcccf5b60",
+    "our_repro_run_oof_sha256": "976b25274d9513d8e5509d99b54323498fc3d27e8e897fd2adb44abbcccf5b60"
+  },
+  "C_probe_overlap_recount": {
+    "manifest_450k_loci": 485577,
+    "manifest_epic_loci": 867926,
+    "manifest_overlap_loci": 454181,
+    "matches_run": true,
+    "frac_of_450k_transferable": 0.9353,
+    "run_claim_r08_retained_on_epic": 366316,
+    "active_keap1_probes_all_on_epic": true
+  },
+  "D_sex_transfer_recompute": {
+    "auroc_recomputed": 0.9889643463497454,
+    "claimed": 0.9889643463497454,
+    "match_to_4dp": true,
+    "n": 81,
+    "males": 62,
+    "gate_threshold": 0.95,
+    "gate_pass": true,
+    "note": "ground truth is the deposit's own signal-intensity chrX/chrY contrast, not a metadata field \u2014 sex is NOT deposited. The classifier under test uses beta values only, so the two are methodologically independent."
+  },
+  "E_permutation_nulls": {
+    "all_centred": true,
+    "per_null": {
+      "sex_transfer|T1_naive|minfi_cutoff": {
+        "n": 1000,
+        "mean": 0.49910950764006795,
+        "sd": 0.07639530540901816,
+        "p95": 0.6298811544991512,
+        "centred_within_0.05_of_0.5": true
+      },
+      "sex_transfer|T1_naive|data_driven": {
+        "n": 1000,
+        "mean": 0.4991214285714286,
+        "sd": 0.0746420767830064,
+        "p95": 0.6270238095238094,
+        "centred_within_0.05_of_0.5": true
+      },
+      "sex_transfer|T2_cohort_z|minfi_cutoff": {
+        "n": 1000,
+        "mean": 0.49917911714770796,
+        "sd": 0.07639522670130998,
+        "p95": 0.6282258064516129,
+        "centred_within_0.05_of_0.5": true
+      },
+      "sex_transfer|T2_cohort_z|data_driven": {
+        "n": 1000,
+        "mean": 0.4992015873015873,
+        "sd": 0.07464678716774835,
+        "p95": 0.6261904761904762,
+        "centred_within_0.05_of_0.5": true
+      },
+      "cohort_membership|M1_keap1_full|T1_naive": {
+        "n": 1000,
+        "mean": 0.4966113892365457,
+        "sd": 0.0675164991354098,
+        "p95": 0.6089799749687108,
+        "centred_within_0.05_of_0.5": true
+      },
+      "cohort_membership|M1_keap1_full|T2_cohort_z": {
+        "n": 1000,
+        "mean": 0.49641614518147686,
+        "sd": 0.06780480378590553,
+        "p95": 0.6076345431789736,
+        "centred_within_0.05_of_0.5": true
+      },
+      "cohort_membership|M1_keap1_overlap|T1_naive": {
+        "n": 1000,
+        "mean": 0.4966113892365457,
+        "sd": 0.0675164991354098,
+        "p95": 0.6089799749687108,
+        "centred_within_0.05_of_0.5": true
+      },
+      "cohort_membership|M1_keap1_overlap|T2_cohort_z": {
+        "n": 1000,
+        "mean": 0.49643366708385483,
+        "sd": 0.06782871550884949,
+        "p95": 0.6070400500625782,
+        "centred_within_0.05_of_0.5": true
+      },
+      "power_grid|responders_16_of_81": {
+        "n": 1000,
+        "mean": 0.5015192307692307,
+        "sd": 0.08138770533613573,
+        "p95": 0.6385576923076923,
+        "centred_within_0.05_of_0.5": true
+      },
+      "power_grid|responders_20_of_81": {
+        "n": 1000,
+        "mean": 0.5022745901639344,
+        "sd": 0.07590255272881011,
+        "p95": 0.6246311475409836,
+        "centred_within_0.05_of_0.5": true
+      },
+      "power_grid|responders_24_of_81": {
+        "n": 1000,
+        "mean": 0.49687573099415205,
+        "sd": 0.06982059915278951,
+        "p95": 0.6111476608187134,
+        "centred_within_0.05_of_0.5": true
+      },
+      "power_grid|responders_28_of_81": {
+        "n": 1000,
+        "mean": 0.49864083557951483,
+        "sd": 0.06774805640997328,
+        "p95": 0.6219676549865228,
+        "centred_within_0.05_of_0.5": true
+      },
+      "power_grid|responders_32_of_81": {
+        "n": 1000,
+        "mean": 0.5034432397959183,
+        "sd": 0.0657586369359071,
+        "p95": 0.6071428571428571,
+        "centred_within_0.05_of_0.5": true
+      },
+      "power_grid|responders_40_of_81": {
+        "n": 1000,
+        "mean": 0.5004274390243902,
+        "sd": 0.06510492834684323,
+        "p95": 0.6079268292682927,
+        "centred_within_0.05_of_0.5": true
+      }
+    },
+    "sex_transfer_p_recomputed": 0.000999000999000999
+  },
+  "F_measured_power_rederived": {
+    "n_usable": 81,
+    "per_prevalence": {
+      "16_of_81": {
+        "audit_mde80": 0.6997304851872427,
+        "run_mde80": 0.6997304852119931,
+        "run_perm_null_p95": 0.6385576923076923,
+        "match": true
+      },
+      "20_of_81": {
+        "audit_mde80": 0.6843748941600075,
+        "run_mde80": 0.6843748941697334,
+        "run_perm_null_p95": 0.6246311475409836,
+        "match": true
+      },
+      "24_of_81": {
+        "audit_mde80": 0.6738951824790474,
+        "run_mde80": 0.6738951824856144,
+        "run_perm_null_p95": 0.6111476608187134,
+        "match": true
+      },
+      "28_of_81": {
+        "audit_mde80": 0.6666464285264472,
+        "run_mde80": 0.6666464285328615,
+        "run_perm_null_p95": 0.6219676549865228,
+        "match": true
+      },
+      "32_of_81": {
+        "audit_mde80": 0.6617473658155343,
+        "run_mde80": 0.6617473658235229,
+        "run_perm_null_p95": 0.6071428571428571,
+        "match": true
+      },
+      "40_of_81": {
+        "audit_mde80": 0.6572565931550242,
+        "run_mde80": 0.6572565931748559,
+        "run_perm_null_p95": 0.6079268292682927,
+        "match": true
+      }
+    },
+    "range_mde80": [
+      0.6572565931550242,
+      0.6997304851872427
+    ],
+    "comparison": "R07 (n=69, methylation -> EGFR-TKI response) measured 0.685. This cohort at n=81 sits in the same regime: nothing below ~0.66-0.70 AUROC was ever detectable here, labels or no labels."
+  },
+  "G_preregistration_ordering": {
+    "events_in_log": [
+      {
+        "event_number": 1,
+        "arm": "B-WSI",
+        "cohort": "CPTAC-LUAD/LSCC labels"
+      },
+      {
+        "event_number": 2,
+        "arm": "B-meth",
+        "cohort": "Anti-PD-1 EPIC methylation (81 pts)"
+      }
+    ],
+    "our_event": {
+      "event_number": 2,
+      "config_sha256": "5d3d9d15a85d6917f97f630f88cf9b9adea9f0763b7a2803fdb8812c679e172d",
+      "timestamp_utc": "2026-08-10T10:46:56Z"
+    },
+    "hash_in_event_matches_shipped_config": true,
+    "stage1_started": "2026-08-10T10:38:08Z",
+    "stage3_first_deposit_read": "2026-08-10T10:47:41Z",
+    "event_after_stage1_and_before_stage3": true,
+    "event_1_preserved": true
+  },
+  "H_sample_accounting": {
+    "n_deposited": 81,
+    "n_records": 81,
+    "n_used": 81,
+    "n_excluded": 0,
+    "every_excluded_has_a_reason": true,
+    "accounts_for_all": true,
+    "max_detp_fail_frac": 0.039972,
+    "max_model_probe_missing_frac": 0.0026
+  },
+  "I_verdict": {
+    "agrees_with_run": true,
+    "response_endpoint": "NOT TESTABLE \u2014 confirmed independently: the audit re-read the deposited characteristics and found exactly three fields (disease status, tissue, cohort), none of them an outcome.",
+    "what_the_run_did_prove": [
+      "R10's KEAP1 classifier reproduces bit-for-bit from its evidence bundle (AUROC 0.9098375784, identical out-of-fold predictions)",
+      "93.3% of the model's 450k feature space, and 15/15 of its active probes, are on EPIC; the overlap-restricted retrain loses only 1.6pp of nested-CV AUROC (0.8941 vs 0.9098)",
+      "cross-array transfer works: sex recovered zero-shot on the EPIC cohort at AUROC 0.9890 against an orthogonal intensity-based ground truth",
+      "the permutation machinery is calibrated on this cohort (nulls centred at 0.50)",
+      "measured minimum-detectable AUROC at n=81 is 0.657-0.700 depending on responder fraction \u2014 the pre-declared honest-inconclusive was structurally guaranteed"
+    ],
+    "corrections_the_audit_endorses": [
+      "the corpus inventory describes GSE115246 as '81 EPIC anti-PD-1 responder/non-responder'. The 81 EPIC arrays are real; the responder/non-responder labels are not in the deposit. The inventory row should read 'arrays only, outcomes in the paywalled supplement'.",
+      "the PROTOCOL's sealed-holdout table lists 'Anti-PD-1 methylation, 81' as a low-power honesty test. It is not a power problem \u2014 it is a missing-label problem, and no amount of n would fix a deposit with no outcome column."
+    ],
+    "residual_risks": [
+      "the deposit's betas are the submitters' own minfi output, not IDAT-derived by us (no IDATs were deposited), so preprocessing differences from TCGA's GDC betas cannot be eliminated \u2014 only absorbed by the cohort-z harmonisation. Measured per-probe mean shift: 0.0635 beta units, probe-mean correlation 0.9772.",
+      "sex ground truth is inferred, not deposited. The minfi cutoff (-2.0) and a 2-means split disagree on 2 of 81 samples; both give AUROC ~0.989.",
+      "the TCGA OS Cox head reaches CV C-index 0.602 (0.550-0.653) on 450k, which is ABOVE R08's 0.486 for methylation prognosis. These are different constructions (500-probe elastic-net Cox alone vs a signature added to clinical covariates) and the head is UNVALIDATED externally \u2014 no survival ships with this cohort. It must not be reported as a prognostic claim."
+    ]
+  }
+}

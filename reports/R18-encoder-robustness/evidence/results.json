@@ -1,0 +1,137 @@
+{
+  "status": "peer-review audit copy",
+  "question": "archive or encoder?",
+  "VERDICT": {
+    "primary": "SITE_SIGNATURE_IS_ARCHIVE_NOT_ENCODER",
+    "secondary": "METHYLATION_LEAKAGE_DID_NOT_REPRODUCE",
+    "rules_pre_declared_in": "config.yaml, hash 143b3b9d0a92fabbef0a926121b7a75a1eeacc003bdbb8b0b690e884757b1944"
+  },
+  "encoders": {
+    "tcga": [
+      "owkin/phikon-v2"
+    ],
+    "dinov2-tcga": [
+      "facebook/dinov2-large"
+    ]
+  },
+  "subtype": {
+    "tcga": {
+      "encoder": "owkin/phikon-v2",
+      "subtype_grouped": 0.7992338341090356,
+      "subtype_random": 0.9702535046158355,
+      "subtype_inflation": 0.1710196705067999,
+      "subtype_relative_inflation": 0.8518351174753231,
+      "keap1_grouped": 0.6642097579825679,
+      "keap1_random": 0.6659987691603098,
+      "keap1_inflation": 0.0017890111777418838,
+      "keap1_relative_inflation": 0.005327764043986155
+    },
+    "dinov2-tcga": {
+      "encoder": "facebook/dinov2-large",
+      "subtype_grouped": 0.7355890336401253,
+      "subtype_random": 0.9390137533057477,
+      "subtype_inflation": 0.20342471966562237,
+      "subtype_relative_inflation": 0.7693505396775131,
+      "keap1_grouped": 0.5595311359505374,
+      "keap1_random": 0.5796968699460434,
+      "keap1_inflation": 0.02016573399550603,
+      "keap1_relative_inflation": 0.045782427865869564
+    }
+  },
+  "methylation": {
+    "tcga": {
+      "encoder": "owkin/phikon-v2",
+      "per_target": {
+        "keap1_sig": {
+          "grouped_rho": 0.31724838968138613,
+          "random_rho": 0.39271651858997786,
+          "inflation": 0.07546812890859173
+        },
+        "global": {
+          "grouped_rho": 0.2896952456817382,
+          "random_rho": 0.36797825772587994,
+          "inflation": 0.07828301204414173
+        },
+        "island": {
+          "grouped_rho": 0.21822859075149662,
+          "random_rho": 0.3358321621966651,
+          "inflation": 0.1176035714451685
+        },
+        "opensea": {
+          "grouped_rho": 0.2867928040770591,
+          "random_rho": 0.3478305974614878,
+          "inflation": 0.06103779338442872
+        },
+        "tss200": {
+          "grouped_rho": 0.3028776201591689,
+          "random_rho": 0.42122834991786784,
+          "inflation": 0.11835072975869892
+        },
+        "body": {
+          "grouped_rho": 0.29882628459864846,
+          "random_rho": 0.3576769477932286,
+          "inflation": 0.058850663194580155
+        }
+      },
+      "mean_grouped_rho": 0.2856114891582496,
+      "mean_random_rho": 0.3705438056141845,
+      "mean_inflation": 0.08493231645593496,
+      "n_targets_inflated": 6
+    },
+    "dinov2-tcga": {
+      "encoder": "facebook/dinov2-large",
+      "per_target": {
+        "keap1_sig": {
+          "grouped_rho": 0.21393314119493392,
+          "random_rho": 0.19818212981670674,
+          "inflation": -0.01575101137822718
+        },
+        "global": {
+          "grouped_rho": 0.17482216992466365,
+          "random_rho": 0.16034235552784254,
+          "inflation": -0.014479814396821111
+        },
+        "island": {
+          "grouped_rho": 0.08131139241475213,
+          "random_rho": 0.12307538803327496,
+          "inflation": 0.04176399561852283
+        },
+        "opensea": {
+          "grouped_rho": 0.17195152054589685,
+          "random_rho": 0.17225006130186296,
+          "inflation": 0.00029854075596610907
+        },
+        "tss200": {
+          "grouped_rho": 0.18546275183994432,
+          "random_rho": 0.19027600736661138,
+          "inflation": 0.00481325552666706
+        },
+        "body": {
+          "grouped_rho": 0.16727232269410003,
+          "random_rho": 0.15287798920048432,
+          "inflation": -0.014394333493615713
+        }
+      },
+      "mean_grouped_rho": 0.16579221643571515,
+      "mean_random_rho": 0.1661673218744638,
+      "mean_inflation": 0.0003751054387486653,
+      "n_targets_inflated": 3
+    }
+  },
+  "published_controls": {
+    "subtype_grouped": 0.799,
+    "subtype_random": 0.9703,
+    "keap1_grouped": 0.664,
+    "meth_mean_inflation": 0.0849
+  },
+  "controls_reproduced": {
+    "subtype_grouped": 0.7992338341090356,
+    "subtype_random": 0.9702535046158355,
+    "keap1_grouped": 0.6642097579825679,
+    "meth_mean_inflation": 0.08493231645593496
+  },
+  "_provenance": {
+    "config_sha256": "143b3b9d0a92fabbef0a926121b7a75a1eeacc003bdbb8b0b690e884757b1944",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260817T060045Z-R18encodercmp-5002607"
+  }
+}

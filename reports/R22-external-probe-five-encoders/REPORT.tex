@@ -1,0 +1,124 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}
+\usepackage[margin=0.95in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,enumitem,xcolor,parskip,titlesec}
+\usepackage[hidelinks]{hyperref}
+\definecolor{qnavy}{RGB}{20,40,75}\definecolor{qgrey}{RGB}{90,90,90}\definecolor{qred}{RGB}{150,30,30}
+\definecolor{qgreen}{RGB}{47,107,79}
+\titleformat{\section}{\large\bfseries\color{qnavy}}{\thesection}{0.6em}{}
+\begin{document}\thispagestyle{empty}
+\noindent
+{\large\bfseries\color{qnavy} Report R22 --- The External Probe on Five Encoders, and a Single
+Split Quoted as a Number}\\[2pt]
+{\color{qgrey}The external site signature clears its null in all five encoders. R20's headline
+contrast was one cross-validation split, and it was an unlucky one.}\\[6pt]
+{\color{qgrey}\rule{\textwidth}{0.4pt}}
+
+\medskip
+\noindent 19 August 2026 \quad\textbullet\quad Quantara \quad\textbullet\quad
+{\color{qgrey}Peer-review audit copy}
+
+\section*{Summary}
+
+R20 measured EAGLE against HTMCP on two encoders and reported Phikon-v2 1.0000 against
+dinov2-large 0.8768, concluding the signature was encoder-independent in existence but not in
+magnitude. R21 then showed that two-point claims in this series have twice been wrong. This was the
+last two-point claim left, so it is now run on all five encoders.
+
+\textbf{Verdict: EXTERNAL\_SIGNATURE\_PRESENT\_MAGNITUDE\_VARIES}, from R20's own thresholds,
+hashed before R20's arms were read. Every encoder separates two institutions far above its
+permutation null at $p = 0.0050$.
+
+\begin{center}
+\small
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+\textbf{Encoder} & \textbf{Corpus} & \textbf{dim} & \textbf{SET\_HE} &
+\textbf{25 splits: mean $\pm$ sd} & \textbf{range} & \textbf{null} \\
+\midrule
+\texttt{owkin/phikon-v2} & histology & 1024 & 1.0000 & $1.0000 \pm 0.0000$ & 1.0000--1.0000 & 0.5023 \\
+\texttt{facebook/dinov2-large} & natural & 1024 & 0.8768 & $0.9176 \pm 0.0247$ & 0.8583--0.9528 & 0.4990 \\
+\texttt{MahmoodLab/UNI} & histology & 1024 & 1.0000 & $0.9937 \pm 0.0110$ & 0.9630--1.0000 & 0.5003 \\
+\texttt{bioptimus/H-optimus-0} & histology & 1536 & 1.0000 & $0.9961 \pm 0.0078$ & 0.9713--1.0000 & 0.4923 \\
+\texttt{paige-ai/Virchow2} & histology & 1280 & 0.9528 & $0.9601 \pm 0.0175$ & 0.9157--0.9815 & 0.4965 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{The gate that halted, and what it found}
+
+A first attempt at this run used a fresh seed. The reproduction gate compared its dinov2-large
+value against R20's 0.8768, got \textbf{0.9240}, and halted.
+
+That is not a coding difference. The seed sets the \texttt{StratifiedKFold} split, and on 76 slides
+with roughly fifteen per fold a couple of reassignments move balanced accuracy by several points.
+\textbf{R20's 0.8768 was one draw from a distribution with a standard deviation of 0.0247}, and it
+sat near the bottom of it: the 25-split mean is 0.9176 and the observed minimum 0.8583.
+
+So R20's substantive conclusion survives --- the signature is present under every encoder and
+total only under some --- but its headline contrast was overstated. The honest gap between
+Phikon-v2 and dinov2-large on these slides is \textbf{1.000 versus 0.918}, not 1.000 versus 0.877.
+\textcolor{qred}{R20 is corrected.}
+
+\textbf{What this run should have quoted from the start} is the distribution, not a point. Single-split
+balanced accuracy on 76 samples is a noisy statistic and there was never a reason to treat it as
+stable. The single-seed column is retained only to demonstrate exact reproduction.
+
+\section{What the five encoders show}
+
+\textbf{The signature is universal.} All five clear their nulls decisively, every null sits within
+0.008 of chance, and every $p$ is at the floor of 0.0050 for 200 permutations.
+
+\textbf{Phikon-v2 is genuinely saturated} --- 1.0000 on all 25 splits, standard deviation exactly
+zero. That is not a lucky split; two institutions are perfectly linearly separable in its
+mean-pooled feature space.
+
+\textbf{The histology encoders cluster high and the natural-image encoder sits below them}: means
+0.9601, 0.9937, 0.9961 and 1.0000 against 0.9176. The ordering matches R21's finding on methylation,
+where the corpus split was much starker. Here all five are high, so the corpus effect is a
+difference of degree rather than of kind, and it should not be leaned on --- with four histology
+encoders spanning 0.960 to 1.000 and one natural-image encoder at 0.918, a single non-pathology
+point is not enough to attribute the gap to corpus.
+
+\textbf{Feature width is a confound on magnitude.} H-optimus-0 has 1536 dimensions and Virchow2
+1280 against 1024 for the rest. A wider representation gives a linear probe more room on 76
+samples. H-optimus-0 is near ceiling and Virchow2 is not, so width plainly does not order the
+results --- but it is not controlled either.
+
+\section{SET\_ALL, and the stain shortcut in the open}
+
+Mixing the archive's 53 immunohistochemistry slides with the 76 H\&E ones raises dinov2-large from
+0.8768 to 0.9444, exactly as R20 found. Adding a different stain makes the task easier, which is
+the shortcut R12's audit predicted in writing. SET\_ALL is reported as an upper bound and is not a
+measurement of site signal.
+
+\section{Limitations}
+
+\textbf{Two institutions, 76 H\&E slides.} This bounds existence, not effect size, and no number
+here is a powered external benchmark.
+
+\textbf{Slide-level mean features}, not the attention-MIL representation.
+
+\textbf{Stain from filename suffixes} (\texttt{HE} / \texttt{CHR} / \texttt{P16}), the only stain
+field available; source mislabelling propagates.
+
+\textbf{One natural-image encoder.} The corpus ordering in \S3 rests on a single non-pathology
+point and is stated as an observation, not a result.
+
+\textbf{Ceiling effects make three of the five incomparable.} Phikon-v2, UNI and H-optimus-0 all
+touch 1.0000. Differences among saturated measurements are not interpretable, which is a reason to
+regard the whole external probe as a presence test rather than a ranking.
+
+\textbf{Two of five are CC-BY-NC-ND-4.0} (UNI, Virchow2). Licences are recorded in the feature
+files.
+
+\section*{Reproducing this report}
+
+\texttt{evidence/m19\_external\_probe\_five.py} (the whole run),
+\texttt{evidence/config.yaml} (pre-declared rules, SHA-256
+\texttt{025add55f381b264\ldots}), \texttt{evidence/gates.json} (5 gates, including the one that
+halted the first attempt), \texttt{evidence/results.json} with
+\texttt{set\_he\_seed\_distribution} per encoder, \texttt{evidence/log.jsonl}, and the five
+$129 \times d$ mean-embedding matrices with cohort and H\&E flags inline.
+
+\end{document}

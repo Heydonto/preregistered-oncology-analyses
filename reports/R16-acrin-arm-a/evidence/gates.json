@@ -1,0 +1,198 @@
+[
+  {
+    "gate": "G1_recombination",
+    "expected": {
+      "filesets": 2,
+      "cn_overlap": 0,
+      "A0_rows": 251,
+      "A0_cn": 251
+    },
+    "observed": {
+      "filesets": 2,
+      "cn_overlap": 0,
+      "A0_rows": 251,
+      "A0_cn": 251
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-15T22:50:14Z"
+  },
+  {
+    "gate": "G2_join_integrity",
+    "expected": {
+      "A0": 251,
+      "F1_cn": 243,
+      "IM_cn": 246,
+      "Q2_cn": 244,
+      "A0_and_F1": 243,
+      "A0_F1_Q2": 240
+    },
+    "observed": {
+      "A0": 251,
+      "F1_cn": 243,
+      "IM_cn": 246,
+      "Q2_cn": 244,
+      "A0_and_F1": 243,
+      "A0_F1_Q2": 240
+    },
+    "result": "PASS",
+    "note": "recon package came from the same files; a mismatch means the wrong files",
+    "t": "2026-08-15T22:50:14Z"
+  },
+  {
+    "gate": "G2b_LE_uniqueness_resolved",
+    "expected": "duplicates resolved by the plan's declared duplicate_row_rule",
+    "observed": {
+      "raw_rows": 244,
+      "distinct_cn": 243,
+      "cn_with_duplicates": 1,
+      "rows_after_rule": 243
+    },
+    "result": "PASS",
+    "note": "plan trap T11 anticipated this; G2 directs the duplicate rule, not a halt",
+    "t": "2026-08-15T22:50:14Z"
+  },
+  {
+    "gate": "G3_no_cutoff_row_inflation",
+    "expected": "SS keyed by sse2 with >1 row per cn",
+    "observed": {
+      "rows": 1185,
+      "distinct_sse2": [
+        0.0,
+        2.0,
+        2.5,
+        3.0,
+        3.5
+      ],
+      "modal_rows_per_cn": [
+        5,
+        237
+      ]
+    },
+    "result": "PASS",
+    "note": "SS may enter only via fallback_1 at min(sse2)",
+    "t": "2026-08-15T22:50:14Z"
+  },
+  {
+    "gate": "PC0_gate",
+    "expected": "fraction(post<pre) >= 0.60 for LE to remain the primary exposure",
+    "observed": {
+      "frac": 0.9441,
+      "median_ratio": 0.0,
+      "verdict": "PASS"
+    },
+    "result": "PASS",
+    "note": "failure triggers the declared fallback chain; no relabelling permitted",
+    "t": "2026-08-15T22:50:14Z"
+  },
+  {
+    "gate": "G7_exposure_adequacy",
+    "expected": ">= 180 patients with lee11 and a defined t0",
+    "observed": 180,
+    "result": "PASS",
+    "note": "below 180 triggers the fallback chain; below 120 everywhere = coverage failure",
+    "t": "2026-08-15T22:50:14Z"
+  },
+  {
+    "gate": "STAGE1_freeze",
+    "expected": "exposure table written and hashed before any outcome read",
+    "observed": {
+      "n": 180,
+      "sha256": "854378633ea6992c94b577aa09bcb5b1..."
+    },
+    "result": "PASS",
+    "note": "the plan voids the primary if this ordering is violated",
+    "t": "2026-08-15T22:50:14Z"
+  },
+  {
+    "gate": "G5_exclusion_accounting",
+    "expected": {
+      "identity": "251 == n_analysed + n_excluded"
+    },
+    "observed": {
+      "n_listed": 251,
+      "n_analysed": 166,
+      "n_excluded": 85,
+      "ledger": {
+        "E1": 0,
+        "E2": 18,
+        "E3": 15,
+        "E4": 38,
+        "E5": 10,
+        "E6": 0,
+        "E7": 0,
+        "E8": 4
+      }
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-15T22:50:15Z"
+  },
+  {
+    "gate": "G4_no_outcome_leakage",
+    "expected": {
+      "4a_exposure_from_PET_forms_only": true,
+      "4b_min_T>=0": true,
+      "4c_inband>=0.95": ">=0.95",
+      "4e_exposure_hash_unchanged": "854378633ea6992c"
+    },
+    "observed": {
+      "4a": "LE.lee11 only",
+      "4b_min_T": 0.164,
+      "4c_inband": 1.0,
+      "4e": "854378633ea6992c"
+    },
+    "result": "PASS",
+    "note": "4e makes post-outcome tuning of the exposure mechanically detectable",
+    "t": "2026-08-15T22:50:15Z"
+  },
+  {
+    "gate": "G8_outcome_completeness",
+    "expected": "tally sums to n_analysed",
+    "observed": {
+      "tally": {
+        "2": 125,
+        "1": 38,
+        "3": 3
+      },
+      "events": 125,
+      "ds_only": 0,
+      "alive_after_dead": 0,
+      "median_reverse_km_months": 49.18
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-15T22:50:15Z"
+  },
+  {
+    "gate": "G6_permutation_calibration",
+    "expected": {
+      "|mean z|<0.10": true,
+      "sd z in [0.85,1.15]": true,
+      "rej in [0.035,0.065]": true
+    },
+    "observed": {
+      "mean_z": 0.0344,
+      "sd_z": 0.982,
+      "rejection_rate": 0.042,
+      "B_effective": 2000
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-15T22:50:31Z"
+  },
+  {
+    "gate": "G9_primary_coherence",
+    "expected": "point estimate lies inside its own 95% CI",
+    "observed": {
+      "hr": 1.2023,
+      "ci95": [
+        1.0995,
+        1.3148
+      ]
+    },
+    "result": "PASS",
+    "note": "added after a variable-shadowing bug let PC2's HR be reported as the primary",
+    "t": "2026-08-15T22:50:31Z"
+  }
+]

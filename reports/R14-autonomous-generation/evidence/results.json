@@ -1,0 +1,580 @@
+{
+ "config_sha256": "64726b360b3373bfbbe885e755d22d4360cafebd0afa50959d6161a2d4293795",
+ "generated_utc": "2026-08-11T00:08:23.778017+00:00",
+ "seeds": {
+  "cv": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "perm": 1234,
+  "boot": 5678
+ },
+ "models": {
+  "E1_M_clin": {
+   "n": 366,
+   "n_pos": 93,
+   "n_neg": 273,
+   "auroc_per_repeat": {
+    "0": 0.5828705344834377,
+    "1": 0.5729646697388633,
+    "2": 0.6121548702193863,
+    "3": 0.5490566780889362,
+    "4": 0.6100476584347552
+   },
+   "auroc_mean_of_repeats": 0.5854188821930757,
+   "auroc_of_mean_oof": 0.5925006892748828,
+   "ci95_mean_oof": [
+    0.5258064882719442,
+    0.6560525025799793
+   ],
+   "mde_auroc_80pct": 0.5865703062008698,
+   "wall_s": 1.6,
+   "perm": {
+    "n_perms": 1000,
+    "statistic": "seed0 OOF AUROC (observed and null identically)",
+    "observed_seed0": 0.5828705344834377,
+    "null_mean": 0.4941362597975501,
+    "null_sd": 0.045786448135368224,
+    "p": 0.01998001998001998
+   },
+   "blocks": [
+    "CLIN"
+   ]
+  },
+  "E1_M_base": {
+   "n": 246,
+   "n_pos": 61,
+   "n_neg": 185,
+   "auroc_per_repeat": {
+    "0": 0.7463890119627825,
+    "1": 0.7441736818785998,
+    "2": 0.7291094373061586,
+    "3": 0.7597696056712449,
+    "4": 0.7302614089499335
+   },
+   "auroc_mean_of_repeats": 0.7419406291537439,
+   "auroc_of_mean_oof": 0.7447939743021712,
+   "ci95_mean_oof": [
+    0.6694058678394091,
+    0.8141474069342922
+   ],
+   "mde_auroc_80pct": 0.6064336832292072,
+   "wall_s": 1.7,
+   "perm": {
+    "n_perms": 1000,
+    "statistic": "seed0 OOF AUROC (observed and null identically)",
+    "observed_seed0": 0.7463890119627825,
+    "null_mean": 0.4950431546300398,
+    "null_sd": 0.05707566290543385,
+    "p": 0.000999000999000999
+   },
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN"
+   ]
+  },
+  "E1_M_rad": {
+   "n": 186,
+   "n_pos": 50,
+   "n_neg": 136,
+   "auroc_per_repeat": {
+    "0": 0.7055882352941176,
+    "1": 0.6401470588235296,
+    "2": 0.661985294117647,
+    "3": 0.6580882352941176,
+    "4": 0.624264705882353
+   },
+   "auroc_mean_of_repeats": 0.658014705882353,
+   "auroc_of_mean_oof": 0.6997058823529412,
+   "ci95_mean_oof": [
+    0.6191029204556219,
+    0.7775501478120056
+   ],
+   "mde_auroc_80pct": 0.6190478535658213,
+   "wall_s": 3.9,
+   "perm": {
+    "n_perms": 1000,
+    "statistic": "seed0 OOF AUROC (observed and null identically)",
+    "observed_seed0": 0.7055882352941176,
+    "null_mean": 0.49873161764705887,
+    "null_sd": 0.05969960465312663,
+    "p": 0.001998001998001998
+   },
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN",
+    "RAD",
+    "TB"
+   ]
+  },
+  "E1_M_pathg": {
+   "n": 105,
+   "n_pos": 42,
+   "n_neg": 63,
+   "auroc_per_repeat": {
+    "0": 0.5975056689342404,
+    "1": 0.6141345427059712,
+    "2": 0.5763416477702192,
+    "3": 0.634920634920635,
+    "4": 0.5668934240362811
+   },
+   "auroc_mean_of_repeats": 0.5979591836734695,
+   "auroc_of_mean_oof": 0.590702947845805,
+   "ci95_mean_oof": [
+    0.48188344178251,
+    0.698478568203623
+   ],
+   "mde_auroc_80pct": 0.6421294638522381,
+   "wall_s": 2.1,
+   "perm": {
+    "n_perms": 1000,
+    "statistic": "seed0 OOF AUROC (observed and null identically)",
+    "observed_seed0": 0.5975056689342404,
+    "null_mean": 0.49803703703703706,
+    "null_sd": 0.07178447603916653,
+    "p": 0.08691308691308691
+   },
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN",
+    "PATHG"
+   ]
+  },
+  "E1_M_pathf": {
+   "n": 163,
+   "n_pos": 49,
+   "n_neg": 114,
+   "auroc_per_repeat": {
+    "0": 0.625671321160043,
+    "1": 0.6297887576083064,
+    "2": 0.6595059076262084,
+    "3": 0.6154672395273899,
+    "4": 0.63390619405657
+   },
+   "auroc_mean_of_repeats": 0.6328678839957036,
+   "auroc_of_mean_oof": 0.6412459720730398,
+   "ci95_mean_oof": [
+    0.5422174632207091,
+    0.7368820472163494
+   ],
+   "mde_auroc_80pct": 0.6227518705247106,
+   "wall_s": 3.0,
+   "perm": {
+    "n_perms": 1000,
+    "statistic": "seed0 OOF AUROC (observed and null identically)",
+    "observed_seed0": 0.625671321160043,
+    "null_mean": 0.49707518796992484,
+    "null_sd": 0.06101134996792122,
+    "p": 0.017982017982017984
+   },
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN",
+    "PATHF"
+   ]
+  },
+  "E1_M_full": {
+   "n": 73,
+   "n_pos": 30,
+   "n_neg": 43,
+   "auroc_per_repeat": {
+    "0": 0.5643410852713178,
+    "1": 0.5813953488372093,
+    "2": 0.5883720930232559,
+    "3": 0.5620155038759691,
+    "4": 0.5767441860465117
+   },
+   "auroc_mean_of_repeats": 0.5745736434108528,
+   "auroc_of_mean_oof": 0.5899224806201551,
+   "ci95_mean_oof": [
+    0.4533470341715023,
+    0.7288958124624323
+   ],
+   "mde_auroc_80pct": 0.6689149794816083,
+   "wall_s": 3.0,
+   "perm": {
+    "n_perms": 1000,
+    "statistic": "seed0 OOF AUROC (observed and null identically)",
+    "observed_seed0": 0.5643410852713178,
+    "null_mean": 0.5000980620155039,
+    "null_sd": 0.08499374395140356,
+    "p": 0.24575424575424576
+   },
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN",
+    "RAD",
+    "TB",
+    "PATHG",
+    "PATHF"
+   ]
+  },
+  "E2_M_clin": {
+   "n": 246,
+   "events": 151,
+   "cindex_per_repeat": {
+    "0": 0.6257551737435194,
+    "1": 0.6255623634260251,
+    "2": 0.6489352585800592,
+    "3": 0.6267406486996016,
+    "4": 0.6224131282402845
+   },
+   "cindex_mean_of_repeats": 0.629881314537898,
+   "cindex_of_mean_oof": 0.6357170401473928,
+   "ci95_mean_oof": [
+    0.5913391870638129,
+    0.6807834346155979
+   ],
+   "wall_s": 5.9,
+   "blocks": [
+    "CLIN"
+   ]
+  },
+  "E2_M_base": {
+   "n": 246,
+   "events": 151,
+   "cindex_per_repeat": {
+    "0": 0.6825485239299027,
+    "1": 0.6943742234028879,
+    "2": 0.6924889669651656,
+    "3": 0.6971592613222503,
+    "4": 0.6955310853078538
+   },
+   "cindex_mean_of_repeats": 0.6924204121856121,
+   "cindex_of_mean_oof": 0.6984018167016581,
+   "ci95_mean_oof": [
+    0.6569863014414242,
+    0.7409772412567378
+   ],
+   "wall_s": 7.4,
+   "perm": {
+    "n_perms": 500,
+    "statistic": "seed0 OOF C-index",
+    "observed_seed0": 0.6825485239299027,
+    "null_mean": 0.4990789665366982,
+    "null_sd": 0.031996741582437704,
+    "p": 0.001996007984031936
+   },
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN"
+   ]
+  },
+  "E2_M_rad": {
+   "n": 186,
+   "events": 111,
+   "cindex_per_repeat": {
+    "0": 0.6413482803324945,
+    "1": 0.6498894227102875,
+    "2": 0.6223594905818653,
+    "3": 0.6537024327003736,
+    "4": 0.6186990009913826
+   },
+   "cindex_mean_of_repeats": 0.6371997254632807,
+   "cindex_of_mean_oof": 0.6502707237092962,
+   "ci95_mean_oof": [
+    0.5964183514277346,
+    0.7050411477582238
+   ],
+   "wall_s": 15.1,
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN",
+    "RAD",
+    "TB"
+   ]
+  },
+  "E2_M_pathg": {
+   "n": 105,
+   "events": 53,
+   "cindex_per_repeat": {
+    "0": 0.5950251537171605,
+    "1": 0.6344326439351593,
+    "2": 0.6210173281162661,
+    "3": 0.5740637227501397,
+    "4": 0.6067635550586921
+   },
+   "cindex_mean_of_repeats": 0.6062604807154836,
+   "cindex_of_mean_oof": 0.6207378423700392,
+   "ci95_mean_oof": [
+    0.5415446127946127,
+    0.6963972015528955
+   ],
+   "wall_s": 8.0,
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN",
+    "PATHG"
+   ]
+  },
+  "E2_M_pathf": {
+   "n": 163,
+   "events": 88,
+   "cindex_per_repeat": {
+    "0": 0.6242288874707509,
+    "1": 0.6253988513082323,
+    "2": 0.6160391406083812,
+    "3": 0.5946607104871304,
+    "4": 0.6344394809614976
+   },
+   "cindex_mean_of_repeats": 0.6189534141671984,
+   "cindex_of_mean_oof": 0.6214635184003403,
+   "ci95_mean_oof": [
+    0.5623137572536969,
+    0.6866893782757192
+   ],
+   "wall_s": 12.6,
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN",
+    "PATHF"
+   ]
+  },
+  "E2_M_full": {
+   "n": 73,
+   "events": 34,
+   "cindex_per_repeat": {
+    "0": 0.45368171021377673,
+    "1": 0.4649643705463183,
+    "2": 0.4637767220902613,
+    "3": 0.5166270783847982,
+    "4": 0.49287410926365793
+   },
+   "cindex_mean_of_repeats": 0.4783847980997624,
+   "cindex_of_mean_oof": 0.4851543942992874,
+   "ci95_mean_oof": [
+    0.3764343573305838,
+    0.5861778262290653
+   ],
+   "wall_s": 7.4,
+   "perm": {
+    "n_perms": 500,
+    "statistic": "seed0 OOF C-index",
+    "observed_seed0": 0.45368171021377673,
+    "null_mean": 0.49758551068883605,
+    "null_sd": 0.06321042221679381,
+    "p": 0.7704590818363274
+   },
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN",
+    "RAD",
+    "TB",
+    "PATHG",
+    "PATHF"
+   ]
+  },
+  "E3_M_base": {
+   "n": 246,
+   "events": 209,
+   "cindex_per_repeat": {
+    "0": 0.6433029453015428,
+    "1": 0.6643408134642356,
+    "2": 0.6506661991584852,
+    "3": 0.6685834502103787,
+    "4": 0.6407082748948106
+   },
+   "cindex_mean_of_repeats": 0.6535203366058906,
+   "cindex_of_mean_oof": 0.6650771388499299,
+   "ci95_mean_oof": [
+    0.6333092382263563,
+    0.7000185491386826
+   ],
+   "wall_s": 7.7,
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN"
+   ],
+   "endpoint": "PFS (descriptive)"
+  },
+  "E3_M_full": {
+   "n": 73,
+   "events": 56,
+   "cindex_per_repeat": {
+    "0": 0.5308693826123477,
+    "1": 0.49307013859722804,
+    "2": 0.41621167576648466,
+    "3": 0.4397312053758925,
+    "4": 0.4838303233935321
+   },
+   "cindex_mean_of_repeats": 0.472742545149097,
+   "cindex_of_mean_oof": 0.45779084418311633,
+   "ci95_mean_oof": [
+    0.38255405080461446,
+    0.5377703023389806
+   ],
+   "wall_s": 7.5,
+   "blocks": [
+    "CLIN",
+    "PDL1",
+    "GEN",
+    "RAD",
+    "TB",
+    "PATHG",
+    "PATHF"
+   ],
+   "endpoint": "PFS (descriptive)"
+  }
+ },
+ "positive_controls": {
+  "PC1": {
+   "test": "PD-L1 TPS raw score -> response",
+   "n": 246,
+   "auroc": 0.7473637571998228,
+   "perm_p": 9.999000099990002e-05,
+   "expected": "AUROC>0.55 & p<0.05",
+   "pass": true
+  },
+  "PC2": {
+   "test": "seg-derived log total tumor volume -> OS (univariate Cox)",
+   "n": 187,
+   "events": 111,
+   "hr_per_sd": 0.9647818139723227,
+   "wald_p": 0.6982452182419279,
+   "cindex": 0.5035235280745624,
+   "expected": "C>0.55 & p<0.05",
+   "pass": false
+  },
+  "PC3": {
+   "test": "PATHF Phikon-v2 embeddings -> TPS>=50%",
+   "n": 163,
+   "n_pos": 67,
+   "auroc_mean_of_repeats": 0.8563743781094526,
+   "auroc_of_mean_oof": 0.8697139303482586,
+   "ci95_mean_oof": [
+    0.8111095848595848,
+    0.9220789694176792
+   ],
+   "expected": "AUROC>0.65",
+   "pass": true
+  },
+  "PC4": {
+   "test": "join integrity",
+   "n_joined_clinical_genomic": 247,
+   "sex_agreement": 0.9959514170040485,
+   "expected": ">=200 joined & sex agreement >=0.99",
+   "pass": true
+  }
+ },
+ "hypotheses": {
+  "H1": {
+   "comparison": "M_full vs M_base, paired, complete-case all blocks",
+   "n": 73,
+   "n_pos": 30,
+   "auroc_full": 0.5899224806201551,
+   "auroc_base": 0.6255813953488373,
+   "delta": -0.03565891472868221,
+   "delta_ci95": [
+    -0.22031736581272182,
+    0.15038906387590578
+   ],
+   "p_onesided": 0.6375,
+   "fold_subset_hash": "5fdc9069655724db",
+   "delta_mde_note": "bootstrap delta CI half-width = 0.1854"
+  },
+  "H3": {
+   "comparison": "E2 M_full vs M_base paired",
+   "n": 73,
+   "events": 34,
+   "c_full": 0.4851543942992874,
+   "c_base": 0.6941805225653207,
+   "delta": -0.20902612826603328,
+   "delta_ci95": [
+    -0.352714099691115,
+    -0.06446827752120403
+   ],
+   "p_onesided": 0.999
+  },
+  "H2": {
+   "family": "E1 model sets vs chance (label-permutation, 1000 refits each, seed-0 statistic)",
+   "raw_p": {
+    "E1_M_clin": 0.01998001998001998,
+    "E1_M_base": 0.000999000999000999,
+    "E1_M_rad": 0.001998001998001998,
+    "E1_M_pathg": 0.08691308691308691,
+    "E1_M_pathf": 0.017982017982017984,
+    "E1_M_full": 0.24575424575424576
+   },
+   "holm_p": {
+    "E1_M_base": 0.005994005994005994,
+    "E1_M_rad": 0.00999000999000999,
+    "E1_M_pathf": 0.07192807192807193,
+    "E1_M_clin": 0.07192807192807193,
+    "E1_M_pathg": 0.17382617382617382,
+    "E1_M_full": 0.24575424575424576
+   },
+   "significant_after_holm": [
+    "E1_M_base",
+    "E1_M_rad"
+   ]
+  }
+ },
+ "availability": {
+  "CLIN": 366,
+  "PDL1": 246,
+  "GEN": 247,
+  "RAD": 233,
+  "PATHG": 157,
+  "PATHF": 233,
+  "TB": 235
+ },
+ "secondary_paired": {
+  "M_rad_vs_base": {
+   "n": 186,
+   "n_pos": 50,
+   "auroc_aug": 0.6997058823529412,
+   "auroc_base_same_subset": 0.7161764705882354,
+   "delta": -0.016470588235294237,
+   "delta_ci95": [
+    -0.09505036503733116,
+    0.06465978692201516
+   ],
+   "p_onesided_descriptive": 0.6445
+  },
+  "M_pathg_vs_base": {
+   "n": 105,
+   "n_pos": 42,
+   "auroc_aug": 0.590702947845805,
+   "auroc_base_same_subset": 0.6099773242630386,
+   "delta": -0.01927437641723362,
+   "delta_ci95": [
+    -0.1250253316138541,
+    0.08523624121901507
+   ],
+   "p_onesided_descriptive": 0.651
+  },
+  "M_pathf_vs_base": {
+   "n": 163,
+   "n_pos": 49,
+   "auroc_aug": 0.6412459720730398,
+   "auroc_base_same_subset": 0.6970998925886143,
+   "delta": -0.05585392051557447,
+   "delta_ci95": [
+    -0.1554347826086957,
+    0.04148667962608391
+   ],
+   "p_onesided_descriptive": 0.864
+  }
+ },
+ "_decision": {
+  "H1": "POWER-LIMITED-NULL",
+  "p_onesided": 0.6375,
+  "delta_ci_halfwidth": 0.1853532148443138,
+  "gates_required_all_pass": false,
+  "rule": "config.yaml verdict_rules (mechanical; audit governs on disagreement)"
+ }
+}

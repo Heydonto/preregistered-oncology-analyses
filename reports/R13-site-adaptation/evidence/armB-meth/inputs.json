@@ -1,0 +1,42 @@
+{
+  "/Users/rezanehzati/quantara-staging/r08/clinical_merged.tsv": {
+    "bytes": 98083,
+    "sha256": "74604ebb7fdbcfd643fb981ae3c7a1ba99eb11260d405eb874ec6092befac9cb"
+  },
+  "/Users/rezanehzati/quantara-staging/r08/beta_450k.npy": {
+    "bytes": 1788105780,
+    "sha256": "6c62db8b7f1e80cb3be42ecde426d694903297a4b455a24af8ffad732b8198ee"
+  },
+  "/Users/rezanehzati/quantara-staging/r08/probes.txt": {
+    "bytes": 5363967,
+    "sha256": "597b4234bf7e807bfe6eb2278c836e766384bf89be1c3bef8ec0f3434201ee46"
+  },
+  "/Users/rezanehzati/quantara-staging/r08/samples.tsv": {
+    "bytes": 88607,
+    "sha256": "d92ba7c996f80260de40c1fe3f886641c1c0e96bb9d7d6b40c103b0bb32e888d"
+  },
+  "/tmp/manifest450k.csv.gz": {
+    "bytes": 63979757,
+    "sha256": "df3d5009d9b5b878507ba330bbcd7d2012455f6d0aa92c2df897f53a28452c33"
+  },
+  "/tmp/GPL21145_MethylationEPIC_15073387_v-1-0.csv.gz": {
+    "bytes": 169013044,
+    "sha256": "bcb11dc3de47b509864238ca2f2d24a505684624b4a18e362597756da6f3bea1"
+  },
+  "/Users/rezanehzati/quantara-staging/armB-meth/GSE115246_series_matrix.txt.gz": {
+    "bytes": 576492954,
+    "sha256": "bddb46515c1c19e7bf8c8520dd74117c5999527ac4f5f365dfd64a4a74f4cc8d"
+  },
+  "/Users/rezanehzati/Projects/quantara/nsclc-rwpr-study/armB-meth/work/stage1_artifacts.json": {
+    "bytes": 6199250,
+    "sha256": "bf5d67fb699ca915b49208fc054564ebbd35656bbd54ac1137be5ec1219cddf1"
+  },
+  "/Users/rezanehzati/quantara-staging/armB-meth/GSE115246_methylated_unmethylated_signal_intensities.txt.gz": {
+    "bytes": 1230766774,
+    "sha256": "fa98496c106b80a1ec88043411bf4c68fd4da9da126158445450ce99087151e9"
+  },
+  "/Users/rezanehzati/Projects/quantara/nsclc-rwpr-study/armB-meth/work/epic_betas.npz": {
+    "bytes": 107916728,
+    "sha256": "15d3397aed0640ea8f0802cae7c954b490151181084cb2acd871400a7ec0ab8e"
+  }
+}

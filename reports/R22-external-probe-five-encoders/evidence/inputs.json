@@ -1,0 +1,26 @@
+{
+  "/tmp/ext_phikon-v2.npz": {
+    "bytes": 491863,
+    "sha256": "ce03b5c700d14f025d939284393c242ee224197a2ee61f95136c1074cbf033b7"
+  },
+  "/tmp/ext_dinov2-large.npz": {
+    "bytes": 490351,
+    "sha256": "401409bada1bfa8a58279789c0e6afafe48d6a7876c85193ee1293e9649ba00e"
+  },
+  "/tmp/ext_uni.npz": {
+    "bytes": 491118,
+    "sha256": "7e7d9b2eaa65dfbbf9e679eae9b352458d13f286635b81d9d39de8d7967983f7"
+  },
+  "/tmp/ext_h-optimus-0.npz": {
+    "bytes": 737338,
+    "sha256": "a33abd5954207f3f65673ddbee876da293a9c6bbc53024b865affce0d863f0af"
+  },
+  "/tmp/ext_virchow2.npz": {
+    "bytes": 612942,
+    "sha256": "39c2fe3b973ab009dfa85d6cfb08ea77db70c2d282aa1834e6a6306533b493c8"
+  },
+  "/Users/rezanehzati/quantara-staging/ext_feat/external_he_mean.npz": {
+    "bytes": 192132,
+    "sha256": "dc95e2094fa8400fd79609a30c3d24ed05df471ed90ba62d75a2c6ebcadf357d"
+  }
+}

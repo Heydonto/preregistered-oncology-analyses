@@ -1,0 +1,52 @@
+{
+  "milestone": "M1-internal-validation-only",
+  "plan": "EXPERIMENT_PLAN.md",
+  "primary_endpoint": "MGMT methylated vs unmethylated, internal nested-CV AUROC",
+  "stopping_rule": "halt programme if 95% CI upper bound on internal AUROC < 0.65",
+  "cohort": "UPENN-GBM, CaPTk automatic-segmentation features",
+  "modalities": [
+    "T1",
+    "T1GD",
+    "T2",
+    "FLAIR"
+  ],
+  "rois": [
+    "ET",
+    "ED",
+    "NC"
+  ],
+  "excluded_modalities_reason": "DSC perfusion and DTI absent from the external cohort",
+  "primary_model": "elastic-net logistic regression",
+  "comparators": [
+    "random forest",
+    "gradient boosting"
+  ],
+  "cv": "10x repeated 5-fold stratified nested CV; selection+scaling inside folds only",
+  "grid": {
+    "clf__C": [
+      0.01,
+      0.1,
+      1.0
+    ],
+    "clf__l1_ratio": [
+      0.1,
+      0.5,
+      0.9
+    ]
+  },
+  "master_seed": 20260806,
+  "ci_method": "DeLong on out-of-fold predictions averaged across repeats",
+  "permutation_null": "label permutation, fixed modal hyperparameters, 5-fold",
+  "external_cohort": "NOT OPENED IN M1",
+  "expectations": {
+    "zip_bytes": 16121402,
+    "n_dev": 256,
+    "n_methylated": 108,
+    "n_unmethylated": 148,
+    "join_rule": "complete cases across all 12 modality-ROI files",
+    "n_features": 1728,
+    "stop_rule_ci_upper": 0.65
+  },
+  "supersedes": "runs/20260806T220320Z-3f8bece (identical analysis; this run additionally persists out-of-fold predictions and subject IDs for independent verification)",
+  "prior_failed_run": "runs/20260806T215837Z-3f8bece (halted at gate G1_join_n, retained)"
+}

@@ -1,0 +1,33 @@
+{
+  "report": "R08",
+  "question": "does DNA methylation add to the NSCLC chromatin/prognostic picture established in R06?",
+  "cohort": "TCGA-LUAD + TCGA-LUSC, Illumina 450k, SeSAMe level-3 betas from GDC",
+  "clinical_source": "survival/sex/age/stage from the cBioPortal PanCancer Atlas (the curated TCGA-CDR endpoint, which is the published recommendation for TCGA survival analysis); smoking status from the GDC cases endpoint, which carries it and TCGA-CDR does not. GDC demographic.gender is empty for this project - the field is now sex_at_birth - so the curated SEX field is used instead",
+  "acquisition": "919 open-access files, MD5-verified, assembled on a transient VM",
+  "positive_controls": {
+    "PC1": "tumour vs normal differential methylation (largest available effect)",
+    "PC2": "sex from X-linked probes (also verifies the sample-clinical join)",
+    "PC3": "cg05575921 lower in smokers (the control R07 could not power)",
+    "PC4": "LUAD vs LUSC separable"
+  },
+  "gate_rule": "PC1 and PC2 must both hold - they test assembly and join correctness",
+  "Q1": "differential methylation by KEAP1/SMARCA4/KMT2D mutation status, BH-corrected",
+  "Q2": "prognostic methylation signature for OS, nested CV",
+  "Q3": "does methylation add beyond mutation status + stage + age (LR test)",
+  "decision_rule_Q3": "methylation adds only if LR p < 0.05 AND the seed-stability check in the audit clears 0.05 in a majority of 8 seeds",
+  "probe_filter": "drop probes with >5% NA across tumours; SeSAMe masks unreliable probes as NA",
+  "platform_restriction": "450k ONLY. The 311 HM27 and 53 EPICv2 files in this project were excluded before download: mixing array generations would confound every comparison",
+  "replicate_rule": "4 samples have 2 files; the lowest file_id is kept, deterministically",
+  "relates_to": [
+    "R06 KEAP1 HR 2.07, SMARCA4 HR 1.73 (mutation only)",
+    "R07 AHRR control underpowered at n=79"
+  ],
+  "seed": 20260807,
+  "expectations": {
+    "files": 919,
+    "probes": 486427,
+    "tumours": 843,
+    "normals": 74,
+    "max_probe_nan_frac": 0.05
+  }
+}

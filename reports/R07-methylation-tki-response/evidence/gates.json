@@ -1,0 +1,72 @@
+[
+  {
+    "gate": "G0_samples",
+    "expected": 79,
+    "observed": 79,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T08:20:55Z"
+  },
+  {
+    "gate": "G1_response_labels",
+    "expected": {
+      "PR": 40,
+      "PD": 29,
+      "SD": 10
+    },
+    "observed": {
+      "PD": 29,
+      "PR": 40,
+      "SD": 10
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T08:20:55Z"
+  },
+  {
+    "gate": "G2_beta_columns",
+    "expected": 79,
+    "observed": 79,
+    "result": "PASS",
+    "note": "one AVG_Beta column per sample, in EXP_n order",
+    "t": "2026-08-07T08:20:55Z"
+  },
+  {
+    "gate": "G3_ahrr_present",
+    "expected": "cg05575921 present",
+    "observed": true,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T08:20:59Z"
+  },
+  {
+    "gate": "G4_mapping_controls",
+    "expected": "at least one of {AHRR-smoking, sex-separability} holds",
+    "observed": {
+      "A_AHRR": {
+        "p": 0.0932,
+        "direction_correct": true,
+        "passes": false
+      },
+      "B_sex": {
+        "best_auc": 1.0,
+        "passes": true
+      }
+    },
+    "result": "PASS",
+    "note": "config rule: 'if neither control holds, the mapping is wrong'. An earlier implementation gated on control A alone and halted incorrectly.",
+    "t": "2026-08-07T08:21:04Z"
+  },
+  {
+    "gate": "G6_negative_control",
+    "expected": "permutation null contains 0.50",
+    "observed": {
+      "null_mean": 0.4911,
+      "p2.5": 0.3538,
+      "p97.5": 0.6664
+    },
+    "result": "PASS",
+    "note": "100 permutations; observed p=0.1881",
+    "t": "2026-08-07T08:25:08Z"
+  }
+]

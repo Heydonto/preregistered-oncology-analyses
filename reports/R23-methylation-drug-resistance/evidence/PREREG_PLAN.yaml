@@ -1,0 +1,104 @@
+# Pre-registered analysis plan -- Quantara, 2026-08-20
+# Epigenetic determinants of drug resistance in lung cancer cell lines
+#
+# WRITTEN AND HASHED BEFORE ANY IC50 OUTCOME WAS JOINED TO ANY METHYLATION VALUE.
+# The beta matrix was still being processed on Modal when this was written; no
+# methylation-drug association of any kind had been computed.
+#
+# This applies our own protocol (Paper 2) to a new question. The plan author is not
+# structurally isolated here -- the same person wrote plan and executor -- so this is the
+# weaker "hash before label" form, not the full isolation form. Stated so the difference
+# is not glossed.
+
+question: >
+  In lung cancer cell lines, does DNA methylation predict sensitivity to standard-of-care
+  agents; and are lines resistant to standard therapy differentially sensitive to
+  chromatin-targeting drugs? The second is the manuscript's therapeutic thesis
+  ("reprogramming drug resistance pathways through epigenetic modulation") and is the
+  reason this analysis exists.
+
+data:
+  methylation: GSE68379, Illumina 450k, lung cell lines, betas processed from raw IDATs
+  drug_response: GDSC2 fitted dose response 24Jul22, LN_IC50
+  join_key: cosmic_id
+  expected_overlap: 187          # measured before any outcome was read
+  n_drugs_ge_150_lines: 166
+
+exclusions:
+  E1: array fails methylprep QC
+  E2: cosmic_id absent from GDSC2
+  E3: drug measured in fewer than 100 of the overlapping lines
+  E4: probe with >5% missing across retained lines
+  E5: probe on a sex chromosome (cell-line sex is heterogeneous and unverified)
+
+hypotheses:
+  H1:
+    statement: >
+      Genome-wide methylation predicts LN_IC50 for at least one standard-of-care lung agent
+      better than chance, under cross-validation.
+    predictor: 5000 most variable autosomal probes, ridge regression
+    outcome: LN_IC50
+    agents: [Docetaxel, Cisplatin, Gemcitabine, Paclitaxel, Afatinib, Gefitinib,
+             Erlotinib, Osimertinib, Olaparib, Navitoclax, Camptothecin]
+    metric: out-of-fold Spearman rho between predicted and observed LN_IC50
+    cv: 5-fold, shuffled, seed 20260820
+    null: 200 permutations of the outcome vector
+    decision: an agent counts as predictable if its permutation p < 0.05 after
+              Holm correction across the agents listed
+
+  H2:
+    statement: >
+      The same holds for chromatin-targeting drugs.
+    agents_source: GDSC2 PATHWAY_NAME containing "Chromatin"
+    decision: as H1, Holm-corrected within the chromatin family separately
+
+  H3_PRIMARY:
+    statement: >
+      Lines resistant to standard-of-care agents are differentially sensitive to
+      chromatin-targeting drugs.
+    construction: >
+      resistance index = mean z-scored LN_IC50 across the H1 agents measured in that line;
+      chromatin index = mean z-scored LN_IC50 across the H2 agents. Both computed per line,
+      z-scoring within drug across the retained lines.
+    test: Spearman rho between resistance index and chromatin index
+    null: 200 permutations of the chromatin index across lines
+    directional_meaning: >
+      rho < 0 means resistant lines are MORE sensitive to chromatin drugs, which is the
+      therapeutic thesis. rho > 0 means resistant lines are cross-resistant, which is the
+      opposite and would argue against the premise.
+    decision:
+      thesis_supported:  rho <= -0.20 and permutation p < 0.05
+      thesis_contradicted: rho >= +0.20 and permutation p < 0.05
+      null_result: otherwise
+
+positive_controls:
+  PC1:
+    test: histology separates in methylation space (SCLC vs NSCLC, linear probe, 5-fold)
+    expect: balanced accuracy > 0.80
+    on_failure: >
+      the beta matrix is not carrying real biology; halt and do not interpret H1-H3.
+  PC2:
+    test: EGFR-mutant-associated agents show a wider LN_IC50 spread than a random drug
+    expect: descriptive only, reported not gated
+
+gates:
+  G1: overlap between processed betas and GDSC2 equals 187 +/- 5
+  G2: probe count after E4/E5 filtering between 300000 and 460000
+  G3: permutation nulls centred within 0.05 of zero for every reported test
+  G4: no drug retained with fewer than 100 lines
+  G5: resistance index and chromatin index are computed from DISJOINT drug sets
+      (a drug may not appear in both); asserted explicitly
+
+refusals:
+  - Will not report any single-drug association without its permutation p and Holm correction.
+  - Will not interpret H3 if PC1 fails.
+  - Will not claim causation. These are correlations across immortalised cell lines and say
+    nothing about patients.
+  - Will not extrapolate a cell-line result to "advanced lung cancer" in a patient sense.
+
+known_limitations_declared_in_advance:
+  - Cell lines are not tumours; methylation drifts in culture.
+  - 187 lines is small for 450k features; every model is heavily regularised and the
+    out-of-fold estimate is the only one reported.
+  - GDSC LN_IC50 is a laboratory phenotype measured at one institution.
+  - No patient validation is available for any of this.

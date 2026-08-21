@@ -1,0 +1,32 @@
+{
+  "control_A_AHRR_smoking": {
+    "p": 0.09316068921859051,
+    "median_smoker": 0.64088485,
+    "median_never": 0.7022437,
+    "lower_in_smokers": true,
+    "recovered": false
+  },
+  "control_B_sex": {
+    "best_probe_auc": 1.0,
+    "probe": "cg04744025",
+    "recovered": true
+  },
+  "primary_tki_response": {
+    "n": 69,
+    "n_progressors": 29,
+    "auroc": 0.5551724137931034,
+    "per_repeat_mean": 0.5315517241379311,
+    "per_repeat_sd": 0.038645312347922456,
+    "permutation_p": 0.18811881188118812,
+    "null_mean": 0.49106034482758615
+  },
+  "_decision": {
+    "interpretation": "no evidence that methylation predicts TKI response at this sample size",
+    "prespecified_in_config_sha256": "623dff57160f76886a0684ac3e71c42a3fd4274f5a7382bb7893db8f9562fb0c"
+  },
+  "_provenance": {
+    "config_sha256": "623dff57160f76886a0684ac3e71c42a3fd4274f5a7382bb7893db8f9562fb0c",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260807T082054Z-R07tki-3f8bece",
+    "probes_used": 464994
+  }
+}

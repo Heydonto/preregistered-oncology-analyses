@@ -1,0 +1,12 @@
+{"t": "2026-08-17T01:05:12Z", "event": "config_written", "sha256": "5985b7c75d064a204d4d512e8cd3fb7b6389768c596f07d0b4d719788ea92039"}
+{"t": "2026-08-17T01:05:13Z", "event": "gate", "gate": "G0_input", "expected": "78 slides x 1024 finite features", "observed": {"shape": [78, 1024], "finite": true, "cohorts": {"eagle": 49, "htmcp": 29}}, "result": "PASS"}
+{"t": "2026-08-17T01:05:13Z", "event": "gate", "gate": "G1_stain_contamination_confirmed", "expected": "the published set contains non-H&E HTMCP slides (this is the defect, so the gate asserts it is present and names them)", "observed": {"n_non_he": 3, "slides": ["HTMCP-02-06-01032-CHR", "HTMCP-02-07-01065-06-P16", "HTMCP-02-15-01090-CHR"]}, "result": "PASS"}
+{"t": "2026-08-17T01:05:13Z", "event": "gate", "gate": "G2_tcga_input", "expected": "TCGA slide-level mean embeddings, 1024-d", "observed": {"shape": [1049, 1024]}, "result": "PASS"}
+{"t": "2026-08-17T01:05:18Z", "event": "two_cohort", "arm": "ARM_ALL", "bal_acc": 1.0, "n": 78, "null_mean": 0.5074, "p": 0.004975124378109453}
+{"t": "2026-08-17T01:05:18Z", "event": "two_cohort", "arm": "ARM_HE", "bal_acc": 1.0, "n": 75, "null_mean": 0.5058, "p": 0.004975124378109453}
+{"t": "2026-08-17T01:05:18Z", "event": "gate", "gate": "G3_null_centred_two_cohort", "expected": "both two-cohort nulls sit at chance 0.5 (within 0.05)", "observed": {"ARM_ALL": 0.5074, "ARM_HE": 0.5058}, "result": "PASS"}
+{"t": "2026-08-17T01:05:18Z", "event": "gate", "gate": "G4_reproduces_paper1_two_cohort", "expected": "published 1.0000 recovered on the published slide set, tol 0.02", "observed": 1.0, "result": "PASS"}
+{"t": "2026-08-17T01:05:20Z", "event": "three_way", "arm": "ARM3_ALL", "bal_acc": 0.9816, "per_cohort_n": 29, "null_mean": 0.3345, "p": 0.047619047619047616}
+{"t": "2026-08-17T01:05:20Z", "event": "three_way", "arm": "ARM3_HE", "bal_acc": 0.9814, "per_cohort_n": 26, "null_mean": 0.366, "p": 0.047619047619047616}
+{"t": "2026-08-17T01:05:20Z", "event": "gate", "gate": "G5_null_centred_three_way", "expected": "both 3-way nulls sit at chance 0.3333 (within 0.05)", "observed": {"ARM3_ALL": 0.3345, "ARM3_HE": 0.366}, "result": "PASS"}
+{"t": "2026-08-17T01:05:20Z", "event": "VERDICT", "primary": "EXTERNAL_SITE_SIGNATURE_CONFIRMED_HE_ONLY", "he_only": 1.0, "published_set": 1.0, "stain_contribution": 0.0}

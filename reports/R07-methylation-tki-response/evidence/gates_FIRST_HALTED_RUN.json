@@ -1,0 +1,55 @@
+[
+  {
+    "gate": "G0_samples",
+    "expected": 79,
+    "observed": 79,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T08:19:55Z"
+  },
+  {
+    "gate": "G1_response_labels",
+    "expected": {
+      "PR": 40,
+      "PD": 29,
+      "SD": 10
+    },
+    "observed": {
+      "PD": 29,
+      "PR": 40,
+      "SD": 10
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T08:19:55Z"
+  },
+  {
+    "gate": "G2_beta_columns",
+    "expected": 79,
+    "observed": 79,
+    "result": "PASS",
+    "note": "one AVG_Beta column per sample, in EXP_n order",
+    "t": "2026-08-07T08:19:55Z"
+  },
+  {
+    "gate": "G3_ahrr_present",
+    "expected": "cg05575921 present",
+    "observed": true,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T08:19:59Z"
+  },
+  {
+    "gate": "G4_control_A_AHRR",
+    "expected": "smokers LOWER at cg05575921, p<0.05",
+    "observed": {
+      "p": "0.09316",
+      "median_smoker": 0.6409,
+      "median_never": 0.7022,
+      "n": 79
+    },
+    "result": "FAIL",
+    "note": "established smoking biomarker; also validates the sample mapping",
+    "t": "2026-08-07T08:19:59Z"
+  }
+]

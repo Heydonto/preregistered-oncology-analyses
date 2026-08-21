@@ -1,0 +1,39 @@
+[
+  {
+    "gate": "G1_tcga_patients",
+    "expected": 1122,
+    "observed": 1122,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-06T23:53:40Z"
+  },
+  {
+    "gate": "G2_tcga_survival",
+    "expected": 1040,
+    "observed": 1040,
+    "result": "PASS",
+    "note": "OS time > 0 and status present; 6 patients with OS_MONTHS==0 excluded",
+    "t": "2026-08-06T23:53:40Z"
+  },
+  {
+    "gate": "G3_positive_control_IDH",
+    "expected": "IDH mutant survives longer, p<1e-3",
+    "observed": {
+      "p": "5.724e-71",
+      "median_mutant": 89.7,
+      "median_wt": 14.0,
+      "n": 919
+    },
+    "result": "PASS",
+    "note": "established biology; gate on it before reporting anything else",
+    "t": "2026-08-06T23:53:40Z"
+  },
+  {
+    "gate": "G4_msk_patients",
+    "expected": 923,
+    "observed": 923,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-06T23:53:40Z"
+  }
+]

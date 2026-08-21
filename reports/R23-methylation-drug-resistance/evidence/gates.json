@@ -1,0 +1,71 @@
+[
+  {
+    "gate": "G0_plan_unmodified",
+    "expected": "7e0322ba804aef2f84ecf559d2e348f146c09fab1086cb2148235a377cde2a66",
+    "observed": "7e0322ba804aef2f84ecf559d2e348f146c09fab1086cb2148235a377cde2a66",
+    "result": "PASS",
+    "note": "the plan executed must be the plan that was hashed before outcomes were joined",
+    "t": "2026-08-20T01:44:57Z"
+  },
+  {
+    "gate": "G1_overlap",
+    "expected": "187 +/- 5 lines with both methylation and GDSC2",
+    "observed": 187,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-20T01:44:58Z"
+  },
+  {
+    "gate": "G2_probes",
+    "expected": "300,000-460,000 probes after filtering",
+    "observed": 385096,
+    "result": "PASS",
+    "note": "E5 (sex chromosomes) could not be applied: the 450k manifest is not staged locally, so no probe was dropped on that criterion. Departure from the plan.",
+    "t": "2026-08-20T01:45:01Z"
+  },
+  {
+    "gate": "PC1_histology",
+    "expected": "SCLC vs non-SCLC balanced accuracy > 0.80",
+    "observed": 0.8923,
+    "result": "PASS",
+    "note": "plan: if this fails the beta matrix is not carrying biology; halt",
+    "t": "2026-08-20T01:45:01Z"
+  },
+  {
+    "gate": "G6_multiplicity_floor",
+    "expected": "the permutation floor must permit Holm significance across the larger family",
+    "observed": {
+      "n_perm": 2000,
+      "floor": 0.0005,
+      "n_chromatin": 32,
+      "min_reachable_holm": 0.016
+    },
+    "result": "PASS",
+    "note": "the plan's 200 permutations made significance unreachable; this gate exists so the same mistake fails loudly next time",
+    "t": "2026-08-20T01:45:08Z"
+  },
+  {
+    "gate": "G3_nulls_centred",
+    "expected": "every permutation null within 0.05 of zero",
+    "observed": 0.021,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-20T01:45:08Z"
+  },
+  {
+    "gate": "G4_min_lines",
+    "expected": "no retained drug below 100 lines",
+    "observed": 131,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-20T01:45:08Z"
+  },
+  {
+    "gate": "G5_disjoint_drug_sets",
+    "expected": "resistance and chromatin indices use disjoint drugs",
+    "observed": [],
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-20T01:45:08Z"
+  }
+]

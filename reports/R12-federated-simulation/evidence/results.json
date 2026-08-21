@@ -1,0 +1,404 @@
+{
+ "config_sha256": "b5200a4a9ece748113a832a1d71acd2a086b7f615161d502f9e0c9b317ac3571",
+ "endpoints": {
+  "subtype": {
+   "regimes": {
+    "centralized": {
+     "mean": 0.9699279778393353,
+     "ci95_lo": 0.9591883522122525,
+     "ci95_hi": 0.980667603466418,
+     "sd": 0.012252312732171401,
+     "n_seeds": 5,
+     "per_seed": [
+      0.9605540166204987,
+      0.9588919667590028,
+      0.9717451523545706,
+      0.9688642659279778,
+      0.989584487534626
+     ]
+    },
+    "local": {
+     "mean": 0.9998670360110802,
+     "ci95_lo": 0.9997404025959677,
+     "ci95_hi": 0.9999936694261926,
+     "sd": 0.00014446985939509433,
+     "n_seeds": 5,
+     "per_seed": [
+      0.9997783933518005,
+      0.9996675900277008,
+      1.0,
+      1.0,
+      0.9998891966759003
+     ]
+    },
+    "fedavg": {
+     "mean": 0.97602216066482,
+     "ci95_lo": 0.9674004144662249,
+     "ci95_hi": 0.984643906863415,
+     "sd": 0.009836127849392248,
+     "n_seeds": 5,
+     "per_seed": [
+      0.9663157894736842,
+      0.9777285318559557,
+      0.9656509695290859,
+      0.9826038781163435,
+      0.9878116343490305
+     ]
+    }
+   },
+   "cross_silo": {
+    "matrix_seedmean_model_x_valsilo": [
+     [
+      1.0,
+      0.9822714681440443,
+      0.467590027700831,
+      0.6653739612188365,
+      0.8326869806094184
+     ],
+     [
+      0.9844875346260388,
+      1.0,
+      0.5983379501385041,
+      0.6332409972299169,
+      0.883656509695291
+     ],
+     [
+      0.38614958448753456,
+      0.6869806094182825,
+      1.0,
+      0.8914127423822714,
+      0.6476454293628808
+     ],
+     [
+      0.8116343490304707,
+      0.5872576177285318,
+      0.7673130193905817,
+      1.0,
+      0.8731301939058171
+     ],
+     [
+      0.8786703601108034,
+      0.8947368421052632,
+      0.7429362880886425,
+      0.8936288088642659,
+      1.0
+     ]
+    ],
+    "diag_mean": 1.0,
+    "offdiag_mean": 0.7554570637119113,
+    "note": "NaN cells = val shard had a single class (possible for EGFR)"
+   },
+   "local_mean_on_global_val": {
+    "mean": 0.8371501385041551,
+    "ci95_lo": 0.8331371765521423,
+    "ci95_hi": 0.8411631004561679,
+    "sd": 0.004578191691745358,
+    "n_seeds": 5,
+    "per_seed": [
+     0.8398227146814404,
+     0.8329972299168975,
+     0.8321994459833795,
+     0.8430360110803324,
+     0.8376952908587256
+    ]
+   },
+   "gap_recovered_fedavg": {
+    "definition": "(fedavg - local_mean_on_global_val) / (centralized - local_mean_on_global_val)",
+    "value": 1.0458975899592757
+   },
+   "gap_recovered_fedavg_homeunion": {
+    "definition": "(fedavg - local_home_union) / (centralized - local_home_union)",
+    "value": 0.7964470762398235
+   }
+  },
+  "egfr": {
+   "regimes": {
+    "centralized": {
+     "mean": 0.6379995580565723,
+     "ci95_lo": 0.5658543458560951,
+     "ci95_hi": 0.7101447702570495,
+     "sd": 0.0823069381282726,
+     "n_seeds": 5,
+     "per_seed": [
+      0.5469269102990033,
+      0.7182477150961235,
+      0.5720035778175313,
+      0.7266968325791855,
+      0.626122754491018
+     ]
+    },
+    "local": {
+     "mean": 0.6878399713119462,
+     "ci95_lo": 0.5978629103335235,
+     "ci95_hi": 0.7778170322903689,
+     "sd": 0.10265042079765153,
+     "n_seeds": 5,
+     "per_seed": [
+      0.5431893687707641,
+      0.752600063031831,
+      0.629695885509839,
+      0.8022624434389141,
+      0.7114520958083832
+     ]
+    },
+    "fedavg": {
+     "mean": 0.7307926388612318,
+     "ci95_lo": 0.6764374485429396,
+     "ci95_hi": 0.785147829179524,
+     "sd": 0.06201117371512236,
+     "n_seeds": 5,
+     "per_seed": [
+      0.6955980066445183,
+      0.6955562559092342,
+      0.6712880143112702,
+      0.8171945701357466,
+      0.7743263473053892
+     ]
+    }
+   },
+   "cross_silo": {
+    "matrix_seedmean_model_x_valsilo": [
+     [
+      0.7228145424836601,
+      0.7923592707967708,
+      0.49212092461618073,
+      0.7018265639589168,
+      0.6414294202529497
+     ],
+     [
+      0.6310355392156862,
+      0.7544745597870598,
+      0.6195762175838079,
+      0.6072467320261439,
+      0.6064629488158899
+     ],
+     [
+      0.6053308823529411,
+      0.7349993784368785,
+      0.628174055545972,
+      0.6415394491129786,
+      0.6600628130039895
+     ],
+     [
+      0.6879084967320261,
+      0.8505564452439452,
+      0.6087128399746995,
+      0.7714752567693743,
+      0.5875154910449029
+     ],
+     [
+      0.5631740196078432,
+      0.513745064057564,
+      0.6054525329193261,
+      0.37685574229691876,
+      0.6732552414905356
+     ]
+    ],
+    "diag_mean": 0.7100387312153204,
+    "offdiag_mean": 0.626395538602518,
+    "note": "NaN cells = val shard had a single class (possible for EGFR)"
+   },
+   "local_mean_on_global_val": {
+    "mean": 0.6259585823988542,
+    "ci95_lo": 0.5874777341312363,
+    "ci95_hi": 0.664439430666472,
+    "sd": 0.04390091457053498,
+    "n_seeds": 5,
+    "per_seed": [
+     0.6045681063122924,
+     0.5867002836432398,
+     0.5915026833631485,
+     0.6741176470588236,
+     0.6729041916167665
+    ]
+   },
+   "gap_recovered_fedavg": {
+    "definition": "(fedavg - local_mean_on_global_val) / (centralized - local_mean_on_global_val)",
+    "value": 8.706442022842257
+   },
+   "gap_recovered_fedavg_homeunion": {
+    "definition": "(fedavg - local_home_union) / (centralized - local_home_union)",
+    "value": -0.8618040008858545
+   }
+  },
+  "os": {
+   "regimes": {
+    "centralized": {
+     "mean": 0.5812811142270025,
+     "ci95_lo": 0.5541196755140798,
+     "ci95_hi": 0.6084425529399251,
+     "sd": 0.03098715475958648,
+     "n_seeds": 5,
+     "per_seed": [
+      0.6133516389222584,
+      0.5823739035087719,
+      0.5949780110653994,
+      0.5854694594990479,
+      0.5302325581395348
+     ]
+    },
+    "local": {
+     "mean": 0.6024728600319962,
+     "ci95_lo": 0.5766894115576543,
+     "ci95_hi": 0.6282563085063381,
+     "sd": 0.029415073205607958,
+     "n_seeds": 5,
+     "per_seed": [
+      0.6260511412390596,
+      0.5537280701754386,
+      0.6229252376223577,
+      0.5977735462135638,
+      0.6118863049095608
+     ]
+    },
+    "fedavg": {
+     "mean": 0.600140363894169,
+     "ci95_lo": 0.5710389182105409,
+     "ci95_hi": 0.6292418095777972,
+     "sd": 0.03320041366944407,
+     "n_seeds": 5,
+     "per_seed": [
+      0.6531662948343916,
+      0.5720942982456141,
+      0.6115761100865371,
+      0.5790244616962062,
+      0.5848406546080964
+     ]
+    }
+   },
+   "cross_silo": {
+    "matrix_seedmean_model_x_valsilo": [
+     [
+      0.41393918564718557,
+      0.48780670278152627,
+      0.49433059363781895,
+      0.5929950900107289,
+      0.41514368595970386
+     ],
+     [
+      0.5569108245600802,
+      0.568291868595322,
+      0.43575003370387294,
+      0.5826301520326129,
+      0.4512459628601516
+     ],
+     [
+      0.542607714205752,
+      0.49630037519845416,
+      0.6327356118258889,
+      0.5997157575267671,
+      0.5460103763841606
+     ],
+     [
+      0.5446328821161803,
+      0.5580977041334277,
+      0.5959470800576748,
+      0.6559558888639854,
+      0.5792071043418888
+     ],
+     [
+      0.6024135464083502,
+      0.48459845570980475,
+      0.637805469522284,
+      0.6345826467783893,
+      0.6791128292479363
+     ]
+    ],
+    "diag_mean": 0.5900070768360635,
+    "offdiag_mean": 0.5419366078964815,
+    "note": "NaN cells = val shard had a single class (possible for EGFR)"
+   },
+   "local_mean_on_global_val": {
+    "mean": 0.5539250132103624,
+    "ci95_lo": 0.534363390799834,
+    "ci95_hi": 0.5734866356208908,
+    "sd": 0.022316896663329006,
+    "n_seeds": 5,
+    "per_seed": [
+     0.590698472627424,
+     0.5368969298245615,
+     0.5451553411831466,
+     0.5587520140618134,
+     0.5381223083548665
+    ]
+   },
+   "gap_recovered_fedavg": {
+    "definition": "(fedavg - local_mean_on_global_val) / (centralized - local_mean_on_global_val)",
+    "value": 1.689398304813062
+   },
+   "gap_recovered_fedavg_homeunion": {
+    "definition": "(fedavg - local_home_union) / (centralized - local_home_union)",
+    "value": 0.1100662568950556
+   }
+  }
+ },
+ "provenance": {
+  "runs_gcs": "gs://heydonto-quantara-lungcdx/nsclc-rwpr-study/armC/runs/",
+  "modal_app": "nsclc-rwpr-armC",
+  "total_wall_s_run_all": null,
+  "label_sources": {
+   "subtype": "manifest cohort (TCGA-LUAD=1 n=474, TCGA-LUSC=0 n=478)",
+   "egfr": "labels/raw_mutations_{luad,lusc}.json entrez 1956 non-silent somatic; WT = profiled (non-null MUTATION_COUNT in clinical_extra) without record",
+   "os": "labels/clinical_extra_tcga_{luad,lusc}.csv OS_MONTHS/OS_STATUS"
+  },
+  "n_labeled": {
+   "subtype": 952,
+   "egfr": 926,
+   "os": 909,
+   "os_events": 354
+  },
+  "python": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "orchestration_wall_s": {
+   "per_run": [
+    759.6,
+    392.1,
+    382.3,
+    391.9,
+    387.4,
+    669.4,
+    381.0,
+    372.9,
+    381.3,
+    445.8,
+    377.0,
+    375.6,
+    650.4,
+    648.3,
+    368.8
+   ],
+   "total": 6983.8
+  },
+  "cost_estimate_usd": {
+   "value": 18.0,
+   "basis": "~19 L4-GPU-hours (5 silo workers ~2h warm during grid + central worker ~3.2h grid + ~3.1h permutation rerun + ~0.5h smoke) x ~$0.80/h + CPU/memory overhead ~$2-3 + staging; Modal on-demand rates, estimate not invoice",
+   "budget_usd_max": 40,
+   "note": "grid ran 02:36-05:56 CEST; permutation null rerun 08:05-09:10 CEST after a 7200s container-timeout crash (see gates.json/fedprox and _run_summary note)"
+  }
+ },
+ "silo_signature_probe": {
+  "n_patients": 952,
+  "balanced_accuracy": 0.706242278179451,
+  "chance": 0.2,
+  "permutation_p": 0.009900990099009901,
+  "n_perm": 100,
+  "null_mean": 0.20290958169128465,
+  "null_p95": 0.22164408840600625
+ },
+ "egfr_power": {
+  "n_mutants_postqc": 74,
+  "n_wildtype_postqc": 852,
+  "trigger_lt80": true,
+  "minimum_detectable_auroc_null_p95": 0.5843151504787962,
+  "statement": "With 74 mutants post-QC (<80), the global-val EGFR endpoint can only detect AUROC >= 0.584 (95th percentile of the 20-shuffle permutation null) at alpha=0.05; weaker signals are invisible by construction. Reported effects below this are not claimed."
+ },
+ "communication": {
+  "state_dict_bytes_per_direction": 3155896,
+  "bytes_per_round_all_silos_bidirectional": 31558960,
+  "rounds": 10,
+  "bytes_total_one_fedavg_run": 315589600,
+  "mb_total_one_fedavg_run": 300.9696960449219,
+  "raw_training_feature_bytes_that_would_otherwise_move": 27923825237,
+  "ratio_raw_over_fed": 88.48144944256718,
+  "note": "identical per (endpoint,seed); full per-round log in transfer_log.json"
+ }
+}

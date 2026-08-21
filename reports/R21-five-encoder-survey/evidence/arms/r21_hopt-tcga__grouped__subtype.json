@@ -1,0 +1,23 @@
+{
+  "feat_dir": "hopt-tcga",
+  "folds": "grouped",
+  "mode": "subtype",
+  "encoder": [
+    "bioptimus/H-optimus-0"
+  ],
+  "emb_dim": 1536,
+  "n_patients": 760,
+  "n_slides_cached": 820,
+  "metrics": {
+    "subtype": {
+      "auroc": 0.921087704363238,
+      "n": 760,
+      "n_pos": 347
+    },
+    "keap1": {
+      "auroc": 0.704741595225487,
+      "n": 760,
+      "n_pos": 107
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "/tmp/ph_ext_mean.npz": {
+    "bytes": 491863,
+    "sha256": "ce03b5c700d14f025d939284393c242ee224197a2ee61f95136c1074cbf033b7"
+  },
+  "/tmp/dv_ext_mean.npz": {
+    "bytes": 490351,
+    "sha256": "401409bada1bfa8a58279789c0e6afafe48d6a7876c85193ee1293e9649ba00e"
+  },
+  "/Users/rezanehzati/quantara-staging/ext_feat/external_he_mean.npz": {
+    "bytes": 192132,
+    "sha256": "dc95e2094fa8400fd79609a30c3d24ed05df471ed90ba62d75a2c6ebcadf357d"
+  }
+}

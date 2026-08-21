@@ -1,0 +1,7 @@
+files=919
+probes=486427
+probe_vector_sha256=fb330207245ef0f0d9357584d5a3084e8a8c3a13b06d0be9bde8b5f85276114a
+matrix_shape=(486427, 919)
+fraction_nan=0.147601
+dtype=float32
+column_order=see samples.tsv

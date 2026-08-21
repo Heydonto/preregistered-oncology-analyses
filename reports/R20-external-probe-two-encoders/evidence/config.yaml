@@ -1,0 +1,29 @@
+{
+  "question": "does the external EAGLE-vs-HTMCP separation reproduce under a second encoder, and what happens on the 51 HTMCP slides R19 omitted?",
+  "why": "R18 found subtype leakage archival but methylation leakage encoder-specific, so the external probe is an open question. Separately, R19's 78-slide input silently omitted 51 of the archive's 80 HTMCP slides.",
+  "sets": {
+    "SET_R19": "49 EAGLE + 29 HTMCP = 78, the set R19 and Paper 1 used",
+    "SET_HE": "49 EAGLE + 27 HTMCP = 76, every H&E slide in the archive",
+    "SET_ALL": "49 EAGLE + 80 HTMCP = 129, upper bound only -- mixing IHC and H&E lets a probe win on stain alone, so this is not a result"
+  },
+  "encoders": [
+    "owkin/phikon-v2",
+    "facebook/dinov2-large"
+  ],
+  "probe": {
+    "model": "StandardScaler + LogisticRegression",
+    "C": 1.0,
+    "cv": "StratifiedKFold(5, shuffled)",
+    "metric": "out-of-fold balanced accuracy"
+  },
+  "permutations": 200,
+  "p_formula": "(1 + #{null >= obs}) / (B + 1)",
+  "seed": 20260817,
+  "primary_arm": "SET_HE under facebook/dinov2-large",
+  "verdict_rules": [
+    "dinov2 SET_HE >= 0.95 -> EXTERNAL_SIGNATURE_ENCODER_INDEPENDENT",
+    "dinov2 SET_HE >= 0.75 -> EXTERNAL_SIGNATURE_WEAKER_UNDER_SECOND_ENCODER",
+    "dinov2 SET_HE < 0.75 -> EXTERNAL_SIGNATURE_PHIKON_SPECIFIC"
+  ],
+  "status": "HELD FOR IP - not for publication pending patent"
+}

@@ -1,0 +1,22 @@
+{
+  "feat_dir": "uni-tcga",
+  "folds": "random",
+  "mode": "subtype",
+  "encoder": [
+    "MahmoodLab/UNI"
+  ],
+  "n_patients": 760,
+  "n_slides_cached": 820,
+  "metrics": {
+    "subtype": {
+      "auroc": 0.974154112384953,
+      "n": 760,
+      "n_pos": 347
+    },
+    "keap1": {
+      "auroc": 0.6449456856206437,
+      "n": 760,
+      "n_pos": 107
+    }
+  }
+}

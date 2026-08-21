@@ -1,0 +1,22 @@
+{"t": "2026-08-08T11:51:33Z", "event": "config_written", "sha256": "084e0f49335df86185f388b23c262a1c036f4f30f0c005f6b102a43e747ac4ee"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G0_zip_integrity", "expected": 16121402, "observed": 16121402, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G1_upenn_n", "expected": 574, "observed": 574, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G2_mgmt_n", "expected": 247, "observed": 247, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G3_mgmt_reproduces_R02", "expected": {"p": "5.831e-08", "med": [595.0, 371.0]}, "observed": {"p": "5.831e-08", "med": [595.0, 371.0]}, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G4_predcol_by_name", "expected": "predicted_log10_days", "observed": ["predicted_log10_days"], "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G5_pred_is_not_outcome", "expected": "corr(pred, observed) < 0.99", "observed": 0.2923, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G6_oof_aligned", "expected": 574, "observed": 574, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G7_risk_direction", "expected": "high-risk median < low-risk median", "observed": {"high": 268.5, "low": 490.0}, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G8_idh_join", "expected": "> 900 patients with IDH from the SAMPLE file", "observed": 995, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G9_idh_n", "expected": 919, "observed": 919, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G10_idh_reproduces_R04", "expected": {"med": [89.7, 14.0], "p": "< 1e-60"}, "observed": {"med": [89.7, 14.0], "p": "5.724e-71"}, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G11_eight_n", "expected": 337, "observed": 337, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G12_scanner_counts", "expected": {"Siemens": 228, "Philips": 89, "GE": 20}, "observed": {"Philips": 89, "GE": 20, "Siemens": 228}, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G13_censoring_handled", "expected": "TCGA KM median > raw median (censoring present and handled)", "observed": {"n": 1040, "pct_censored": 49.6, "raw_median": 11.8, "km_median": 20.7}, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "gate", "gate": "G14_tcga_n", "expected": 1040, "observed": 1040, "result": "PASS"}
+{"t": "2026-08-08T11:51:33Z", "event": "figure_inputs_ready", "upenn": 574, "mgmt": 247, "tcga_idh": 919, "eight": 337}
+{"t": "2026-08-08T11:51:34Z", "event": "fig1_written"}
+{"t": "2026-08-08T11:51:34Z", "event": "fig3_written"}
+{"t": "2026-08-08T11:51:34Z", "event": "fig4_unavailable_panel_written"}
+{"t": "2026-08-08T11:51:34Z", "event": "fig5_written"}
+{"t": "2026-08-08T11:51:34Z", "event": "calibration_written"}

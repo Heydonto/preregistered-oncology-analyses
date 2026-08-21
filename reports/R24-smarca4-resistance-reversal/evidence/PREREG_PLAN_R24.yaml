@@ -1,0 +1,105 @@
+# Pre-registered analysis plan -- Quantara, 2026-08-20
+# Does epigenetic modulation reverse the drug-resistance transcriptional programme?
+#
+# HASHED BEFORE ANY DIFFERENTIAL EXPRESSION WAS COMPUTED. Only the column headers of
+# GSE202859_TPMs_allsamples.txt.gz had been read at the time of hashing; no expression
+# value had been compared between any two groups.
+#
+# This is the manuscript's central thesis stated as a testable claim. SMARCA4/BRG1 knockdown
+# IS epigenetic modulation -- SMARCA4 is the ATPase of the SWI/SNF chromatin remodelling
+# complex -- so if "reprogramming resistance through epigenetic modulation" means anything,
+# knocking down SMARCA4 in resistant cells should move the resistance programme back toward
+# the parental state.
+#
+# Weaker than the Paper 2 protocol: plan author and executor are the same person, so this is
+# hash-before-outcome, not structural isolation.
+
+data:
+  source: GSE202859, TPMs all samples, 58243 genes x 52 libraries
+  resistance_pairs:
+    PC9:    {parental: [PC9.1, PC9.2, PC9.3],       resistant: [PC9.OR.1, PC9.OR.2, PC9.OR.3]}
+    H1975:  {parental: [H1975.1, H1975.2, H1975.3], resistant: [H1975.OR.1, H1975.OR.2, H1975.OR.3]}
+    HCC827: {parental: [HCC827.1, HCC827.2, HCC827.3], resistant: [HCC827.OR.1, HCC827.OR.2, HCC827.OR.3]}
+  knockdown:
+    scramble: [PC9OR.SCR.UNT.1, PC9OR.SCR.UNT.2, PC9OR.SCR.OSI.1, PC9OR.SCR.OSI.2]
+    smarca4:  [PC9OR.B1A.UNT.1, PC9OR.B1A.UNT.2, PC9OR.B1A.OSI.1, PC9OR.B1A.OSI.2,
+               PC9OR.B1B.UNT.1, PC9OR.B1B.UNT.2, PC9OR.B1B.OSI.1, PC9OR.B1B.OSI.2]
+    second_model_YU005C:
+      scramble: [YU005C.SCR.UNT.1, YU005C.SCR.UNT.2, YU005C.SCR.UNT.3,
+                 YU005C.SCR.OSI.1, YU005C.SCR.OSI.2, YU005C.SCR.OSI.3]
+      smarca4:  [YU005C.B1A.UNT.1, YU005C.B1A.UNT.2, YU005C.B1A.UNT.3,
+                 YU005C.B1A.OSI.1, YU005C.B1A.OSI.2, YU005C.B1A.OSI.3,
+                 YU005C.B1B.UNT.1, YU005C.B1B.UNT.2, YU005C.B1B.UNT.3,
+                 YU005C.B1B.OSI.1, YU005C.B1B.OSI.2, YU005C.B1B.OSI.3]
+
+preprocessing:
+  - log2(TPM + 1)
+  - retain genes with TPM > 1 in at least 3 libraries
+  - collapse duplicate gene symbols by max mean expression
+
+positive_controls:
+  PC1_KNOCKDOWN_WORKED:
+    test: SMARCA4 log2FC, shSMARCA4 vs scramble, in PC9OR
+    expect: log2FC <= -0.5
+    on_failure: >
+      the knockdown did not work in this dataset; halt and interpret nothing downstream.
+  PC2_RESISTANCE_IS_REAL:
+    test: number of genes with |log2FC| > 1 between parental and resistant, per line
+    expect: at least 200 in each of the three lines
+    on_failure: report and halt
+
+hypotheses:
+  H1_CONSISTENCY:
+    statement: the resistance programme is shared across the three EGFR-mutant lines
+    test: Spearman correlation of per-gene log2FC (resistant vs parental) between each pair of lines
+    expect_reported: three pairwise correlations, no threshold declared
+
+  H2_PRIMARY_REVERSAL:
+    statement: >
+      SMARCA4 knockdown moves the resistance transcriptional programme back toward the
+      parental state.
+    construction: >
+      RESISTANCE-UP set = genes with log2FC > 1 in PC9.OR vs PC9 (parental pair only, so the
+      set is defined WITHOUT reference to any knockdown sample).
+      RESISTANCE-DOWN set = genes with log2FC < -1 in the same comparison.
+      Then compute knockdown log2FC = shSMARCA4 vs scramble within PC9OR.
+    test: >
+      mean knockdown log2FC of the RESISTANCE-UP set, versus mean knockdown log2FC of all
+      retained genes, by permutation of set membership (2000 permutations).
+    directional_meaning: >
+      RESISTANCE-UP genes going DOWN under knockdown (negative mean, below the null) is
+      reversal and supports the thesis. Going UP is reinforcement and contradicts it.
+    decision:
+      thesis_supported:    resistance-up mean is below the null 2.5th percentile AND
+                           resistance-down mean is above the null 97.5th percentile
+      thesis_contradicted: the opposite pattern, both tails
+      partial:             one of the two holds
+      null_result:         neither
+  H3_REPLICATION:
+    statement: the H2 result reproduces in the second model, YU005C
+    test: identical procedure, resistance set still defined from the PC9 parental pair
+    expect_reported: same statistics, no threshold declared
+
+gates:
+  G1: all named libraries present in the TPM file
+  G2: retained gene count between 10000 and 30000
+  G3: permutation nulls centred within 0.02 of the all-gene mean
+  G4: RESISTANCE-UP set defined only from parental-vs-resistant, never from knockdown samples
+  G5: permutation count permits significance at the declared alpha (floor < 0.05)
+      -- added because a previous plan (R23) specified 200 permutations and made its own
+         hypotheses arithmetically untestable under multiplicity correction
+
+refusals:
+  - Will not claim a therapeutic effect. Transcriptional reversal is not growth inhibition,
+    and no viability or IC50 endpoint is analysed here.
+  - Will not extrapolate from cell lines to patients.
+  - Will not report H2 if PC1 fails.
+  - Will not describe partial reversal as reversal.
+
+declared_limitations:
+  - Two to three replicates per group; this is a small experiment.
+  - shRNA knockdown has off-target effects; SMARCA4-specific attribution is not established
+    by this design alone.
+  - The resistance set is defined from one cell-line pair and applied to knockdown in the
+    same lineage, so H2 is internally consistent but not independent.
+  - TPM is not a count model; no negative-binomial testing is performed.

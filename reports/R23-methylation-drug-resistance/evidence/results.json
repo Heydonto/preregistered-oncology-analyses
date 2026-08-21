@@ -1,0 +1,436 @@
+{
+  "status": "peer-review audit copy",
+  "plan_sha256": "7e0322ba804aef2f84ecf559d2e348f146c09fab1086cb2148235a377cde2a66",
+  "VERDICT": {
+    "H3_primary": "THESIS_CONTRADICTED_resistant_lines_are_cross_resistant",
+    "rho": 0.6506942328937566,
+    "perm_p": 0.0004997501249375312,
+    "n_lines": 187,
+    "rules_pre_declared_in": "PREREG_PLAN.yaml hashed 7e0322ba804aef2f"
+  },
+  "cohort": {
+    "lines_with_both": 187,
+    "probes_after_filter": 385096,
+    "panel": 5000,
+    "histology": {
+      "lung_NSCLC_adenocarcinoma": 64,
+      "lung_small_cell_carcinoma": 58,
+      "mesothelioma": 21,
+      "lung_NSCLC_squamous_cell_carcinoma": 14,
+      "lung_NSCLC_large cell": 13,
+      "lung_NSCLC_not specified": 11,
+      "lung_NSCLC_carcinoid": 4,
+      "Lung_other": 2
+    }
+  },
+  "PC1_histology_balanced_accuracy": 0.8922747928361401,
+  "H1_standard_of_care": [
+    {
+      "drug": "Navitoclax",
+      "n": 187,
+      "rho": 0.6065719979886882,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.021036957854209257,
+      "pathway": "Apoptosis regulation",
+      "holm_p": 0.005497251374312844
+    },
+    {
+      "drug": "Olaparib",
+      "n": 187,
+      "rho": 0.5364201586293719,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.016886198473898825,
+      "pathway": "Genome integrity",
+      "holm_p": 0.005497251374312844
+    },
+    {
+      "drug": "Docetaxel",
+      "n": 187,
+      "rho": 0.48726597396305504,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.01813632601602443,
+      "pathway": "Mitosis",
+      "holm_p": 0.005497251374312844
+    },
+    {
+      "drug": "Paclitaxel",
+      "n": 185,
+      "rho": 0.45372995716614234,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.015194974602933932,
+      "pathway": "Mitosis",
+      "holm_p": 0.005497251374312844
+    },
+    {
+      "drug": "Gefitinib",
+      "n": 185,
+      "rho": 0.4477370076949319,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.016235711307380312,
+      "pathway": "EGFR signaling",
+      "holm_p": 0.005497251374312844
+    },
+    {
+      "drug": "Erlotinib",
+      "n": 185,
+      "rho": 0.40286569879837764,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.020226104961904405,
+      "pathway": "EGFR signaling",
+      "holm_p": 0.005497251374312844
+    },
+    {
+      "drug": "Cisplatin",
+      "n": 139,
+      "rho": 0.3830644800929442,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.012667145538227802,
+      "pathway": "DNA replication",
+      "holm_p": 0.005497251374312844
+    },
+    {
+      "drug": "Osimertinib",
+      "n": 185,
+      "rho": 0.34927409878321525,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.017493129525036958,
+      "pathway": "EGFR signaling",
+      "holm_p": 0.005497251374312844
+    },
+    {
+      "drug": "Afatinib",
+      "n": 187,
+      "rho": 0.33390344969334834,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.013129992035498922,
+      "pathway": "EGFR signaling",
+      "holm_p": 0.005497251374312844
+    },
+    {
+      "drug": "Camptothecin",
+      "n": 187,
+      "rho": 0.26498849368161814,
+      "perm_p": 0.00849575212393803,
+      "null_mean": 0.01959159451513806,
+      "pathway": "DNA replication",
+      "holm_p": 0.01699150424787606
+    },
+    {
+      "drug": "Gemcitabine",
+      "n": 184,
+      "rho": 0.17691048140085916,
+      "perm_p": 0.05547226386806597,
+      "null_mean": 0.017817466432933287,
+      "pathway": "DNA replication",
+      "holm_p": 0.05547226386806597
+    }
+  ],
+  "H2_chromatin": [
+    {
+      "drug": "Vorinostat",
+      "n": 185,
+      "rho": 0.7311966945908042,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.01670753288351465,
+      "pathway": "Chromatin histone acetylation",
+      "holm_p": 0.015992003998001
+    },
+    {
+      "drug": "Entinostat",
+      "n": 168,
+      "rho": 0.6461093029494689,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.01446727846082982,
+      "pathway": "Chromatin histone acetylation",
+      "holm_p": 0.015992003998001
+    },
+    {
+      "drug": "UNC0638",
+      "n": 131,
+      "rho": 0.5856403138845887,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.011895726792291679,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.015992003998001
+    },
+    {
+      "drug": "EPZ5676",
+      "n": 186,
+      "rho": 0.4822764803789472,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.017370314561585908,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.015992003998001
+    },
+    {
+      "drug": "EPZ004777",
+      "n": 186,
+      "rho": 0.4188587759745255,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.019390410697052062,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.015992003998001
+    },
+    {
+      "drug": "PFI3",
+      "n": 168,
+      "rho": 0.408020813824591,
+      "perm_p": 0.0009995002498750624,
+      "null_mean": 0.01704384215508122,
+      "pathway": "Chromatin other",
+      "holm_p": 0.0239880059970015
+    },
+    {
+      "drug": "A-366",
+      "n": 135,
+      "rho": 0.38804019120085853,
+      "perm_p": 0.0014992503748125937,
+      "null_mean": 0.013250163398692812,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.031484257871064465
+    },
+    {
+      "drug": "GSK2801",
+      "n": 132,
+      "rho": 0.38691802371995215,
+      "perm_p": 0.0014992503748125937,
+      "null_mean": 0.0034050627957819602,
+      "pathway": "Chromatin other",
+      "holm_p": 0.031484257871064465
+    },
+    {
+      "drug": "Romidepsin",
+      "n": 132,
+      "rho": 0.37638857727246633,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.00554229779862564,
+      "pathway": "Chromatin histone acetylation",
+      "holm_p": 0.015992003998001
+    },
+    {
+      "drug": "GSK-LSD1-2HCl ",
+      "n": 135,
+      "rho": 0.36699834162520734,
+      "perm_p": 0.0009995002498750624,
+      "null_mean": 0.009656540825285338,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.0239880059970015
+    },
+    {
+      "drug": "PCI-34051",
+      "n": 168,
+      "rho": 0.3541918698528556,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.013464969047534686,
+      "pathway": "Chromatin histone acetylation",
+      "holm_p": 0.015992003998001
+    },
+    {
+      "drug": "I-BRD9",
+      "n": 185,
+      "rho": 0.3347049012546909,
+      "perm_p": 0.0009995002498750624,
+      "null_mean": 0.018106291459762707,
+      "pathway": "Chromatin other",
+      "holm_p": 0.0239880059970015
+    },
+    {
+      "drug": "JQ1",
+      "n": 185,
+      "rho": 0.31763958909821466,
+      "perm_p": 0.001999000499750125,
+      "null_mean": 0.01590446249194496,
+      "pathway": "Chromatin other",
+      "holm_p": 0.03798100949525237
+    },
+    {
+      "drug": "RVX-208",
+      "n": 168,
+      "rho": 0.3112709492258088,
+      "perm_p": 0.0004997501249375312,
+      "null_mean": 0.01565908504208827,
+      "pathway": "Chromatin other",
+      "holm_p": 0.015992003998001
+    },
+    {
+      "drug": "SGC-CBP30",
+      "n": 132,
+      "rho": 0.2970837920616948,
+      "perm_p": 0.005497251374312844,
+      "null_mean": 0.0028917888058105,
+      "pathway": "Chromatin histone acetylation",
+      "holm_p": 0.0879560219890055
+    },
+    {
+      "drug": "BDILV000379a",
+      "n": 132,
+      "rho": 0.2856099304472145,
+      "perm_p": 0.00399800099950025,
+      "null_mean": 0.006396633499084281,
+      "pathway": "Chromatin histone acetylation",
+      "holm_p": 0.07196401799100449
+    },
+    {
+      "drug": "UNC0379",
+      "n": 135,
+      "rho": 0.2834064969271291,
+      "perm_p": 0.00849575212393803,
+      "null_mean": 0.012222519754170326,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.111944027986007
+    },
+    {
+      "drug": "BDF00022089a",
+      "n": 132,
+      "rho": 0.28223403755746057,
+      "perm_p": 0.011494252873563218,
+      "null_mean": 0.005757384439586126,
+      "pathway": "Chromatin histone acetylation",
+      "holm_p": 0.13793103448275862
+    },
+    {
+      "drug": "OF-1",
+      "n": 168,
+      "rho": 0.28056397770815095,
+      "perm_p": 0.0079960019990005,
+      "null_mean": 0.01575683712878554,
+      "pathway": "Chromatin histone acetylation",
+      "holm_p": 0.111944027986007
+    },
+    {
+      "drug": "CT7033-2",
+      "n": 135,
+      "rho": 0.27452443664032783,
+      "perm_p": 0.011494252873563218,
+      "null_mean": 0.0078090454589796136,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.13793103448275862
+    },
+    {
+      "drug": "GSK591",
+      "n": 185,
+      "rho": 0.2655376975853834,
+      "perm_p": 0.00399800099950025,
+      "null_mean": 0.013785593798567152,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.07196401799100449
+    },
+    {
+      "drug": "SGC0946",
+      "n": 180,
+      "rho": 0.24989865942364475,
+      "perm_p": 0.0069965017491254375,
+      "null_mean": 0.019652263958764158,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.10494752623688156
+    },
+    {
+      "drug": "AZD5153",
+      "n": 132,
+      "rho": 0.19368859344753273,
+      "perm_p": 0.050474762618690654,
+      "null_mean": 0.004258036660005322,
+      "pathway": "Chromatin other",
+      "holm_p": 0.5047476261869065
+    },
+    {
+      "drug": "GSK343",
+      "n": 186,
+      "rho": 0.1740350320995482,
+      "perm_p": 0.06546726636681659,
+      "null_mean": 0.01873081789742131,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.5237381309345327
+    },
+    {
+      "drug": "PFI-1",
+      "n": 180,
+      "rho": 0.173945697912487,
+      "perm_p": 0.0559720139930035,
+      "null_mean": 0.013740329434036032,
+      "pathway": "Chromatin other",
+      "holm_p": 0.5047476261869065
+    },
+    {
+      "drug": "AGK2",
+      "n": 177,
+      "rho": 0.16281963608663289,
+      "perm_p": 0.06946526736631684,
+      "null_mean": 0.014491206220460174,
+      "pathway": "Chromatin histone acetylation",
+      "holm_p": 0.5237381309345327
+    },
+    {
+      "drug": "I-BET-762",
+      "n": 168,
+      "rho": 0.1459043029747774,
+      "perm_p": 0.10494752623688156,
+      "null_mean": 0.014434589822890148,
+      "pathway": "Chromatin other",
+      "holm_p": 0.6296851574212894
+    },
+    {
+      "drug": "Bromosporine",
+      "n": 132,
+      "rho": 0.13871423875441552,
+      "perm_p": 0.12443778110944528,
+      "null_mean": -0.00047265109338231125,
+      "pathway": "Chromatin other",
+      "holm_p": 0.6296851574212894
+    },
+    {
+      "drug": "CPI-637",
+      "n": 135,
+      "rho": 0.13352355867720225,
+      "perm_p": 0.15142428785607195,
+      "null_mean": 0.00688990586284265,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.6296851574212894
+    },
+    {
+      "drug": "BDOCA000347a",
+      "n": 132,
+      "rho": 0.12717776397969244,
+      "perm_p": 0.1489255372313843,
+      "null_mean": 0.0040832102810809115,
+      "pathway": "Chromatin histone acetylation",
+      "holm_p": 0.6296851574212894
+    },
+    {
+      "drug": "GSK-LSD1",
+      "n": 132,
+      "rho": 0.12513761850845015,
+      "perm_p": 0.16391804097951024,
+      "null_mean": 0.008264295367147916,
+      "pathway": "Chromatin histone methylation",
+      "holm_p": 0.6296851574212894
+    },
+    {
+      "drug": "OTX015",
+      "n": 168,
+      "rho": 0.09554517338948479,
+      "perm_p": 0.23588205897051473,
+      "null_mean": 0.01483531921786183,
+      "pathway": "Chromatin other",
+      "holm_p": 0.6296851574212894
+    }
+  ],
+  "H3_indices": {
+    "n_soc_drugs": 11,
+    "n_chromatin_drugs": 32,
+    "disjoint": true
+  },
+  "H3_POSTHOC_general_sensitivity_control": {
+    "STATUS": "POST-HOC OBSERVATION, NOT PRE-DECLARED",
+    "n_control_drugs": 227,
+    "n_lines": 187,
+    "raw_rho": 0.6506942328937566,
+    "partial_rho": -0.16023878822134707,
+    "perm_p": 0.033483258370814596,
+    "reading": "the raw association is largely the general drug-sensitivity axis"
+  },
+  "_provenance": {
+    "config_sha256": "1461f682894934d2c72b801e93ef476777088a43d261f0a42d18d305fc75cf69",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260820T014457Z-R23drugresist-0e19c27"
+  }
+}

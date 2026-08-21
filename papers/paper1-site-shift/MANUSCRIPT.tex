@@ -1,0 +1,390 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,enumitem,xcolor,parskip}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\definecolor{qnavy}{RGB}{20,40,75}\definecolor{qgrey}{RGB}{90,90,90}\definecolor{qred}{RGB}{150,30,30}
+\titleformat{\section}{\large\bfseries\color{qnavy}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\bfseries\color{qnavy}}{\thesubsection}{0.5em}{}
+
+\title{\bfseries\color{qnavy} Site identity is learnable from whole-slide foundation-model
+features, and it inflates apparent performance by seventeen points in the encoder we started with}
+
+\author{Reza Nehzati, Ph.D.\\[2pt]
+{\small\itshape VMC MAR COM Inc.\ DBA HeyDonto, Knoxville, TN, United States}}
+\date{15 August 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent
+Whole-slide foundation models are increasingly proposed as the substrate for computational
+companion diagnostics. We show that features from one such model (Phikon-v2) encode the
+\emph{provenance} of a slide strongly enough to be recovered by a linear probe, and that this
+provenance signal silently inflates cross-validated performance when training and evaluation
+share contributing sites. Using 1{,}049 slides from 952 TCGA lung patients, we hold the data,
+the architecture and every hyperparameter fixed and change only the cross-validation fold
+assignment: grouping folds by tissue-source site gives subtype AUROC 0.799, while random folds
+give 0.970 --- an inflation of \textbf{0.171} attributable to fold assignment alone.
+\textcolor{qred}{Across five encoders this inflation ranges from 0.022 to 0.203 (relative
+0.444--0.852), so 0.171 characterises \emph{this} encoder and the \emph{direction} is what
+generalises; see \S Limitations.} The
+random-fold figure reproduces an independently obtained centralized benchmark to within 0.0003,
+establishing that the site-grouped number reflects honest out-of-site performance rather than a
+weakened pipeline. Site identity is recoverable at balanced accuracy 0.706 across five
+site-anchored partitions within TCGA (chance 0.200, permutation $p = 0.0099$), and
+\emph{perfectly} between two genuinely independent external cohorts under Phikon-v2 (balanced
+accuracy 1.000, chance 0.500, permutation $p = 0.005$, null centred at 0.506), holding unchanged
+when restricted to H\&E slides only; a second encoder trained on natural images reaches $0.918 \pm 0.025$ over 25
+cross-validation splits on the same slides, so the signature is encoder-independent while its
+totality is not. Across five encoders in total the separation is present in every one
+(0.918--1.000) and saturates in three, so the external probe is a presence test rather than a
+ranking. Federated averaging across five
+simulated silos recovers centralized subtype performance without moving data (0.976 vs 0.970)
+while transmitting 301\,MiB per run, an 88-fold reduction against moving the features. On a
+genuinely external institution set, subtype transfers zero-shot at AUROC 0.979 and requires no
+labelled cases, whereas EGFR mutation status remains weak and power-limited. We argue that
+site-grouped evaluation should be the default reporting standard for this class of model, and
+that single-institution validation figures should be read as upper bounds.
+\end{abstract}
+
+\section{Introduction}
+
+The commercial case for computational pathology rests on a model trained at one set of
+institutions performing at another. That assumption is rarely tested in the way deployment
+would test it. Cross-validation over a pooled multi-institution cohort permits patients from
+the same contributing site to appear in both training and evaluation folds, and if the features
+carry any site-specific signal, the model may exploit it.
+
+This is not a hypothetical concern for foundation-model features. Slide preparation, staining,
+scanner optics and compression differ measurably between institutions, and a representation
+trained to be maximally informative about tissue will not have been trained to be invariant to
+any of it.
+
+We make three contributions. First, we isolate the magnitude of the inflation by changing
+nothing but the fold assignment. Second, we show that the site signal is not an artefact of a
+single collection: it is stronger between genuinely independent cohorts than within one.
+Third, we quantify what federation buys and what it costs, and what a new institution must
+supply to deploy.
+
+\section{Data}
+
+\subsection{Development cohort}
+
+TCGA-LUAD and TCGA-LUSC diagnostic slides: 1{,}053 whole-slide images retrieved from the NCI
+Genomic Data Commons, of which 1{,}049 encoded successfully, covering 952 patients across 67
+tissue-source sites. Slides were tiled at approximately 0.5\,\textmu m/px with an Otsu
+saturation tissue filter, yielding 14{,}721{,}903 tiles, and each tile encoded with Phikon-v2
+(1024-dimensional).
+
+\subsection{External institution set}
+
+CPTAC-LUAD and CPTAC-LSCC: 1{,}343 slides from 432 patients, processed identically and held
+back until the transfer experiments.
+
+\subsection{Independent external cohorts}
+
+A systematic sweep of all 3{,}411 open lung slide-image files in the Genomic Data Commons
+identified only two cohorts independent of TCGA and CPTAC:
+
+\begin{center}
+\begin{tabular}{@{}llrl@{}}
+\toprule
+\textbf{Cohort} & \textbf{Setting} & \textbf{H\&E slides used} & \textbf{Note} \\
+\midrule
+CDDP\_EAGLE-1 & Italian population-based & 49 & all adenocarcinoma \\
+CGCI-HTMCP-LC & HIV-positive, sub-Saharan & 29 & see below \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+CGCI-HTMCP-LC ships 84 slides, but only 30 are haematoxylin and eosin; the remainder are
+immunohistochemistry (p40, TTF-1, synaptophysin). Including them would allow a site probe to
+separate this cohort on stain colour rather than provenance, so all non-H\&E slides were
+excluded before any analysis. Four further slides, all immunohistochemistry, failed the tissue
+filter and were excluded for the same reason. One H\&E slide failed retrieval. The usable
+external set is therefore \textbf{78 H\&E slides from 78 patients}, and we treat it as a
+qualitative test of whether the site signal generalises, not as a powered benchmark.
+
+\section{Methods}
+
+\subsection{Model}
+
+A gated attention multiple-instance learning head over tile embeddings: a 1024$\rightarrow$512
+projection, gated attention with a 256-dimensional bottleneck, and a linear output. Trained for
+20 epochs with AdamW, learning rate $2\times10^{-4}$, weight decay $10^{-5}$, batch size 32,
+tiles capped at 4{,}096 per slide. Patient-level predictions average over that patient's slides.
+
+\subsection{The fold-assignment experiment}
+
+The central comparison holds everything fixed except how folds are formed. Both arms use
+identical patients (760 with matched molecular data, 413 adenocarcinoma and 347 squamous),
+identical features, identical architecture, identical hyperparameters and identical seeds. The
+arms differ only in the partition:
+
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Site-grouped}: \texttt{GroupKFold} on tissue-source site, five folds. No site
+      contributes patients to both training and evaluation in any fold, asserted per fold.
+\item \textbf{Random}: \texttt{StratifiedKFold}, five folds, sites free to appear on both sides.
+\end{itemize}
+
+We report the random arm not as a result but as a measurement of the inflation a conventional
+analysis would have produced.
+
+\subsection{Site probe}
+
+A standardised logistic regression predicts the source of a slide from its mean tile embedding,
+scored by balanced accuracy under stratified five-fold cross-validation, against a permutation
+null of 200 label shuffles.
+
+\subsection{Federation}
+
+Five silos anchored on real tissue-source sites, compared under three regimes: each silo alone,
+federated averaging with weights only crossing the boundary (10 rounds), and centralized
+pooling. Five seeds per condition.
+
+\section{Results}
+
+\subsection{Fold assignment alone inflates subtype AUROC by 0.171}
+
+\begin{center}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+& \textbf{Subtype AUROC} & \textbf{KEAP1 AUROC} \\
+\midrule
+Site-grouped (no shared sites) & 0.7992 & 0.6642 \\
+Random folds (sites shared) & 0.9703 & 0.6660 \\
+\midrule
+\textbf{Inflation} & \textbf{+0.1710} & +0.0018 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The random-fold subtype figure, 0.9703, reproduces an independently obtained centralized
+benchmark of 0.970 to within 0.0003. This matters for interpretation: it establishes that the
+site-grouped 0.799 is not the product of a weaker implementation but the honest out-of-site
+performance of a pipeline whose capability is verified against the conventional number.
+
+The asymmetry between endpoints is informative. Subtype is heavily inflated; KEAP1 mutation is
+not inflated at all. \textcolor{qred}{(R18: this asymmetry reproduces under a second encoder ---
+KEAP1 inflation is +0.0202 under \texttt{dinov2-large} against +0.0018 under Phikon-v2, still small
+under a model chosen for an unrelated reason.)} Histological subtype prevalence varies between contributing institutions,
+so site identity is predictive of subtype and a model can profit from recognising it. KEAP1
+mutation status has no comparable institutional structure, and the shortcut is worth nothing.
+Inflation is therefore not a property of the features alone but of the interaction between the
+features and how the label is distributed across sites.
+
+\subsection{Site identity is recoverable, and more so between real institutions}
+
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Probe} & \textbf{Bal.\ acc.} & \textbf{Chance} & \textbf{Null mean} & \textbf{Perm.\ $p$} \\
+\midrule
+Five site-anchored partitions within TCGA & 0.7062 & 0.2000 & 0.2029 & 0.0099 \\
+EAGLE vs HTMCP, Phikon-v2 ($n=78$) & \textbf{1.0000} & 0.5000 & 0.5074 & 0.0050 \\
+\quad \emph{--- H\&E only ($n=75$)} & \textbf{1.0000} & 0.5000 & 0.5058 & 0.0050 \\
+\quad \emph{--- all H\&E in the archive ($n=76$)} & \textbf{1.0000} & 0.5000 & 0.5023 & 0.0050 \\
+\quad \emph{--- \texttt{dinov2-large}, all H\&E ($n=76$)} & 0.8768 & 0.5000 & 0.4990 & 0.0050 \\
+\quad \emph{--- \texttt{dinov2-large}, 25 CV splits} & $0.918{\pm}.025$ & 0.5000 & --- & --- \\
+\quad \emph{--- \texttt{UNI}, 25 CV splits} & $0.994{\pm}.011$ & 0.5000 & --- & --- \\
+\quad \emph{--- \texttt{H-optimus-0}, 25 CV splits} & $0.996{\pm}.008$ & 0.5000 & --- & --- \\
+\quad \emph{--- \texttt{Virchow2}, 25 CV splits} & $0.960{\pm}.018$ & 0.5000 & --- & --- \\
+TCGA vs EAGLE vs HTMCP (size-balanced) & 0.9816 & 0.3333 & 0.3345 & --- \\
+\quad \emph{--- restricted to H\&E only} & 0.9814 & 0.3333 & 0.3660 & --- \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In every case the permutation null sits at chance, which is what distinguishes a real signal
+from high-dimensional separability: with 1024 features and 75 external slides, a linear probe
+could plausibly separate arbitrary labels, and the null establishes that it does not (null p95
+0.617 against an observed 1.000).
+
+\textcolor{qred}{\textbf{Corrected 2026-08-17 (R19).}} Three things in this table changed, and the
+reason is worth stating rather than burying. The two external rows were originally computed in a
+working session and transcribed here \emph{without a persisted artefact}, so they were not
+verifiable; they now are. In re-running them we found that the input file --- named
+\texttt{external\_he\_mean.npz} --- contained three HTMCP slides that are not H\&E (two chromogenic
+ISH, one p16 immunohistochemistry), which for a probe scoring exactly 1.000 is the cheapest
+available shortcut. Restricting to H\&E leaves the result \textbf{unchanged at 1.0000}, so the
+H\&E-only rows are now shown alongside. The three-way row does not reproduce exactly: it is
+\textbf{0.9816} here against 0.9957 as first written, and because the original probe's
+hyperparameters were never recorded the 0.014 gap cannot be attributed. The reproducible value is
+quoted with its method (standardise, logistic regression $C=1.0$, 5-fold stratified out-of-fold
+balanced accuracy, 20 size-balanced draws). No $p$ is shown for the three-way rows: ours is floored
+at $1/21$ by the number of draws and the original scheme is unrecoverable, so neither is
+evidential --- the separation against a null at 0.3345 is. Full account in
+\texttt{results/R19-external-site-probe/}.
+
+Two genuinely independent cohorts separate perfectly \emph{under Phikon-v2}.
+\textcolor{qred}{\textbf{Qualified 2026-08-17 (R20).}} On the same 76 H\&E slides with the same
+probe, \texttt{facebook/dinov2-large} reaches 0.8768 against a null of 0.4990 at $p = 0.0050$. The
+\emph{existence} of the signature is encoder-independent and strongly significant either way; its
+\emph{totality} is a property of the histology-pretrained encoder, and the word ``perfectly''
+belongs to Phikon-v2 rather than to the archive. R20 also records that the 78-slide set used above
+was assembled from a partial local staging and omitted 51 of the archive's 80 HTMCP slides ---
+Phikon-v2 returns 1.0000 on the full set too, so the conclusion is unaffected, but the provenance
+was not documented. We do not present the separation as surprising ---
+an Italian population-based series and a sub-Saharan HIV-positive series differ in stain,
+scanner and protocol, and a representation with no invariance training will encode that. The
+point is the consequence: a model trained on either will have this signal available, and will
+use it if the label correlates with it.
+
+\subsection{Federation recovers centralized subtype performance without moving data}
+
+\begin{center}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Regime} & \textbf{Subtype AUROC} & \textbf{95\% CI} \\
+\midrule
+Local model, evaluated on its own site's patients & 0.9999 & 0.9997--1.0000 \\
+Local models, evaluated on the other sites' patients & 0.8372 & 0.8331--0.8412 \\
+Federated averaging & \textbf{0.9760} & 0.9674--0.9846 \\
+Centralized pooling (upper bound) & 0.9699 & 0.9592--0.9807 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A single-site model scores essentially perfectly at home and 0.837 elsewhere. Federated
+averaging reaches 0.976, statistically indistinguishable from --- numerically slightly above ---
+the centralized 0.970, while transmitting 301\,MiB of weights per full run against
+26\,GiB of features that pooling would have moved, an 88-fold reduction.
+
+\textbf{We claim this for subtype only.} On EGFR and on overall survival the centralized-minus-local
+gap is itself small, so any ``fraction of gap recovered'' statistic is numerically unstable and
+we do not report one. The defensible statement for those endpoints is that federation was never
+worse than the best alternative tested, not that it recovered a gap.
+
+\subsection{What a new institution must supply}
+
+On CPTAC (432 patients, an institution set held back until this experiment), eight seeds:
+
+\begin{center}
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+\textbf{Endpoint} & \textbf{Labels used} & \textbf{Mean AUROC} & \textbf{SD} & \textbf{Eval.\ $n$} \\
+\midrule
+Subtype & 0 (zero-shot) & 0.981 & 0.008 & 173 \\
+Subtype & 100 & 0.985 & 0.008 & 173 \\
+\midrule
+EGFR & 0 (zero-shot) & 0.712 & 0.088 & 36--43 \\
+EGFR & 100 & 0.778 & 0.085 & 36--43 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For subtype the answer is that a new institution needs \textbf{no labelled cases}: the entire
+gain from 0 to 100 labels is 0.004, within a seed standard deviation of 0.008.
+
+For EGFR the honest analysis is a paired one. The seed-to-seed range at fixed label count is
+approximately 0.30, seven times the effect of adding labels, because each seed draws its
+labelled cases from --- and therefore shrinks --- the evaluation set. Pairing within seed removes
+that shared variance: \textbf{7 of 8 seeds improve, mean paired gain $+0.042$}. So more labels
+reliably help, while no particular absolute value is well determined. Every EGFR figure here
+rests on 36--43 evaluation patients against subtype's 173, and should not be read as comparably
+precise. Independently, the development cohort contains 74 EGFR-mutant patients, supporting
+detection only of AUROC $\geq 0.584$; weaker effects are invisible by construction.
+
+\subsection{An incidental observation}
+
+Phikon-v2 embeddings of PD-L1 immunohistochemistry slides predict a tumour proportion score of
+50\% or above at AUROC 0.870 (95\% CI 0.811--0.922, $n = 163$, 67 positive) with no
+immunohistochemistry-specific training. We report this because it was unexpected, not because
+this study was designed to establish it.
+
+\section{Discussion}
+
+The practical consequence is a reporting standard. A cross-validated figure from a pooled
+multi-institution cohort is an upper bound, and for subtype-like labels whose prevalence varies
+between institutions the bound is loose --- here by 17 points. Site-grouped evaluation costs
+nothing to implement and should be the default; where it is impossible, the inflation should be
+estimated rather than ignored.
+
+Federation is not merely a governance convenience. Because a single-site model scores 0.9999 at
+home and 0.837 away, the local figure a hospital would generate for itself is close to
+meaningless as a deployment estimate. Federated averaging recovered the pooled result here
+while moving 88-fold less data, which makes the argument for consortium training practical
+rather than only ethical.
+
+\subsection{Limitations}
+
+\textbf{The federation is simulated.} Weights never crossed a real institutional boundary. The
+five silos are \emph{site-anchored partitions of a single collection}, not independent
+acquisitions, and they therefore share TCGA's central processing; the 301\,MiB communication
+figure is a true measurement of the protocol, not of a deployment.
+
+\textbf{The within-TCGA probe figures are not comparable to each other across groupings.} Five
+constructed silos, each pooling several tissue-source sites, give 0.706; the five largest
+\emph{individual} tissue-source sites give 0.903. Individual sites are internally more
+homogeneous and thus easier to identify. This is a difference of grouping, not of method, and
+neither number should be quoted as an improvement on the other.
+
+\textbf{The external cohorts are small and one is single-class.} Seventy-eight H\&E slides from
+two cohorts; EAGLE is entirely adenocarcinoma and so cannot test subtype discrimination at all.
+They support a qualitative claim about the site signal and nothing quantitative about transfer.
+
+\textbf{EGFR is underpowered throughout} (74 mutants; minimum detectable AUROC 0.584), and every
+EGFR statement in this paper is power-qualified.
+
+\textbf{Five encoders now, not one.} \textcolor{qred}{\textbf{Updated 2026-08-18 (R18, R21).}} This
+limitation originally read that all conclusions concern Phikon-v2 features. The experiment has since
+been run. Re-encoding all 1{,}053 slides with \texttt{facebook/dinov2-large} --- same
+\texttt{Dinov2Model} class, same 1024-dimensional width, same 24 layers, same DINOv2
+self-supervision, same CLS readout, same ImageNet normalisation, trained on natural images instead
+of histology, with byte-identical tile grids --- reproduces the effect and makes it \emph{larger}:
+subtype goes 0.7356 site-grouped to 0.9390 random, an inflation of \textbf{+0.2034} against
+Phikon-v2's +0.1710. On fraction of remaining headroom the two are 0.769 and 0.852. The site
+signature is therefore a property of the archive rather than of histology pretraining. What remains
+untested is whether a representation trained with \emph{explicit} stain or site invariance
+suppresses it, which is a different and still-open question.
+
+\textbf{But the \emph{magnitude} does not transfer, and that qualifies this paper's headline.}
+R21 added three pathology foundation models --- UNI, H-optimus-0 and Virchow2 --- for five in total,
+all over byte-identical tiles. Subtype leakage clears the pre-declared bar in every one, so the
+phenomenon is universal. Its size is not:
+
+\begin{center}
+\small
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+\textbf{Encoder} & \textbf{Corpus} & \textbf{Site-grouped} & \textbf{Inflation} &
+\textbf{Relative} \\
+\midrule
+\texttt{owkin/phikon-v2} & histology & 0.7992 & $+0.1710$ & 0.852 \\
+\texttt{facebook/dinov2-large} & natural images & 0.7356 & $+0.2034$ & 0.769 \\
+\texttt{MahmoodLab/UNI} & histology & 0.9328 & $+0.0413$ & 0.615 \\
+\texttt{bioptimus/H-optimus-0} & histology & 0.9211 & $+0.0473$ & 0.600 \\
+\texttt{paige-ai/Virchow2} & histology & \textbf{0.9497} & $+0.0223$ & 0.444 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The three newer pathology encoders are far better at the site-disjoint task --- Virchow2 reaches
+0.9497 where Phikon-v2 manages 0.7992 --- and show correspondingly smaller inflation. So the
+\textbf{0.171} figure this paper leads with should be read as a property of a particular encoder,
+not a constant of the archive. The direction of the effect generalises across all five; the
+magnitude generalises past none of them. R21 also records, and explicitly declines to claim, an
+inverse relationship between site-disjoint capability and relative inflation (Spearman
+$\rho = -0.80$, $p = 0.104$, $n = 5$) --- noticed after the fact and reported only as grounds for a
+pre-registration.
+
+\textbf{Subtype and KEAP1 only for the fold experiment.} The inflation figure is established for
+two labels; its magnitude for others will depend on how those labels distribute across sites.
+
+\section*{Data and code availability}
+
+All imaging is publicly available: TCGA and CPTAC via the NCI Genomic Data Commons,
+CDDP\_EAGLE-1 and CGCI-HTMCP-LC likewise. Slide-level manifests with checksums, encoded feature
+manifests recording per-slide tile counts and measured microns-per-pixel, analysis
+configurations hashed before any label was read, integrity-gate records, and out-of-fold
+predictions for every model are retained and available on request.
+
+\section*{Competing interests}
+
+The author is affiliated with a commercial entity developing computational pathology methods.
+
+\end{document}

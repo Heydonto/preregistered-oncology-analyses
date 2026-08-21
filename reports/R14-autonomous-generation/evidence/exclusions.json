@@ -1,0 +1,1324 @@
+{
+ "patients": [
+  {
+   "main_index": "P-0021769",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190868",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191097",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190870",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191034",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190828",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191030",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190872",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190666",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191157",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190640",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190583",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190310",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190497",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190706",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190437",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191038",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191047",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190504",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190819",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190566",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190449",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190749",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190601",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190784",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191032",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190782",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190664",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190340",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191067",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190966",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191182",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191005",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190897",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190691",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190457",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190964",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191140",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191083",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "191073",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190591",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190778",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190610",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190941",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190981",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190568",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190838",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190441",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190468",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190418",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190587",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "3369288",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "982728",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "987422",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "489167",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "527050",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "513150",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "489612",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "501079",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "504914",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "509485",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "529911",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "561145",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "583912",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "571802",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "590582",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "593979",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "604979",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "646114",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "617264",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "619666",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "617764",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "619709",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "647333",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "622949",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "680044",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "679934",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "697778",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "702872",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "2294622",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "699000",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "713257",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "719011",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "719526",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "729387",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "733242",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "738773",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "2412870",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "988693",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "763263",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "573121",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "2413722",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "2230621",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "885123",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "878585",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "894959",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "986750",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "4617573",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "902338",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "982199",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "986829",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "926581",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "2255170",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "577634",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "999906",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "1012132",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "1925389",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "1924596",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "1059018",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "1044109",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "986860",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "1049318",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "2810900",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "952907",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "1087657",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "959451",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "987678",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "952206",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "1179308",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "964863",
+   "endpoint": "E2_os",
+   "reason": "no follow-up time (validation cohorts lack msk_mind record)"
+  },
+  {
+   "main_index": "190868",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191097",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190870",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191034",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190828",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191030",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190872",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190666",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191157",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190640",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190583",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190310",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190497",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190706",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190437",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191038",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191047",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190504",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190819",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190566",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190449",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190749",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190601",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190784",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191032",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190782",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190664",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190340",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191067",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190966",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191182",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191005",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190897",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190691",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190457",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190964",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191140",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191083",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "191073",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190591",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190778",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190610",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190941",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190981",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190568",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190838",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190441",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190468",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190418",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "190587",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "3369288",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "982728",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "987422",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "489167",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "527050",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "513150",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "489612",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "501079",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "504914",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "509485",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "529911",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "561145",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "583912",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "571802",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "590582",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "593979",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "604979",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "646114",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "617264",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "619666",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "617764",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "619709",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "647333",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "622949",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "680044",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "679934",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "697778",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "702872",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "2294622",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "699000",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "713257",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "719011",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "719526",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "729387",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "733242",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "738773",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "2412870",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "988693",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "763263",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "573121",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "2413722",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "2230621",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "885123",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "878585",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "894959",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "986750",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "4617573",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "902338",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "982199",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "986829",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "926581",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "2255170",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "577634",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "999906",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "1012132",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "1925389",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "1924596",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "1059018",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "1044109",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "986860",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "1049318",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "2810900",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "952907",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "1087657",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "959451",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "987678",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "952206",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "1179308",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "964863",
+   "block": "GEN",
+   "reason": "not in msk_mind/genomic_alterations (validation cohort)"
+  },
+  {
+   "main_index": "P-0017749",
+   "slides": [
+    "PD-L1, OLS HobS16-253460754191"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0023562",
+   "slides": [
+    "HobS17-391338574081 PD-L1"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0004476",
+   "slides": [
+    "HobS15-253794665782 PD-L1"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0004395",
+   "slides": [
+    "HobS14-023608376650 PD-L1"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0007068",
+   "slides": [
+    "PD-L1, OMG HobS16-038724522957"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0020755",
+   "slides": [
+    "PD-L1, OKS HobS17-692070845994"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0022011",
+   "slides": [
+    "HobS17-885835121233 PD-L1"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0018960",
+   "slides": [
+    "HobS17-525621764951 PD-L1"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0025016",
+   "slides": [
+    "PD-L1, OJ3 HobS17-765001497754"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0033239",
+   "slides": [
+    "HobS17-979590778041 PD-L1"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0029148",
+   "slides": [
+    "HobS18-659121455267 PD-L1"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0028473",
+   "slides": [
+    "HobS18-465556731372 PD-L1"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "P-0028930",
+   "slides": [
+    "HobS18-946239921098 PD-L1"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  },
+  {
+   "main_index": "1087657",
+   "slides": [
+    "1087657"
+   ],
+   "reason": "no embedding (encode failed/empty)",
+   "block": "PATHF"
+  }
+ ],
+ "files": [
+  {
+   "file": "347979_NH.mha",
+   "block": "TB",
+   "reason": "unreadable .mha (ITK MetaImageIO error)"
+  },
+  {
+   "file": "347991_NH.mha",
+   "block": "TB",
+   "reason": "unreadable .mha (ITK MetaImageIO error)"
+  }
+ ],
+ "notes": []
+}

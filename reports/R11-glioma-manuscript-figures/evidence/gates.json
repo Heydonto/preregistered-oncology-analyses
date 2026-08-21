@@ -1,0 +1,164 @@
+[
+  {
+    "gate": "G0_zip_integrity",
+    "expected": 16121402,
+    "observed": 16121402,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G1_upenn_n",
+    "expected": 574,
+    "observed": 574,
+    "result": "PASS",
+    "note": "R02's cohort: complete features AND survival > 0",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G2_mgmt_n",
+    "expected": 247,
+    "observed": 247,
+    "result": "PASS",
+    "note": "reproduces R02's MGMT positive control cohort",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G3_mgmt_reproduces_R02",
+    "expected": {
+      "p": "5.831e-08",
+      "med": [
+        595.0,
+        371.0
+      ]
+    },
+    "observed": {
+      "p": "5.831e-08",
+      "med": [
+        595.0,
+        371.0
+      ]
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G4_predcol_by_name",
+    "expected": "predicted_log10_days",
+    "observed": [
+      "predicted_log10_days"
+    ],
+    "result": "PASS",
+    "note": "the sketch used iloc[:,1] which is the OBSERVED outcome in this file",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G5_pred_is_not_outcome",
+    "expected": "corr(pred, observed) < 0.99",
+    "observed": 0.2923,
+    "result": "PASS",
+    "note": "guards against silently plotting the outcome against itself",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G6_oof_aligned",
+    "expected": 574,
+    "observed": 574,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G7_risk_direction",
+    "expected": "high-risk median < low-risk median",
+    "observed": {
+      "high": 268.5,
+      "low": 490.0
+    },
+    "result": "PASS",
+    "note": "the sketch inverted these labels",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G8_idh_join",
+    "expected": "> 900 patients with IDH from the SAMPLE file",
+    "observed": 995,
+    "result": "PASS",
+    "note": "column absent from the patient file; sketch fell back to random",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G9_idh_n",
+    "expected": 919,
+    "observed": 919,
+    "result": "PASS",
+    "note": "reproduces R04's IDH cohort exactly",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G10_idh_reproduces_R04",
+    "expected": {
+      "med": [
+        89.7,
+        14.0
+      ],
+      "p": "< 1e-60"
+    },
+    "observed": {
+      "med": [
+        89.7,
+        14.0
+      ],
+      "p": "5.724e-71"
+    },
+    "result": "PASS",
+    "note": "if this passes, the IDH labels are real; the sketch's random fallback gave p=0.325",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G11_eight_n",
+    "expected": 337,
+    "observed": 337,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G12_scanner_counts",
+    "expected": {
+      "Siemens": 228,
+      "Philips": 89,
+      "GE": 20
+    },
+    "observed": {
+      "Philips": 89,
+      "GE": 20,
+      "Siemens": 228
+    },
+    "result": "PASS",
+    "note": "real counts; the sketch used [443,350,267,0] = 1,060 which matches no cohort",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G13_censoring_handled",
+    "expected": "TCGA KM median > raw median (censoring present and handled)",
+    "observed": {
+      "n": 1040,
+      "pct_censored": 49.6,
+      "raw_median": 11.8,
+      "km_median": 20.7
+    },
+    "result": "PASS",
+    "note": "a raw median would understate TCGA by ~9 months; UPENN is uncensored so raw==KM",
+    "t": "2026-08-08T11:51:33Z"
+  },
+  {
+    "gate": "G14_tcga_n",
+    "expected": 1040,
+    "observed": 1040,
+    "result": "PASS",
+    "note": "matches R04's tcga_survival.csv; one patient has OS_MONTHS but no OS_STATUS",
+    "t": "2026-08-08T11:51:33Z"
+  }
+]

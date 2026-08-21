@@ -1,0 +1,35 @@
+{
+  "question": "does a methylation-supervised morphology representation retain genome-wide methylation structure, where a subtype-supervised one did not (R15 Finding 2)?",
+  "design": "five arms, identical site-grouped folds and identical ridge; only the predictor differs. Folds taken from the MIL's own fold_of so the ridge folds nest inside the representation's folds.",
+  "arms": {
+    "A_meth": "512-d methylation-supervised embedding",
+    "A_sub": "512-d subtype-supervised embedding (reproduces m13)",
+    "A_sublabel": "1-d LUAD/LUSC label (reproduces m13)",
+    "A_globalmean": "1-d OBSERVED global mean methylation (circularity control)",
+    "A_null": "A_meth with WSI-methylation pairing permuted, single permutation"
+  },
+  "circularity": "the 'global' training target is the mean over every scanned probe, so this is not a clean 'morphology predicts methylome' test. Z is out-of-fold so there is no patient-level leakage; A_globalmean bounds the scalar-shortcut explanation.",
+  "seed": 20260817,
+  "ridge_alpha": 100.0,
+  "chunk": 40000,
+  "margin_factor": 1.25,
+  "repro_min_corr": 0.999,
+  "expectations": {
+    "matched": 760,
+    "probes": 399579,
+    "m13_n_above_null_subtype_emb": 110212,
+    "m13_n_above_null_subtype_label": 220925,
+    "m13_median_rho_subtype_emb": 0.006,
+    "r10_context": {
+      "Island": 0.54,
+      "OpenSea": 1.44
+    }
+  },
+  "verdict_rules": [
+    "n_meth > MARGIN*n_sub AND n_meth > n_sublabel -> SUPERVISION_EXPLAINS_ARM1_NEGATIVE",
+    "abs(n_meth-n_sub) <= 0.25*n_sub -> ARM1_NEGATIVE_ROBUST_TO_SUPERVISION",
+    "otherwise -> INTERMEDIATE",
+    "secondary, independent of the above: n_meth > n_globalmean -> CARRIES_CPG_SPECIFIC_STRUCTURE_BEYOND_GLOBAL_AXIS, else GLOBAL_AXIS_ONLY"
+  ],
+  "status": "HELD FOR IP - not for publication pending patent"
+}

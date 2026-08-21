@@ -1,0 +1,493 @@
+# PLAN.yaml
+# Pre-registered analysis plan — ACRIN 6668 / RTOG 0235 tabular clinical + PET-assessment forms
+# Generator: Claude (Opus 5), acting as GENERATOR in a blinded pre-registration experiment.
+# Written 2026-08-15, BEFORE any cell value of the cohort was read.
+# Sole input: generator_sandbox/recon_package.json (schema + data dictionary + row/join counts only).
+# No outcome, measurement or clinical VALUE was available to the generator.
+
+meta:
+  plan_version: "1.0.0"
+  cohort: "ACRIN 6668 / RTOG 0235 (TCIA collection ACRIN-NSCLC-FDG-PET), tabular forms only"
+  scope: "Tabular clinical + PET-assessment forms. NO voxel-level image processing anywhere in this plan."
+  join_key: "cn (case number). This is the ONLY patient identifier used."
+  date_convention: >
+    All raw date fields (*e<N>) are de-identified to YYYY only. Every temporal quantity in this plan
+    therefore uses the paired offset fields '<FORM>e<N>d' = 'Days from Base_dt to <date>'. Raw
+    year-only fields are NEVER used for interval arithmetic.
+  software: "Any; must implement Cox PH with Efron tie handling, Schoenfeld residual test, and a permutation loop."
+  random_seed: 6668
+  permutation_B: 2000
+
+  forms_declared_out_of_scope:
+    reason: "recon_package.public_facts states these nine dictionary forms are RTOG-0214 forms (a different trial, PCI) and ship no CSV."
+    forms: ["B1", "CA", "D1", "NP", "OC", "R1", "RS", "X1", "XS"]
+    rule: "Any field from these forms is forbidden. In particular OC ('derived outcomes') must NOT be used as an outcome source even if a file appears."
+
+  execution_stages:
+    - stage_0: "Structural / join gates (G1-G3). Uses only row counts, key sets, missingness. No outcome field may be opened."
+    - stage_1: "Build the EXPOSURE table and the exposure-validity control PC0. Freeze it: write exposure_table.csv and record its SHA-256 in the run log. No outcome field may be opened."
+    - stage_2: "Merge survival outcome. Run gates G4-G8 and the exclusion ledger."
+    - stage_3: "Run primary test, positive controls PC1-PC3, secondary tests S1-S7."
+    - stage_4: "Apply verdict rules mechanically. No test not listed in this file may be reported as confirmatory."
+  stage_discipline_rule: >
+    Stage 1 must complete and the exposure table hash must be recorded before any survival field
+    (F1/F2/DS) is read into the session. If the analyst reads an outcome field before the exposure
+    hash is recorded, the run is reported as PROTOCOL-BREACH and the primary verdict is void.
+
+# ---------------------------------------------------------------------------
+# 1. PRIMARY HYPOTHESIS
+# ---------------------------------------------------------------------------
+primary_hypothesis:
+  statement_one_sentence: >
+    In stage IIB/III NSCLC treated with definitive chemoradiotherapy, a HIGHER peak FDG SUV on the
+    post-treatment PET scan is associated with SHORTER overall survival measured from the date of
+    that post-treatment PET scan (Cox hazard ratio per doubling of post-RT peak SUV > 1).
+  direction: "positive (higher post-RT peak SUV -> higher hazard of death)"
+  falsifiable_because: "A pre-specified two-sided permutation test at alpha=0.05 with a pre-specified minimum detectable effect; HR <= 1 or a CI containing 1 with adequate events falsifies it."
+
+  exposure:
+    primary_source:
+      form: "LE (Lesion Evaluation Form; 244 rows)"
+      field: "lee11  ('POST-RT: PEAK SUV', numeric)"
+      rationale: "LE is the only form that labels PRE-RT and POST-RT SUV explicitly in separate columns at (apparently) one row per patient, so it carries no timepoint-row ambiguity."
+    transform: "x = log2( max(lee11, 0.5) ). Reported as HR per doubling of post-RT peak SUV. Also reported per 1 SD of x."
+    floor_rule: "Values <= 0.5 (including exact 0) are set to 0.5 before the log. The count of patients affected MUST be reported."
+    no_other_processing: "No winsorization, no trimming, no outlier removal, no imputation of the exposure. Missing exposure = exclusion (see exclusion ledger E5)."
+    duplicate_row_rule: >
+      If LE has more than one row for a cn, keep the row with the smallest lee19d (earliest form
+      completion); if lee19d ties, keep the row with the smallest lee2d; if still tied, keep the
+      row-wise median of lee11 across the tied rows. Report the number of cn affected.
+    fallback_chain:
+      trigger: "Fired ONLY by adequacy gate G7 or by control PC0 (both outcome-free)."
+      order:
+        - fallback_1:
+            form: "SS (Sub-study Transfer- WW; 1185 rows)"
+            field: "sse38 ('PEAK SUV AMONG ALL LESIONS AFTER RT')"
+            row_selection: "SS is keyed by lesion-inclusion SUV cutoff sse2. Use ONLY rows whose sse2 equals the single global minimum observed value of sse2 (the most inclusive lesion set). No other cutoff may be examined for the primary. If a cn still has >1 such row, take the median of sse38 across them."
+            key_check: "Verify sse1 ('CASE NUMBER') equals cn on every row; if it does not, SS is unusable and this fallback is skipped."
+        - fallback_2:
+            form: "Q2 (Core PET Qualitative and Semi-Quantitative Assessment Form 2; 591 rows, 244 cn)"
+            row_selection: "Rows with q2e5 == 2 (Post-treatment), q2e1 == 2 (imaging completed), q2e12 != 5 (not Inadequate), q2e154 != 2 (not flagged DATA IS INEVALUABLE)."
+            block_arbitration_rule: >
+              Q2 carries two SUV blocks ('SEMI QUANTITATIVE ASSESSMENT 1' and 'SEMI QUANTITATIVE
+              ASSESSMENT 2'). Decide which block reports the scan under assessment using an
+              OUTCOME-FREE structural test on PRE-treatment rows (q2e5 == 1): if in pre-treatment rows
+              the Assessment-2 SUV fields (q2e143..q2e153) are missing for >= 90% of rows while
+              Assessment-1 SUV fields (q2e132..q2e142) are populated for >= 60% of rows, then
+              Assessment 1 is 'the scan being reported' and the post-treatment exposure is taken from
+              the Assessment-1 block. If that condition does not hold, Q2 is declared ambiguous and
+              this fallback is SKIPPED (no judgement call is permitted).
+            value: "SUVpeak_post = max over the Assessment-1 SUV PEAK site fields {q2e18, q2e20, q2e22, q2e24, q2e26, q2e28, q2e30, q2e32, q2e35, q2e38, q2e41} for the selected row; if a cn has multiple selected rows (reader duplicates), take the median across rows."
+        - fallback_3: "None. If G7/PC0 reject LE and both fallbacks are skipped, report EXPOSURE-DEFINITION-FAILED and do not run the primary test."
+      switch_logging: "Whichever source is used MUST be named in the report together with the gate numbers that forced the switch. The switch decision must be made and logged in Stage 1, before outcomes are merged."
+
+  outcome_endpoint:
+    name: "Overall survival (OS), all-cause, measured from the post-treatment PET scan (landmark origin)."
+    time_origin_t0:
+      definition: "Days-from-Base_dt of the post-treatment PET exam."
+      source_order:
+        - "TA form: tae7d ('Days from Base_dt to DATE OF PET IMAGING') on rows with tae1 == 2 ('Post-treatment PET') and tae3 == 2 ('PET IMAGING COMPLETED' = Yes)."
+        - "Q2 form: q2e10d on rows with q2e5 == 2."
+        - "IM form: ime10d on rows with ime5 == 2."
+      multiplicity_rule: "If several candidate values exist for a cn, use the MINIMUM (earliest post-treatment PET). Source order above is a fallback order for missingness, not a preference to be revisited."
+    time_variable:
+      last_known_date: "L = max over all F1 rows and all F2 rows for that cn of f1e3d / f2e3d ('Days from Base_dt to DATE OF LAST CONTACT OR DEATH'). If a row has f1e3d missing, fall back to f1e1d ('DATE OF LAST CLINICAL ASSESSMENT') for that row only."
+      T: "T = L - t0, in days. Analysed in months as T/30.4375."
+      f2_inclusion: "F2 ('Follow-up Form', 62 rows, identical 86-column schema) IS included and stacked with F1, field-for-field (f2eN maps to f1eN). Excluding F2 would silently discard follow-up."
+    event_indicator:
+      field: "f1e2 / f2e2 ('PATIENT'S VITAL STATUS')"
+      code_map:
+        "1": "Alive -> censored"
+        "2": "Dead -> EVENT"
+        "3": "Lost to follow-up; unable to contact -> censored at L"
+        "9": "Dead, date of death unknown -> EVENT (see dead_date_unknown_rule)"
+        missing: "-> censored at L; if L is also missing the patient is excluded (ledger E6)"
+      per_patient_reduction: >
+        A patient has 1541/243 ~ 6.3 F1 rows. Reduce as follows: status = 2 if ANY row has f1e2 == 2;
+        else 9 if ANY row has f1e2 == 9; else 3 if ANY row has f1e2 == 3 and no death row; else 1.
+        Death is treated as irreversible: an 'Alive' row dated after a 'Dead' row does not undo the death.
+      dead_date_unknown_rule:
+        primary: "f1e2 == 9 ('Dead, date of death unknown') is counted as an EVENT at time T = L - t0, where L is that patient's maximum reported f1e3d/f1e1d."
+        mandatory_sensitivity: "S5 re-runs the primary with f1e2 == 9 patients treated as CENSORED at L. Verdict CONFIRMED requires agreement between primary and S5 (see verdict rules)."
+        reported_counts: "n(f1e2==2), n(f1e2==9), n(f1e2==3), n(f1e2==1) must all be reported."
+      ds_supplement:
+        rule: "If a cn has DS dse3 == 2 ('PRIMARY REASON FOR PREMATURE DISCONTINUATION' = Death) but no F1/F2 death row, count it as an EVENT at T = dse2d - t0."
+        reported: "The count of patients whose event status comes only from DS must be reported. If that count exceeds 10, report it as a data-consistency finding."
+    cause_of_death_note: "f1e4 and DSE6 are NOT used. No cause-specific or competing-risks endpoint is analysed (see refusals)."
+
+  primary_statistical_test:
+    model: "Cox proportional hazards, unadjusted, single covariate x = log2(max(SUVpeak_post, 0.5)); Efron ties; time T from the landmark t0."
+    p_value_of_record: "Two-sided permutation p-value: permute x across analysed patients (outcome pairs held fixed), B = 2000, seed 6668, refit Cox each time, compare |z_score statistic|. The permutation p is the primary inference. The asymptotic Wald p and 95% CI are reported alongside."
+    ph_check: "Schoenfeld residual test for the exposure term. If p_Schoenfeld < 0.01 the permutation test remains valid as a test of association, but the report MUST label the HR a time-averaged effect and MUST NOT make any statement about a constant relative hazard or about risk at a specific horizon."
+    covariates: "None in the primary. The adjusted model is secondary test S1."
+    clustering: "Institution (A0 Inst_no) is NOT adjusted for in the primary; a robust sandwich variance clustered on Inst_no is reported descriptively only. It cannot change the verdict."
+
+# ---------------------------------------------------------------------------
+# 2. POSITIVE CONTROLS  (every control has its own pre-declared failure consequence)
+# ---------------------------------------------------------------------------
+# Design note: a prior study in this programme pre-registered a bare hard-gate control with no
+# remedy, it failed, and the team reinterpreted it post hoc. Each control below therefore states
+# in advance what will and will not be claimed under each of its outcomes.
+positive_controls:
+
+  PC0_exposure_validity:
+    type: "Outcome-free (Stage 1). Validates the pre/post field mapping of the exposure itself."
+    fields: ["LE lee5 ('PRE-RT: PEAK SUV')", "LE lee11 ('POST-RT: PEAK SUV')"]
+    expected: "Definitive chemoradiotherapy reduces FDG uptake. Among patients with both values, >= 75% should have lee11 < lee5, and the median of (lee11/lee5) should be <= 0.70."
+    why: "Trial design + established biology: post-CRT metabolic response is the norm; a form in which 'POST-RT' values are not systematically lower than 'PRE-RT' values is mislabelled or mis-joined."
+    pass_rule: "PASS if fraction(lee11 < lee5) >= 0.75 AND median(lee11/lee5) <= 0.70."
+    marginal_rule: "MARGINAL if fraction(lee11 < lee5) in [0.60, 0.75). Proceed with LE, but the report must carry the sentence 'exposure-validity control marginal; SUV field mapping only partially corroborated'."
+    failure_rule:
+      condition: "fraction(lee11 < lee5) < 0.60."
+      consequence: >
+        LE is declared unusable as the primary exposure. Trigger the fallback chain (SS, then Q2).
+        WILL claim: that the LE pre/post SUV columns could not be corroborated in this release.
+        WILL NOT claim: anything about post-RT SUV and survival from LE fields, and will not
+        'repair' the mapping by swapping lee5/lee11 or by any other post hoc relabelling.
+        If all fallbacks are skipped, the primary is reported EXPOSURE-DEFINITION-FAILED and no
+        association estimate is reported at all.
+    n_requirement: "If fewer than 100 patients have both lee5 and lee11 non-missing, PC0 is INCONCLUSIVE-BY-N; treat exactly as MARGINAL (proceed, carry the caveat), do not treat as PASS."
+
+  PC1_endpoint_construction:
+    type: "Outcome-based; validates that the OS clock and the follow-up forms were assembled correctly."
+    hypothesis: "Documented disease progression by day 365 from Base_dt predicts shorter subsequent OS, in a landmark analysis starting at day 365."
+    fields:
+      exposure: "F1/F2 f1e8 ('ARE THERE ANY SITES OF PROGRESSION NOT PREVIOUSLY REPORTED') in {2, 4}, with earliest progression date taken as min over {f1e10d, f1e15d, f1e20d, f1e25d, f1e30d, f1e35d, f1e40d, f1e45d, f1e51d} <= 365."
+      outcome: "Same OS construction as the primary (f1e2 status map; time from the day-365 landmark: T_L = L - 365)."
+    landmark_population: "Patients alive and not lost at day 365 (L >= 365 and no event recorded at or before day 365). Patients with an event or L < 365 are excluded from PC1 only."
+    expected_direction_and_magnitude: "HR >= 2.0 (progression -> death). Even conservatively, HR >= 1.5 with p < 0.01 is expected in stage III NSCLC."
+    why: "Near-tautological clinically. Its only real content is technical: it fails if dates, the per-patient reduction, or the vital-status map are wrong."
+    pass_rule: "PASS if HR > 1.5 and two-sided p < 0.01."
+    weak_pass_rule: "WEAK-PASS if HR in (1.3, 1.5] or (HR > 1.5 and 0.01 <= p < 0.05). Consequence: primary proceeds; report must state the endpoint control was only weakly corroborated."
+    failure_rule:
+      condition: "HR <= 1.3, or p >= 0.05, or HR < 1 (reversal)."
+      consequence: >
+        The OS endpoint construction is not corroborated. The primary result is reported as
+        ENDPOINT-CONTROL-FAILED and the primary HR is reported as DESCRIPTIVE ONLY.
+        WILL claim: that the released tabular follow-up data, as assembled by this pre-specified
+        recipe, does not reproduce even the progression->death association, and that therefore this
+        release (or this recipe) cannot support a survival claim.
+        WILL NOT claim: that post-RT SUV does predict survival (regardless of the primary p-value),
+        nor that it does not. No alternative OS construction may be substituted after seeing this
+        failure; any repair is a NEW pre-registration.
+    underpower_branch: "If the PC1 landmark population has < 60 patients or < 30 subsequent events, PC1 is UNINFORMATIVE-BY-N. Consequence: treat exactly as WEAK-PASS (proceed with a stated caveat); do NOT treat as PASS and do NOT treat as FAILED."
+
+  PC2_baseline_performance_status:
+    type: "Outcome-based; established prognostic biology."
+    fields: ["I1 i1e5 ('PERFORMANCE STATUS', 0..4, 99 = Unknown)", "OS as in the primary"]
+    contrast: "i1e5 >= 1 versus i1e5 == 0. i1e5 == 99 excluded from PC2 only. Time origin = the same landmark t0 as the primary."
+    expected_direction_and_magnitude: "HR 1.3 to 1.8 for PS >= 1 versus PS 0."
+    why: "ECOG/Zubrod performance status is the most reproducible non-imaging prognostic factor in stage III NSCLC."
+    known_risk: "Trial eligibility screened performance status (A0 a0e37), so the range is probably restricted to 0-1 and the groups may be very unbalanced. This is anticipated, not an excuse invented later."
+    pass_rule: "PASS if HR > 1 and p < 0.05."
+    weak_pass_rule: "PASS-WEAK if HR >= 1.0 and p >= 0.05. Consequence: none on the primary; reported as such."
+    uninformative_rule:
+      condition: "smaller group n < 40 OR fewer than 25 events in the smaller group."
+      consequence: >
+        Declared UNINFORMATIVE-BY-RANGE. Consequence on the primary: none.
+        WILL claim: that range restriction by trial eligibility left this control unable to
+        corroborate the prognostic scale.
+        WILL NOT claim: that this control 'passed', and WILL NOT quietly substitute another
+        covariate in its place.
+    failure_rule:
+      condition: "adequately sized (not UNINFORMATIVE) AND HR < 1.0 AND p < 0.05 (significant reversal)."
+      consequence: >
+        A significant reversal of a firmly established prognostic direction indicates a coding or
+        join error not caught by the gates. The primary verdict is capped at NULL-UNRELIABLE: it can
+        never be CONFIRMED in this run.
+        WILL claim: that the assembled dataset inverts a known prognostic relationship and is not
+        fit for survival inference as assembled.
+        WILL NOT claim: any direction for the primary hypothesis.
+
+  PC3_baseline_weight_loss:
+    type: "Outcome-based; established prognostic biology."
+    fields: ["I1 i1e3 ('ESTIMATED % WEIGHT LOSS IN LAST 3 MONTHS')", "I1 i1e4 (== 99 -> Unknown, excluded)", "OS as in the primary"]
+    contrast: "i1e3 >= 5 versus i1e3 < 5. Time origin = the same landmark t0 as the primary."
+    expected_direction_and_magnitude: "HR 1.3 to 1.8 for >= 5% weight loss."
+    why: "Pre-treatment weight loss >= 5% is a long-established adverse prognostic factor in NSCLC (cachexia / systemic disease burden), independent of imaging."
+    pass_rule: "PASS if HR > 1 and p < 0.05."
+    weak_pass_rule: "PASS-WEAK if HR >= 1.0 and p >= 0.05. Consequence: none on the primary."
+    uninformative_rule:
+      condition: "exposed group n < 30 OR fewer than 20 events in the exposed group OR i1e3 missing/unknown for > 40% of the analysed cohort."
+      consequence: "UNINFORMATIVE-BY-N. No consequence on the primary; reported explicitly as an unmet control, not as a pass."
+    failure_rule:
+      condition: "adequately sized AND HR < 1.0 AND p < 0.05."
+      consequence: "Same as PC2 failure: primary verdict capped at NULL-UNRELIABLE; report the inversion; claim nothing about the primary direction."
+
+  aggregate_control_rule: >
+    A verdict of CONFIRMED additionally requires: PC1 is PASS or WEAK-PASS; PC0 is PASS or MARGINAL;
+    neither PC2 nor PC3 is FAILED (reversed); and at least one of PC2/PC3 is PASS or PASS-WEAK
+    (i.e. not both UNINFORMATIVE). If both PC2 and PC3 are UNINFORMATIVE-BY-RANGE/N, the strongest
+    available verdict is CONFIRMED-UNCORROBORATED, which for the purposes of this pre-registration
+    counts as NOT CONFIRMED and must be reported with that label.
+
+# ---------------------------------------------------------------------------
+# 3. INTEGRITY GATES  (numbered, each with a mechanically checkable expected value)
+# ---------------------------------------------------------------------------
+integrity_gates:
+
+  G1_recombination_of_the_two_release_samples:
+    stage: 0
+    check: "Every form ships file_sets = 2 (the 75% / 25% random samples). For each form, concatenate the two files and compare the cn sets."
+    expected: "The two per-form cn sets are DISJOINT (|intersection| == 0), and for A0 the recombined row count == 251 with 251 distinct cn (exactly 1 row per patient)."
+    on_fail: "If the cn sets overlap, de-duplicate on the full row tuple and report both counts. If overlapping cn have CONFLICTING values in any field used by this plan, the run is reported RECOMBINATION-AMBIGUOUS and the primary is not reported."
+
+  G2_join_integrity:
+    stage: 0
+    expected_values_from_recon_package:
+      A0_registrations: 251
+      F1_followup_cn: 243
+      IM_pet_cn: 246
+      Q2_core_pet_cn: 244
+      A0_and_F1: 243
+      A0_F1_Q2: 240
+    checks:
+      - "Reproduce each of the six counts above exactly. Any mismatch is a hard stop (report JOIN-COUNT-MISMATCH with the observed numbers) — the recon package was generated from the same files, so a mismatch means the wrong files."
+      - "Every cn in F1, Q2, IM, LE, I1, T1, DS must exist in A0. Expected: 0 orphan cn. Report any orphans by form and count; orphans are excluded via ledger E1."
+      - "LE row count == 244 and LE distinct cn == 244 (1 row per patient). LE patient-level uniqueness is NOT documented in the recon package, so this must be verified, not assumed. If LE distinct cn < 244, apply the duplicate_row_rule and report the count affected."
+      - "IM has 465 rows over 246 cn and Q2 591 rows over 244 cn: verify that after the pre-declared row selection, at most 1 exposure value per cn survives."
+
+  G3_no_cutoff_row_inflation:
+    stage: 0
+    check: "SS has 1185 rows. Confirm SS is keyed by sse2 ('MAXIMUM SUV CUTOFF ... FOR INCLUSION OF LESIONS IN THIS ANALYSIS') and that rows per cn > 1."
+    expected: "SS rows per cn is approximately constant (one row per cutoff). Report the observed set of distinct sse2 values and the modal rows-per-cn."
+    rule: "SS may enter the analysis only through fallback_1 with sse2 == global minimum. Reporting more than one sse2 value for the primary, or any comparison across sse2 values, is forbidden by this plan."
+
+  G4_no_outcome_period_leakage:
+    stage: 2
+    parts:
+      - "4a Predictor provenance: the exposure comes from LE/SS/Q2 PET-assessment fields only. Assert programmatically that no field from F1, F2, DS, AE, or O1 appears in the exposure or covariate matrices."
+      - "4b Landmark integrity (immortal time): the exposure is measured 8-20 weeks after chemoradiotherapy, so OS MUST be measured from t0 (post-RT PET date), never from registration. Assert min(T) >= 0 over analysed patients; any T < 0 is excluded via ledger E7 and its count reported."
+      - "4c Timing plausibility: t0 must be after the end of radiotherapy. Using T1 t1e3d ('DATE OF LAST TREATMENT'), assert (t0 - t1e3d) > 0 for >= 95% of analysed patients, and require (t0 - t1e3d) within [28, 280] days for inclusion (protocol window is 8-20 weeks = 56-140 days; the wider band admits documented deviations, PR codes 11/12/14/15/18). Out-of-band patients are excluded via ledger E8 with counts by side."
+      - "4d Covariate provenance: covariates used in S1 come only from A0 (entryage, a0e11) and I1 (i1e5, i1e6), i.e. registration / on-study forms. No follow-up or end-of-study field may be a covariate."
+      - "4e Anti-target-encoding: assert the exposure vector is bit-identical to the Stage-1 frozen exposure_table.csv (compare SHA-256). This makes post-outcome tuning of the exposure mechanically detectable."
+    expected: "4a PASS, 4b min(T) >= 0, 4c >= 95%, 4d PASS, 4e hashes equal."
+    on_fail: "Any failure of 4a, 4d, or 4e voids the primary (report LEAKAGE-GATE-FAILED). Failure of 4c at the 95% threshold does not void the run but must be reported and the analysis restricted to in-band patients."
+
+  G5_exclusion_accounting_reconciles:
+    stage: 2
+    identity: "n_listed == n_analysed + n_excluded, with n_listed = 251 (A0 registrations)."
+    ledger_must_be_exhaustive: "Every excluded patient is assigned exactly one reason, applied in the order below (first match wins), and every reason reports a count. The ledger must print and the identity must hold exactly."
+    reasons_in_order:
+      E1: "cn not present in A0 (orphan record in a downstream form)."
+      E2: "Ineligible / administrative void: A0 a0e3 == 1 ('PATIENT ELIGIBLE FOR THIS STUDY?' = No) OR A1 a1e3 == 2 ('ELIGIBILITY STATUS' = Ineligible) OR A1 a1e4 == 12 ('Duplicate case registration')."
+      E3: "No radiotherapy commenced: T1 t1e1 == 1 ('DID RADIOTHERAPY COMMENCE' = No) or T1 row absent."
+      E4: "No post-treatment PET timepoint available (no TA tae1==2 / Q2 q2e5==2 / IM ime5==2 record with a usable date offset), i.e. t0 undefined."
+      E5: "Post-RT peak SUV missing in the selected exposure source."
+      E6: "No usable follow-up: no F1/F2 row, or vital status and L both missing."
+      E7: "T < 0 (last contact precedes the post-treatment PET)."
+      E8: "Post-treatment PET outside the [28, 280]-day post-RT window (report counts for < 28 and > 280 separately)."
+    reported_alongside: "Expect roughly 240 patients to reach the join of A0+F1+Q2 (documented), so n_analysed in the range 190-240 is anticipated. n_analysed < 150 must be reported prominently as a cohort-attrition finding."
+
+  G6_permutation_null_centring:
+    stage: 3
+    check: "Under the B = 2000 exposure permutations of the primary model, the null distribution of the Cox score z-statistic must be centred and calibrated."
+    expected:
+      - "|mean(z_perm)| < 0.10"
+      - "SD(z_perm) in [0.85, 1.15]"
+      - "Empirical rejection rate of the permutation-referenced Wald test at alpha = 0.05 in [0.035, 0.065]"
+    on_fail: "If centring or calibration fails, the asymptotic p-values are not trustworthy: report PERMUTATION-CALIBRATION-FAILED, report only the permutation p (which remains an exact exchangeability test), and cap the verdict at POWER-LIMITED-NULL if the permutation p >= 0.05. A CONFIRMED verdict is still permitted on the permutation p alone, but the report must state that the asymptotic CI is uncalibrated."
+
+  G7_exposure_adequacy:
+    stage: 1
+    check: "In the primary source (LE), count patients with non-missing lee11 among those with a defined t0."
+    expected: ">= 180 patients with non-missing lee11."
+    on_fail: "If < 180, record the count and trigger the fallback chain in the declared order. If < 120 in every source, report EXPOSURE-COVERAGE-FAILED and do not run the primary."
+
+  G8_outcome_completeness_and_consistency:
+    stage: 2
+    checks:
+      - "Report the 4-way vital-status tally (f1e2 in {1,2,3,9}) after per-patient reduction; expect the sum to equal n_analysed."
+      - "Count patients with an 'Alive' row dated strictly after a 'Dead' row (internal inconsistency). Expected 0; report if > 0 (death still wins, per the reduction rule)."
+      - "Count patients whose event status derives only from DS (dse3 == 2). Report; > 10 is a data-consistency finding."
+      - "Report median follow-up (reverse Kaplan-Meier) among censored patients and the total number of events d."
+    on_fail: "None of these void the run; all are reported. An inconsistency count > 5% of n_analysed must be stated in the abstract of the report."
+
+# ---------------------------------------------------------------------------
+# 4. POWER, COMPUTED IN ADVANCE FROM THE RECON ROW COUNTS
+# ---------------------------------------------------------------------------
+power_statement:
+  inputs_available_before_execution:
+    A0_registrations: 251
+    A0_F1_Q2_join: 240
+    LE_rows: 244
+    anticipated_n_analysed: "190 to 240 after the exclusion ledger"
+    events_unknown: "The number of deaths d cannot be known before Stage 2. Given stage III NSCLC treated 2005-2009 and the follow-up depth implied by 1541 F1 rows over 243 patients, d is anticipated in the range 120-190."
+  method: "Schoenfeld's formula for a Cox model with a single covariate: required |beta| = (z_{0.975} + z_{0.80}) / (sigma_x * sqrt(d)) = 2.8016 / (sigma_x * sqrt(d)); for a binary split with proportion p, sigma_x = sqrt(p(1-p))."
+  minimum_detectable_effect_table_per_1SD_of_log2SUV:
+    d_100: "HR = 1.323"
+    d_120: "HR = 1.291"
+    d_150: "HR = 1.257"
+    d_180: "HR = 1.232"
+    d_200: "HR = 1.219"
+  minimum_detectable_effect_median_split_50_50:
+    d_100: "HR = 1.751"
+    d_120: "HR = 1.668"
+    d_150: "HR = 1.580"
+    d_180: "HR = 1.519"
+    d_200: "HR = 1.486"
+  pre_declared_statement: >
+    At 80% power and two-sided alpha = 0.05, and with the event count anticipated here, this design can
+    detect roughly a 23-29% hazard increase per standard deviation of log2 post-RT peak SUV, i.e. an
+    effect of about HR 1.23-1.29 per SD. It CANNOT detect effects smaller than that. The published
+    ACRIN 6668 effect size for continuous post-treatment SUV is modest, so a non-significant result
+    here is a plausible outcome of limited power rather than evidence of no association.
+  underpowered_null_rule: >
+    If the primary permutation p >= 0.05 AND (d < 100 OR the 95% CI for HR per 1 SD includes 1.25),
+    the result is reported as POWER-LIMITED-NULL, explicitly NOT as a negative finding, and the report
+    must state the observed d and the corresponding minimum detectable HR.
+  power_is_not_recomputed_to_taste: "The MDE table above is fixed. The only post-hoc quantity is d, read off the assembled cohort, which selects a row of the table."
+
+# ---------------------------------------------------------------------------
+# 5. MULTIPLICITY
+# ---------------------------------------------------------------------------
+multiplicity:
+  total_pre_declared_tests: 11
+  families:
+    primary:
+      n_tests: 1
+      test: "Cox on log2 post-RT peak SUV (permutation p)."
+      alpha: "0.05 two-sided, unadjusted (a single primary test needs no correction)."
+    positive_controls:
+      n_tests: 3
+      tests: ["PC1 progression -> OS landmark", "PC2 performance status", "PC3 weight loss >= 5%"]
+      correction: "None. These are diagnostics with their own pre-declared thresholds (PC1 at p < 0.01, PC2/PC3 at p < 0.05); they are reported unadjusted and are never presented as findings about the primary hypothesis."
+      note: "PC0 is outcome-free and involves no hypothesis test, so it does not count toward the test budget."
+    secondary_robustness:
+      n_tests: 7
+      correction: "Holm-Bonferroni across the 7 secondary p-values at family alpha = 0.05."
+      status: "Secondary. A secondary result can NEVER upgrade the primary verdict; S1 and S5 can only constrain it (see verdict rules)."
+      tests:
+        S1: "Adjusted Cox: exposure + entryage (A0, continuous) + a0e11 (A0, gender) + i1e6 (I1, clinical stage: IIIB [code 3] vs IIB/IIIA [codes 1,2]; code 4 'Other' excluded from S1) + i1e5 (I1, PS >= 1 vs 0). Complete-case; no imputation; report n_S1."
+        S2: "Exposure = log2(max(LE lee10, 0.5)) ('POST-RT: TUMOR MAX SUV') instead of peak SUV."
+        S3: "Binary exposure at the FIXED, literature-anchored threshold post-RT peak SUV >= 3.5 versus < 3.5. No threshold search of any kind is permitted; 3.5 is fixed by this plan."
+        S4: "Exposure = log2(max(lee11,0.5)) - log2(max(lee5,0.5)) (metabolic change, post minus pre on the log2 scale)."
+        S5: "Primary model with f1e2 == 9 ('Dead, date of death unknown') treated as CENSORED at L (death-coding sensitivity)."
+        S6: "Primary model excluding patients upstaged to stage IV (O1 o1e2 == 4)."
+        S7: "Primary model with untransformed exposure (HR per 1 SUV unit), to expose transformation dependence."
+  forbidden: >
+    No other test may be run and reported as evidence. In particular: no data-driven SUV cutpoint
+    search (maximally selected rank statistics, minimum-p cutoffs, tertile scans), no subgroup
+    fishing (histology, institution, scanner, sex, stage subgroups), no swapping of the outcome to
+    PFS or cause-specific death, and no exploration across SS sse2 cutoff values. Any exploratory
+    analysis performed must be labelled EXPLORATORY-NOT-PREREGISTERED and reported separately from
+    the verdict.
+
+# ---------------------------------------------------------------------------
+# 6. VERDICT RULES  (mechanical; the verdict follows from the numbers)
+# ---------------------------------------------------------------------------
+verdict_rules:
+  precedence: "Evaluate in this order; the first matching verdict is the verdict."
+
+  V0_VOID:
+    conditions_any:
+      - "Stage discipline breached (outcome read before the exposure hash was recorded)."
+      - "G1 RECOMBINATION-AMBIGUOUS, or G2 JOIN-COUNT-MISMATCH."
+      - "G4 part 4a, 4d, or 4e failed (LEAKAGE-GATE-FAILED)."
+      - "G5 identity n_listed == n_analysed + n_excluded does not hold exactly."
+      - "G7 EXPOSURE-COVERAGE-FAILED, or PC0 failure with all fallbacks skipped (EXPOSURE-DEFINITION-FAILED)."
+    report: "VOID. No association estimate is reported. State which gate failed."
+
+  V1_ENDPOINT_CONTROL_FAILED:
+    condition: "PC1 meets its failure_rule."
+    report: "ENDPOINT-CONTROL-FAILED. The primary HR is printed as descriptive only, with an explicit sentence that it is not evidence for or against the hypothesis."
+
+  V2_NULL_UNRELIABLE:
+    condition: "PC2 or PC3 meets its failure_rule (significant reversal of an established prognostic direction)."
+    report: "NULL-UNRELIABLE. Primary cannot be CONFIRMED in this run; report the inversion as the principal finding."
+
+  V3_CONFIRMED:
+    conditions_all:
+      - "V0, V1, V2 do not apply; all of G1-G8 either PASS or fail only in ways explicitly declared non-voiding."
+      - "Primary HR per doubling > 1."
+      - "Primary two-sided permutation p < 0.05."
+      - "Asymptotic 95% CI lower bound for HR per doubling > 1.00 (unless G6 PERMUTATION-CALIBRATION-FAILED, in which case this sub-condition is waived and the waiver is stated)."
+      - "S5 (death-coding sensitivity) gives HR > 1 with p < 0.05."
+      - "S1 (adjusted model) gives a point estimate HR > 1 (statistical significance in S1 is NOT required)."
+      - "aggregate_control_rule satisfied."
+    report: "CONFIRMED. Report HR per doubling and per SD with CIs, permutation p, d, n_analysed, and the full gate/control table."
+    downgrades:
+      - "If S5 does not meet its condition -> CONFIRMED-FRAGILE, which counts as NOT CONFIRMED."
+      - "If S1's point estimate is <= 1 -> CONFIRMED-UNADJUSTED-ONLY, which counts as NOT CONFIRMED."
+      - "If both PC2 and PC3 are UNINFORMATIVE -> CONFIRMED-UNCORROBORATED, which counts as NOT CONFIRMED."
+
+  V4_NULL_INFORMATIVE:
+    conditions_all:
+      - "V0-V3 do not apply."
+      - "Primary permutation p >= 0.05."
+      - "d >= 100."
+      - "Asymptotic 95% CI upper bound for HR per 1 SD < 1.25 (i.e. a moderate effect is excluded)."
+    report: "NULL. State that an effect of HR >= 1.25 per SD of log2 post-RT peak SUV is excluded at 95% confidence in this assembled cohort."
+
+  V5_POWER_LIMITED_NULL:
+    condition: "V0-V4 do not apply and the primary permutation p >= 0.05."
+    report: "POWER-LIMITED-NULL. Report d, the minimum detectable HR from the power table, and the observed CI. Explicitly state this is NOT evidence of absence."
+
+  V6_DIRECTIONAL_CONTRADICTION:
+    condition: "Primary permutation p < 0.05 with HR < 1 (higher post-RT SUV associated with LONGER survival)."
+    report: "DIRECTIONAL-CONTRADICTION. The pre-registered directional hypothesis is falsified. Report as such; do NOT reinterpret it as a two-sided positive result, and do not construct a post hoc biological story. Recommend re-examining the exposure field mapping in a NEW pre-registration."
+
+  reporting_requirements:
+    - "Print the gate table (G1-G8) with observed vs expected values."
+    - "Print the exclusion ledger (E1-E8) with the reconciliation identity."
+    - "Print PC0-PC3 with their outcome labels (PASS / WEAK-PASS / PASS-WEAK / MARGINAL / UNINFORMATIVE / FAILED)."
+    - "Print all 7 secondary tests with raw and Holm-adjusted p-values."
+    - "Print the exposure source actually used and the SHA-256 of exposure_table.csv."
+
+# ---------------------------------------------------------------------------
+# 7. WHAT WE WILL REFUSE TO CLAIM  (even if the numbers look good)
+# ---------------------------------------------------------------------------
+refusals:
+  - "CAUSATION. No claim that residual FDG uptake causes death, or that reducing SUV would improve survival. This is a single-arm prognostic association in an observational reading of a completed trial."
+  - "CLINICAL UTILITY / DECISION SUPPORT. No claim that post-RT SUV should be used to select patients for consolidation, salvage, dose escalation, or surveillance intensity. No net-benefit, decision-curve or reclassification claim; none is computed."
+  - "A THRESHOLD. Even if S3 (SUV >= 3.5) is significant, no claim that 3.5 (or any value) is a validated clinical cutoff. The threshold is fixed for robustness only, was not optimised, and its performance is not a cutpoint validation."
+  - "DISCRIMINATION / PREDICTION PERFORMANCE. No c-index, AUC, calibration or 'predicts survival' framing at the individual-patient level. This plan tests an association coefficient, not a prediction model, and performs no internal or external validation."
+  - "INDEPENDENCE FROM CONFOUNDERS beyond the four covariates in S1. Histology, tumour volume, RT dose, chemotherapy regimen, smoking, comorbidity and institution are not adjusted for. No claim of 'independent prognostic factor'."
+  - "SUPERIORITY AMONG SUV METRICS. No claim that peak SUV beats max SUV, MTV, TLG, or the change metric. S2/S4 are robustness checks; comparing their p-values to rank metrics is forbidden."
+  - "ANYTHING ABOUT MTV / TLG / TEXTURE. lee7, lee8, lee14-lee16, SS MTV/TGA fields and the entire ST texture form are NOT analysed here. No statement about metabolic tumour volume or radiomic texture may be made, in either direction."
+  - "CROSS-SCANNER COMPARABILITY. SUVs come from multiple centres and scanners, some off-protocol (PR codes 13/16, TA/QA scanner fields). No claim that the SUV scale is harmonised, and no claim that a given absolute SUV means the same thing at two sites."
+  - "CAUSE-SPECIFIC MORTALITY. f1e4 includes '99 Unknown' and DSE6 offers only 'Disease progression' vs 'Other'; DS covers only 192 of 251 patients. No cancer-specific survival, no competing-risks claim."
+  - "PROGRESSION-FREE SURVIVAL. PFS is not a pre-registered endpoint here. F1 progression fields are used only inside PC1's landmark control, which is a technical control, not a PFS analysis."
+  - "REPLICATION OR REFUTATION OF THE ORIGINAL TRIAL ANALYSIS. This is a re-derived cohort from a public 75%/25% recombined release, with our own exposure definition, landmark origin and exclusion ledger. Agreement or disagreement with the published ACRIN 6668 numbers is not evidence that either analysis is right."
+  - "GENERALISATION. No claim beyond stage IIB/III NSCLC treated with definitive concurrent chemoradiotherapy in the mid-2000s, without immunotherapy consolidation. Nothing here transfers to the durvalumab era, to stage I-II, to surgical patients, or to other tumours."
+  - "IMAGING CLAIMS. No voxel-level, segmentation, or image-derived claim of any kind; no image was opened."
+  - "SUBGROUP EFFECTS. None are tested; none may be asserted, including the absence of any."
+  - "The verdict labels themselves. CONFIRMED here means 'this pre-specified association test cleared its pre-specified bar in this assembled cohort' — nothing stronger."
+
+# ---------------------------------------------------------------------------
+# FIELD PROVENANCE  (for coordinator verification: only documented fields, forms present)
+# ---------------------------------------------------------------------------
+fields_relied_on:
+  A0: ["cn", "Inst_no", "entryage", "a0e3", "a0e11", "a0e16d", "a0e17d", "a0e37 (context only)"]
+  A1: ["a1e3", "a1e4"]
+  I1: ["i1e3", "i1e4", "i1e5", "i1e6"]
+  T1: ["t1e1", "t1e3d"]
+  TA: ["tae1", "tae3", "tae7d"]
+  LE: ["lee2d", "lee5", "lee10", "lee11", "lee19d"]
+  Q2: ["q2e1", "q2e5", "q2e10d", "q2e12", "q2e18", "q2e20", "q2e22", "q2e24", "q2e26", "q2e28", "q2e30", "q2e32", "q2e35", "q2e38", "q2e41", "q2e132..q2e142", "q2e143..q2e153", "q2e154"]
+  IM: ["ime5", "ime10d"]
+  SS: ["sse1", "sse2", "sse38"]
+  F1: ["f1e1d", "f1e2", "f1e3d", "f1e8", "f1e10d", "f1e15d", "f1e20d", "f1e25d", "f1e30d", "f1e35d", "f1e40d", "f1e45d", "f1e51d"]
+  F2: ["f2e1d", "f2e2", "f2e3d", "f2e8", "f2e10d", "f2e15d", "f2e20d", "f2e25d", "f2e30d", "f2e35d", "f2e40d", "f2e45d", "f2e51d"]
+  DS: ["dse2d", "dse3"]
+  O1: ["o1e2"]
+  PR: ["pre1 (context only, for documenting PET-timing deviations)"]
+  not_used_by_design: ["QZ (second core-read form; not needed once Q2 is the declared central-read fallback)", "ST (texture)", "AE", "SF", "QA", "all RTOG-0214 forms"]
+  attestation: "Every field above appears in recon_package.json under forms_present + data_dictionary. No undocumented or inferred field name is used."
+
+# ---------------------------------------------------------------------------
+# TRAPS IDENTIFIED IN THE RECON PACKAGE (documented here so they cannot be 'discovered' later)
+# ---------------------------------------------------------------------------
+traps_noted_in_advance:
+  T1_dictionary_contamination: "Nine dictionary forms (B1, CA, D1, NP, OC, R1, RS, X1, XS) belong to RTOG-0214, not 6668. 'OC = derived outcomes' is the most dangerous: a convenient pre-cooked outcome table for the WRONG TRIAL. Declared out of scope above."
+  T2_vital_status_code_9: "f1e2 == 9 is 'Dead, date of death unknown'. The naive event = (f1e2 == 2) undercounts deaths. Handled explicitly, with a mandatory sensitivity (S5)."
+  T3_longitudinal_row_explosion: "F1 has 1541 rows for 243 patients; IM 465/246; Q2 591/244. Any row-level model silently weights patients by visit count. All forms are reduced to one row per cn by pre-declared rules."
+  T4_ss_cutoff_forking: "SS has 1185 rows keyed by sse2 (SUV inclusion cutoff): about five analyses per patient and an invitation to cutoff shopping. Locked to the single minimum cutoff, and only as a fallback."
+  T5_q2_qz_block_ambiguity: "Q2 and QZ are near-identical 154-column forms, each with 'SEMI QUANTITATIVE ASSESSMENT 1' and 'ASSESSMENT 2' SUV blocks and a 'Central read duplicate' inevaluable flag. Which block is the reported scan is NOT documented; resolved by an outcome-free structural test, or skipped."
+  T6_immortal_time: "The exposure is measured 8-20 weeks after treatment. Measuring OS from registration would guarantee survival to the exposure and inflate any association. Hence the landmark origin t0 and gate G4b."
+  T7_year_only_dates: "Raw date fields carry only YYYY. Only the '<form>e<N>d' day-offset fields are usable for intervals. Using the raw fields would produce silently wrong follow-up times."
+  T8_f2_orphan_form: "F2 (62 rows) duplicates F1's 86-column schema. Ignoring it silently drops follow-up for those patients; it is stacked with F1 by rule."
+  T9_registration_vs_followup_gap: "251 registrations, 243 patients with F1, 244 with Q2, 240 in the triple join, 242 patients with imaging on TCIA. Roughly 8-11 registered patients are not analysable; the exclusion ledger must absorb them rather than let the denominator drift."
+  T10_ps_range_restriction: "Eligibility screened Zubrod performance status (A0 a0e37), so I1 i1e5 is probably restricted to 0-1. PC2 is therefore given an explicit UNINFORMATIVE-BY-RANGE branch instead of being allowed to 'fail'."
+  T11_le_uniqueness_unverified: "LE (244 rows) is absent from joinable_counts_case_number_only, so its one-row-per-patient structure — on which the primary exposure depends — is an assumption and is gated (G2)."
+  T12_no_suv_harmonisation: "PR codes 13 and 16 document post-treatment PET on a different or non-qualified scanner, and TA/QA record scanner make and reconstruction parameters. Absolute SUV comparability across sites is not established and is refused as a claim."

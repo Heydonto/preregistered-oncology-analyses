@@ -1,0 +1,98 @@
+[
+  {
+    "gate": "G0_files",
+    "expected": 919,
+    "observed": 919,
+    "result": "PASS",
+    "note": "all MD5-verified on the VM; fewer is a failure, not a smaller matrix",
+    "t": "2026-08-07T13:04:40Z"
+  },
+  {
+    "gate": "G1_shape",
+    "expected": [
+      486427,
+      919
+    ],
+    "observed": [
+      486427,
+      919
+    ],
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:04:40Z"
+  },
+  {
+    "gate": "G2_replicates",
+    "expected": 4,
+    "observed": 4,
+    "result": "PASS",
+    "note": "4 samples carry 2 files; lowest file_id kept",
+    "t": "2026-08-07T13:04:40Z"
+  },
+  {
+    "gate": "G3_tissue_split",
+    "expected": {
+      "tumour": 843,
+      "normal": 74
+    },
+    "observed": {
+      "tumour": 841,
+      "normal": 74
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:04:40Z"
+  },
+  {
+    "gate": "G4_probes_kept",
+    "expected": "> 300,000 probes survive the NA filter",
+    "observed": 392489,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:04:42Z"
+  },
+  {
+    "gate": "PC1_tumour_vs_normal",
+    "expected": "> 2,000 of 20,000 probes differential at q<0.05",
+    "observed": 16609,
+    "result": "PASS",
+    "note": "841 tumours vs 74 normals",
+    "t": "2026-08-07T13:04:46Z"
+  },
+  {
+    "gate": "G5_clinical_join",
+    "expected": "> 95% of samples match a clinical record",
+    "observed": "900/915",
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:04:46Z"
+  },
+  {
+    "gate": "PC2_sex",
+    "expected": "a probe separates sexes at AUROC>0.95",
+    "observed": {
+      "auroc": 0.9994,
+      "probe": "cg12026625",
+      "n": 829
+    },
+    "result": "PASS",
+    "note": "also verifies the sample-to-clinical join",
+    "t": "2026-08-07T13:04:53Z"
+  },
+  {
+    "gate": "G6_mutation_api",
+    "expected": "> 500 records",
+    "observed": 1228,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:04:58Z"
+  },
+  {
+    "gate": "G7_survival_n",
+    "expected": "> 700 tumours with usable survival",
+    "observed": 811,
+    "result": "PASS",
+    "note": "OS months > 0 and status known (TCGA-CDR)",
+    "t": "2026-08-07T13:05:08Z"
+  }
+]

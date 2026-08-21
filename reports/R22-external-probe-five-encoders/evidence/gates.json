@@ -1,0 +1,77 @@
+[
+  {
+    "gate": "G0_matched_slides",
+    "expected": "all five cover the same 129 slides in the same order",
+    "observed": {
+      "owkin/phikon-v2": true,
+      "facebook/dinov2-large": true,
+      "MahmoodLab/UNI": true,
+      "bioptimus/H-optimus-0": true,
+      "paige-ai/Virchow2": true
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-19T00:30:01Z"
+  },
+  {
+    "gate": "G1_encoder_identity",
+    "expected": "each matrix declares the encoder it should",
+    "observed": {
+      "owkin/phikon-v2": "owkin/phikon-v2",
+      "facebook/dinov2-large": "facebook/dinov2-large",
+      "MahmoodLab/UNI": "MahmoodLab/UNI",
+      "bioptimus/H-optimus-0": "bioptimus/H-optimus-0",
+      "paige-ai/Virchow2": "paige-ai/Virchow2"
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-19T00:30:01Z"
+  },
+  {
+    "gate": "G2_set_sizes",
+    "expected": "78 / 76 / 129",
+    "observed": {
+      "SET_R19": 78,
+      "SET_HE": 76,
+      "SET_ALL": 129
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-19T00:30:01Z"
+  },
+  {
+    "gate": "G3_reproduces_r20",
+    "expected": "R20's SET_HE values recovered: {'owkin/phikon-v2': 1.0, 'facebook/dinov2-large': 0.8768}",
+    "observed": {
+      "owkin/phikon-v2": 1.0,
+      "facebook/dinov2-large": 0.8768
+    },
+    "result": "PASS",
+    "note": "the probe is deterministic given the seed, so this should be exact",
+    "t": "2026-08-19T00:31:10Z"
+  },
+  {
+    "gate": "G4_nulls_centred",
+    "expected": "every null sits at chance 0.5 (within 0.06)",
+    "observed": {
+      "owkin/phikon-v2/SET_R19": 0.5072,
+      "owkin/phikon-v2/SET_HE": 0.5023,
+      "owkin/phikon-v2/SET_ALL": 0.5011,
+      "facebook/dinov2-large/SET_R19": 0.507,
+      "facebook/dinov2-large/SET_HE": 0.499,
+      "facebook/dinov2-large/SET_ALL": 0.502,
+      "MahmoodLab/UNI/SET_R19": 0.512,
+      "MahmoodLab/UNI/SET_HE": 0.5003,
+      "MahmoodLab/UNI/SET_ALL": 0.5011,
+      "bioptimus/H-optimus-0/SET_R19": 0.5119,
+      "bioptimus/H-optimus-0/SET_HE": 0.4923,
+      "bioptimus/H-optimus-0/SET_ALL": 0.5002,
+      "paige-ai/Virchow2/SET_R19": 0.5078,
+      "paige-ai/Virchow2/SET_HE": 0.4965,
+      "paige-ai/Virchow2/SET_ALL": 0.4981
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-19T00:31:10Z"
+  }
+]

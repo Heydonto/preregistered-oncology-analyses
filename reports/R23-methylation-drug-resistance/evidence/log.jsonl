@@ -1,0 +1,14 @@
+{"t": "2026-08-20T01:44:57Z", "event": "config_written", "sha256": "1461f682894934d2c72b801e93ef476777088a43d261f0a42d18d305fc75cf69"}
+{"t": "2026-08-20T01:44:57Z", "event": "gate", "gate": "G0_plan_unmodified", "expected": "7e0322ba804aef2f84ecf559d2e348f146c09fab1086cb2148235a377cde2a66", "observed": "7e0322ba804aef2f84ecf559d2e348f146c09fab1086cb2148235a377cde2a66", "result": "PASS"}
+{"t": "2026-08-20T01:44:58Z", "event": "betas", "shape": [485512, 198], "arrays": 198, "labelled": 198}
+{"t": "2026-08-20T01:44:58Z", "event": "gate", "gate": "G1_overlap", "expected": "187 +/- 5 lines with both methylation and GDSC2", "observed": 187, "result": "PASS"}
+{"t": "2026-08-20T01:45:01Z", "event": "gate", "gate": "G2_probes", "expected": "300,000-460,000 probes after filtering", "observed": 385096, "result": "PASS"}
+{"t": "2026-08-20T01:45:01Z", "event": "gate", "gate": "PC1_histology", "expected": "SCLC vs non-SCLC balanced accuracy > 0.80", "observed": 0.8923, "result": "PASS"}
+{"t": "2026-08-20T01:45:08Z", "event": "H1_soc", "n_drugs": 11, "n_predictable": 10, "best": "Navitoclax", "best_rho": 0.6066}
+{"t": "2026-08-20T01:45:08Z", "event": "H2_chromatin", "n_drugs": 32, "n_predictable": 14, "best": "Vorinostat", "best_rho": 0.7312}
+{"t": "2026-08-20T01:45:08Z", "event": "gate", "gate": "G6_multiplicity_floor", "expected": "the permutation floor must permit Holm significance across the larger family", "observed": {"n_perm": 2000, "floor": 0.0005, "n_chromatin": 32, "min_reachable_holm": 0.016}, "result": "PASS"}
+{"t": "2026-08-20T01:45:08Z", "event": "gate", "gate": "G3_nulls_centred", "expected": "every permutation null within 0.05 of zero", "observed": 0.021, "result": "PASS"}
+{"t": "2026-08-20T01:45:08Z", "event": "gate", "gate": "G4_min_lines", "expected": "no retained drug below 100 lines", "observed": 131, "result": "PASS"}
+{"t": "2026-08-20T01:45:08Z", "event": "gate", "gate": "G5_disjoint_drug_sets", "expected": "resistance and chromatin indices use disjoint drugs", "observed": [], "result": "PASS"}
+{"t": "2026-08-20T01:45:08Z", "event": "H3_POSTHOC_general_sensitivity_control", "n_other_drugs": 227, "n_lines": 187, "raw_rho": 0.6507, "partial_rho": -0.1602, "perm_p": 0.03348, "note": "POST-HOC, not pre-declared; partials out an index built from drugs in neither set"}
+{"t": "2026-08-20T01:45:08Z", "event": "H3_PRIMARY", "n_lines": 187, "rho": 0.6507, "perm_p": 0.0005, "null_mean": -0.0005, "verdict": "THESIS_CONTRADICTED_resistant_lines_are_cross_resistant"}

@@ -1,0 +1,70 @@
+[
+  {
+    "gate": "G0_inputs",
+    "expected": "3 files present",
+    "observed": 3,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-06T22:58:33Z"
+  },
+  {
+    "gate": "G1_expr_samples",
+    "expected": 238,
+    "observed": 238,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-06T22:58:33Z"
+  },
+  {
+    "gate": "G2_genes",
+    "expected": [
+      "ACACA",
+      "AFP",
+      "FASN",
+      "SCD",
+      "SREBF1"
+    ],
+    "observed": [
+      "ACACA",
+      "AFP",
+      "FASN",
+      "SCD",
+      "SREBF1"
+    ],
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-06T22:58:33Z"
+  },
+  {
+    "gate": "G3_join",
+    "expected": 238,
+    "observed": 238,
+    "result": "PASS",
+    "note": "every expression sample present in the clinical table",
+    "t": "2026-08-06T22:58:33Z"
+  },
+  {
+    "gate": "G4_positive_control",
+    "expected": "rho > 0.3",
+    "observed": {
+      "rho": 0.6669,
+      "p": "5.456e-32",
+      "n": 238
+    },
+    "result": "PASS",
+    "note": "AFP gene expression vs serum AFP: two assays of the same biology",
+    "t": "2026-08-06T22:58:33Z"
+  },
+  {
+    "gate": "G5_lipogenic_replication",
+    "expected": "all rho > 0.4",
+    "observed": {
+      "ACACA": 0.546,
+      "SCD": 0.51,
+      "SREBF1": 0.495
+    },
+    "result": "PASS",
+    "note": "FASN co-expression with ACACA/SCD/SREBF1 should replicate",
+    "t": "2026-08-06T22:58:33Z"
+  }
+]

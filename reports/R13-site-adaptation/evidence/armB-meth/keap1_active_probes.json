@@ -1,0 +1,26 @@
+{
+  "keap1_active_probes": {
+    "n_active_full_array_model": 15,
+    "n_active_overlap_model": 15,
+    "n_shared": 15,
+    "identical_active_sets": true,
+    "active_probes_full_model": [
+      "cg00230120",
+      "cg03248837",
+      "cg03331715",
+      "cg03585280",
+      "cg04018325",
+      "cg04909257",
+      "cg05089897",
+      "cg08869857",
+      "cg08911237",
+      "cg09489844",
+      "cg10880599",
+      "cg14420550",
+      "cg16659413",
+      "cg18756557",
+      "cg20372666"
+    ],
+    "interpretation": "the full-array model's active probes were all already on EPIC, so restricting the feature space to the manifest overlap costs the KEAP1 model nothing at the level that matters for transfer."
+  }
+}

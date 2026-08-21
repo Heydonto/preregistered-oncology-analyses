@@ -1,0 +1,21 @@
+{"t": "2026-08-07T08:20:54Z", "event": "config_written", "sha256": "623dff57160f76886a0684ac3e71c42a3fd4274f5a7382bb7893db8f9562fb0c"}
+{"t": "2026-08-07T08:20:55Z", "event": "gate", "gate": "G0_samples", "expected": 79, "observed": 79, "result": "PASS"}
+{"t": "2026-08-07T08:20:55Z", "event": "gate", "gate": "G1_response_labels", "expected": {"PR": 40, "PD": 29, "SD": 10}, "observed": {"PD": 29, "PR": 40, "SD": 10}, "result": "PASS"}
+{"t": "2026-08-07T08:20:55Z", "event": "gate", "gate": "G2_beta_columns", "expected": 79, "observed": 79, "result": "PASS"}
+{"t": "2026-08-07T08:20:59Z", "event": "beta_loaded", "probes": 485577, "samples": 79}
+{"t": "2026-08-07T08:20:59Z", "event": "gate", "gate": "G3_ahrr_present", "expected": "cg05575921 present", "observed": true, "result": "PASS"}
+{"t": "2026-08-07T08:20:59Z", "event": "control_A_AHRR", "p": "0.09316", "median_smoker": 0.6409, "median_never": 0.7022, "n": 79, "direction_correct": true, "passes": false, "note": "direction is the mapping evidence; significance is power-limited (this cohort is 55/79 never-smokers)"}
+{"t": "2026-08-07T08:21:04Z", "event": "control_B_sex", "best_auc": 1.0, "probe": "cg04744025", "passes": true}
+{"t": "2026-08-07T08:21:04Z", "event": "gate", "gate": "G4_mapping_controls", "expected": "at least one of {AHRR-smoking, sex-separability} holds", "observed": {"A_AHRR": {"p": 0.0932, "direction_correct": true, "passes": false}, "B_sex": {"best_auc": 1.0, "passes": true}}, "result": "PASS"}
+{"t": "2026-08-07T08:21:04Z", "event": "primary_cohort", "n": 69, "progressors": 29, "probes_complete": 464994}
+{"t": "2026-08-07T08:21:06Z", "event": "cv_progress", "fold": 1, "of": 50}
+{"t": "2026-08-07T08:21:17Z", "event": "cv_progress", "fold": 11, "of": 50}
+{"t": "2026-08-07T08:21:26Z", "event": "cv_progress", "fold": 21, "of": 50}
+{"t": "2026-08-07T08:21:36Z", "event": "cv_progress", "fold": 31, "of": 50}
+{"t": "2026-08-07T08:21:45Z", "event": "cv_progress", "fold": 41, "of": 50}
+{"t": "2026-08-07T08:21:56Z", "event": "perm_progress", "done": 1, "of": 100}
+{"t": "2026-08-07T08:22:44Z", "event": "perm_progress", "done": 26, "of": 100}
+{"t": "2026-08-07T08:23:32Z", "event": "perm_progress", "done": 51, "of": 100}
+{"t": "2026-08-07T08:24:21Z", "event": "perm_progress", "done": 76, "of": 100}
+{"t": "2026-08-07T08:25:08Z", "event": "gate", "gate": "G6_negative_control", "expected": "permutation null contains 0.50", "observed": {"null_mean": 0.4911, "p2.5": 0.3538, "p97.5": 0.6664}, "result": "PASS"}
+{"t": "2026-08-07T08:25:08Z", "event": "decision", "interpretation": "no evidence that methylation predicts TKI response at this sample size", "prespecified_in_config_sha256": "623dff57160f76886a0684ac3e71c42a3fd4274f5a7382bb7893db8f9562fb0c"}

@@ -1,0 +1,24 @@
+{
+  "report": "R06",
+  "question": "do chromatin-regulator mutations associate with overall survival in NSCLC?",
+  "motivation": "the reframed lung arm proposed in RESPONSE_TO_COLLEAGUE; needs no methylation download and no imaging",
+  "cohorts": {
+    "luad_mskcc_2020": 604,
+    "nsclc_ctdx_msk_2022": 1127
+  },
+  "genes_of_interest": [
+    "KMT2D",
+    "SMARCA4",
+    "KEAP1"
+  ],
+  "positive_controls": [
+    "TP53",
+    "STK11"
+  ],
+  "control_rule": "if neither TP53 nor STK11 is recovered in the larger cohort, halt",
+  "primary": "per-gene Cox on overall survival, each cohort separately",
+  "key_test": "replication - does a gene reach significance in BOTH cohorts?",
+  "multiplicity": "Benjamini-Hochberg across the 5 genes within each cohort",
+  "data_source_note": "mutations via cBioPortal REST API; the repository data_mutations.txt files are 132-byte LFS pointer stubs with unretrievable objects",
+  "seed": 20260807
+}

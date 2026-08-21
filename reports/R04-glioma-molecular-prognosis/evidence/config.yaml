@@ -1,0 +1,24 @@
+{
+  "report": "R04",
+  "question": "molecular epidemiology and prognosis of glioma markers, no imaging",
+  "cohorts": {
+    "TCGA pan-glioma": "lgggbm_tcga_pub",
+    "MSK panel": "glioma_mskcc_2019"
+  },
+  "Q1_positive_control": "IDH mutation -> longer overall survival (established)",
+  "control_rule": "if IDH is not prognostic at p<0.001 in TCGA, halt and report nothing else",
+  "Q2": "marker co-occurrence (Fisher / chi-square) among CNS5 decision variables",
+  "Q3": "prognostic C-index of the molecular panel, for comparison with R02 imaging (0.602)",
+  "Q4": "survival stratification by IDH/1p19q/TERT combination, each cohort separately",
+  "multiplicity": "Benjamini-Hochberg within each question family",
+  "seed": 20260807,
+  "expectations": {
+    "tcga_patients": 1122,
+    "tcga_os": 1040,
+    "tcga_os_zero_excluded": 6,
+    "msk_patients": 923,
+    "msk_os": 923,
+    "control_min_hr_effect": 0.05
+  },
+  "relates_to": "R02 (imaging C-index 0.602 on UPENN-GBM, n=574)"
+}

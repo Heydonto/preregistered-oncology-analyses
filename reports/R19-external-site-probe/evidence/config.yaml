@@ -1,0 +1,34 @@
+{
+  "question": "does the external site signature survive restriction to H&E, and do Paper 1's two unevidenced probe rows reproduce?",
+  "why": "Paper 1 quotes 1.0000 and 0.9957 with no persisted artefact, over an input file named external_he_mean.npz that contains 3 non-H&E slides (2 CHR, 1 P16).",
+  "arms": {
+    "ARM_ALL": "EAGLE vs HTMCP, published 78-slide set",
+    "ARM_HE": "EAGLE vs HTMCP, H&E only (75)",
+    "ARM3_ALL": "3-way size-balanced, published set",
+    "ARM3_HE": "3-way size-balanced, H&E only"
+  },
+  "probe": {
+    "model": "StandardScaler + LogisticRegression",
+    "C": 1.0,
+    "cv": "StratifiedKFold(5, shuffled)",
+    "metric": "out-of-fold balanced accuracy",
+    "note": "the original probe's hyperparameters were never recorded; these are declared here and the reproduction is gated, not assumed"
+  },
+  "permutations": 200,
+  "p_formula": "(1 + #{null >= obs}) / (B + 1)",
+  "seed": 20260817,
+  "published": {
+    "eagle_vs_htmcp": 1.0,
+    "eagle_vs_htmcp_null": 0.5052,
+    "three_way": 0.9957,
+    "three_way_null": 0.3389,
+    "within_tcga": 0.7062
+  },
+  "repro_tol": 0.02,
+  "verdict_rules": [
+    "ARM_HE >= 0.95 -> EXTERNAL_SITE_SIGNATURE_CONFIRMED_HE_ONLY",
+    "ARM_HE >= 0.75 -> PRESENT_BUT_WEAKER_THAN_PUBLISHED",
+    "ARM_HE < 0.75 -> PUBLISHED_NUMBER_WAS_STAIN_DRIVEN"
+  ],
+  "status": "HELD FOR IP - not for publication pending patent"
+}

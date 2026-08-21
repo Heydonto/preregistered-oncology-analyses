@@ -1,0 +1,22 @@
+{
+  "feat_dir": "tcga",
+  "folds": "random",
+  "mode": "subtype",
+  "encoder": [
+    "owkin/phikon-v2"
+  ],
+  "n_patients": 760,
+  "n_slides_cached": 820,
+  "metrics": {
+    "subtype": {
+      "auroc": 0.9702535046158355,
+      "n": 760,
+      "n_pos": 347
+    },
+    "keap1": {
+      "auroc": 0.6659987691603098,
+      "n": 760,
+      "n_pos": 107
+    }
+  }
+}

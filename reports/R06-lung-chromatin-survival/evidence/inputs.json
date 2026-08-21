@@ -1,0 +1,10 @@
+{
+  "/Users/rezanehzati/quantara-staging/staged/labels/lung/luad_mskcc_2020/data_clinical_patient.txt": {
+    "bytes": 62270,
+    "sha256": "99634e5b78ea114268afa69d6e5a5a0e75cca262bdb132b8b1d4a3f808b04d9b"
+  },
+  "/Users/rezanehzati/quantara-staging/staged/labels/lung/nsclc_ctdx_msk_2022/data_clinical_patient.txt": {
+    "bytes": 139979,
+    "sha256": "c0afc3c11a6b670976d3d1576773a071f8c387523ae380bb77d7043e957f8306"
+  }
+}

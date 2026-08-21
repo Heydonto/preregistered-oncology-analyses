@@ -1,0 +1,27 @@
+{"t": "2026-08-19T00:30:01Z", "event": "config_written", "sha256": "a982fb9fc5e23d5b7e0d48e2b89607ec78cff8ec9f119ce3183caf55d31f7deb"}
+{"t": "2026-08-19T00:30:01Z", "event": "gate", "gate": "G0_matched_slides", "expected": "all five cover the same 129 slides in the same order", "observed": {"owkin/phikon-v2": true, "facebook/dinov2-large": true, "MahmoodLab/UNI": true, "bioptimus/H-optimus-0": true, "paige-ai/Virchow2": true}, "result": "PASS"}
+{"t": "2026-08-19T00:30:01Z", "event": "gate", "gate": "G1_encoder_identity", "expected": "each matrix declares the encoder it should", "observed": {"owkin/phikon-v2": "owkin/phikon-v2", "facebook/dinov2-large": "facebook/dinov2-large", "MahmoodLab/UNI": "MahmoodLab/UNI", "bioptimus/H-optimus-0": "bioptimus/H-optimus-0", "paige-ai/Virchow2": "paige-ai/Virchow2"}, "result": "PASS"}
+{"t": "2026-08-19T00:30:01Z", "event": "gate", "gate": "G2_set_sizes", "expected": "78 / 76 / 129", "observed": {"SET_R19": 78, "SET_HE": 76, "SET_ALL": 129}, "result": "PASS"}
+{"t": "2026-08-19T00:30:04Z", "event": "probe", "encoder": "owkin/phikon-v2", "set": "SET_R19", "n": 78, "bal_acc": 1.0, "null_mean": 0.5072, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:07Z", "event": "probe", "encoder": "owkin/phikon-v2", "set": "SET_HE", "n": 76, "bal_acc": 1.0, "null_mean": 0.5023, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:11Z", "event": "probe", "encoder": "owkin/phikon-v2", "set": "SET_ALL", "n": 129, "bal_acc": 1.0, "null_mean": 0.5011, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:16Z", "event": "probe", "encoder": "facebook/dinov2-large", "set": "SET_R19", "n": 78, "bal_acc": 0.8934, "null_mean": 0.507, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:21Z", "event": "probe", "encoder": "facebook/dinov2-large", "set": "SET_HE", "n": 76, "bal_acc": 0.8768, "null_mean": 0.499, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:28Z", "event": "probe", "encoder": "facebook/dinov2-large", "set": "SET_ALL", "n": 129, "bal_acc": 0.9444, "null_mean": 0.502, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:31Z", "event": "probe", "encoder": "MahmoodLab/UNI", "set": "SET_R19", "n": 78, "bal_acc": 1.0, "null_mean": 0.512, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:33Z", "event": "probe", "encoder": "MahmoodLab/UNI", "set": "SET_HE", "n": 76, "bal_acc": 1.0, "null_mean": 0.5003, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:38Z", "event": "probe", "encoder": "MahmoodLab/UNI", "set": "SET_ALL", "n": 129, "bal_acc": 0.9875, "null_mean": 0.5011, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:43Z", "event": "probe", "encoder": "bioptimus/H-optimus-0", "set": "SET_R19", "n": 78, "bal_acc": 1.0, "null_mean": 0.5119, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:47Z", "event": "probe", "encoder": "bioptimus/H-optimus-0", "set": "SET_HE", "n": 76, "bal_acc": 1.0, "null_mean": 0.4923, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:55Z", "event": "probe", "encoder": "bioptimus/H-optimus-0", "set": "SET_ALL", "n": 129, "bal_acc": 0.9938, "null_mean": 0.5002, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:30:59Z", "event": "probe", "encoder": "paige-ai/Virchow2", "set": "SET_R19", "n": 78, "bal_acc": 0.9553, "null_mean": 0.5078, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:31:03Z", "event": "probe", "encoder": "paige-ai/Virchow2", "set": "SET_HE", "n": 76, "bal_acc": 0.9528, "null_mean": 0.4965, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:31:08Z", "event": "probe", "encoder": "paige-ai/Virchow2", "set": "SET_ALL", "n": 129, "bal_acc": 0.9506, "null_mean": 0.4981, "clears": true, "p": 0.00498}
+{"t": "2026-08-19T00:31:09Z", "event": "seed_dist", "encoder": "owkin/phikon-v2", "mean": 1.0, "sd": 0.0, "lo": 1.0, "hi": 1.0, "n_seeds": 25}
+{"t": "2026-08-19T00:31:09Z", "event": "seed_dist", "encoder": "facebook/dinov2-large", "mean": 0.9176, "sd": 0.0247, "lo": 0.8583, "hi": 0.9528, "n_seeds": 25}
+{"t": "2026-08-19T00:31:09Z", "event": "seed_dist", "encoder": "MahmoodLab/UNI", "mean": 0.9937, "sd": 0.011, "lo": 0.963, "hi": 1.0, "n_seeds": 25}
+{"t": "2026-08-19T00:31:10Z", "event": "seed_dist", "encoder": "bioptimus/H-optimus-0", "mean": 0.9961, "sd": 0.0078, "lo": 0.9713, "hi": 1.0, "n_seeds": 25}
+{"t": "2026-08-19T00:31:10Z", "event": "seed_dist", "encoder": "paige-ai/Virchow2", "mean": 0.9601, "sd": 0.0175, "lo": 0.9157, "hi": 0.9815, "n_seeds": 25}
+{"t": "2026-08-19T00:31:10Z", "event": "gate", "gate": "G3_reproduces_r20", "expected": "R20's SET_HE values recovered: {'owkin/phikon-v2': 1.0, 'facebook/dinov2-large': 0.8768}", "observed": {"owkin/phikon-v2": 1.0, "facebook/dinov2-large": 0.8768}, "result": "PASS"}
+{"t": "2026-08-19T00:31:10Z", "event": "gate", "gate": "G4_nulls_centred", "expected": "every null sits at chance 0.5 (within 0.06)", "observed": {"owkin/phikon-v2/SET_R19": 0.5072, "owkin/phikon-v2/SET_HE": 0.5023, "owkin/phikon-v2/SET_ALL": 0.5011, "facebook/dinov2-large/SET_R19": 0.507, "facebook/dinov2-large/SET_HE": 0.499, "facebook/dinov2-large/SET_ALL": 0.502, "MahmoodLab/UNI/SET_R19": 0.512, "MahmoodLab/UNI/SET_HE": 0.5003, "MahmoodLab/UNI/SET_ALL": 0.5011, "bioptimus/H-optimus-0/SET_R19": 0.5119, "bioptimus/H-optimus-0/SET_HE": 0.4923, "bioptimus/H-optimus-0/SET_ALL": 0.5002, "paige-ai/Virchow2/SET_R19": 0.5078, "paige-ai/Virchow2/SET_HE": 0.4965, "paige-ai/Virchow2/SET_ALL": 0.4981}, "result": "PASS"}
+{"t": "2026-08-19T00:31:10Z", "event": "VERDICT", "primary": "EXTERNAL_SIGNATURE_PRESENT_MAGNITUDE_VARIES", "he_range": [0.8768, 1.0]}

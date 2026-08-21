@@ -1,0 +1,19 @@
+{
+  "per_file_counts": {
+    "T1_ET": 604,
+    "T1_ED": 611,
+    "T1_NC": 602,
+    "T1GD_ET": 604,
+    "T1GD_ED": 611,
+    "T1GD_NC": 602,
+    "T2_ET": 604,
+    "T2_ED": 611,
+    "T2_NC": 602,
+    "FLAIR_ET": 604,
+    "FLAIR_ED": 611,
+    "FLAIR_NC": 602
+  },
+  "union": 611,
+  "complete_cases": 599,
+  "rule": "complete cases only; whole-ROI-block imputation is not permitted"
+}

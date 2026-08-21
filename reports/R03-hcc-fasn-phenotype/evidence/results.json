@@ -1,0 +1,112 @@
+{
+  "positive_control_afp": {
+    "rho": 0.6669079716584223,
+    "p": 5.455829002472433e-32,
+    "n": 238,
+    "recovered": true
+  },
+  "lipogenic_coexpression": {
+    "ACACA": {
+      "rho": 0.5458017407594917,
+      "p": 7.06157311178549e-20,
+      "n": 238
+    },
+    "SCD": {
+      "rho": 0.509810894327542,
+      "p": 3.787365223309925e-17,
+      "n": 238
+    },
+    "SREBF1": {
+      "rho": 0.4952594501118027,
+      "p": 3.9205466953717435e-16,
+      "n": 238
+    }
+  },
+  "fasn_association_tests": {
+    "mvi_M0_M1_M2": {
+      "test": "Kruskal-Wallis",
+      "H": 1.7954621772274777,
+      "p": 0.4074931775647602,
+      "n": 237,
+      "medians": {
+        "M0": 262.69,
+        "M1": 308.66,
+        "M2": 326.12
+      },
+      "group_n": {
+        "M0": 107,
+        "M1": 71,
+        "M2": 59
+      },
+      "q_bh": 0.5093664719559503,
+      "significant_q05": false
+    },
+    "mvi_absent_vs_present": {
+      "test": "Mann-Whitney",
+      "p": 0.20108992312964435,
+      "n_absent": 107,
+      "n_present": 130,
+      "median_absent": 262.69,
+      "median_present": 322.395
+    },
+    "bclc_stage": {
+      "test": "Kruskal-Wallis",
+      "H": 1.6163235669406504,
+      "p": 0.6556942504609844,
+      "groups_used": 4,
+      "n": 238,
+      "q_bh": 0.6556942504609844,
+      "significant_q05": false
+    },
+    "edmondson_grade": {
+      "test": "Kruskal-Wallis",
+      "H": 2.3867627303089876,
+      "p": 0.12236679550625847,
+      "groups_used": 2,
+      "q_bh": 0.29890809080841907,
+      "significant_q05": false
+    },
+    "os_status": {
+      "test": "Mann-Whitney",
+      "p": 0.17934485448505144,
+      "n_living": 147,
+      "n_deceased": 36,
+      "median_living": 318.67,
+      "median_deceased": 260.71500000000003,
+      "q_bh": 0.29890809080841907,
+      "significant_q05": false
+    },
+    "recurrence_status": {
+      "test": "Mann-Whitney",
+      "p": 0.07244672755550753,
+      "n_diseasefree": 103,
+      "n_recurred": 80,
+      "q_bh": 0.29890809080841907,
+      "significant_q05": false
+    }
+  },
+  "_decision": {
+    "any_association_significant_after_BH": false,
+    "interpretation": "FASN shows no association with stage, vascular invasion, grade, survival status or recurrence after correction",
+    "prespecified_in_config_sha256": "f4da7e3da4007d5169dfee508dd3b66ad0ecea2c1224b54c69c85588d4ad0420"
+  },
+  "_provenance": {
+    "config_sha256": "f4da7e3da4007d5169dfee508dd3b66ad0ecea2c1224b54c69c85588d4ad0420",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260806T225833Z-R03hcc-3f8bece",
+    "n_expression_samples": 238,
+    "inputs": {
+      "data_mrna_seq_tpm.txt": {
+        "bytes": 28112790,
+        "sha256": "3bbb4fdaa92a8017a7bf2933835483e684d9ae8894800a7e3e40e7923c2523cb"
+      },
+      "data_clinical_sample.txt": {
+        "bytes": 107460,
+        "sha256": "29543c5eeb6b69754bedc77a7b3fc6e85e9e021c962200e38d91e6bae23e2b61"
+      },
+      "data_clinical_patient.txt": {
+        "bytes": 53520,
+        "sha256": "98923a596fec0cfd339cf4e0b0f93c5ed90afbc07709cd86f876d46a127be6af"
+      }
+    }
+  }
+}

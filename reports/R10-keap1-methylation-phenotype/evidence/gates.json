@@ -1,0 +1,50 @@
+[
+  {
+    "gate": "G0_probes",
+    "expected": 392489,
+    "observed": 392489,
+    "result": "PASS",
+    "note": "identical filter to R08, so the two reports describe the same probe set",
+    "t": "2026-08-07T13:54:50Z"
+  },
+  {
+    "gate": "G1_luad",
+    "expected": 471,
+    "observed": 471,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:54:50Z"
+  },
+  {
+    "gate": "G2_keap1_luad",
+    "expected": 84,
+    "observed": 84,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:54:54Z"
+  },
+  {
+    "gate": "G3_signature_reproduces_R08",
+    "expected": "frac significant within 5pp of R08's 0.294",
+    "observed": 0.2944,
+    "result": "PASS",
+    "note": "all 392,489 probes vs R08's 20,000 sample",
+    "t": "2026-08-07T13:55:32Z"
+  },
+  {
+    "gate": "G4_positive_control_sex",
+    "expected": "AUROC > 0.95",
+    "observed": 1.0,
+    "result": "PASS",
+    "note": "same pipeline as the KEAP1 classifier",
+    "t": "2026-08-07T13:56:46Z"
+  },
+  {
+    "gate": "G5_annotation_coverage",
+    "expected": "> 90% of probes annotated",
+    "observed": "390543/392489",
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:58:16Z"
+  }
+]

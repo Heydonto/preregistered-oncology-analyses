@@ -1,0 +1,10 @@
+{
+  "/Users/rezanehzati/quantara-staging/ext_feat/external_he_mean.npz": {
+    "bytes": 192132,
+    "sha256": "dc95e2094fa8400fd79609a30c3d24ed05df471ed90ba62d75a2c6ebcadf357d"
+  },
+  "/Users/rezanehzati/Projects/quantara/nsclc-rwpr-study/armC/data/runs/mean_embeddings.npz": {
+    "bytes": 3999508,
+    "sha256": "94736edf0ce74d0bed2d0bd8c0f27d1a98ed56176a2aa55f22c36470e8bde70f"
+  }
+}

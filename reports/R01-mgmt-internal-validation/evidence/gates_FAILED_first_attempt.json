@@ -1,0 +1,26 @@
+[
+  {
+    "gate": "G0_integrity",
+    "expected": 16121402,
+    "observed": 16121402,
+    "result": "PASS",
+    "note": "CaPTk feature archive byte size",
+    "t": "2026-08-06T21:58:37Z"
+  },
+  {
+    "gate": "G_featcount",
+    "expected": 1728,
+    "observed": 1728,
+    "result": "PASS",
+    "note": "12 files x 144 features",
+    "t": "2026-08-06T21:58:37Z"
+  },
+  {
+    "gate": "G1_join_n",
+    "expected": 258,
+    "observed": 262,
+    "result": "FAIL",
+    "note": "features \u2229 definite MGMT; ID suffix _11 present in both sources",
+    "t": "2026-08-06T21:58:37Z"
+  }
+]

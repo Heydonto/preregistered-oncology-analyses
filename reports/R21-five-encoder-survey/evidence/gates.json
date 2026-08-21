@@ -1,0 +1,39 @@
+[
+  {
+    "gate": "G1_same_cohort",
+    "expected": "all twenty arms cover 760 patients",
+    "observed": [
+      760
+    ],
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-18T12:49:11Z"
+  },
+  {
+    "gate": "G2_controls_still_reproduce",
+    "expected": "the Phikon-v2 arms still match R15 within tolerance",
+    "observed": {
+      "sub_g": 0.7992,
+      "sub_r": 0.9703,
+      "keap1_g": 0.6642,
+      "meth_infl": 0.0849
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-18T12:49:11Z"
+  },
+  {
+    "gate": "G3_subtype_universal",
+    "expected": "subtype leakage clears the pre-declared 0.05 relative bar in every encoder",
+    "observed": {
+      "owkin/phikon-v2": 0.8518,
+      "facebook/dinov2-large": 0.7694,
+      "MahmoodLab/UNI": 0.6151,
+      "bioptimus/H-optimus-0": 0.5997,
+      "paige-ai/Virchow2": 0.4435
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-18T12:49:11Z"
+  }
+]

@@ -1,0 +1,42 @@
+{
+ "n_with_purity": 741,
+ "source": "TCGA PanCanAtlas ABSOLUTE (GDC)",
+ "targets": {
+  "keap1_sig": {
+   "partial_subtype_only": 0.2518888422562703,
+   "partial_subtype_plus_purity": 0.2208448788389206,
+   "p": 1.2266252097513113e-09,
+   "delta": -0.03104396341734969
+  },
+  "global": {
+   "partial_subtype_only": 0.2179588145824492,
+   "partial_subtype_plus_purity": 0.20951878578492286,
+   "p": 8.523083599002575e-09,
+   "delta": -0.008440028797526339
+  },
+  "island": {
+   "partial_subtype_only": 0.1337942392560069,
+   "partial_subtype_plus_purity": 0.1358659564220637,
+   "p": 0.00020773473263324587,
+   "delta": 0.002071717166056808
+  },
+  "opensea": {
+   "partial_subtype_only": 0.2277122807410792,
+   "partial_subtype_plus_purity": 0.21790484134078972,
+   "p": 2.049781862981948e-09,
+   "delta": -0.00980743940028947
+  },
+  "tss200": {
+   "partial_subtype_only": 0.2101324585932332,
+   "partial_subtype_plus_purity": 0.1895122323126296,
+   "p": 2.0227859438791916e-07,
+   "delta": -0.020620226280603615
+  },
+  "body": {
+   "partial_subtype_only": 0.21989226587041882,
+   "partial_subtype_plus_purity": 0.22052378229140893,
+   "p": 1.297834512947662e-09,
+   "delta": 0.0006315164209901025
+  }
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "arm": "Arm A - ACRIN 6668 sealed holdout",
+  "plan_file": "generator_sandbox/PLAN.yaml",
+  "plan_sha256": "752b7462fce5689993dd6c05bca956ff50799794528ec3f4abf9048cb74e6770",
+  "hashed_at_utc": "2026-08-15T13:07:14Z",
+  "ordering_claim": "This hash was computed and recorded BEFORE the coordinator read any cell value from any ACRIN outcome, measurement or clinical field.",
+  "generator": {
+    "isolation": "separate agent; readable surface was a directory containing only recon_package.json",
+    "data_location_disclosed_to_generator": false,
+    "self_report": "read only recon_package.json; Bash limited to python3 over that file plus a YAML validity check",
+    "tool_uses": 15,
+    "self_reported_plan_sha256": "752b7462fce5689993dd6c05bca956ff50799794528ec3f4abf9048cb74e6770"
+  },
+  "recon_package_sha256": "07e8771170a5fd1d01a2293a9d1c5f857cb36accde0481dbbfb89019e33ce7c4",
+  "coordinator_state_at_hash_time": "schema and data-dictionary field DEFINITIONS read; zero outcome values read"
+}

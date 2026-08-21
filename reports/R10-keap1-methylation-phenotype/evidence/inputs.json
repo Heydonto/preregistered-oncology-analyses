@@ -1,0 +1,10 @@
+{
+  "/Users/rezanehzati/quantara-staging/r08/clinical_merged.tsv": {
+    "bytes": 98083,
+    "sha256": "74604ebb7fdbcfd643fb981ae3c7a1ba99eb11260d405eb874ec6092befac9cb"
+  },
+  "/tmp/manifest450k.csv.gz": {
+    "bytes": 63979757,
+    "sha256": "df3d5009d9b5b878507ba330bbcd7d2012455f6d0aa92c2df897f53a28452c33"
+  }
+}

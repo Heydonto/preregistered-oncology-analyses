@@ -1,0 +1,196 @@
+# Arm A — de-novo generated analysis: Vanguri MSK multimodal ICI cohort (syn26642505)
+# NSCLC RWPR study (nsclc-rwpr-study/PROTOCOL.md §4 Arm A, §5 evidence harness)
+#
+# PRE-REGISTRATION. Written and SHA-256-hashed BEFORE any label, clinical value,
+# genomic record, feature value, or author-code file was read. The hash is
+# recorded in unsealing event #3
+# (gs://heydonto-quantara-lungcdx/nsclc-rwpr-study/_provenance/unsealing_events.jsonl)
+# and only after that event is any sealed file content opened.
+#
+# What WAS read before hashing (declared; permitted by the Arm A contract):
+#   - the acquisition manifest _provenance/synapse_syn26642505_2026-08-09.json
+#     (full object path + byte-size listing, 2,773 objects; no file contents)
+#   - GCS object listings (names/sizes only) of sealed/vanguri_syn26642505/ and
+#     sealed/lung_msk_mind_2020/
+#   - public facts about the cohort (Vanguri et al., Nature Cancer 2022):
+#     247 stage-IV NSCLC, all anti-PD-(L)1 treated, RECIST 1.1 BOR, PFS, OS,
+#     PD-L1 IHC slides, MSK-IMPACT panel
+#   - standing platform tooling in the development pool: spine/encode_tcga.py /
+#     encode_cptac.py (Phikon-v2 WSI encoder), armB/armC evidence conventions
+#   - NO column headers of any sealed file were read (stricter than event #1)
+#
+# CONTAMINATION FIREWALL (self-imposed, auditable):
+#   sealed/vanguri_syn26642505/code/** (the original authors' notebooks, HTML
+#   renders, lung_helpers.py, requirements.txt) and tests/** (the authors'
+#   permutation outputs) are OFF-LIMITS for this entire arm — never read, never
+#   staged. The point of Arm A is autonomous design; reading the authors'
+#   analysis would contaminate it. Any read of those prefixes = arm failure.
+#   The authors' released FEATURE tables (datasets/*.parquet) are inputs
+#   (pre-treatment measurements), not analysis code, and ARE used as declared
+#   below.
+
+registered_utc: "2026-08-10T23:39:01Z"
+study: nsclc-rwpr-armA-vanguri
+protocol: nsclc-rwpr-study/PROTOCOL.md
+arm: A
+generator: "Claude (Fable 5), autonomous; zero human edits per Arm A contract"
+unsealing: {cohort: "Vanguri syn26642505 + lung_msk_mind_2020 (same cohort tabular)", event_number: 3}
+
+# ------------------------------------------------------------------ inputs
+inputs:
+  sealed_prefix: gs://heydonto-quantara-lungcdx/nsclc-rwpr-study/sealed/vanguri_syn26642505/
+  tabular_mirror_prefix: gs://heydonto-quantara-lungcdx/nsclc-rwpr-study/sealed/lung_msk_mind_2020/
+  acquisition_manifest: gs://heydonto-quantara-lungcdx/nsclc-rwpr-study/_provenance/synapse_syn26642505_2026-08-09.json
+  files_used:
+    clinical_labels: patient_listing.syn26643039.csv          # outcomes + covariates (assumed; schema-mapped by rule below)
+    cohort_listing: datasets/FINAL_COHORT_LISTING.csv
+    omnibus_inventory: datasets/18193MSKMINDProjectM-OmnibusInventory_DATA_2021-12-20_1540-WITH-TB-and-SCANNER.csv
+    pdl1_score: datasets/PDL1_SCORE.parquet
+    genomic_features: datasets/genomic_data_v3.parquet
+    genomic_alterations: genomic_alterations.syn26838214.csv
+    radiomics: [datasets/LUNG_RADIOMICS_spacing1.0_MirpOn_Window1350.250_allImageTypes_bw20.parquet,
+                datasets/LUNG_RADIOMICS_spacing1.0_MirpOn_Window1350.250_allImageTypes_bw20_VALIDATION.parquet]
+    path_glcm:  [datasets/LUNG_PATHOLOGY_PDL1_GLCM_V3.parquet,
+                 datasets/LUNG_PATHOLOGY_PDL1_GLCM_V3_VALIDATION.parquet]
+    rad_inventory: rad_inventory.syn26838212.csv
+    path_inventory: path_inventory.syn26838213.csv
+    slides: pathology/LUNG_18-193/slides/*.svs                # 234 slides, Phikon-v2 encoding
+    segmentations: radiology/LUNG_18-193/segmentations/*.mha  # 237 RECIST lesion masks -> tumor burden
+    msk_mind_clinical: [data_clinical_patient.txt, data_clinical_sample.txt]
+    msk_mind_mutations: data_mutations.txt
+  files_declared_off_limits: [code/**, tests/**]
+  files_not_used: [radiology/LUNG_18-193/volumes/**]          # raw CT .nii not needed: author radiomics + my seg-derived burden cover the imaging layer within budget
+  raw_ct_note: >
+    Raw volumes are 50.8 GiB across 1,033 .nii spanning multiple timepoints per
+    patient; the pre-treatment-only rule + budget make the released baseline
+    radiomics table the primary CT representation. Segmentation .mha files ARE
+    read (12.9 GiB, CPU) to compute an independent tumor-burden feature and the
+    PC2 positive control.
+
+# ------------------------------------------------------------------ cohort & endpoints
+cohort_rule: >
+  Analysis cohort = patients present in the clinical labels table with a
+  non-missing primary endpoint. Expected n≈247 (public fact). If
+  FINAL_COHORT_LISTING.csv defines a narrower cohort, intersect with it and log
+  the difference. Every patient in the listing not analyzed is written to
+  evidence/exclusions.json with a reason (G5).
+
+endpoints:
+  E1_response:                                   # PRIMARY
+    label: "RECIST 1.1 best overall response, binarized CR/PR=1 vs SD/PD=0"
+    rationale: "the cohort's defining label; the clinically actionable ICI question"
+    metric: AUROC, out-of-fold
+    ne_rule: "patients with BOR = NE/not evaluable/missing are excluded and logged"
+  E2_os:
+    label: "overall survival from ICI start (or as encoded)"
+    rationale: "fully-evented endpoint; complements response"
+    metric: "Harrell C-index on out-of-fold risk scores"
+  E3_pfs:                                        # SECONDARY
+    label: "progression-free survival"
+    metric: "Harrell C-index on out-of-fold risk scores"
+
+# schema mapping is rule-based because no sealed column header was read pre-hash.
+# The executed mapping is dumped to evidence/schema_map.json; ambiguity resolved
+# by FIRST match in the declared regex order, case-insensitive:
+schema_map_rules:
+  patient_id: ['patient.*id|^id$|record.*id|dmp.*id|mrn']
+  response:   ['best.*overall.*response|\bbor\b|recist.*response|response.*recist|objective.*response|^response$']
+  response_positive_values: ['CR', 'PR', 'complete', 'partial', '1', 'responder', 'response']
+  response_negative_values: ['SD', 'PD', 'stable', 'progress', '0', 'non.?respon']
+  os_time:    ['os.*(month|day|time)|overall.*surv.*(month|day|time)|survival.*(month|day)']
+  os_event:   ['os.*(status|event|censor)|death|deceased|vital']
+  pfs_time:   ['pfs.*(month|day|time)|progression.*free.*(month|day|time)']
+  pfs_event:  ['pfs.*(status|event|censor)|progress.*(status|event)']
+  pdl1_tps:   ['pd.?l1.*(score|tps|percent|%)|tps|pd.?l1']
+  treatment_start: ['(treatment|therapy|io|ici|drug).*(start|date)|start.*date']
+  clinical_covariates_wanted: ['age', 'sex|gender', 'smok', 'histolog', 'ecog|performance', 'line.*(therapy|treatment)|treatment.*line', 'albumin', 'stage']
+  fallback: >
+    if the primary response regex finds nothing in patient_listing, search
+    FINAL_COHORT_LISTING and the omnibus inventory in that order; if a
+    pre-binarized response flag exists it may substitute, with the mapping logged.
+
+# ------------------------------------------------------------------ feature blocks (all pre-treatment)
+feature_blocks:
+  CLIN:  {source: clinical_labels, features: "matched clinical_covariates_wanted; categorical one-hot; missing -> median/mode imputation fit within folds"}
+  PDL1:  {source: pdl1_score (fallback: pdl1 column in clinical), features: "TPS % as continuous + TPS>=1% and >=50% indicators"}
+  GEN:   {source: "genomic_data_v3.parquet + msk_mind data_mutations.txt + data_clinical_sample.txt",
+          features: "TMB (tabulated if present, else nonsynonymous mutation count), FGA if tabulated, binary oncogenic-mutation status for pre-declared genes only: [TP53, KRAS, EGFR, STK11, KEAP1, SMARCA4]",
+          gene_set_rationale: "literature ICI modifiers + our R06/R10 chromatin axis; fixed BEFORE any mutation record was read"}
+  RAD:   {source: radiomics parquets (train+VALIDATION concatenated), features: "all numeric MIRP features; per-fold: standardize -> PCA to 32 comps",
+          pretreatment_rule: "if the table carries per-timepoint rows, keep only the baseline/pre-treatment row per rad_inventory or earliest scan <= treatment start; log the rule executed"}
+  PATHG: {source: path_glcm parquets (train+VALIDATION concatenated), features: "all numeric GLCM features; per-fold: standardize -> PCA to 16 comps"}
+  PATHF: {source: "Phikon-v2 CLS embeddings of the 234 PD-L1 IHC .svs (my encoding, adapted encode_tcga.py, tile 224px @0.5um/px, Otsu tissue filter)",
+          features: "slide-level mean-pool of tile CLS (1024-d); patient-level mean over slides; per-fold: standardize -> PCA to 32 comps",
+          novelty: "not in the original paper (authors used hand-crafted texture); tests whether an H&E foundation model transfers to IHC",
+          abort_rule: "if projected Modal cost > $35 or encoding wall-clock > 10h, PATHF is dropped and logged NOT-RUN (not FAIL)"}
+  TB:    {source: "my own reading of radiology/segmentations/*.mha", features: "total lesion volume (mm^3, log), lesion count, largest lesion volume"}
+
+# ------------------------------------------------------------------ models & validation
+models:
+  response: "L2-regularized logistic regression (primary; C grid [0.01,0.1,1,10] by inner 3-fold), gradient-boosted trees (secondary sensitivity only, default lightgbm-free sklearn HistGB)"
+  survival: "Cox proportional hazards with L2 penalty (lifelines/sksurv; alpha grid by inner 3-fold C-index)"
+validation:
+  design: "repeated stratified 5-fold CV, 5 repeats (seeds 0..4), stratified on the endpoint; identical fold assignments across modality sets so comparisons are paired"
+  oof: "out-of-fold probabilities/risks archived per repeat (evidence/oof_*.csv)"
+  leakage_rule: "ALL preprocessing (imputation, standardization, PCA, hyperparameter selection) fit inside training folds only (sklearn Pipeline); asserted by G10"
+  author_split_check: "secondary robustness: fit on the authors' train rows, evaluate once on their VALIDATION rows (split taken from the parquet file membership); descriptive only"
+model_sets:                       # hierarchy; all evaluated for E1 and E2 (E3 secondary)
+  M_clin:  [CLIN]
+  M_base:  [CLIN, PDL1, GEN]      # the "no-imaging" clinical standard
+  M_rad:   [CLIN, PDL1, GEN, RAD, TB]
+  M_pathg: [CLIN, PDL1, GEN, PATHG]
+  M_pathf: [CLIN, PDL1, GEN, PATHF]
+  M_full:  [CLIN, PDL1, GEN, RAD, TB, PATHG, PATHF]
+missing_modality_rule: >
+  Single-modality and hierarchical comparisons run on the complete-case subset
+  for the blocks being compared (paired on identical patients/folds); each
+  model's n is reported; no imputation across modality blocks; per-modality
+  availability table goes in results.json.
+
+# ------------------------------------------------------------------ hypotheses & inference
+hypotheses:
+  H1_primary: "M_full beats M_base on E1 (response AUROC), paired on the all-modality complete-case subset. Test: patient-level paired bootstrap (2000 resamples, seed 5678) of OOF predictions; one-sided p<0.05."
+  H2: "each modality set beats chance on E1: label-permutation null, 1000 permutations of the FULL CV loop (refit), seed 1234; Holm-corrected within the 6-model family"
+  H3: "M_full beats M_base on E2 (OS C-index); paired bootstrap as H1; permutation null 500 refits for M_base and M_full"
+  descriptive: "everything else (E3, single-modality AUROCs, author-split replication) reported with 95% CI, no claims"
+power:
+  mde_auroc: "Hanley-McNeil MDE at 80% power, one-sided alpha 0.05 vs 0.5, using observed n_pos/n_neg; reported next to every AUROC"
+  mde_delta: "MDE for H1's delta-AUROC estimated from the paired-bootstrap null spread; if observed CI width implies MDE > 0.06, H1 is reported as power-limited regardless of p"
+  honesty: "expected regime: n≈247, ~25-40% responders -> single-model MDE ≈ 0.60-0.62 AUROC; delta-AUROC below ~0.06-0.08 is likely undetectable. A null on H1 with this statement is a SUCCESS outcome."
+
+# ------------------------------------------------------------------ positive controls (pipeline competence)
+positive_controls:
+  PC1: {test: "PD-L1 TPS alone -> E1 response", expect: "AUROC > 0.55 and permutation p < 0.05", basis: "established ICI biomarker; proves label join + endpoint coding"}
+  PC2: {test: "seg-derived total baseline tumor volume -> E2 OS (univariate Cox)", expect: "C-index > 0.55, p < 0.05", basis: "baseline tumor burden is robustly prognostic; proves I can read the imaging"}
+  PC3: {test: "PATHF embeddings -> PD-L1 TPS >= 50% (binary), same CV design", expect: "AUROC > 0.65", basis: "TPS is scored from these very slides; proves the IHC encoding carries signal. FAILURE => PATHF endpoints reported 'pipeline not competent', not evidence of absence"}
+  PC4: {test: "join integrity: >= 200 patients join clinical+genomic; if sex present in both patient_listing and msk_mind clinical, agreement >= 99%", expect: PASS}
+
+# ------------------------------------------------------------------ gates (expected -> observed in evidence/gates.json)
+gates:
+  G1_prereg_order: "config sha256 in unsealing event #3 with UTC prior to every sealed-content read (GCS audit + event timestamps)"
+  G2_pc1: "PC1 passes"
+  G3_pc2: "PC2 passes"
+  G4_pc3_competence: "PC3 outcome recorded; failure downgrades PATHF claims only"
+  G5_no_silent_exclusions: "n_listing == n_analyzed + n_excluded for every endpoint; exclusions.json enumerates each with reason"
+  G6_nan_degeneracy: "no NaN/inf in model inputs post-pipeline; no single-class CV fold; OOF coverage == 100% of analyzed patients per repeat"
+  G7_null_centred: "permutation nulls centred: |mean AUROC null - 0.5| < 0.02; |mean C null - 0.5| < 0.02"
+  G8_pretreatment_only: "RAD/TB from baseline (pre-ICI) scans only; executed selection rule logged; violations counted 0"
+  G9_budget: "Modal spend <= $60 (tracked); wall-clock <= 24h"
+  G10_no_leakage: "all fold pipelines constructed fresh per fold (sklearn Pipeline objects); grep-audit that no .fit touches test indices; fold assignment hash identical across modality sets"
+  G11_firewall: "zero reads under code/ and tests/ (GCS access is client-side; attested by the executed pipeline code in evidence, which contains no such path)"
+
+# ------------------------------------------------------------------ seeds, compute, outputs
+seeds: {master: 20260811, cv: [0,1,2,3,4], permutation: 1234, bootstrap: 5678}
+compute:
+  modal: "PATHF encoding on L4 (adapted encode_tcga.py -> armA/encode_vanguri.py, output gs://heydonto-quantara-lungcdx/features/phikon-v2/vanguri_pdl1/); TB extraction on Modal CPU (SimpleITK); everything else local CPU"
+  budget_usd_hard: 60
+evidence_outputs:
+  dir: nsclc-rwpr-study/armA/evidence/
+  mirror: gs://heydonto-quantara-lungcdx/nsclc-rwpr-study/armA/
+  files: [results.json (config sha embedded, unrounded), gates.json, oof_*.csv, permutation_null.json,
+          inputs.json (sha256 of every input read), env.txt, MANIFEST.sha256, schema_map.json, exclusions.json]
+verdict_rules: >
+  _decision computed mechanically: H1 CONFIRMED if paired-bootstrap one-sided
+  p<0.05 AND all of G2,G3,G5,G6,G7,G10 pass; NULL if p>=0.05 and MDE statement
+  shows adequate power for delta >= 0.08; POWER-LIMITED-NULL otherwise.
+  A calibrated null or power-limited verdict is a pre-declared SUCCESS mode.

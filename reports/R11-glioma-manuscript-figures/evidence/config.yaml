@@ -1,0 +1,52 @@
+{
+  "report": "R11",
+  "purpose": "manuscript figures for the glioma arm, implementing the colleague's generate_figures1.py specification against real evidence",
+  "figures": {
+    "1": "cohort overview",
+    "3": "Kaplan-Meier x3",
+    "4": "habitat - NOT PRODUCIBLE, never computed",
+    "5": "imaging vs molecular C-index",
+    "extra": "calibration"
+  },
+  "deviations_from_sketch": {
+    "IDH_join": "from data_clinical_sample.txt by PATIENT_ID; no random fallback exists",
+    "prediction_column": "selected by name 'predicted_log10_days', not by position",
+    "risk_direction": "gated: high-risk tertile must have shorter median survival",
+    "scanner": "real ds007045 metadata (n=337), not hard-coded [443,350,267,0]",
+    "external_bar": "OMITTED - no external validation exists (R02)",
+    "fig5_framing": "within-GBM like-for-like foregrounded; all-grades marked not-comparable (R04's withdrawn comparison)",
+    "calibration_scale": "log10 throughout, not log10-vs-natural-log"
+  },
+  "reference_values": {
+    "n_survival": 574,
+    "n_mgmt": 247,
+    "mgmt_p": 5.831120711860514e-08,
+    "mgmt_med_meth": 595.0,
+    "mgmt_med_unmeth": 371.0,
+    "idh_n": 919,
+    "idh_med_mut": 89.7,
+    "idh_med_wt": 14.0,
+    "imaging_cindex": 0.6024019381071802,
+    "imaging_ci": [
+      0.5763946279889873,
+      0.6291337624029092
+    ],
+    "mol_allgrade_cindex": 0.7193457649053193,
+    "mol_gbm_idh": 0.541,
+    "mol_gbm_idh_mgmt": 0.561,
+    "eight_n": 337,
+    "scanner": {
+      "Siemens": 228,
+      "Philips": 89,
+      "GE": 20
+    },
+    "zip_bytes": 16121402
+  },
+  "sources": {
+    "upenn_clinical": "/Users/rezanehzati/quantara-staging/glioma-figs/upenn.csv",
+    "radiomic_features": "/Users/rezanehzati/quantara-staging/glioma-figs/rf.zip",
+    "oof": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260806T225005Z-R02surv-3f8bece/oof_survival.csv",
+    "tcga": "/Users/rezanehzati/quantara-staging/staged/labels/glioma/lgggbm_tcga_pub/",
+    "eight_hospital": "/Users/rezanehzati/quantara-staging/staged/imaging/glioma/ds007045/participants.tsv"
+  }
+}

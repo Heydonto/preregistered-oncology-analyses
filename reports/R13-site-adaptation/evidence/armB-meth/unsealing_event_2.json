@@ -1,0 +1,91 @@
+{
+  "cohort": "Anti-PD-1 EPIC methylation (81 pts)",
+  "event_number": 2,
+  "arm": "B-meth",
+  "geo_series": "GSE115246",
+  "gcs_prefix": "gs://heydonto-quantara-lungcdx/data-request-2026-08/labels/lung/GSE115246/",
+  "timestamp_utc": "2026-08-10T10:46:56Z",
+  "config_sha256": "5d3d9d15a85d6917f97f630f88cf9b9adea9f0763b7a2803fdb8812c679e172d",
+  "config_path": "nsclc-rwpr-study/armB-meth/evidence/config.yaml",
+  "models_frozen_before_unseal": [
+    "M1_keap1_full",
+    "M1_keap1_overlap",
+    "M2_os_cox",
+    "PC_sex_overlap"
+  ],
+  "endpoints_preregistered": [
+    "anti-PD-1 response AUROC (primary)",
+    "OS/PFS association of the Cox score (if deposited)",
+    "measured minimum-detectable AUROC by permutation"
+  ],
+  "gates_preregistered": [
+    "G1_R10_reproduction",
+    "G2_R10_sex_control",
+    "G3_preregistered_before_unseal",
+    "G4_probe_overlap_reported",
+    "G5_epic_sex_transfer",
+    "G6_permutation_null_centred",
+    "G7_no_silent_drops"
+  ],
+  "power_statement_preregistered": "n=81 is expected to be unable to resolve a modest AUROC; the minimum-detectable AUROC at 80% power is reported alongside the point estimate and an inconclusive verdict is a pre-declared success mode",
+  "tcga_training_numbers_at_seal": {
+    "repro_keap1_full_nestedcv": {
+      "auroc": 0.9098375784422296,
+      "ci95": [
+        0.8690399119421341,
+        0.945582322184861
+      ],
+      "n": 471,
+      "positives": 84
+    },
+    "repro_sex_full_nestedcv": {
+      "auroc": 1.0,
+      "ci95": [
+        0.9999999999999999,
+        1.0
+      ],
+      "n": 468,
+      "positives": 219
+    },
+    "keap1_overlap_nestedcv": {
+      "auroc": 0.8941183708625567,
+      "ci95": [
+        0.8483564369580282,
+        0.9378837691295283
+      ],
+      "n": 471,
+      "positives": 84
+    },
+    "sex_overlap_nestedcv": {
+      "auroc": 1.0,
+      "ci95": [
+        0.9999999999999999,
+        1.0
+      ],
+      "n": 468,
+      "positives": 219
+    },
+    "os_cox_cv_cindex": 0.6023496170719013,
+    "os_cox_cv_cindex_ci95": [
+      0.5496902467552162,
+      0.6530427139645322
+    ],
+    "os_cox_n": 459,
+    "os_cox_events": 164
+  },
+  "probe_overlap_at_seal": {
+    "manifest_450k_loci": 485577,
+    "manifest_epic_loci": 867926,
+    "manifest_overlap_loci": 454181,
+    "r08_retained_probes": 392489,
+    "r08_retained_on_epic": 366316,
+    "r08_retained_on_epic_frac": 0.9333
+  },
+  "access_mode": "READ-ONLY on data-request-2026-08/",
+  "operator": "Reza Nehzati (agent-executed)",
+  "sealed_scopes_untouched": [
+    "nsclc-rwpr-study/sealed/"
+  ],
+  "declared_prehash_reads": "GCS object listings and byte counts under the GSE115246 prefix; suppl/filelist.txt; the Illumina EPIC v1.0 manifest shipped inside GSE115246_RAW.tar (array design, not sample data). No sample metadata, no beta values and no outcome field was read before this event.",
+  "note": "event_number is the protocol-assigned index (Arm B methylation track), not a line number in this file. Event #1 is the CPTAC/Arm-B-WSI exposure."
+}

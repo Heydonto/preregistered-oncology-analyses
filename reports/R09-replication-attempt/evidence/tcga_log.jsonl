@@ -1,0 +1,20 @@
+{"t": "2026-08-07T13:18:26Z", "event": "config_written", "sha256": "b59dd164d5348c0a7fca0f4acadf843de5d1f38d9997084c85e3b712395e779c"}
+{"t": "2026-08-07T13:18:28Z", "event": "gate", "gate": "G0_sequenced", "expected": 1050, "observed": 1050, "result": "PASS"}
+{"t": "2026-08-07T13:18:28Z", "event": "gate", "gate": "G1_mutation_records", "expected": "> 800", "observed": 1228, "result": "PASS"}
+{"t": "2026-08-07T13:18:28Z", "event": "gate", "gate": "G2_events", "expected": "> 300 events", "observed": 385, "result": "PASS"}
+{"t": "2026-08-07T13:18:28Z", "event": "gate", "gate": "G3_stage_parsed", "expected": "late fraction 0.20-0.60", "observed": 0.481, "result": "PASS"}
+{"t": "2026-08-07T13:18:28Z", "event": "median_os_months", "value": 50.3, "note": "MSK ctDx advanced-disease cohort median was 28.8 months (R06)"}
+{"t": "2026-08-07T13:18:29Z", "event": "cohort", "n": 978, "events": 385, "KEAP1": 140, "SMARCA4": 59, "KMT2D": 145, "STK11": 77, "TP53": 658}
+{"t": "2026-08-07T13:18:29Z", "event": "primary", "gene": "KEAP1", "hr": 1.021, "q": 0.88061, "n_mut": 140}
+{"t": "2026-08-07T13:18:29Z", "event": "primary", "gene": "SMARCA4", "hr": 1.298, "q": 0.48005, "n_mut": 59}
+{"t": "2026-08-07T13:18:29Z", "event": "primary", "gene": "KMT2D", "hr": 1.09, "q": 0.67398, "n_mut": 145}
+{"t": "2026-08-07T13:18:29Z", "event": "primary", "gene": "TP53", "hr": 1.082, "q": 0.67398, "n_mut": 658}
+{"t": "2026-08-07T13:18:29Z", "event": "primary", "gene": "STK11", "hr": 1.515, "q": 0.09769, "n_mut": 77}
+{"t": "2026-08-07T13:18:29Z", "event": "late_subgroup", "n": 468, "events": 222}
+{"t": "2026-08-07T13:18:29Z", "event": "late_stage", "gene": "KEAP1", "hr": 1.246, "q": 0.39589, "n_mut": 68}
+{"t": "2026-08-07T13:18:29Z", "event": "late_stage", "gene": "SMARCA4", "hr": 1.119, "q": 0.64724, "n_mut": 34}
+{"t": "2026-08-07T13:18:29Z", "event": "late_stage", "gene": "KMT2D", "hr": 1.148, "q": 0.56343, "n_mut": 66}
+{"t": "2026-08-07T13:18:29Z", "event": "late_stage", "gene": "TP53", "hr": 0.785, "q": 0.21918, "n_mut": 322}
+{"t": "2026-08-07T13:18:29Z", "event": "late_stage", "gene": "STK11", "hr": 1.701, "q": 0.10957, "n_mut": 38}
+{"t": "2026-08-07T13:18:29Z", "event": "gate", "gate": "G4_positive_controls", "expected": "TP53 or STK11 recovered at q<0.05 in the full cohort OR in the pre-declared late-stage subgroup", "observed": {"full_cohort": {"TP53": {"q": 0.67398, "hr": 1.082}, "STK11": {"q": 0.09769, "hr": 1.515}}, "late_stage": {"TP53": {"q": 0.21918, "hr": 0.785}, "STK11": {"q": 0.10957, "hr": 1.701}}, "holds_full": false, "holds_late": false}, "result": "FAIL"}
+{"t": "2026-08-07T13:18:29Z", "event": "HALT", "reason": "gate G4_positive_controls failed"}

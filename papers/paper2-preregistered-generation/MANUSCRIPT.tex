@@ -1,0 +1,485 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,enumitem,xcolor,parskip}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\definecolor{qnavy}{RGB}{20,40,75}\definecolor{qgrey}{RGB}{90,90,90}\definecolor{qred}{RGB}{150,30,30}
+\titleformat{\section}{\large\bfseries\color{qnavy}}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\bfseries\color{qnavy}}{\thesubsection}{0.5em}{}
+
+\title{\bfseries\color{qnavy} Pre-registration by an isolated agent: what it protects against,
+and what it does not}
+
+\author{Reza Nehzati, Ph.D.\\[2pt]
+{\small\itshape VMC MAR COM Inc.\ DBA HeyDonto, Knoxville, TN, United States}}
+\date{16 August 2026}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent
+Language-model agents can now write and execute clinical data analyses. The obvious hazard is not
+incompetence but flexibility: a system that sees the data before fixing its plan can produce a
+defensible-looking finding from almost any dataset. We test a protocol designed to remove that
+flexibility, on three sealed oncology cohorts. A generator agent receives only schema and
+documentation --- form names, column names, row counts, a data dictionary, and no cell value from
+any outcome field --- and must emit a complete pre-registered plan: hypotheses, positive controls
+with pre-declared failure consequences, integrity gates, an exhaustive exclusion ledger, a power
+statement, and mechanical verdict rules. The plan is SHA-256 hashed before any outcome is read,
+and the exposure table is frozen and hashed before outcomes are merged, so post-outcome tuning is
+mechanically detectable rather than merely discouraged.
+Across three sealed cohorts the system produced three distinct behaviours. On the first
+(247 stage-IV NSCLC patients treated with anti-PD-(L)1) it returned POWER-LIMITED-NULL rather
+than a finding: the pre-specified multimodal comparison was
+structurally underpowered at $n = 73$, and the plan's own rule required saying so. On the second
+(ACRIN 6668, 166 analysed patients, 125 events), a structurally isolated generator produced a plan
+that recovered the trial's designed endpoint --- post-treatment FDG peak SUV predicting shorter
+survival, HR 1.202 per doubling, permutation $p = 0.0005$ --- having identified four
+analysis-destroying traps from schema alone, including immortal-time bias and a vital-status code
+that silently undercounts deaths.
+On the third (46 anti-PD-1 patients with imaging but no released outcome) it declined outright,
+returning \texttt{feasible: false} with the reasoning that outcome missingness was 100\% and the
+exposure was a \emph{constant} --- every patient received the drug that defines the collection, so
+no contrast exists --- and it identified a covariate leak in the metadata we had supplied without
+noticing it ourselves.
+The protocol's limits are as instructive as its successes. In the first cohort a pre-registered
+hard gate failed and was reinterpreted after the fact. In the second, an implementation error let
+a control's hazard ratio be reported as the primary result while all eight gates passed. We
+conclude that pre-registration constrains \emph{analytic} discretion effectively and
+\emph{implementation} correctness not at all, and that the two require different defences. Two further
+gaps are now visible: neither defence prevents a small-sample estimate being reported as though it
+were stable, and neither prevents a plan from measuring a confounded quantity with complete
+procedural correctness. The last is the most serious, because the protocol's own machinery reports
+success throughout.
+\end{abstract}
+
+\section{Introduction}
+
+An agent that can read a data dictionary, write analysis code and execute it can also, without any
+intent to deceive, arrive at a result by trying things until something works. The number of
+defensible-looking choices in a survival analysis --- time origin, exclusion rules, transformation,
+cutpoint, covariate set, handling of ambiguous status codes --- is large enough that a
+sufficiently persistent search will find a significant one.
+
+Pre-registration is the standard answer, and it transfers to this setting with one modification
+that matters: the plan can be written by a system that has provably not seen the outcomes, and the
+ordering can be enforced by a hash rather than by a declaration.
+
+We ask two questions. Does such a system produce a plan a competent analyst would accept? And
+does it refuse to manufacture findings the data cannot support? We report three cohorts --- one
+confirmation, one power-limited null, one outright refusal --- and we report the protocol's
+failures at equal length.
+
+\section{Protocol}
+
+\begin{enumerate}[leftmargin=1.4em,itemsep=3pt]
+\item \textbf{Recon package.} The generator receives a single JSON file: every form's name, column
+      names and row counts; the trial's data dictionary; public facts about the cohort; and
+      join counts. It contains no cell value from any outcome, measurement or clinical field.
+\item \textbf{Isolation.} In the second and third cohorts the generator was a separate agent whose
+      readable surface was a directory containing only that file. The location of the actual data was never
+      disclosed to it.
+\item \textbf{Plan.} The generator emits hypotheses with named fields, positive controls each with
+      an explicit pre-declared failure consequence, numbered integrity gates with expected values,
+      an exhaustive exclusion ledger, a power statement computed before execution, multiplicity
+      handling, mechanical verdict rules, and a list of conclusions it will refuse to draw.
+\item \textbf{Hash before labels.} The coordinator SHA-256 hashes the plan and records the
+      timestamp before reading any outcome value.
+\item \textbf{Staged execution with an exposure freeze.} Structural gates run first on keys and
+      counts only. The exposure table is then built, written and hashed. Only then may outcome
+      forms be opened --- enforced in the second cohort by a loader that raises if asked for an
+      outcome form before the freeze. A later gate re-hashes the exposure table and compares,
+      making post-outcome modification of the predictor mechanically detectable.
+\item \textbf{Mechanical verdict.} Verdict rules are evaluated from the numbers, in a declared
+      precedence order, with no discretion at the final step.
+\end{enumerate}
+
+\section{Cohort 1 --- refusal under low power}
+
+247 stage-IV NSCLC patients treated with anti-PD-(L)1, with RECIST response, survival, PD-L1
+immunohistochemistry slides, targeted panel sequencing and CT radiomics. The original authors'
+analysis code was placed under a self-imposed firewall for the whole arm.
+
+\subsection{What the system did}
+
+Eleven gates were declared and ten passed, including hash-before-label ordering, exclusion
+accounting that reconciles per endpoint, absence of NaN or constant prediction vectors with 100\%
+out-of-fold coverage, and permutation nulls centred at 0.494--0.495 across every model family.
+That null centring is what makes the accompanying $p$-values worth reading.
+
+The pre-declared positive control --- PD-L1 tumour proportion score, \emph{on its own} ---
+predicted response at AUROC \textbf{0.747} (permutation $p = 1.0\times10^{-4}$, $n = 246$),
+clearing its declared bar of AUROC $>0.55$ at $p<0.05$. The multivariable clinical baseline that
+the primary comparison is measured against --- PD-L1 plus tumour mutational burden plus clinical
+variables --- reached AUROC \textbf{0.745} on the same 246 patients (0.742 as the mean over
+cross-validation repeats).
+
+\textcolor{qred}{\textbf{Corrected 2026-08-17.}} This paragraph originally attributed the 0.747 to
+the multivariable baseline. It is the single-variable positive control; the baseline model is
+0.745. The number was taken from the evidence but assigned to the wrong model, and the error
+survived a verification pass that compared values without checking which field produced them. It
+does not affect the primary comparison below, which is a paired contrast against the multivariable
+baseline on the complete-case subset. Found by the scoped re-verification described in
+\texttt{papers/verify\_claims.py}.
+
+The pre-specified primary comparison asked whether adding imaging and pathology to that baseline
+improved it. On the 73 patients with every modality present, the change was $-0.036$
+(95\% CI $-0.220$ to $+0.150$, one-sided $p = 0.638$). The plan's rule mapped this to
+\textbf{POWER-LIMITED-NULL}: a bootstrap interval half-width of 0.185 cannot distinguish a useful
+gain from a harmful one, so no finding was claimed in either direction.
+
+Three further modality additions, each pre-declared, were all negative and none individually
+significant: radiomics $-0.016$, pathology-global $-0.019$, pathology-focal $-0.056$. Four
+negative estimates out of four is more informative than any single interval, and the honest
+reading is that at these sample sizes added parameters cost more than they return.
+
+Holm correction across the model family left two survivors of six. The system reported the four
+that did not survive as not claimable, including one at raw $p = 0.018$.
+
+\subsection{An unexpected observation}
+
+Embeddings from a general-purpose pathology foundation model predicted a PD-L1 tumour proportion
+score of $\geq 50\%$ at AUROC \textbf{0.870} (95\% CI 0.811--0.922, $n = 163$, 67 positive) with no
+immunohistochemistry-specific training. This was a competence control, not a hypothesis; we report
+it because it was surprising, and note that a second definition of the same quantity gives 0.856,
+so the figure is definition-dependent.
+
+\subsection{The protocol's first failure}
+
+A pre-registered \emph{hard} gate failed. The control asked whether segmentation-derived tumour
+volume predicted survival, with the stated basis ``proves I can read the imaging''. Observed:
+C-index \textbf{0.5035}, Wald $p = 0.698$, on 187 patients with 111 events. Flat.
+
+The asymmetry in the plan is the problem. Its pathology control carried an explicit remedy written
+in advance --- ``failure $\Rightarrow$ report pipeline not competent, not evidence of absence''.
+The imaging control carried none: it was a bare pass/fail gate. So when it failed there was no
+pre-registered instruction, and a radiomics model built on that same imaging was one of only two
+Holm survivors.
+
+A defence is available and reasonable --- the control tested whether target-lesion segmentations
+approximate \emph{total} tumour burden, a different and questionable premise, and three other
+controls passed. But it is a \textbf{post-hoc reinterpretation of a pre-registered control}, and
+calling it anything else would defeat the purpose of the exercise. The instructive part is that
+pre-registration surfaced a control whose basis was mis-specified, which is what pre-registration
+is for.
+
+\section{Cohort 2 --- confirmation under isolation}
+
+ACRIN 6668 / RTOG 0235: FDG-PET before and after definitive chemoradiotherapy in stage III NSCLC,
+released with clinical data under CC BY 3.0. Here the generator was structurally isolated as
+described in \S2, and produced a 493-line plan hashed at
+\texttt{752b7462fce56899\ldots cb74e6770} before any outcome was read.
+
+\subsection{What it caught from schema alone}
+
+\begin{itemize}[leftmargin=1.3em,itemsep=2pt]
+\item \textbf{Immortal time.} The exposure is measured 8--20 weeks after treatment, so measuring
+      survival from registration would guarantee survival to exposure. It set the time origin at
+      the post-treatment scan and made $\min(T)\geq 0$ a gate.
+\item \textbf{A vital-status code meaning ``dead, date of death unknown''.} The natural
+      \texttt{event = (status == 2)} silently undercounts deaths. It treated the code as an event
+      and made the opposite coding a \emph{condition} of confirming.
+\item \textbf{Cutoff forking.} One form carries 1{,}185 rows keyed by an SUV inclusion threshold ---
+      roughly five analyses per patient. It locked to a single threshold and forbade comparison
+      across them.
+\item \textbf{An undocumented uniqueness assumption.} Its primary exposure required one row per
+      patient in a form where the recon package never said so. It demanded verification and
+      pre-specified a duplicate-resolution rule. The rule fired: 244 rows over 243 patients.
+\end{itemize}
+
+It also pre-declared fifteen conclusions it would refuse to draw, and forbade cutpoint searches,
+subgroup fishing, and endpoint substitution.
+
+\subsection{Result}
+
+\begin{center}
+\begin{tabular}{@{}llr@{}}
+\toprule
+Primary: OS on log$_2$ post-treatment peak SUV & HR per doubling & \textbf{1.202} \\
+& 95\% CI & 1.100--1.315 \\
+& permutation $p$ ($B = 2000$) & \textbf{0.0005} \\
+& analysed / events & 166 / 125 \\
+\midrule
+PC0 exposure validity (outcome-free) & post below pre & PASS (94.4\%) \\
+PC1 progression $\rightarrow$ death & HR 2.463 & PASS ($p = 3.8\times10^{-5}$) \\
+PC2 performance status & HR 1.382 & PASS-WEAK ($p = 0.072$) \\
+PC3 weight loss $\geq 5\%$ & 26 exposed & UNINFORMATIVE-BY-N \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Ten gates passed, the exclusion ledger reconciled exactly ($251 = 166 + 85$), the permutation null
+was centred and calibrated (mean $z$ 0.034, SD 0.982, rejection rate 0.042), and the exposure hash
+was unchanged from the Stage-1 freeze. All seven pre-declared robustness tests agreed in direction
+and survived Holm correction, including the adjusted model (1.214), a fixed threshold with no
+search permitted (1.789), and the opposite death-coding (1.202).
+
+\textbf{Verdict: CONFIRMED} --- the trial's designed endpoint, recovered by a plan written in
+ignorance of the data's contents.
+
+Two controls did not fully corroborate. Performance status was directionally right but not
+significant; weight loss was declared uninformative because 26 patients met the exposure threshold
+against a pre-declared minimum of 30. Both had been \emph{anticipated}: trial eligibility screens
+performance status, so range restriction was given its own outcome branch in advance rather than
+explained afterwards.
+
+The plan also forced an uncomfortable number into the open. \textbf{106 of 180 exposure values
+were at or below the floor} --- complete metabolic response --- so 59\% of the cohort sits at one
+tied value and the association is carried by the minority with residual uptake. A plan written
+after seeing the data would have had every opportunity not to mention this.
+
+\subsection{The protocol's second failure, and the more important one}
+
+An earlier execution reported the primary as HR 1.382 with 95\% CI 1.050--1.124: a point estimate
+outside its own confidence interval, which is impossible. Inside the control blocks the coordinator
+had reused two variable names, clobbering the primary's values before the verdict logic read them.
+The verdict was therefore briefly evaluated using a \emph{control's} hazard ratio.
+
+\textbf{All eight of the plan's gates passed while this was true.} The gates checked recombination,
+joins, cutoff inflation, leakage, exclusion accounting, permutation calibration, exposure coverage
+and outcome completeness. None of them could see that the number being reported was not the number
+that had been computed. What caught it was an internally impossible pair of values, noticed by a
+human reading the output.
+
+The conclusion survives correction. That it was momentarily correct by accident is the point.
+
+\section{Cohort 3 --- refusal when no analysis exists}
+
+The two cohorts above both had endpoints. A protocol that only ever produces analyses has not
+demonstrated the second half of the claim, so we gave the isolated generator a cohort with none:
+46 non-small-cell lung cancer patients treated with anti-PD-1, 677 imaging series across CT, PET
+and three ``other'' series, pre-treatment and one follow-up timepoint. The archive released
+images and a retrieval manifest and nothing else --- no response assessment, no survival, no
+demographics, no stage, no lesion annotation.
+
+It was asked whether a valid pre-registered analysis was possible and to write one if so. It
+returned \texttt{feasible: false} in 567 lines.
+
+\subsection{Its reasoning}
+
+Two defects, each independently fatal. Outcome missingness is 46 of 46: not a missing-data
+problem, because there is no observed stratum to model from and no estimand can be defined. And
+\textbf{the exposure is a constant} --- the collection is \emph{defined} by every patient having
+received anti-PD-1, so there is no contrast, no comparator, and no released regimen or line
+variation to recover one. The second point is the sharper of the two and we had not articulated
+it ourselves.
+
+It nonetheless computed the power ceiling in advance, so that a later ``repaired'' version could
+not quietly overreach: at $n = 46$ with roughly 32 events the minimum detectable hazard ratio is
+about 2.7, which puts signature \emph{discovery} permanently out of reach and admits only a
+confirmatory test of a pre-frozen external signature.
+
+\subsection{The shortcuts it named and refused}
+
+Most valuable is what it identified as tempting rather than merely absent. The gravest is a
+pseudo-RECIST endpoint built from the single follow-up scan: a volumetric change looks like a
+reader-free quantitative outcome and would plausibly survive review. It is disqualified
+\emph{specifically in this cohort} because under anti-PD-1 early enlargement can reflect immune
+infiltration rather than growth, so the surrogate misclassifies in a direction correlated with
+the biology under study --- bias that points at the hypothesis rather than adding noise.
+
+It also flagged the three ``other'' series as bait for optical character recognition, since dose
+reports and console captures are where rendered text survives, and noted this would both cover
+too few patients and attempt to defeat de-identification; free-text protocol headers as a source
+of grep-able outcome labels such as ``restaging'' or ``progression'', which are scheduling
+artefacts with no denominator; and a maximum of 36 series per patient as reconstruction
+redundancy rather than 36 timepoints.
+
+\textbf{And it found a leak we had introduced.} The recon package listed the most common protocol
+names, among them \texttt{1.2 BMI 0-25 FDG Body} and \texttt{BMI\_25to40\_PETCTBody\_CBM}. These
+leak a coarse body-habitus covariate through weight-stratified PET protocols, with an
+obesity-paradox literature hook ready to receive it. We had included those strings without
+noticing. It declined to use them --- protocol-selection labels are not measurements, the bands do
+not partition, they are observed only in PET-imaged patients, and they reconstruct a variable the
+custodian chose not to release.
+
+\subsection{What it offered instead}
+
+Rather than pad the refusal, it proposed an outcome-free study explicitly fenced as a different
+question --- about the instrument rather than the patient: a header-only harmonisability audit
+with a pre-declared rule that if the largest homogeneous acquisition stratum falls below 15
+patients, ``this collection cannot support radiomics'' \emph{is} the published result. Its
+extension turns the reconstruction redundancy into a repeatability estimate using automatic
+non-lesion reference organs, which removes the reader-discretion problem outright rather than
+mitigating it.
+
+It closed by conditioning its own verdict: the refusal rests on the recon package, and does not
+survive a custodian demonstrating that a patient-level clinical supplement exists.
+
+\section{Four occasions when the discipline actually cost something}
+
+The three cohorts above show a protocol behaving well. They do not show it \emph{binding}, because in
+none of them did a pre-declared rule prevent a conclusion we wanted. Four later runs did, and they
+are worth stating because a constraint that never bites is decoration. Two concern the protocol's
+mechanics; two concern its limits, and those are the more useful.
+
+\subsection{A threshold that would have been convenient to move}
+
+A five-encoder survey of site-leakage in whole-slide features reused verdict thresholds fixed and
+hashed in an earlier run, before that run's own results were read. One encoder returned a mean
+methylation inflation of $+0.0173$ where the other three histology encoders gave $+0.0606$ to
+$+0.0849$.
+
+Had the deciding rule been written that day it would naturally have been a magnitude bar --- and at
+any bar near 0.05 that encoder fails, turning a clean four-for-four result into a mixed one. The rule
+that actually existed keyed on \emph{how many of six targets} inflated rather than by how much, so it
+fired, and the fivefold spread went into the limitations where it belongs. We could not have chosen
+either framing honestly after seeing the number. The pre-registration made the choice for us, and it
+happened to choose the stricter-in-kind option.
+
+\subsection{A pattern we are not allowed to claim}
+
+The same survey produced its most interesting observation by accident: relative inflation falls as
+site-disjoint capability rises, Spearman $\rho = -0.80$ across five encoders. It looks like a law when
+plotted.
+
+It is not reported as a finding, because it was noticed \emph{after} all five arms were read, and at
+$n = 5$ no rank correlation can reach $p<0.05$ by that test --- the observed $p$ is 0.104. Testing a
+hypothesis on the data that suggested it is precisely the flexibility this paper is about. It is
+recorded in the run's own output under a field whose value is the string
+\texttt{POST-HOC OBSERVATION, NOT A TESTED FINDING}, and what it licenses is a pre-registration on
+encoders not yet used, not a conclusion.
+
+This is the uncomfortable case. The most publishable observation in that run is the one we are least
+entitled to, and the protocol offers no way to have it.
+
+\subsection{And a gate that caught a statistic rather than a bug}
+
+A later run re-measured an external cohort separation whose value had been reported as 0.8768. A
+reproduction gate pinned that number as a hard expectation. Re-run with a different random seed the
+same quantity came out 0.9240, and the gate halted the run.
+
+Nothing was broken. The seed sets the cross-validation split, and on 76 samples with roughly fifteen
+per fold a few reassignments move balanced accuracy several points; measured over 25 splits the value
+is $0.9176 \pm 0.0247$. The originally reported 0.8768 was the pre-declared seed --- so not chosen to
+flatter anything --- but it sat 1.6 standard deviations below its own mean and had been quoted as a
+fixed quantity. The earlier report's conclusion survived; its headline contrast did not.
+
+The gate was written to detect a coding difference and detected a statistical one. This is a third
+failure mode, distinct from both of the above: not analytic flexibility, not implementation error, but
+\emph{treating a noisy estimate as a point}. It suggests a fourth defence --- report distributions
+over resampling wherever $n$ is small --- which none of our pre-registrations required.
+
+\subsection{A plan that measured the wrong thing, competently}
+
+The protocol was applied to a question about drug resistance: in 187 lung cancer cell lines with
+450k methylation and matched dose--response, are lines resistant to standard therapy differentially
+sensitive to chromatin-targeting drugs? The plan was hashed before any half-maximal inhibitory
+concentration was joined to any methylation value.
+
+It returned a clean, significant, pre-registered answer: resistant lines are \emph{cross}-resistant,
+Spearman $\rho = +0.651$, permutation $p = 0.0005$, $n = 187$. Under the declared rule that is
+THESIS\_CONTRADICTED.
+
+Then a control we added afterwards destroyed it. Both indices were mean $z$-scored ln\,IC$_{50}$, and
+cell lines differ enormously in \emph{general} drug sensitivity --- some are resistant to nearly
+everything. Partialling out an index built from 227 drugs in neither set takes $+0.651$ to
+$\mathbf{-0.160}$. The sign reverses.
+
+We are not entitled to swap one number for the other: the post-hoc figure is not a pre-registered
+test and cannot replace one. What the pair licenses is the conclusion that \emph{the design was
+confounded and answers nothing}.
+
+\textbf{This is the sharpest limitation we have found.} A correctly executed pre-registration, whose
+every gate passed, produced a publishable-looking and wrong conclusion. Had we not been suspicious of
+how clean $+0.651$ looked, the report would have stated a manuscript's central premise contradicted
+at $p = 0.0005$ in 187 cell lines. \textbf{Pre-registration constrains analytic flexibility; it does
+not confer construct validity.} A hashed plan that measures the wrong quantity measures the wrong
+quantity with excellent discipline, and nothing in the protocol detects that.
+
+\subsection{A two-sided rule that cost us the headline}
+
+The same protocol was then applied to a real intervention rather than a correlation. SMARCA4 is the
+ATPase of the SWI/SNF chromatin-remodelling complex, so knocking it down in an osimertinib-resistant
+lung cancer line is epigenetic modulation of a resistant state. The plan asked whether that reverses
+the resistance transcriptional programme, and was hashed after reading only the column headers of the
+expression matrix.
+
+The knockdown worked --- SMARCA4 $\log_2$FC $-2.37$ against a pre-declared bar of $-0.5$, checked as a
+gate. Genes up in resistance then fell below the permutation null exactly as the thesis predicts
+($p = 0.0005$). Under a one-sided rule that is a positive result.
+
+The rule declared in advance was two-sided: reversal required resistance-up genes to fall \emph{and}
+resistance-down genes to rise. The down set fell as well, so the mechanical verdict was PARTIAL. The
+two-sided form is the correct one --- a treatment that lowers everything associated with resistance is
+suppressing a correlated set, not reprogramming a state, and only the up-down pattern separates
+those. Writing it cost nothing in advance and cost the headline when it fired.
+
+A replication arm carried in the same plan, with no threshold declared, then inverted every sign in a
+second model. One model showing partial reversal and another showing the opposite is not a finding.
+Without that arm the report would have claimed partial reversal at $p = 0.0005$.
+
+\section{Discussion}
+
+\subsection{What pre-registration bought}
+
+Concretely, in these three cohorts: a null was reported as a null with its power stated rather than
+as an absence of effect; four of six models were declared not claimable after multiplicity
+correction, including one at raw $p = 0.018$; a control was declared uninformative rather than
+counted as a pass; an inconvenient distributional fact about 59\% of the exposure was reported;
+four analysis-destroying traps were identified before any data was touched; and a fixed cutpoint
+was used where a search would have been available and rewarding; and an entire cohort was
+declined rather than analysed with a surrogate endpoint that would likely have passed review.
+
+None of that requires trusting the analyst. The hash ordering and the exposure freeze make the
+central claims checkable by a third party from the artefacts alone.
+
+\subsection{What it did not buy}
+
+\textbf{It does not make a plan correct.} The first cohort's imaging control was mis-specified: its
+stated basis did not match what it actually tested. Pre-registration fixed that mistake in place
+where it could be seen, which is better than the alternative, but it did not prevent it.
+
+\textbf{It does not protect against implementation error.} This is the finding we would most want
+carried forward. A pre-registration constrains which analysis you are allowed to run. It says
+nothing about whether the code you wrote runs that analysis. In the second cohort every gate passed
+while the reported primary was a different quantity from the computed one, and the discrepancy was
+visible only because two numbers were mutually inconsistent.
+
+The remedy is not more pre-registration. It is a distinct class of check: internal-coherence
+assertions on the outputs themselves --- a point estimate inside its interval, a tally summing to
+its total, a hash matching its earlier value. We added the first of these after the fact. A mature
+protocol should declare them alongside the analytic gates, because \textbf{analytic discretion and
+implementation correctness are different failure modes and neither defence covers the other}.
+
+\subsection{Limitations}
+
+\textbf{Three cohorts and four later runs.} One confirmation, one power-limited null, one outright
+refusal, plus four occasions where a pre-declared rule bound against our interest --- including one where a
+correctly executed plan produced a confidently wrong answer. That is a
+demonstration, not an evaluation, and it cannot support a claim about how often such a system
+behaves well.
+
+\textbf{Only the second generator was structurally isolated.} In the first, one agent restrained
+itself, and a self-imposed firewall is a weaker guarantee than an inaccessible one.
+
+\textbf{The second cohort's analysis was tabular.} It used core-laboratory PET assessments, not the
+underlying image volumes, so the claim concerns an unseen cohort and data shape rather than an
+unseen imaging pipeline.
+
+\textbf{Neither result is an independent replication.} The second cohort's finding is the trial's
+own published conclusion, obtained from the same data. The claim is about process, not biology.
+
+\textbf{One coverage gate passed at exactly its threshold} (180 against $\geq$ 180). One patient
+fewer would have triggered a declared fallback and changed the exposure source, which illustrates
+how much a pre-registered threshold can hinge on an arbitrary boundary.
+
+\textbf{The generator's isolation rests partly on its own report} of which files it read, alongside
+the structural constraint that the data's location was never disclosed and its readable directory
+contained one file.
+
+\section*{Data and code availability}
+
+Both cohorts are public: the first via Synapse, the second via The Cancer Imaging Archive under
+CC BY 3.0. The hashed plan, its hash and timestamp, the recon package given to the generator, the
+executor, the frozen exposure table with its hash, gate records, exclusion ledgers, all permutation
+statistics, and out-of-fold predictions are retained and available on request.
+
+\section*{Competing interests}
+
+The author is affiliated with a commercial entity developing computational pathology methods.
+
+\end{document}

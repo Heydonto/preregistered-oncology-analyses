@@ -1,0 +1,23 @@
+{
+  "feat_dir": "virchow2-tcga",
+  "folds": "grouped",
+  "mode": "subtype",
+  "encoder": [
+    "paige-ai/Virchow2"
+  ],
+  "emb_dim": 1280,
+  "n_patients": 760,
+  "n_slides_cached": 820,
+  "metrics": {
+    "subtype": {
+      "auroc": 0.9496619240672384,
+      "n": 760,
+      "n_pos": 347
+    },
+    "keap1": {
+      "auroc": 0.6818995005080792,
+      "n": 760,
+      "n_pos": 107
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "/Users/rezanehzati/quantara-staging/staged/labels/lung/GSE147377/suppl/GSE147377_AverageBeta_Matrix.csv.gz": {
+    "bytes": 166370311,
+    "sha256": "8122e9abbf9547850332cfb11e752a613bcd0eb2ed9ec614ca1a74772e5510e5"
+  },
+  "/Users/rezanehzati/quantara-staging/staged/labels/lung/GSE147377/matrix/GSE147377_series_matrix.txt.gz": {
+    "bytes": 4079,
+    "sha256": "ba265e2fdec40d49e2ff9fb89dac9223d80f0b645bc0e535ac79a8fcde600ed1"
+  }
+}

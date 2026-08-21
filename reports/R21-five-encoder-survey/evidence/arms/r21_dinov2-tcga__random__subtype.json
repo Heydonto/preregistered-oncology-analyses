@@ -1,0 +1,22 @@
+{
+  "feat_dir": "dinov2-tcga",
+  "folds": "random",
+  "mode": "subtype",
+  "encoder": [
+    "facebook/dinov2-large"
+  ],
+  "n_patients": 760,
+  "n_slides_cached": 820,
+  "metrics": {
+    "subtype": {
+      "auroc": 0.9390137533057477,
+      "n": 760,
+      "n_pos": 347
+    },
+    "keap1": {
+      "auroc": 0.5796968699460434,
+      "n": 760,
+      "n_pos": 107
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "report": "R03",
+  "question": "Does FASN expression associate with stage, vascular invasion or survival status in HCC? (the withdrawn manuscript's three claims)",
+  "cohort": "Chinese Liver Cancer Atlas (cBioPortal hcc_clca_2024), RNA-seq TPM",
+  "positive_control": "AFP gene expression vs independently measured serum AFP",
+  "control_rule": "if the AFP control fails (rho <= 0.30) the join or matrix is wrong and no other result here may be reported",
+  "primary": "FASN vs microvascular invasion (M0/M1/M2), Kruskal-Wallis",
+  "secondary": [
+    "FASN vs BCLC stage",
+    "FASN vs Edmondson grade",
+    "FASN vs OS status",
+    "FASN vs recurrence status",
+    "FASN lipogenic co-expression (replication)"
+  ],
+  "multiplicity": "Benjamini-Hochberg across the five FASN association tests",
+  "prior": "TCGA-LIHC found FASN null for stage (p=0.22) and vascular invasion (p=0.42)",
+  "master_seed": 20260807,
+  "expectations": {
+    "n_expr": 238,
+    "n_mvi": 237,
+    "n_bclc": 238,
+    "n_os": 183,
+    "lipo_rho_min": 0.4,
+    "control_rho_min": 0.3
+  }
+}

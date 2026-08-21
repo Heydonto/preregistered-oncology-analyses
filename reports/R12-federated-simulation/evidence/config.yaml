@@ -1,0 +1,158 @@
+# Arm C — federated-learning simulation on the TCGA feature spine
+# NSCLC RWPR study (nsclc-rwpr-study/PROTOCOL.md §4 Arm C, §5 evidence harness)
+#
+# PRE-REGISTRATION. Written and SHA-256-hashed BEFORE any label VALUE was read.
+# What WAS read before hashing (declared):
+#   - features/_manifest.csv: slide_id, cohort, n_tiles, mpp, mpp_assumed, status.
+#     Cohort doubles as the subtype label; it is used for silo balancing and
+#     stratified splits (permitted per spec; noted here).
+#   - Column HEADERS / JSON field names of the label files (schema only, to pin
+#     extraction rules below): clinical_extra_tcga_*.csv header row;
+#     raw_mutations_*.json first-record field names; prevalence_*.csv column
+#     names + the 13 gene names in its 'gene' column (names only, no counts);
+#     TCGA-LU*_clinical.csv header row.
+#   - No OS time/status value, no mutation record content, no prevalence count
+#     was read before this file was hashed.
+registered_utc: "2026-08-10T00:05:00Z"
+study: nsclc-rwpr-armC-federated
+protocol: nsclc-rwpr-study/PROTOCOL.md
+
+inputs:
+  features_prefix: gs://heydonto-quantara-lungcdx/features/phikon-v2/tcga/
+  manifest:
+    path: gs://heydonto-quantara-lungcdx/features/phikon-v2/tcga/_manifest.csv
+    sha256: c0b9a79b3e46ee0dcedd930e46a2d1ccc308e0417653c8b31cc395df1205ad02
+  label_files:   # hashed unopened (except headers as declared above)
+    clinical_extra_tcga_luad: {path: gs://heydonto-quantara-lungcdx/labels/clinical_extra_tcga_luad.csv, sha256: 400ba1cc9607912b0758152cd867974310cb65d689718faa16c7593bfbed0adf}
+    clinical_extra_tcga_lusc: {path: gs://heydonto-quantara-lungcdx/labels/clinical_extra_tcga_lusc.csv, sha256: fc625f31c5820468295cdd2644c650d9cd274c0dbddb9f04331c0fb8da31851a}
+    raw_mutations_luad: {path: gs://heydonto-quantara-lungcdx/labels/raw_mutations_luad.json, sha256: 845b99cb3deb8c8a52c4c5b2cac56e298c8d9586700afd1f2fecc2d64a406576}
+    raw_mutations_lusc: {path: gs://heydonto-quantara-lungcdx/labels/raw_mutations_lusc.json, sha256: b55b8bdbcfd8b790eaa7ac72b92c733d09035cf1f0af2e8de06a50764a6b4c39}
+    tcga_luad_clinical: {path: gs://heydonto-quantara-lungcdx/clinical/TCGA-LUAD_clinical.csv, sha256: d3e0169f7bce1be8ef0d66bb98f7c8a9702f279f274149ce748d41d84a02374f}
+    tcga_lusc_clinical: {path: gs://heydonto-quantara-lungcdx/clinical/TCGA-LUSC_clinical.csv, sha256: fbeab84e276d835d0eaaaa2fa1ca3b9448e527219aae200c05f1a302bffc8524}
+  excluded_scopes:   # hard constraints, never read
+    - gs://heydonto-quantara-lungcdx/nsclc-rwpr-study/sealed/
+    - CPTAC anything (external judge happens later as a separate logged event)
+
+qc_gate:   # applied from manifest only, before silo construction
+  rule: exclude slides with n_tiles < 100; flag (keep) mpp_assumed == True
+  excluded_slides:   # all logged, no silent drops
+    - {slide_id: TCGA-05-4384-01Z-00-DX1, reason: n_tiles<100}
+    - {slide_id: TCGA-05-4425-01Z-00-DX1, reason: n_tiles<100}
+    - {slide_id: TCGA-05-5425-01Z-00-DX1, reason: n_tiles<100}
+    - {slide_id: TCGA-05-5715-01Z-00-DX1, reason: n_tiles<100}
+  n_flagged_mpp_assumed_kept: 6
+  slides_kept: 1049
+  patients_kept: 956
+
+silos:
+  n_silos: 5
+  construction: >
+    TSS = slide barcode chars 6-7. TCGA TSS codes are cohort-disjoint (verified:
+    0 of 68 TSS have both LUAD and LUSC), so a pure TSS-anchor silo would be
+    single-subtype and degenerate for the subtype endpoint. Therefore each
+    pseudo-hospital = one LUAD site-group + one LUSC site-group: per cohort, TSS
+    sorted by patient count desc, greedily assigned to the currently-smallest
+    silo; the k-th LUAD group and k-th LUSC group form silo k. All slides of a
+    patient in exactly one silo (silo is a function of TSS, TSS of patient).
+  full_map_file: data/silos.json   # complete TSS->silo map + per-seed splits
+  silos_json_sha256: 61a57517cdced5fe0a75cbcc137a32058a853b465ff35b0676e4b452e36b98c8
+  summary:
+    silo0: {n_patients: 191, n_slides: 191, LUAD: 95, LUSC: 96}
+    silo1: {n_patients: 191, n_slides: 195, LUAD: 95, LUSC: 96}
+    silo2: {n_patients: 191, n_slides: 224, LUAD: 95, LUSC: 96}
+    silo3: {n_patients: 190, n_slides: 194, LUAD: 95, LUSC: 95}
+    silo4: {n_patients: 189, n_slides: 245, LUAD: 94, LUSC: 95}
+
+splits:
+  unit: patient
+  rule: within each silo, 80/20 train/val stratified by cohort, one split per
+    seed (random.Random(1000+seed)); the union of the 5 silo val sets is THE
+    single global validation set for every regime at that seed.
+  seeds: [0, 1, 2, 3, 4]
+
+labels:   # extraction rules pinned from schema only; values unread at hash time
+  subtype:
+    source: manifest cohort column
+    coding: {TCGA-LUAD: 1, TCGA-LUSC: 0}
+    metric: AUROC (binary, patient-level by averaging slide probabilities)
+  egfr:
+    source: raw_mutations_luad.json + raw_mutations_lusc.json (cBioPortal records)
+    gene_filter: entrezGeneId == 1956   # records carry no hugo symbol field
+    mutant: patient has >= 1 EGFR record with mutationType not in
+      [Silent, silent, synonymous_variant] and mutationStatus != Germline
+    wildtype: patient present in clinical_extra_tcga_* with non-null
+      MUTATION_COUNT (profiled-set proxy) and no qualifying EGFR record
+    unlabeled: patients failing both -> excluded from this endpoint (logged)
+    metric: AUROC
+    power_rule: if mutants < 80 post-QC, report measured minimum-detectable
+      AUROC and keep the endpoint; never manufacture a positive
+  os:
+    source: clinical_extra_tcga_*.csv columns OS_MONTHS, OS_STATUS
+    parsing: time = float(OS_MONTHS); event = int(OS_STATUS[0]) (cBioPortal
+      "0:LIVING"/"1:DECEASED" convention); exclude missing or time <= 0 (logged)
+    metric: Harrell C-index on global val (risk = model output)
+
+model:   # gated attention-MIL (Ilse et al. 2018) over 1024-d Phikon-v2 tiles
+  projection: 1024 -> 512, ReLU, dropout 0.25
+  attention: gated, hidden 256 (tanh branch * sigmoid branch -> 1 logit/tile)
+  head: linear 512 -> 1 (logit for binary endpoints; risk score for Cox)
+  tile_cap: 4096 tiles/slide, deterministic subsample seeded by
+    sha1(slide_id) ^ seed (re-drawn per seed, fixed across regimes)
+  precision: fp32 training
+
+training:
+  optimizer: AdamW, lr 2.0e-4, weight_decay 1.0e-5, constant lr
+  batch: 32 bags (binary, BCE-with-logits), 64 bags (Cox partial likelihood,
+    Breslow ties, batch resampled if it contains no event)
+  epochs_centralized: 20
+  epochs_local: 20
+  model_selection: final epoch (no val peeking; same rule for every regime)
+
+federated:
+  algorithm: FedAvg
+  rounds: 10
+  local_epochs_per_round: 2
+  aggregation: weighted mean of state_dicts by n_train_patients(endpoint) per silo
+  execution: each silo's local step runs in its OWN Modal container
+    (modal Function call per silo per round); driver exchanges state_dicts only
+  transfer_log: serialized state_dict bytes logged per silo per round, both
+    directions (down = global->silo, up = silo->global)
+  fedprox:
+    trigger: FedAvg unstable (NaN/divergence) OR trails centralized by > 5pp
+      AUROC on subtype (seed-mean, global val)
+    mu: 0.01
+
+regimes: [centralized, local, fedavg]   # + fedprox iff triggered
+evaluation:
+  global_val: union of silo val sets, identical for every regime at a seed
+  patient_level: slide predictions averaged per patient before metrics
+  cross_silo: every local model additionally evaluated on every other silo's
+    val set (generalization-gap matrix)
+  ci: mean +/- 1.96 * sd/sqrt(n_seeds) across the 5 seeds
+
+gates:   # expected values pre-declared; failures retained, never deleted
+  g1_qc_no_silent_drops: {expect: every non-ok or <100-tile slide listed above, kind: mechanical}
+  g2_centralized_subtype: {expect: seed-mean AUROC >= 0.90, kind: positive_control}
+  g3_silo_signature_probe: {expect: 5-fold CV logistic regression predicting
+      silo from per-slide mean embedding beats chance (balanced accuracy > 0.2)
+      with permutation p < 0.01 over 100 label shuffles, kind: heterogeneity}
+  g4_egfr_permutation_null: {expect: mean AUROC of >= 20 label-shuffled
+      centralized EGFR runs in [0.45, 0.55], kind: null_control}
+  g5_nan_degeneracy: {expect: no NaN loss in any retained run; global-val
+      prediction std > 1e-6 per run, kind: sanity}
+  g6_fedavg_completes: {expect: all 5 seeds x 3 endpoints finish 10 rounds, kind: mechanical}
+  g7_egfr_power: {expect: if n_mutants < 80, minimum-detectable-AUROC statement
+      in results.json, kind: honesty}
+
+permutation_null:
+  endpoint: egfr
+  n_shuffles: 20
+  procedure: patient-level EGFR labels shuffled once per replicate (consistent
+    across train/val), centralized regime, seed-0 split, 20 epochs; AUROC on
+    global val against the shuffled labels
+
+infra:
+  modal_profile: reza-29145
+  gpu: L4 (one per training container), CPU driver
+  features_staging: GCS -> modal.Volume nsclc-rwpr-features (one-time, in-cloud)
+  budget_usd_max: 40

@@ -1,0 +1,133 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,enumitem,xcolor,parskip,titlesec}
+\usepackage[hidelinks]{hyperref}
+\definecolor{qnavy}{RGB}{20,40,75}\definecolor{qgrey}{RGB}{90,90,90}\definecolor{qred}{RGB}{150,30,30}
+\definecolor{qgreen}{RGB}{47,107,79}
+\titleformat{\section}{\large\bfseries\color{qnavy}}{\thesection}{0.6em}{}
+\begin{document}\thispagestyle{empty}
+\noindent
+{\large\bfseries\color{qnavy} Report R20 --- The External Probe, Both Encoders, All the Slides}\\[2pt]
+{\color{qgrey}The external site signature is real under both encoders but only \emph{perfect} under
+one. And R19's input had silently omitted 51 of the archive's 80 HTMCP slides.}\\[6pt]
+{\color{qgrey}\rule{\textwidth}{0.4pt}}
+
+\medskip
+\noindent 17 August 2026 \quad\textbullet\quad Quantara \quad\textbullet\quad
+{\color{qgrey}Peer-review audit copy}
+
+\section*{Summary}
+
+Two loose ends, both closed here.
+
+R18 found that subtype site-leakage reproduces under an encoder trained on natural images while
+methylation leakage does not. That dissociation turns the external probe --- EAGLE against HTMCP,
+which R19 measured at balanced accuracy 1.000 --- from a settled result into an open question, and
+R18's own audit listed it as un-run.
+
+Separately, while building the second encoder's features it became clear that \textbf{R19's probe
+used 78 slides where the archive holds 129}. Its input had been assembled from a partial local
+staging, so \textbf{51 of the 80 HTMCP slides were absent}, and neither R19 nor Paper 1 records
+that.
+
+\begin{center}
+\begin{tabular}{@{}llrrrrl@{}}
+\toprule
+\textbf{Encoder} & \textbf{Slide set} & \textbf{$n$} & \textbf{Bal.\ acc.} &
+\textbf{Null mean} & \textbf{Perm.\ $p$} \\
+\midrule
+\texttt{owkin/phikon-v2} & SET\_R19 (49 + 29) & 78 & \textbf{1.0000} & 0.5072 & 0.0050 \\
+\texttt{owkin/phikon-v2} & SET\_HE (49 + 27) & 76 & \textbf{1.0000} & 0.5023 & 0.0050 \\
+\texttt{owkin/phikon-v2} & SET\_ALL (49 + 80) & 129 & \textbf{1.0000} & 0.5011 & 0.0050 \\
+\midrule
+\texttt{facebook/dinov2-large} & SET\_R19 & 78 & 0.8934 & 0.5070 & 0.0050 \\
+\texttt{facebook/dinov2-large} & SET\_HE & 76 & \textbf{0.8768} & 0.4990 & 0.0050 \\
+\texttt{facebook/dinov2-large} & SET\_ALL & 129 & 0.9444 & 0.5020 & 0.0050 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textcolor{qred}{\textbf{Corrected 2026-08-19 (R22).} Every balanced accuracy in this report is a
+single cross-validation split. R22 measured the same quantity over 25 splits: dinov2-large is
+$0.9176 \pm 0.0247$ (range 0.8583--0.9528), so the 0.8768 below sits 1.6 standard deviations below
+its own mean and the Phikon-v2-vs-dinov2 gap is \textbf{1.000 versus 0.918}, not 1.000 versus 0.877.
+Phikon-v2 is genuinely saturated ($1.0000 \pm 0.0000$ over 25 splits). The verdict and the
+substantive conclusion stand; the magnitude was overstated. R22 also adds UNI (0.9937), H-optimus-0
+(0.9961) and Virchow2 (0.9601), all above their nulls.}
+
+\medskip
+\noindent\textbf{Verdict: EXTERNAL\_SIGNATURE\_WEAKER\_UNDER\_SECOND\_ENCODER}, from a rule fixed in the
+config and hashed at \texttt{ab01b9847dedcfcf\ldots} before either encoder's arms were read. The
+primary arm was pre-declared as \texttt{dinov2-large} on the H\&E-only set.
+
+Two things follow, and they pull in different directions.
+
+\textbf{The signature is not an artefact of histology pretraining.} 0.8768 against a null of 0.4990
+at $p = 0.0050$ is a large, highly significant separation from a model that has never seen a
+pathology slide. Two independent institutions are distinguishable from average tile content alone,
+whatever the encoder.
+
+\textbf{But ``perfectly separable'' is a Phikon-v2 statement.} Phikon-v2 reaches 1.000 and
+dinov2-large reaches 0.877 on the same 76 slides with the same probe. The
+\emph{existence} of the signature is encoder-independent; its \emph{magnitude} is not. This is the
+same pattern R18 found --- a histology-specialised representation encodes institutional character
+more completely --- and Paper 1's word ``perfectly'' now needs an encoder attached to it.
+
+\section{R19's missing 51 slides, and why the number survived anyway}
+
+\textcolor{qgreen}{\textbf{The good news first:}} Phikon-v2 returns 1.0000 on all three sets ---
+R19's 78, the full 76-slide H\&E set, and all 129. So the undocumented subset did \emph{not} bias
+R19's headline. The defect is one of provenance, not of correctness.
+
+It is still a defect. A file assembled from whatever happened to be staged locally, describing
+itself as ``two external cohorts'', is the third problem found in that same lineage:
+
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+\item the two external probe rows had no persisted artefact at all (R19),
+\item the input named \texttt{external\_he\_mean.npz} contained three non-H\&E slides (R19), and
+\item that input silently held 29 of 80 HTMCP slides (this report).
+\end{enumerate}
+
+All three are the same species: an intermediate file whose name asserted a property nobody
+re-checked. Gate G2 here is written inversely --- it asserts the omission is present and that the
+count is exactly 51 --- so a silent repair of the input file fails the gate rather than passing
+quietly.
+
+\section{Why SET\_ALL is not a result}
+
+SET\_ALL mixes immunohistochemistry with H\&E. A probe asked to tell two institutions apart when one
+contributes 53 IHC slides can win on stain, so its numbers are an upper bound and are reported only
+as one. Note that dinov2-large is \emph{higher} on SET\_ALL (0.9444) than on H\&E alone (0.8768),
+which is exactly what a stain shortcut looks like: adding IHC makes the task easier rather than
+harder. R12's audit predicted this failure mode in writing; SET\_HE is the measurement.
+
+\section{Limitations}
+
+\textbf{Two institutions, 76 H\&E slides.} This bounds the existence of a cross-institution
+signature. It is not a powered external benchmark and is not presented as one.
+
+\textbf{Slide-level mean features.} The probe operates on mean-pooled tile embeddings, so it
+measures what is linearly recoverable from average tile content, not what the attention-MIL sees.
+
+\textbf{Stain from filename suffixes.} \texttt{HE}, \texttt{CHR}, \texttt{P16} are the only stain
+field available. Source mislabelling would propagate.
+
+\textbf{Two encoders is not a survey.} Same limitation as R18. UNI, H-optimus-0 and Virchow2 sit
+behind licence acceptance that was not ours to give.
+
+\textbf{Magnitudes across encoders are not strictly comparable.} dinov2-large is weaker at every
+histology task measured here, so its lower separation is expected in direction. What the arms
+establish is that the signature clears a permutation null under both, not that 1.000 and 0.877 are
+commensurable quantities.
+
+\section*{Reproducing this report}
+
+\texttt{evidence/m17\_external\_probe\_two\_encoders.py} (the whole run),
+\texttt{evidence/config.yaml} (pre-declared rules, SHA-256
+\texttt{ab01b9847dedcfcf\ldots}), \texttt{evidence/gates.json} (5 gates),
+\texttt{evidence/results.json}, \texttt{evidence/log.jsonl},
+\texttt{evidence/ph\_ext\_mean.npz} and \texttt{evidence/dv\_ext\_mean.npz} (the two
+129$\times$1024 mean-embedding matrices, with cohort and H\&E flags).
+
+\end{document}

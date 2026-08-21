@@ -1,0 +1,76 @@
+{
+  "GSE68379": {
+    "source": "GEO",
+    "accession": "GSE68379",
+    "content": "1,028 cell lines, Illumina 450k IDATs",
+    "archive": "GSE68379_RAW.tar",
+    "declared_bytes": 9020579840,
+    "expected_members": 2056,
+    "expected_cell_lines": 1028,
+    "WARNING": "our mirror contained 1,302 members / 649 lines despite matching size, checksum and a valid tar terminator. Fetch per-sample from GEO instead.",
+    "used_by": [
+      "R23"
+    ]
+  },
+  "GDSC2": {
+    "source": "Sanger cancerrxgene.org",
+    "file": "GDSC2_fitted_dose_response_24Jul22.csv",
+    "content": "969 cell lines x 286 drugs, LN_IC50",
+    "used_by": [
+      "R23"
+    ]
+  },
+  "GSE202859": {
+    "source": "GEO",
+    "content": "RNA TPMs, 52 libraries, PC9/H1975/HCC827 parental vs osimertinib-resistant plus SMARCA4 shRNA",
+    "used_by": [
+      "R24"
+    ]
+  },
+  "GSE202857": {
+    "source": "GEO",
+    "content": "bulk ATAC, 32 libraries",
+    "used_by": [],
+    "note": "held but not analysed in any report"
+  },
+  "GSE275305": {
+    "source": "GEO",
+    "content": "scATAC, PC9 and H358 persisters",
+    "used_by": [],
+    "note": "held but not analysed in any report"
+  },
+  "TCGA-LUAD/LUSC": {
+    "source": "NCI GDC open tier",
+    "content": "1,053 diagnostic WSI; 845 tumour 450k arrays; clinical",
+    "used_by": [
+      "R08",
+      "R10",
+      "R12",
+      "R13",
+      "R15",
+      "R17",
+      "R18",
+      "R20",
+      "R21",
+      "R22"
+    ]
+  },
+  "ACRIN-6668": {
+    "source": "TCIA",
+    "licence": "CC BY 3.0",
+    "content": "251 registered patients, core-lab PET, survival, 15 CRFs",
+    "note": "no application required",
+    "used_by": [
+      "R16"
+    ]
+  },
+  "CDDP_EAGLE-1 / CGCI-HTMCP-LC": {
+    "source": "TCIA",
+    "content": "49 + 80 external WSI; 76 H&E",
+    "used_by": [
+      "R19",
+      "R20",
+      "R22"
+    ]
+  }
+}

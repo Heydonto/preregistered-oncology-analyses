@@ -1,0 +1,21 @@
+{
+  "report": "R07",
+  "question": "does genome-wide methylation predict EGFR-TKI response?",
+  "cohort": "GSE147377, 79 advanced LUAD, all TKI-treated, Illumina 450k",
+  "endpoint": "partial response (PR) vs progressive disease (PD); SD excluded as ambiguous",
+  "declared_limitation": "underpowered by design: ~69 patients against ~450k probes",
+  "structural_risk": "beta matrix columns are EXP_1..EXP_79, not GSM ids; phenotype mapping assumes series-matrix column order",
+  "control_A": "cg05575921 (AHRR) vs smoking; smokers expected LOWER",
+  "control_B": "sex separability from X-linked probes",
+  "control_rule": "if neither control holds, the mapping is wrong and no response result is reported",
+  "model": "elastic-net logistic on the top-variance probes, selection inside folds",
+  "cv": "10x repeated 5-fold nested CV",
+  "seed": 20260807,
+  "expectations": {
+    "n_samples": 79,
+    "pr": 40,
+    "pd": 29,
+    "sd": 10,
+    "control_a_direction": "smokers LOWER at cg05575921"
+  }
+}

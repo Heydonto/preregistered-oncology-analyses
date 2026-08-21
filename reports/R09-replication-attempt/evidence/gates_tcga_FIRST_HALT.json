@@ -1,0 +1,51 @@
+[
+  {
+    "gate": "G0_sequenced",
+    "expected": 1050,
+    "observed": 1050,
+    "result": "PASS",
+    "note": "patients with mutation profiling; unprofiled != wild-type",
+    "t": "2026-08-07T13:17:16Z"
+  },
+  {
+    "gate": "G1_mutation_records",
+    "expected": "> 800",
+    "observed": 1228,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:17:16Z"
+  },
+  {
+    "gate": "G2_events",
+    "expected": "> 300 events",
+    "observed": 385,
+    "result": "PASS",
+    "note": "R06's failed replication cohort had 45 - this is the power that was missing",
+    "t": "2026-08-07T13:17:16Z"
+  },
+  {
+    "gate": "G3_stage_parsed",
+    "expected": "late fraction 0.20-0.60",
+    "observed": 0.481,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-07T13:17:16Z"
+  },
+  {
+    "gate": "G4_positive_controls",
+    "expected": "TP53 or STK11 recovered at q<0.05",
+    "observed": {
+      "TP53": {
+        "q": 0.67398,
+        "hr": 1.082
+      },
+      "STK11": {
+        "q": 0.09769,
+        "hr": 1.515
+      }
+    },
+    "result": "FAIL",
+    "note": "established NSCLC biology; R06's failed cohort failed exactly here",
+    "t": "2026-08-07T13:17:16Z"
+  }
+]

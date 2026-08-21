@@ -1,0 +1,69 @@
+{
+ "manifest": {
+  "local": "data/_manifest.csv",
+  "gcs": "gs://heydonto-quantara-lungcdx/features/phikon-v2/tcga/_manifest.csv",
+  "sha256": "c0b9a79b3e46ee0dcedd930e46a2d1ccc308e0417653c8b31cc395df1205ad02",
+  "bytes": 180667
+ },
+ "clinical_extra_tcga_luad": {
+  "local": "data/clinical_extra_tcga_luad.csv",
+  "gcs": "gs://heydonto-quantara-lungcdx/labels/clinical_extra_tcga_luad.csv",
+  "sha256": "400ba1cc9607912b0758152cd867974310cb65d689718faa16c7593bfbed0adf",
+  "bytes": 115028
+ },
+ "clinical_extra_tcga_lusc": {
+  "local": "data/clinical_extra_tcga_lusc.csv",
+  "gcs": "gs://heydonto-quantara-lungcdx/labels/clinical_extra_tcga_lusc.csv",
+  "sha256": "fc625f31c5820468295cdd2644c650d9cd274c0dbddb9f04331c0fb8da31851a",
+  "bytes": 104033
+ },
+ "raw_mutations_luad": {
+  "local": "data/raw_mutations_luad.json",
+  "gcs": "gs://heydonto-quantara-lungcdx/labels/raw_mutations_luad.json",
+  "sha256": "845b99cb3deb8c8a52c4c5b2cac56e298c8d9586700afd1f2fecc2d64a406576",
+  "bytes": 736800
+ },
+ "raw_mutations_lusc": {
+  "local": "data/raw_mutations_lusc.json",
+  "gcs": "gs://heydonto-quantara-lungcdx/labels/raw_mutations_lusc.json",
+  "sha256": "b55b8bdbcfd8b790eaa7ac72b92c733d09035cf1f0af2e8de06a50764a6b4c39",
+  "bytes": 525812
+ },
+ "tcga_luad_clinical": {
+  "local": "data/TCGA-LUAD_clinical.csv",
+  "gcs": "gs://heydonto-quantara-lungcdx/clinical/TCGA-LUAD_clinical.csv",
+  "sha256": "d3e0169f7bce1be8ef0d66bb98f7c8a9702f279f274149ce748d41d84a02374f",
+  "bytes": 57888
+ },
+ "tcga_lusc_clinical": {
+  "local": "data/TCGA-LUSC_clinical.csv",
+  "gcs": "gs://heydonto-quantara-lungcdx/clinical/TCGA-LUSC_clinical.csv",
+  "sha256": "fbeab84e276d835d0eaaaa2fa1ca3b9448e527219aae200c05f1a302bffc8524",
+  "bytes": 55134
+ },
+ "silos_json": {
+  "local": "data/silos.json",
+  "gcs": null,
+  "sha256": "61a57517cdced5fe0a75cbcc137a32058a853b465ff35b0676e4b452e36b98c8",
+  "bytes": 202576
+ },
+ "labels_csv": {
+  "local": "data/labels.csv",
+  "gcs": null,
+  "sha256": "611eab41f912f5a3964abff1e74d7b3c1a28c0dcd9d290d2b2ea2ff89f1f6ae9",
+  "bytes": 39415
+ },
+ "label_exclusions": {
+  "local": "data/label_exclusions.json",
+  "gcs": null,
+  "sha256": "cbc6e011c2281a65ca3b7dcbb66613560219df399a83c29963b2438803ce2e49",
+  "bytes": 1317
+ },
+ "config_yaml": {
+  "local": "config.yaml",
+  "sha256": "b5200a4a9ece748113a832a1d71acd2a086b7f615161d502f9e0c9b317ac3571",
+  "bytes": 8866,
+  "registered_utc": "2026-08-10T00:04:46Z",
+  "note": "hashed before any label value was read; frozen copy verified identical"
+ }
+}

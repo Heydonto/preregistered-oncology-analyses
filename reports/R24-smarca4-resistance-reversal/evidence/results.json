@@ -1,0 +1,70 @@
+{
+  "status": "peer-review audit copy",
+  "plan_sha256": "bffbaad89936c5222c6e7fec678a88aba5c613358c8a8502ab39a7a83baa4087",
+  "VERDICT": {
+    "H2_primary": "PARTIAL_one_direction_only",
+    "rules_pre_declared_in": "PREREG_PLAN_R24.yaml bffbaad89936c522"
+  },
+  "genes_retained": 16006,
+  "PC1_smarca4_knockdown": {
+    "PC9OR_log2FC": -2.3683937242961246,
+    "YU005C_log2FC": -0.9679261001545276
+  },
+  "PC2_deg_counts": {
+    "PC9": 1785,
+    "H1975": 1480,
+    "HCC827": 2367
+  },
+  "H1_cross_line_consistency": {
+    "PC9_vs_H1975": 0.2104318623661954,
+    "PC9_vs_HCC827": 0.16533236681604832,
+    "H1975_vs_HCC827": 0.2579913058755999
+  },
+  "H2_PC9OR": {
+    "resistance_up": {
+      "n": 789,
+      "mean_kd_lfc": -0.004284642939077098,
+      "null_mean": 0.04981475263764709,
+      "null_lo": 0.027727641243918758,
+      "null_hi": 0.07171981148377844,
+      "p_two_sided": 0.0004997501249375312
+    },
+    "resistance_down": {
+      "n": 996,
+      "mean_kd_lfc": -0.07948693665329634,
+      "null_mean": 0.05005576353810298,
+      "null_lo": 0.030934957256001226,
+      "null_hi": 0.06910967855337907,
+      "p_two_sided": 0.0004997501249375312
+    },
+    "all_genes_mean": 0.04976391303866289
+  },
+  "H3_YU005C_replication": {
+    "resistance_up": {
+      "n": 789,
+      "mean_kd_lfc": 0.02837102940638131,
+      "null_mean": -0.010633995974716896,
+      "null_lo": -0.035913597882828156,
+      "null_hi": 0.016122796528424032,
+      "p_two_sided": 0.00399800099950025
+    },
+    "resistance_down": {
+      "n": 996,
+      "mean_kd_lfc": 0.0322287162666858,
+      "null_mean": -0.01047107899183725,
+      "null_lo": -0.03336675922570609,
+      "null_hi": 0.012444106365436785,
+      "p_two_sided": 0.0004997501249375312
+    },
+    "all_genes_mean": -0.010714304335285928
+  },
+  "resistance_sets": {
+    "n_up": 789,
+    "n_down": 996,
+    "defined_from": "PC9 parental vs PC9.OR only"
+  },
+  "_provenance": {
+    "config_sha256": "565c920f804bdc36f1fb70b3205dfbb20862b422b5be296013d05e35931c55bc",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260820T082053Z-R24smarca4-4e0db78"
+  }
+}

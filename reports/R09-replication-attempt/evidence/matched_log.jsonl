@@ -1,0 +1,25 @@
+{"t": "2026-08-07T13:26:13Z", "event": "config_written", "sha256": "ac4ec472b778e87f23eee17783083a4d480447b04d1e39637be45a3153497b11"}
+{"t": "2026-08-07T13:26:16Z", "event": "cohort", "study": "bm_nsclc_mskcc_2023", "n": 209, "events": 114, "median_os_months": 29.72054795, "overlap_removed": 24, "mutation_records": 474}
+{"t": "2026-08-07T13:26:16Z", "event": "gate", "gate": "G_setting_bm_nsclc_mskcc_2023", "expected": "median OS nearer R06's 28.8mo than TCGA's 50.3mo", "observed": 29.7, "result": "PASS"}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort", "study": "lung_msk_pdx", "n": 171, "events": 117, "median_os_months": 24.73, "overlap_removed": 0, "mutation_records": 416}
+{"t": "2026-08-07T13:26:18Z", "event": "gate", "gate": "G_setting_lung_msk_pdx", "expected": "median OS nearer R06's 28.8mo than TCGA's 50.3mo", "observed": 24.7, "result": "PASS"}
+{"t": "2026-08-07T13:26:18Z", "event": "gate", "gate": "G0_pooled_events", "expected": 231, "observed": 231, "result": "PASS"}
+{"t": "2026-08-07T13:26:18Z", "event": "gate", "gate": "G1_cohorts", "expected": 2, "observed": 2, "result": "PASS"}
+{"t": "2026-08-07T13:26:18Z", "event": "gate", "gate": "G2_no_overlap_remains", "expected": 0, "observed": 0, "result": "PASS"}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort_bm_nsclc_mskcc_2023", "gene": "KEAP1", "hr": 1.304, "ci": [0.85, 2.0], "q": 0.43127, "n_mut": 51}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort_bm_nsclc_mskcc_2023", "gene": "SMARCA4", "hr": 0.747, "ci": [0.43, 1.29], "q": 0.43127, "n_mut": 29}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort_bm_nsclc_mskcc_2023", "gene": "KMT2D", "hr": 0.677, "ci": [0.39, 1.19], "q": 0.43127, "n_mut": 29}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort_bm_nsclc_mskcc_2023", "gene": "TP53", "hr": 1.233, "ci": [0.8, 1.9], "q": 0.43127, "n_mut": 154}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort_bm_nsclc_mskcc_2023", "gene": "STK11", "hr": 1.145, "ci": [0.72, 1.83], "q": 0.56913, "n_mut": 41}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort_lung_msk_pdx", "gene": "KEAP1", "hr": 0.818, "ci": [0.51, 1.3], "q": 0.66271, "n_mut": 38}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort_lung_msk_pdx", "gene": "SMARCA4", "hr": 1.033, "ci": [0.58, 1.84], "q": 0.91316, "n_mut": 20}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort_lung_msk_pdx", "gene": "KMT2D", "hr": 0.395, "ci": [0.21, 0.76], "q": 0.02577, "n_mut": 23}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort_lung_msk_pdx", "gene": "TP53", "hr": 1.064, "ci": [0.72, 1.56], "q": 0.91316, "n_mut": 115}
+{"t": "2026-08-07T13:26:18Z", "event": "cohort_lung_msk_pdx", "gene": "STK11", "hr": 0.582, "ci": [0.32, 1.06], "q": 0.19113, "n_mut": 25}
+{"t": "2026-08-07T13:26:18Z", "event": "pooled", "gene": "KEAP1", "hr": 1.037, "ci": [0.76, 1.42], "q": 0.82068, "n_mut": 89}
+{"t": "2026-08-07T13:26:18Z", "event": "pooled", "gene": "SMARCA4", "hr": 0.861, "ci": [0.58, 1.28], "q": 0.57771, "n_mut": 49}
+{"t": "2026-08-07T13:26:18Z", "event": "pooled", "gene": "KMT2D", "hr": 0.523, "ci": [0.34, 0.8], "q": 0.01378, "n_mut": 52}
+{"t": "2026-08-07T13:26:18Z", "event": "pooled", "gene": "TP53", "hr": 1.136, "ci": [0.85, 1.51], "q": 0.57771, "n_mut": 269}
+{"t": "2026-08-07T13:26:18Z", "event": "pooled", "gene": "STK11", "hr": 0.852, "ci": [0.59, 1.23], "q": 0.57771, "n_mut": 66}
+{"t": "2026-08-07T13:26:18Z", "event": "gate", "gate": "G3_positive_controls", "expected": "TP53 or STK11 at q<0.05 in the pooled analysis", "observed": {"TP53": {"hr": 1.136, "q": 0.57771}, "STK11": {"hr": 0.852, "q": 0.57771}}, "result": "FAIL"}
+{"t": "2026-08-07T13:26:18Z", "event": "HALT", "reason": "gate G3_positive_controls failed"}

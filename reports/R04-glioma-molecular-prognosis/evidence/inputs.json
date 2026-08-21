@@ -1,0 +1,18 @@
+{
+  "/Users/rezanehzati/quantara-staging/staged/labels/glioma/lgggbm_tcga_pub/data_clinical_patient.txt": {
+    "bytes": 93057,
+    "sha256": "d193cf314891b084a4cf5cda738e19b268df5be31454da772d269d26a5e2dfb0"
+  },
+  "/Users/rezanehzati/quantara-staging/staged/labels/glioma/lgggbm_tcga_pub/data_clinical_sample.txt": {
+    "bytes": 374033,
+    "sha256": "cf622c83218f6a1a6f02a5e2cc8cc5c365ec90c71193faa693e113c5326e45ac"
+  },
+  "/Users/rezanehzati/quantara-staging/staged/labels/glioma/glioma_mskcc_2019/data_clinical_patient.txt": {
+    "bytes": 111167,
+    "sha256": "e847ee1164c22d4fa97f58b0ad76e1f3b20a4c7d13f447feec1e09e4e1d09a0b"
+  },
+  "/Users/rezanehzati/quantara-staging/staged/labels/glioma/glioma_mskcc_2019/data_clinical_sample.txt": {
+    "bytes": 148165,
+    "sha256": "b5341405e18ff8c15f464196690e969e0412a6a2d238e561b3aa72cbc892dba8"
+  }
+}

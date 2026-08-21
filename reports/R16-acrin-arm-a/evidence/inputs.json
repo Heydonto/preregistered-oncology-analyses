@@ -1,0 +1,14 @@
+{
+  "/Users/rezanehzati/quantara-staging/acrin/ACRIN-6668-NSCLC-FDG-PET-ACRIN-Data-TCIA-Anonymized-File-set-1.zip": {
+    "bytes": 276286,
+    "sha256": "f788dd16488900a3aab35b2c24699e5c2841aa8031e928a8fced9d8edf0ab8ee"
+  },
+  "/Users/rezanehzati/quantara-staging/acrin/ACRIN-6668HB-NSCLC-FDG-PET-ACRIN-Data-TCIA-Anonymized-File-set-2.zip": {
+    "bytes": 261247,
+    "sha256": "308918c4b6eb1b619cb82019c792bccbf8539a50d7f1e4b4cd5587dabeff8035"
+  },
+  "generator_sandbox/PLAN.yaml": {
+    "bytes": 43477,
+    "sha256": "752b7462fce5689993dd6c05bca956ff50799794528ec3f4abf9048cb74e6770"
+  }
+}

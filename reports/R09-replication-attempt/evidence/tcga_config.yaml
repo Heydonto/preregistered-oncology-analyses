@@ -1,0 +1,53 @@
+{
+  "report": "R09",
+  "question": "does R06's KEAP1/SMARCA4 prognostic association replicate in TCGA?",
+  "why": "R06's audit withdrew its replication claim - luad_mskcc_2020 had 45 events in 604 patients and failed its own positive controls, leaving the finding on one cohort",
+  "cohort": "TCGA-LUAD + TCGA-LUSC, sequenced patients, curated TCGA-CDR survival",
+  "independence": "different institutions, whole-exome rather than targeted ctDNA panel, different treatment era",
+  "declared_asymmetry": "TCGA lung is predominantly resected early-stage disease; the MSK ctDx cohort was advanced disease. A negative result is therefore ambiguous between 'not real' and 'specific to advanced disease'",
+  "model": "R06's exactly - per-gene UNADJUSTED Cox on OS, BH across the same 5 genes. Adding covariates would invalidate the comparison",
+  "positive_controls": [
+    "TP53",
+    "STK11"
+  ],
+  "control_rule": "if neither TP53 nor STK11 is recovered, this cohort cannot test the question and the run halts",
+  "replication_rule": "a gene replicates only if it is q<0.05 AND in the same direction as R06",
+  "prespecified_secondary": "late-stage (II-IV) subgroup, as the closest available match to the MSK advanced-disease setting",
+  "prespecified_tertiary": "adjusted model (age, stage, histology) reported for context only, not as the replication test",
+  "profiled_set_rule": "only patients in each study's _sequenced sample list; an unprofiled patient is not wild-type",
+  "r06_reference_values": {
+    "KEAP1": {
+      "hr": 2.07,
+      "ci": [
+        1.63,
+        2.62
+      ],
+      "q": 0.0001
+    },
+    "SMARCA4": {
+      "hr": 1.73,
+      "ci": [
+        1.27,
+        2.35
+      ],
+      "q": 0.0009
+    },
+    "KMT2D": {
+      "hr": null,
+      "q": null
+    },
+    "STK11": {
+      "hr": 1.63,
+      "q": 0.0004
+    },
+    "TP53": {
+      "hr": 1.25,
+      "q": 0.0074
+    }
+  },
+  "seed": 20260807,
+  "expectations": {
+    "sequenced": 1050,
+    "min_events": 300
+  }
+}

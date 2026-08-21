@@ -1,0 +1,14 @@
+{
+  "data_mrna_seq_tpm.txt": {
+    "bytes": 28112790,
+    "sha256": "3bbb4fdaa92a8017a7bf2933835483e684d9ae8894800a7e3e40e7923c2523cb"
+  },
+  "data_clinical_sample.txt": {
+    "bytes": 107460,
+    "sha256": "29543c5eeb6b69754bedc77a7b3fc6e85e9e021c962200e38d91e6bae23e2b61"
+  },
+  "data_clinical_patient.txt": {
+    "bytes": 53520,
+    "sha256": "98923a596fec0cfd339cf4e0b0f93c5ed90afbc07709cd86f876d46a127be6af"
+  }
+}

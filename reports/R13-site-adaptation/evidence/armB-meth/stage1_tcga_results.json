@@ -1,0 +1,88 @@
+{
+  "overlap_stats": {
+    "manifest_450k_loci": 485577,
+    "manifest_epic_loci": 867926,
+    "manifest_overlap_loci": 454181,
+    "r08_retained_probes": 392489,
+    "r08_retained_on_epic": 366316,
+    "r08_retained_on_epic_frac": 0.9333
+  },
+  "all_probes_n": 392489,
+  "tcga_results": {
+    "repro_keap1_full_nestedcv": {
+      "auroc": 0.9098375784422296,
+      "ci95": [
+        0.8690399119421341,
+        0.945582322184861
+      ],
+      "n": 471,
+      "positives": 84
+    },
+    "repro_sex_full_nestedcv": {
+      "auroc": 1.0,
+      "ci95": [
+        0.9999999999999999,
+        1.0
+      ],
+      "n": 468,
+      "positives": 219
+    },
+    "keap1_overlap_nestedcv": {
+      "auroc": 0.8941183708625567,
+      "ci95": [
+        0.8483564369580282,
+        0.9378837691295283
+      ],
+      "n": 471,
+      "positives": 84
+    },
+    "sex_overlap_nestedcv": {
+      "auroc": 1.0,
+      "ci95": [
+        0.9999999999999999,
+        1.0
+      ],
+      "n": 468,
+      "positives": 219
+    },
+    "os_cox_cv_cindex": 0.6023496170719013,
+    "os_cox_cv_cindex_ci95": [
+      0.5496902467552162,
+      0.6530427139645322
+    ],
+    "os_cox_n": 459,
+    "os_cox_events": 164
+  },
+  "config_sha256": "5d3d9d15a85d6917f97f630f88cf9b9adea9f0763b7a2803fdb8812c679e172d",
+  "run_dir": "/Users/rezanehzati/Projects/quantara/nsclc-rwpr-study/armB-meth/runs/20260810T103808Z-armBmeth-s1-3f8bece",
+  "model_summaries": {
+    "M1_keap1_full": {
+      "intercept": -1.3294128691876772,
+      "C": 0.01,
+      "n_selected": 5000,
+      "n_nonzero": 15,
+      "n_selected_on_epic": 4698,
+      "n_nonzero_on_epic": 15
+    },
+    "M1_keap1_overlap": {
+      "intercept": -1.3293156282733045,
+      "C": 0.01,
+      "n_selected": 5000,
+      "n_nonzero": 15,
+      "n_selected_on_epic": 5000,
+      "n_nonzero_on_epic": 15
+    },
+    "PC_sex_overlap": {
+      "intercept": -0.18038703457098795,
+      "C": 0.01,
+      "n_selected": 5000,
+      "n_nonzero": 176,
+      "n_selected_on_epic": 5000,
+      "n_nonzero_on_epic": 176
+    },
+    "M2_os_cox": {
+      "n_nonzero": 500,
+      "n_nonzero_on_epic": 500
+    }
+  }
+}

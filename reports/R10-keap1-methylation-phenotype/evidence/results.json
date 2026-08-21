@@ -1,0 +1,480 @@
+{
+  "cohort": {
+    "luad_tumours": 471,
+    "keap1_mutant": 84,
+    "probes": 392489,
+    "annotated": 390543
+  },
+  "signature": {
+    "n_significant": 115557,
+    "frac_significant": 0.2944209901423989,
+    "R08_sampled_estimate": 0.2935
+  },
+  "PC_sex_classifier": {
+    "auroc": 1.0,
+    "ci95": [
+      0.9999999999999999,
+      1.0
+    ],
+    "n": 468,
+    "positives": 219
+  },
+  "Q1_keap1_classifier": {
+    "auroc": 0.9098375784422296,
+    "ci95": [
+      0.8690399119421341,
+      0.945582322184861
+    ],
+    "n": 471,
+    "positives": 84
+  },
+  "Q2_genomic_context": {
+    "cpg_island_context": {
+      "Island": {
+        "n_probes": 134053,
+        "n_sig": 28838,
+        "frac_sig": 0.2151,
+        "odds_ratio": 0.543,
+        "p": 0.0
+      },
+      "N_Shore": {
+        "n_probes": 52248,
+        "n_sig": 16788,
+        "frac_sig": 0.3213,
+        "odds_ratio": 1.157,
+        "p": 6.834178753504764e-47
+      },
+      "S_Shore": {
+        "n_probes": 40841,
+        "n_sig": 12845,
+        "frac_sig": 0.3145,
+        "odds_ratio": 1.112,
+        "p": 8.342190379867329e-21
+      },
+      "N_Shelf": {
+        "n_probes": 18409,
+        "n_sig": 6286,
+        "frac_sig": 0.3415,
+        "odds_ratio": 1.257,
+        "p": 1.849181200871196e-45
+      },
+      "S_Shelf": {
+        "n_probes": 16371,
+        "n_sig": 5626,
+        "frac_sig": 0.3437,
+        "odds_ratio": 1.268,
+        "p": 4.614093640502255e-44
+      },
+      "OpenSea": {
+        "n_probes": 130567,
+        "n_sig": 45174,
+        "frac_sig": 0.346,
+        "odds_ratio": 1.44,
+        "p": 0.0
+      }
+    },
+    "gene_region": {
+      "TSS1500": {
+        "n_probes": 57447,
+        "n_sig": 15637,
+        "frac_sig": 0.2722,
+        "odds_ratio": 0.88,
+        "p": 4.336087025859901e-37
+      },
+      "TSS200": {
+        "n_probes": 46880,
+        "n_sig": 8761,
+        "frac_sig": 0.1869,
+        "odds_ratio": 0.514,
+        "p": 0.0
+      },
+      "5'UTR": {
+        "n_probes": 36384,
+        "n_sig": 8910,
+        "frac_sig": 0.2449,
+        "odds_ratio": 0.759,
+        "p": 2.4657187673704274e-108
+      },
+      "1stExon": {
+        "n_probes": 20124,
+        "n_sig": 4433,
+        "frac_sig": 0.2203,
+        "odds_ratio": 0.664,
+        "p": 1.0448304025449257e-130
+      },
+      "Body": {
+        "n_probes": 130571,
+        "n_sig": 40499,
+        "frac_sig": 0.3102,
+        "odds_ratio": 1.119,
+        "p": 1.8418065749489292e-52
+      },
+      "3'UTR": {
+        "n_probes": 13769,
+        "n_sig": 4158,
+        "frac_sig": 0.302,
+        "odds_ratio": 1.038,
+        "p": 0.047749863353043584
+      },
+      "": {
+        "n_probes": 87314,
+        "n_sig": 33159,
+        "frac_sig": 0.3798,
+        "odds_ratio": 1.655,
+        "p": 0.0
+      }
+    },
+    "overall_frac_sig": 0.2944
+  },
+  "Q3_nrf2_enrichment": {
+    "genes_tested": 17632,
+    "nrf2_genes_on_array": [
+      "ABCC1",
+      "ABCC2",
+      "ABCC3",
+      "CAT",
+      "CBR1",
+      "CUL3",
+      "EPHX1",
+      "FTH1",
+      "FTL",
+      "G6PD",
+      "GCLC",
+      "GCLM",
+      "GPX2",
+      "GSR",
+      "GSTP1",
+      "HMOX1",
+      "IDH1",
+      "KEAP1",
+      "ME1",
+      "NFE2L2",
+      "NQO1",
+      "OSGIN1",
+      "PGD",
+      "PRDX1",
+      "SLC7A11",
+      "SOD1",
+      "SQSTM1",
+      "SRXN1",
+      "TALDO1",
+      "TXN",
+      "TXNDC17",
+      "TXNRD1",
+      "UGT1A1"
+    ],
+    "nrf2_mean_frac_sig": 0.35700123657650107,
+    "random_null_mean": 0.24295320191473985,
+    "random_null_p95": 0.30846506630584286,
+    "p_empirical": 0.005994005994005994,
+    "enriched": true,
+    "top30_genes": [
+      {
+        "gene": "GATA5",
+        "frac_sig": 1.0,
+        "probes": 34
+      },
+      {
+        "gene": "SNORD115-21",
+        "frac_sig": 1.0,
+        "probes": 28
+      },
+      {
+        "gene": "SNORD115-15",
+        "frac_sig": 1.0,
+        "probes": 28
+      },
+      {
+        "gene": "GPX6",
+        "frac_sig": 1.0,
+        "probes": 28
+      },
+      {
+        "gene": "TH",
+        "frac_sig": 1.0,
+        "probes": 26
+      },
+      {
+        "gene": "LZTS1",
+        "frac_sig": 1.0,
+        "probes": 22
+      },
+      {
+        "gene": "OR2H1",
+        "frac_sig": 1.0,
+        "probes": 21
+      },
+      {
+        "gene": "UNCX",
+        "frac_sig": 1.0,
+        "probes": 21
+      },
+      {
+        "gene": "INS",
+        "frac_sig": 1.0,
+        "probes": 20
+      },
+      {
+        "gene": "NCAN",
+        "frac_sig": 1.0,
+        "probes": 19
+      },
+      {
+        "gene": "EPHA7",
+        "frac_sig": 1.0,
+        "probes": 18
+      },
+      {
+        "gene": "C14orf180",
+        "frac_sig": 1.0,
+        "probes": 18
+      },
+      {
+        "gene": "C1QTNF8",
+        "frac_sig": 1.0,
+        "probes": 17
+      },
+      {
+        "gene": "NR0B1",
+        "frac_sig": 1.0,
+        "probes": 16
+      },
+      {
+        "gene": "AKR1B1",
+        "frac_sig": 1.0,
+        "probes": 16
+      },
+      {
+        "gene": "MIR299",
+        "frac_sig": 1.0,
+        "probes": 16
+      },
+      {
+        "gene": "SCRT1",
+        "frac_sig": 1.0,
+        "probes": 16
+      },
+      {
+        "gene": "DHRS7C",
+        "frac_sig": 1.0,
+        "probes": 16
+      },
+      {
+        "gene": "SNORD115-10",
+        "frac_sig": 1.0,
+        "probes": 16
+      },
+      {
+        "gene": "MIR675",
+        "frac_sig": 1.0,
+        "probes": 16
+      },
+      {
+        "gene": "MIR127",
+        "frac_sig": 1.0,
+        "probes": 15
+      },
+      {
+        "gene": "MIR485",
+        "frac_sig": 1.0,
+        "probes": 14
+      },
+      {
+        "gene": "FLJ39609",
+        "frac_sig": 1.0,
+        "probes": 14
+      },
+      {
+        "gene": "MIR496",
+        "frac_sig": 1.0,
+        "probes": 14
+      },
+      {
+        "gene": "KPRP",
+        "frac_sig": 1.0,
+        "probes": 13
+      },
+      {
+        "gene": "PRAME",
+        "frac_sig": 1.0,
+        "probes": 13
+      },
+      {
+        "gene": "OR10C1",
+        "frac_sig": 1.0,
+        "probes": 13
+      },
+      {
+        "gene": "C11orf36",
+        "frac_sig": 1.0,
+        "probes": 13
+      },
+      {
+        "gene": "OR11A1",
+        "frac_sig": 1.0,
+        "probes": 13
+      },
+      {
+        "gene": "MIR377",
+        "frac_sig": 1.0,
+        "probes": 13
+      }
+    ],
+    "per_nrf2_gene": {
+      "ABCC1": {
+        "frac_sig": 0.244,
+        "probes": 41
+      },
+      "ABCC2": {
+        "frac_sig": 0.438,
+        "probes": 16
+      },
+      "ABCC3": {
+        "frac_sig": 0.263,
+        "probes": 19
+      },
+      "CAT": {
+        "frac_sig": 0.0,
+        "probes": 14
+      },
+      "CBR1": {
+        "frac_sig": 0.286,
+        "probes": 7
+      },
+      "CUL3": {
+        "frac_sig": 0.154,
+        "probes": 13
+      },
+      "EPHX1": {
+        "frac_sig": 0.731,
+        "probes": 26
+      },
+      "FTH1": {
+        "frac_sig": 0.294,
+        "probes": 17
+      },
+      "FTL": {
+        "frac_sig": 0.091,
+        "probes": 11
+      },
+      "G6PD": {
+        "frac_sig": 0.32,
+        "probes": 25
+      },
+      "GCLC": {
+        "frac_sig": 0.737,
+        "probes": 19
+      },
+      "GCLM": {
+        "frac_sig": 0.231,
+        "probes": 13
+      },
+      "GPX2": {
+        "frac_sig": 0.857,
+        "probes": 7
+      },
+      "GSR": {
+        "frac_sig": 0.462,
+        "probes": 13
+      },
+      "GSTP1": {
+        "frac_sig": 0.7,
+        "probes": 10
+      },
+      "HMOX1": {
+        "frac_sig": 0.5,
+        "probes": 8
+      },
+      "IDH1": {
+        "frac_sig": 0.077,
+        "probes": 13
+      },
+      "KEAP1": {
+        "frac_sig": 0.263,
+        "probes": 19
+      },
+      "ME1": {
+        "frac_sig": 0.385,
+        "probes": 13
+      },
+      "NFE2L2": {
+        "frac_sig": 0.167,
+        "probes": 24
+      },
+      "NQO1": {
+        "frac_sig": 0.417,
+        "probes": 12
+      },
+      "OSGIN1": {
+        "frac_sig": 0.5,
+        "probes": 20
+      },
+      "PGD": {
+        "frac_sig": 0.222,
+        "probes": 18
+      },
+      "PRDX1": {
+        "frac_sig": 0.412,
+        "probes": 17
+      },
+      "SLC7A11": {
+        "frac_sig": 0.545,
+        "probes": 11
+      },
+      "SOD1": {
+        "frac_sig": 0.077,
+        "probes": 13
+      },
+      "SQSTM1": {
+        "frac_sig": 0.316,
+        "probes": 38
+      },
+      "SRXN1": {
+        "frac_sig": 0.444,
+        "probes": 9
+      },
+      "TALDO1": {
+        "frac_sig": 0.533,
+        "probes": 15
+      },
+      "TXN": {
+        "frac_sig": 0.0,
+        "probes": 7
+      },
+      "TXNDC17": {
+        "frac_sig": 0.125,
+        "probes": 16
+      },
+      "TXNRD1": {
+        "frac_sig": 0.659,
+        "probes": 41
+      },
+      "UGT1A1": {
+        "frac_sig": 0.333,
+        "probes": 9
+      }
+    }
+  },
+  "Q4_smoking_overlap": {
+    "n_wt_ever": 308,
+    "n_wt_never": 65,
+    "smoking_signature_size": 37008,
+    "keap1_signature_size": 115557,
+    "overlap": 14306,
+    "frac_of_keap1_shared": 0.1238,
+    "jaccard": 0.1035,
+    "odds_ratio": 1.582,
+    "p": 0.0,
+    "verdict": "the KEAP1 signature is mostly distinct from the smoking signature"
+  },
+  "_decision": {
+    "phenotype_strength_auroc": 0.9098375784422296,
+    "nrf2_enriched": true,
+    "distinct_from_smoking": true,
+    "prespecified_in_config_sha256": "229f8cb6cc4312e865d78e3560c143f26a3a5693af86b3fde4477c1960db0f80"
+  },
+  "_provenance": {
+    "config_sha256": "229f8cb6cc4312e865d78e3560c143f26a3a5693af86b3fde4477c1960db0f80",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260807T135447Z-R10keap1pheno-3f8bece"
+  }
+}

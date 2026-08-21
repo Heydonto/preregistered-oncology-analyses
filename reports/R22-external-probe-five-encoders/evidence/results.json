@@ -1,0 +1,371 @@
+{
+  "status": "peer-review audit copy",
+  "VERDICT": {
+    "primary": "EXTERNAL_SIGNATURE_PRESENT_MAGNITUDE_VARIES",
+    "primary_arm": "SET_HE (76 H&E slides)",
+    "he_balanced_accuracy_range": [
+      0.8767951625094482,
+      1.0
+    ],
+    "n_encoders": 5,
+    "rules_reused_from": "R20 config ab01b9847dedcfcf..., pre-declared"
+  },
+  "encoders": {
+    "owkin/phikon-v2": {
+      "corpus": "histology",
+      "dim": 1024,
+      "arms": {
+        "SET_R19": {
+          "balanced_accuracy": 1.0,
+          "n": 78,
+          "null_mean": 0.5071604503870514,
+          "null_sd": 0.07079735424338009,
+          "null_p95": 0.6221323011963406,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        },
+        "SET_HE": {
+          "balanced_accuracy": 1.0,
+          "n": 76,
+          "null_mean": 0.5022883597883597,
+          "null_sd": 0.06658615950144303,
+          "null_p95": 0.6016628873771731,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        },
+        "SET_ALL": {
+          "balanced_accuracy": 1.0,
+          "n": 129,
+          "null_mean": 0.5010644132653062,
+          "null_sd": 0.05285070236060507,
+          "null_p95": 0.5775765306122446,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        }
+      },
+      "set_he_seed_distribution": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "min": 1.0,
+        "max": 1.0,
+        "n_seeds": 25,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "facebook/dinov2-large": {
+      "corpus": "natural images",
+      "dim": 1024,
+      "arms": {
+        "SET_R19": {
+          "balanced_accuracy": 0.8933849401829697,
+          "n": 78,
+          "null_mean": 0.5069809992962702,
+          "null_sd": 0.06911548080707139,
+          "null_p95": 0.6293279380717804,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        },
+        "SET_HE": {
+          "balanced_accuracy": 0.8767951625094482,
+          "n": 76,
+          "null_mean": 0.4990230536659108,
+          "null_sd": 0.07061295956536975,
+          "null_p95": 0.6169123204837489,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        },
+        "SET_ALL": {
+          "balanced_accuracy": 0.9443877551020408,
+          "n": 129,
+          "null_mean": 0.5019623724489796,
+          "null_sd": 0.05145873125378518,
+          "null_p95": 0.5857780612244897,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        }
+      },
+      "set_he_seed_distribution": {
+        "mean": 0.9176266061980348,
+        "sd": 0.02473425875420608,
+        "min": 0.8582766439909297,
+        "max": 0.9527588813303098,
+        "n_seeds": 25,
+        "values": [
+          0.8768,
+          0.9221,
+          0.924,
+          0.9528,
+          0.9426,
+          0.8953,
+          0.8953,
+          0.9444,
+          0.9342,
+          0.887,
+          0.924,
+          0.9138,
+          0.9138,
+          0.9055,
+          0.9528,
+          0.9157,
+          0.8583,
+          0.9157,
+          0.8953,
+          0.9342,
+          0.924,
+          0.9426,
+          0.8953,
+          0.9221,
+          0.9528
+        ]
+      }
+    },
+    "MahmoodLab/UNI": {
+      "corpus": "histology",
+      "dim": 1024,
+      "arms": {
+        "SET_R19": {
+          "balanced_accuracy": 1.0,
+          "n": 78,
+          "null_mean": 0.5120267417311752,
+          "null_sd": 0.06261650836543932,
+          "null_p95": 0.6090429275158338,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        },
+        "SET_HE": {
+          "balanced_accuracy": 1.0,
+          "n": 76,
+          "null_mean": 0.5003174603174603,
+          "null_sd": 0.06936251056087857,
+          "null_p95": 0.6267006802721088,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        },
+        "SET_ALL": {
+          "balanced_accuracy": 0.9875,
+          "n": 129,
+          "null_mean": 0.501140306122449,
+          "null_sd": 0.04994370877706857,
+          "null_p95": 0.5808227040816326,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        }
+      },
+      "set_he_seed_distribution": {
+        "mean": 0.9936659108087679,
+        "sd": 0.01100831194573075,
+        "min": 0.962962962962963,
+        "max": 1.0,
+        "n_seeds": 25,
+        "values": [
+          1.0,
+          0.9713,
+          1.0,
+          0.9815,
+          0.9815,
+          0.9815,
+          0.963,
+          1.0,
+          1.0,
+          0.9815,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.9815,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "bioptimus/H-optimus-0": {
+      "corpus": "histology",
+      "dim": 1536,
+      "arms": {
+        "SET_R19": {
+          "balanced_accuracy": 1.0,
+          "n": 78,
+          "null_mean": 0.5119370161857846,
+          "null_sd": 0.07175776673945032,
+          "null_p95": 0.6261259676284306,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        },
+        "SET_HE": {
+          "balanced_accuracy": 1.0,
+          "n": 76,
+          "null_mean": 0.4923318216175359,
+          "null_sd": 0.05994368119358811,
+          "null_p95": 0.5978835978835979,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        },
+        "SET_ALL": {
+          "balanced_accuracy": 0.99375,
+          "n": 129,
+          "null_mean": 0.5001900510204083,
+          "null_sd": 0.05024381237889808,
+          "null_p95": 0.5784757653061224,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        }
+      },
+      "set_he_seed_distribution": {
+        "mean": 0.9961451247165534,
+        "sd": 0.0077774435477160645,
+        "min": 0.9712773998488284,
+        "max": 1.0,
+        "n_seeds": 25,
+        "values": [
+          1.0,
+          0.9898,
+          1.0,
+          1.0,
+          0.9713,
+          1.0,
+          0.9815,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.9815,
+          1.0,
+          0.9898,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.9898,
+          1.0
+        ]
+      }
+    },
+    "paige-ai/Virchow2": {
+      "corpus": "histology",
+      "dim": 1280,
+      "arms": {
+        "SET_R19": {
+          "balanced_accuracy": 0.9553131597466573,
+          "n": 78,
+          "null_mean": 0.5078219563687544,
+          "null_sd": 0.06698527388048059,
+          "null_p95": 0.6229591836734694,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        },
+        "SET_HE": {
+          "balanced_accuracy": 0.9527588813303098,
+          "n": 76,
+          "null_mean": 0.4964984882842026,
+          "null_sd": 0.06223454836881211,
+          "null_p95": 0.6068027210884351,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        },
+        "SET_ALL": {
+          "balanced_accuracy": 0.9506377551020408,
+          "n": 129,
+          "null_mean": 0.49813201530612244,
+          "null_sd": 0.05363260363055337,
+          "null_p95": 0.5833163265306122,
+          "clears_null": true,
+          "permutation_p": 0.004975124378109453
+        }
+      },
+      "set_he_seed_distribution": {
+        "mean": 0.9600907029478458,
+        "sd": 0.017542173794822626,
+        "min": 0.9157218442932729,
+        "max": 0.9814814814814814,
+        "n_seeds": 25,
+        "values": [
+          0.9528,
+          0.9713,
+          0.9815,
+          0.963,
+          0.9426,
+          0.9426,
+          0.9426,
+          0.9815,
+          0.9815,
+          0.963,
+          0.9611,
+          0.9713,
+          0.924,
+          0.9528,
+          0.9713,
+          0.9713,
+          0.9157,
+          0.9713,
+          0.9426,
+          0.9611,
+          0.9713,
+          0.9713,
+          0.9528,
+          0.9611,
+          0.9815
+        ]
+      }
+    }
+  },
+  "by_corpus": {
+    "histology": [
+      0.9528,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "natural images": [
+      0.8768
+    ]
+  },
+  "r20_reproduction": {
+    "owkin/phikon-v2": 1.0,
+    "facebook/dinov2-large": 0.8768
+  },
+  "seed_sensitivity_note": "R20 quoted single-seed balanced accuracies. A first attempt at this run with a different seed produced 0.9240 for dinov2-large against R20's 0.8768 and the reproduction gate halted. On 76 samples with ~15 per fold, one split is a noisy estimate. set_he_seed_distribution over 25 splits is the quantity to quote; the single-seed values are retained only to demonstrate reproduction.",
+  "set_all_caveat": "SET_ALL mixes IHC with H&E; higher numbers there indicate a stain shortcut, not more site signal",
+  "_provenance": {
+    "config_sha256": "a982fb9fc5e23d5b7e0d48e2b89607ec78cff8ec9f119ce3183caf55d31f7deb",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260819T003001Z-R22extfive-def4440"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "plan_file": "PREREG_PLAN_R24.yaml",
+  "sha256": "bffbaad89936c5222c6e7fec678a88aba5c613358c8a8502ab39a7a83baa4087",
+  "hashed_utc": "2026-08-20T08:19:51Z",
+  "note": "hashed after reading only the TPM column headers; no expression value had been compared between any two groups"
+}

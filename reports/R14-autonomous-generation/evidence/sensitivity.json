@@ -1,0 +1,73 @@
+{
+ "generated_utc": "2026-08-11T00:11:29.634937+00:00",
+ "S1_clinplus": {
+  "M_clinplus": {
+   "n": 366,
+   "n_pos": 93,
+   "auroc_mean_oof": 0.6160148095631968,
+   "ci95": [
+    0.5515806970620478,
+    0.679481833324589
+   ],
+   "blocks": [
+    "CLINPLUS"
+   ]
+  },
+  "M_base_plus": {
+   "n": 246,
+   "n_pos": 61,
+   "auroc_mean_oof": 0.7308817013735047,
+   "ci95": [
+    0.6566419610927942,
+    0.8014637368912757
+   ],
+   "blocks": [
+    "CLINPLUS",
+    "PDL1",
+    "GEN"
+   ]
+  },
+  "M_full_plus": {
+   "n": 73,
+   "n_pos": 30,
+   "auroc_mean_oof": 0.5968992248062016,
+   "ci95": [
+    0.45621848951937943,
+    0.735123447789847
+   ],
+   "blocks": [
+    "CLINPLUS",
+    "PDL1",
+    "GEN",
+    "RAD",
+    "TB",
+    "PATHG",
+    "PATHF"
+   ]
+  }
+ },
+ "S2_author_split": {
+  "RAD": {
+   "n_train": 187,
+   "n_val": 46,
+   "val_pos": 10,
+   "auroc_val": 0.5722222222222222,
+   "ci95": [
+    0.3843142484589853,
+    0.7582824248120298
+   ],
+   "note": "single-block model, fit once on author train split, single evaluation on author validation split"
+  },
+  "PATHG": {
+   "n_train": 105,
+   "n_val": 52,
+   "val_pos": 14,
+   "auroc_val": 0.7650375939849623,
+   "ci95": [
+    0.6070994208494209,
+    0.8937784090909089
+   ],
+   "note": "single-block model, fit once on author train split, single evaluation on author validation split"
+  }
+ }
+}

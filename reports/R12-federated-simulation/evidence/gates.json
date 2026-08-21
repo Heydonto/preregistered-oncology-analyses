@@ -1,0 +1,62 @@
+[
+ {
+  "gate": "g1_qc_no_silent_drops",
+  "expected": "every non-ok/<100-tile slide logged",
+  "observed": "4 slides excluded, all listed in config.yaml + silos.json",
+  "pass": true
+ },
+ {
+  "gate": "g2_centralized_subtype",
+  "expected": ">= 0.90 seed-mean AUROC",
+  "observed": 0.9699279778393353,
+  "pass": true
+ },
+ {
+  "gate": "g3_silo_signature_probe",
+  "expected": "balanced accuracy > 0.2, permutation p < 0.01",
+  "observed": {
+   "balanced_accuracy": 0.706242278179451,
+   "perm_p": 0.009900990099009901
+  },
+  "pass": true
+ },
+ {
+  "gate": "g4_egfr_permutation_null",
+  "expected": "null mean in [0.45, 0.55]",
+  "observed": 0.48420666387722155,
+  "pass": true
+ },
+ {
+  "gate": "g5_nan_degeneracy",
+  "expected": "no NaN loss; prediction std > 1e-6 per run",
+  "observed": {
+   "nan_runs": [],
+   "degenerate_runs": []
+  },
+  "pass": true
+ },
+ {
+  "gate": "g6_fedavg_completes",
+  "expected": "15/15 runs x 10 rounds",
+  "observed": "150 rounds total",
+  "pass": true
+ },
+ {
+  "gate": "g7_egfr_power",
+  "expected": "MDE statement if n_mutants < 80",
+  "observed": "With 74 mutants post-QC (<80), the global-val EGFR endpoint can only detect AUROC >= 0.584 (95th percentile of the 20-shuffle permutation null) at alpha=0.05; weaker signals are invisible by construction. Reported effects below this are not claimed.",
+  "pass": true
+ },
+ {
+  "gate": "fedprox_trigger",
+  "expected": "run FedProx iff FedAvg NaN/divergent OR trails centralized by >5pp subtype AUROC",
+  "observed": {
+   "subtype_centralized": 0.9699279778393353,
+   "subtype_fedavg": 0.97602216066482,
+   "trails_pp": -0.6094182825484684,
+   "nan": false
+  },
+  "pass": true,
+  "triggered": false
+ }
+]

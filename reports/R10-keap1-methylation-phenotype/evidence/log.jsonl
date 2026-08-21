@@ -1,0 +1,21 @@
+{"t": "2026-08-07T13:54:47Z", "event": "config_written", "sha256": "229f8cb6cc4312e865d78e3560c143f26a3a5693af86b3fde4477c1960db0f80"}
+{"t": "2026-08-07T13:54:50Z", "event": "gate", "gate": "G0_probes", "expected": 392489, "observed": 392489, "result": "PASS"}
+{"t": "2026-08-07T13:54:50Z", "event": "gate", "gate": "G1_luad", "expected": 471, "observed": 471, "result": "PASS"}
+{"t": "2026-08-07T13:54:54Z", "event": "gate", "gate": "G2_keap1_luad", "expected": 84, "observed": 84, "result": "PASS"}
+{"t": "2026-08-07T13:55:32Z", "event": "signature_KEAP1", "n1": 84, "n0": 387, "n_sig": 115557, "frac": 0.2944}
+{"t": "2026-08-07T13:55:32Z", "event": "gate", "gate": "G3_signature_reproduces_R08", "expected": "frac significant within 5pp of R08's 0.294", "observed": 0.2944, "result": "PASS"}
+{"t": "2026-08-07T13:56:46Z", "event": "PC_sex_classifier", "auroc": 1.0, "ci95": [1.0, 1.0], "n": 468, "positives": 219}
+{"t": "2026-08-07T13:56:46Z", "event": "gate", "gate": "G4_positive_control_sex", "expected": "AUROC > 0.95", "observed": 1.0, "result": "PASS"}
+{"t": "2026-08-07T13:58:15Z", "event": "Q1_keap1_classifier", "auroc": 0.9098, "ci95": [0.869, 0.9456], "n": 471, "positives": 84}
+{"t": "2026-08-07T13:58:16Z", "event": "gate", "gate": "G5_annotation_coverage", "expected": "> 90% of probes annotated", "observed": "390543/392489", "result": "PASS"}
+{"t": "2026-08-07T13:58:16Z", "event": "Q2_island", "context": "Island", "frac_sig": 0.2151, "odds_ratio": 0.543}
+{"t": "2026-08-07T13:58:16Z", "event": "Q2_island", "context": "N_Shore", "frac_sig": 0.3213, "odds_ratio": 1.157}
+{"t": "2026-08-07T13:58:16Z", "event": "Q2_island", "context": "S_Shore", "frac_sig": 0.3145, "odds_ratio": 1.112}
+{"t": "2026-08-07T13:58:16Z", "event": "Q2_island", "context": "N_Shelf", "frac_sig": 0.3415, "odds_ratio": 1.257}
+{"t": "2026-08-07T13:58:16Z", "event": "Q2_island", "context": "S_Shelf", "frac_sig": 0.3437, "odds_ratio": 1.268}
+{"t": "2026-08-07T13:58:16Z", "event": "Q2_island", "context": "OpenSea", "frac_sig": 0.346, "odds_ratio": 1.44}
+{"t": "2026-08-07T13:58:17Z", "event": "Q3_nrf2", "observed": 0.357, "null_mean": 0.243, "p": 0.005994005994005994, "n_genes": 33}
+{"t": "2026-08-07T13:58:54Z", "event": "signature_smoking_in_KEAP1wt", "n1": 308, "n0": 65, "n_sig": 37008, "frac": 0.0943}
+{"t": "2026-08-07T13:58:54Z", "event": "Q4_overlap", "n_wt_ever": 308, "n_wt_never": 65, "smoking_signature_size": 37008, "keap1_signature_size": 115557, "overlap": 14306, "frac_of_keap1_shared": 0.1238, "jaccard": 0.1035, "odds_ratio": 1.582, "p": 0.0}
+{"t": "2026-08-07T13:58:54Z", "event": "Q4_verdict", "verdict": "the KEAP1 signature is mostly distinct from the smoking signature"}
+{"t": "2026-08-07T13:58:54Z", "event": "decision", "phenotype_strength_auroc": 0.9098375784422296, "nrf2_enriched": true, "distinct_from_smoking": true, "prespecified_in_config_sha256": "229f8cb6cc4312e865d78e3560c143f26a3a5693af86b3fde4477c1960db0f80"}

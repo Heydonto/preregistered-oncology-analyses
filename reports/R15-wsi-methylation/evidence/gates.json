@@ -1,0 +1,50 @@
+[
+  {
+    "gate": "G0_matched",
+    "expected": 760,
+    "observed": 760,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-14T21:12:55Z"
+  },
+  {
+    "gate": "G1_same_cohort",
+    "expected": "both arms cover the same patients",
+    "observed": true,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-14T21:12:55Z"
+  },
+  {
+    "gate": "G2_pipeline_competence",
+    "expected": "random-fold subtype within 0.02 of R12's centralized 0.97",
+    "observed": 0.9703,
+    "result": "PASS",
+    "note": "establishes the representation is as good as the validated one; the original >0.90 site-grouped threshold compared incomparable protocols",
+    "t": "2026-08-14T21:12:55Z"
+  },
+  {
+    "gate": "G3_leakage_is_real",
+    "expected": "subtype inflation > 0.05 from fold assignment alone",
+    "observed": 0.171,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-14T21:12:57Z"
+  },
+  {
+    "gate": "G4_no_site_leakage_in_Q2",
+    "expected": "train/test sites disjoint in every fold",
+    "observed": "verified",
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-14T21:13:04Z"
+  },
+  {
+    "gate": "G5_null_centred",
+    "expected": "permutation null median near zero",
+    "observed": -0.0127,
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-14T21:15:47Z"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "/tmp/rf.zip": {
+    "bytes": 16121402,
+    "sha256": "e3d9df986fb64a0d42674c7c79527f4110fb920e58e80981b3d317aa1f188fbb"
+  },
+  "/tmp/upenn.csv": {
+    "bytes": 66491,
+    "sha256": "fd5749ae5a8d77e599e02264d961d94107752f0244e34bf0bc711a75fe0e2ec5"
+  }
+}

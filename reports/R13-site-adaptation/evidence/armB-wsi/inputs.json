@@ -1,0 +1,49 @@
+{
+ "config_yaml": {
+  "local": "config.yaml",
+  "sha256": "d5fadf5bfdae75d09b5ae4fe837da6e3168a3ea4c3e6a0832f13db020467750c",
+  "bytes": 14324,
+  "registered_utc": "2026-08-10T10:43:00Z",
+  "note": "hashed before any CPTAC label value was read; unsealing event #1 logged with this hash"
+ },
+ "labels_cptac": {
+  "local": "data/labels_cptac.csv",
+  "sha256": "e91f7e926265eddffcda9467c8124f0f18f548b0ab368d204a1fe02e1a8cc776",
+  "bytes": 10097
+ },
+ "patient_slides_cptac": {
+  "local": "data/patient_slides_cptac.json",
+  "sha256": "42475792126df5f601bdbb154661528e64d50384a1725568cfa17a3013fcc1e6",
+  "bytes": 61058
+ },
+ "splits": {
+  "local": "data/splits.json",
+  "sha256": "11abdbeb32104095daad9a51bb0c8e6515e77ea9dcb0b5244eff88bd682ac1d8",
+  "bytes": 89642
+ },
+ "exclusions": {
+  "local": "data/exclusions.json",
+  "sha256": "b0f88df7957e85d08150f13a36c7a1b6509292d0ca9f7ab56d49caca4aac3aa3",
+  "bytes": 27394
+ },
+ "os_decision": {
+  "local": "data/os_decision.json",
+  "sha256": "58513c18487d80c83b2c89e6a981ae86250da4ff81bcfc5bf22036b22f3ff5cb",
+  "bytes": 796
+ },
+ "cptac_slide_semantics": {
+  "local": "data/cptac_slide_semantics.csv",
+  "sha256": "9e36c9c1d483aa01f954c6bed76d8f701c1cebe657c78963a080e10694b42f18",
+  "bytes": 221955
+ },
+ "cptac_feature_manifest": {
+  "local": "data/cptac_feature_manifest.csv",
+  "sha256": "1d49376fe939bedbd9cf0573949e19f31ae0d2d2dcecbfe7e3b9ec15525d1007",
+  "bytes": 532451
+ },
+ "tcga_labels_armC": {
+  "local": "../armC/data/labels.csv",
+  "sha256": "611eab41f912f5a3964abff1e74d7b3c1a28c0dcd9d290d2b2ea2ff89f1f6ae9",
+  "bytes": 39415
+ }
+}

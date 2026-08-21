@@ -1,0 +1,105 @@
+{
+  "status": "peer-review audit copy",
+  "cohort": {
+    "n": 760,
+    "lusc": 347,
+    "luad": 413,
+    "keap1_mutant": 107,
+    "sites": 67,
+    "probes": 399579
+  },
+  "HEADLINE_site_leakage": {
+    "subtype": {
+      "grouped": 0.7992338341090356,
+      "grouped_ci95": [
+        0.7661985882640142,
+        0.834142014932328
+      ],
+      "random": 0.9702535046158355,
+      "inflation": 0.1710196705067999
+    },
+    "keap1": {
+      "grouped": 0.6642097579825679,
+      "grouped_ci95": [
+        0.6036269765598501,
+        0.7224911487847343
+      ],
+      "random": 0.6659987691603098,
+      "inflation": 0.0017890111777418838
+    }
+  },
+  "pipeline_competence": {
+    "random_fold_subtype": 0.9702535046158355,
+    "r12_centralized_reference": 0.97,
+    "r12_cross_site_reference": 0.755
+  },
+  "Q1_keap1_from_wsi": {
+    "grouped_auroc": 0.6642097579825679,
+    "grouped_ci95": [
+      0.6036269765598501,
+      0.7224911487847343
+    ],
+    "random_auroc": 0.6659987691603098,
+    "r10_from_methylation": 0.91,
+    "shortfall_vs_methylation": 0.24579024201743216
+  },
+  "Q2_genomewide": {
+    "probes": 399579,
+    "median_rho": 0.005689111033374085,
+    "null_median": -0.01274108307338701,
+    "null_p95_threshold": 0.04604607266256472,
+    "n_predictable": 110212,
+    "frac_predictable": 0.27582030086666215,
+    "max_rho": 0.4853600216722929,
+    "subtype_only_baseline": {
+      "n_predictable": 220925,
+      "median_rho": 0.06306839853010938
+    },
+    "genomic_context": {
+      "Island": {
+        "n_probes": 134095,
+        "frac_of_predictable": 0.3373,
+        "frac_of_array": 0.3356,
+        "enrichment": 1.005
+      },
+      "N_Shore": {
+        "n_probes": 52913,
+        "frac_of_predictable": 0.1302,
+        "frac_of_array": 0.1324,
+        "enrichment": 0.983
+      },
+      "S_Shore": {
+        "n_probes": 41383,
+        "frac_of_predictable": 0.1037,
+        "frac_of_array": 0.1036,
+        "enrichment": 1.002
+      },
+      "N_Shelf": {
+        "n_probes": 18917,
+        "frac_of_predictable": 0.0459,
+        "frac_of_array": 0.0473,
+        "enrichment": 0.97
+      },
+      "S_Shelf": {
+        "n_probes": 16887,
+        "frac_of_predictable": 0.0412,
+        "frac_of_array": 0.0423,
+        "enrichment": 0.975
+      },
+      "OpenSea": {
+        "n_probes": 135384,
+        "frac_of_predictable": 0.3417,
+        "frac_of_array": 0.3388,
+        "enrichment": 1.008
+      }
+    }
+  },
+  "Q3_bulk_methylation": {
+    "spearman_rho": 0.010976163484755998,
+    "p": 0.762573557477144
+  },
+  "_provenance": {
+    "config_sha256": "3d8b9658f679e069bd0cc4fded832dcd636c859cdc5bbf7cc848df5c2c5a5ef3",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260814T211255Z-R15wsimeth-3f8bece"
+  }
+}

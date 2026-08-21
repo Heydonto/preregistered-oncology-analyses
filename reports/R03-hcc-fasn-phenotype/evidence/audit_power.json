@@ -1,0 +1,14 @@
+{
+  "censored_serum_afp": 43,
+  "mvi_absent_vs_present": {
+    "p": 0.20108992312964435,
+    "A": 0.45168943206326384,
+    "rank_biserial": -0.09662113587347232,
+    "mde_rank_biserial_80pct": 0.21157683854693435
+  },
+  "fasn_tpm": {
+    "min": 12.89,
+    "median": 304.635,
+    "max": 2763.5
+  }
+}

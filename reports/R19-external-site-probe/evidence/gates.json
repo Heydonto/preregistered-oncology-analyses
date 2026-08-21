@@ -1,0 +1,78 @@
+[
+  {
+    "gate": "G0_input",
+    "expected": "78 slides x 1024 finite features",
+    "observed": {
+      "shape": [
+        78,
+        1024
+      ],
+      "finite": true,
+      "cohorts": {
+        "eagle": 49,
+        "htmcp": 29
+      }
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T01:05:13Z"
+  },
+  {
+    "gate": "G1_stain_contamination_confirmed",
+    "expected": "the published set contains non-H&E HTMCP slides (this is the defect, so the gate asserts it is present and names them)",
+    "observed": {
+      "n_non_he": 3,
+      "slides": [
+        "HTMCP-02-06-01032-CHR",
+        "HTMCP-02-07-01065-06-P16",
+        "HTMCP-02-15-01090-CHR"
+      ]
+    },
+    "result": "PASS",
+    "note": "if this ever returns 0 the input file was silently changed and the whole premise of this run needs re-checking",
+    "t": "2026-08-17T01:05:13Z"
+  },
+  {
+    "gate": "G2_tcga_input",
+    "expected": "TCGA slide-level mean embeddings, 1024-d",
+    "observed": {
+      "shape": [
+        1049,
+        1024
+      ]
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T01:05:13Z"
+  },
+  {
+    "gate": "G3_null_centred_two_cohort",
+    "expected": "both two-cohort nulls sit at chance 0.5 (within 0.05)",
+    "observed": {
+      "ARM_ALL": 0.5074,
+      "ARM_HE": 0.5058
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T01:05:18Z"
+  },
+  {
+    "gate": "G4_reproduces_paper1_two_cohort",
+    "expected": "published 1.0000 recovered on the published slide set, tol 0.02",
+    "observed": 1.0,
+    "result": "PASS",
+    "note": "the original hyperparameters are unrecorded, so a miss here means the manuscript number is not reproducible from the surviving inputs -- which would itself be the result, and is why this gate is checked before the H&E arm is interpreted",
+    "t": "2026-08-17T01:05:18Z"
+  },
+  {
+    "gate": "G5_null_centred_three_way",
+    "expected": "both 3-way nulls sit at chance 0.3333 (within 0.05)",
+    "observed": {
+      "ARM3_ALL": 0.3345,
+      "ARM3_HE": 0.366
+    },
+    "result": "PASS",
+    "note": "",
+    "t": "2026-08-17T01:05:20Z"
+  }
+]

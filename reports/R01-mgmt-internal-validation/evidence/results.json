@@ -1,0 +1,60 @@
+{
+  "elasticnet": {
+    "model": "elasticnet",
+    "auroc_delong": 0.42986736736736736,
+    "ci95_low": 0.35951787716547534,
+    "ci95_high": 0.5002168575692594,
+    "auroc_per_repeat_mean": 0.4591466466466466,
+    "auroc_per_repeat_sd": 0.03696639891704695,
+    "auroc_per_repeat_p2.5": 0.40441691691691695,
+    "auroc_per_repeat_p97.5": 0.5110485485485484,
+    "brier": 0.2724576233045829,
+    "best_params_modal": "{'clf__C': 0.01, 'clf__l1_ratio': 0.5}"
+  },
+  "random_forest": {
+    "model": "random_forest",
+    "auroc_delong": 0.45192067067067065,
+    "ci95_low": 0.38145043945487006,
+    "ci95_high": 0.5223909018864713,
+    "auroc_per_repeat_mean": 0.45725725725725724,
+    "auroc_per_repeat_sd": 0.02102758968446015,
+    "auroc_per_repeat_p2.5": 0.43483248873873875,
+    "auroc_per_repeat_p97.5": 0.4919036223723724,
+    "brier": 0.25427955046875,
+    "best_params_modal": null
+  },
+  "hist_gradient_boosting": {
+    "model": "hist_gradient_boosting",
+    "auroc_delong": 0.5146396396396397,
+    "ci95_low": 0.44321179003582994,
+    "ci95_high": 0.5860674892434494,
+    "auroc_per_repeat_mean": 0.5100162662662664,
+    "auroc_per_repeat_sd": 0.027072437650823455,
+    "auroc_per_repeat_p2.5": 0.4653872622622623,
+    "auroc_per_repeat_p97.5": 0.5449027152152153,
+    "brier": 0.28838171424047715,
+    "best_params_modal": null
+  },
+  "_decision": {
+    "ci95_high_primary": 0.5002168575692594,
+    "threshold": 0.65,
+    "decision": "STOP - signal too weak for further compute",
+    "prespecified_in_config_sha256": "670b2a509778490c8761e526bd55dd255360a72c0df06532ed6246a5472fcae0"
+  },
+  "_provenance": {
+    "config_sha256": "670b2a509778490c8761e526bd55dd255360a72c0df06532ed6246a5472fcae0",
+    "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260806T223856Z-3f8bece",
+    "n": 256,
+    "n_features_used": 1728,
+    "inputs": {
+      "/tmp/rf.zip": {
+        "bytes": 16121402,
+        "sha256": "e3d9df986fb64a0d42674c7c79527f4110fb920e58e80981b3d317aa1f188fbb"
+      },
+      "/tmp/upenn.csv": {
+        "bytes": 66491,
+        "sha256": "fd5749ae5a8d77e599e02264d961d94107752f0244e34bf0bc711a75fe0e2ec5"
+      }
+    }
+  }
+}

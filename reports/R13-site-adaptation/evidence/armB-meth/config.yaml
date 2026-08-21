@@ -1,0 +1,60 @@
+{
+  "study": "NSCLC RWPR \u2014 Arm B, methylation track",
+  "arm": "B-meth",
+  "question": "does the R10 KEAP1-methylation phenotype (and a TCGA-LUAD OS Cox head) transfer 450k->EPIC and carry any signal for anti-PD-1 response in the sealed 81-patient EPIC cohort?",
+  "pre_declared_expectation": "HONEST INCONCLUSIVE on the response endpoint at n=81. A calibrated null with a measured minimum-detectable AUROC is the success condition; a manufactured positive is the failure condition.",
+  "training_cohort": "TCGA-LUAD primary tumours, Illumina 450k, n=471, identical inputs/filters to R10 (same beta matrix, same 392,489-probe filter, same cbioportal mutation call)",
+  "holdout_cohort": "GSE115246 \u2014 81 advanced NSCLC, anti-PD-1, Illumina EPIC (read-only from gs://heydonto-quantara-lungcdx/data-request-2026-08/labels/lung/GSE115246/)",
+  "models": {
+    "M1_keap1_full": "R10 pipeline verbatim: SelectKBest(f_classif,k=5000) -> StandardScaler -> LogisticRegression(elasticnet, l1_ratio=0.5, saga, max_iter=3000, tol=1e-3), C from inner 3-fold GridSearchCV over [0.01,0.1,1.0]. Feature space = all 392,489 retained 450k probes. Nested 5-fold CV AUROC is the R10 reproduction number; a full-cohort refit is the deployable model.",
+    "M1_keap1_overlap": "identical pipeline, feature space restricted a priori to 450k-probes-also-on-EPIC (official Illumina manifest intersection). This is the transferable variant; both are reported.",
+    "M2_os_cox": "elastic-net Cox on the overlap feature space. Screen: vectorised Cox score test at beta=0 (top 500 probes), inside each CV fold. Fit: lifelines CoxPHFitter(penalizer=0.1, l1_ratio=0.5) on z-scored probes. Honest C-index by 5-fold CV; full-cohort refit is the deployable score.",
+    "PC_sex": "same classifier pipeline, target = sex, overlap feature space. Used as the CROSS-ARRAY transfer positive control: applied zero-shot to the EPIC cohort it must recover sex at AUROC>=0.95, which proves sample mapping and that 450k->EPIC transfer works at all."
+  },
+  "probe_mapping": {
+    "source": "official Illumina manifests: HumanMethylation450 v1.1 (GEO GPL13534 supplementary, sha256 pinned in inputs.json) and MethylationEPIC 15073387 v1.0 (GPL21145, shipped inside GSE115246_RAW.tar)",
+    "rule": "a probe is transferable iff its IlmnID appears in both manifests AND is present in the EPIC deposit's own probe index",
+    "report": "manifest overlap size; how many of each model's 5,000 selected and non-zero-coefficient probes survive; empirical coverage in the deposit"
+  },
+  "harmonisation": {
+    "T1_naive": "apply the TCGA-fitted StandardScaler unchanged to EPIC betas (measures raw cross-array shift; expected to be biased)",
+    "T2_cohort_z": "PRIMARY. Replace the scaler's per-probe mean/sd with the EPIC cohort's own per-probe mean/sd, then apply the frozen model coefficients. Label-free, standard cross-cohort z-harmonisation; removes array-level offset and scale without touching outcomes.",
+    "missing_probe_rule": "a model probe absent from the EPIC deposit is imputed at the TCGA training median (T1) / at 0 after z-scoring (T2), and counted in the coverage report"
+  },
+  "endpoints": {
+    "E1_primary": "KEAP1-phenotype score -> anti-PD-1 response (responder vs non-responder as deposited). AUROC + 2000-replicate bootstrap 95% CI.",
+    "E2": "OS/PFS association of the Cox score, IF the deposit carries survival: Cox HR per SD with CI, Harrell C, log-rank on the median split.",
+    "E3": "measured power: 1000 label permutations -> null AUROC distribution, one-sided p = (#null>=obs + 1)/(N+1); minimum detectable AUROC at 80% power via the R08 convention mde = 0.5 + (z.975 + z.80) * se with se from the observed bootstrap CI width; plus the non-parametric 95th percentile of the permutation null as a second floor."
+  },
+  "gates": {
+    "G1_R10_reproduction": "nested-CV KEAP1 AUROC on TCGA >= 0.88 (R10 reported 0.9098)",
+    "G2_R10_sex_control": "sex AUROC on TCGA > 0.95 through the same pipeline",
+    "G3_preregistered_before_unseal": "config sha256 appended to unsealing_events.jsonl before any EPIC byte is read",
+    "G4_probe_overlap_reported": "reporting gate \u2014 coverage numbers must be present",
+    "G5_epic_sex_transfer": "sex recovered zero-shot on EPIC at AUROC >= 0.95 IF sex metadata ships; if it does not ship, gate is recorded NOT_TESTABLE with the reason, never silently dropped",
+    "G6_permutation_null_centred": "permutation null mean AUROC within 0.5 +/- 0.05",
+    "G7_no_silent_drops": "every deposited sample is accounted for: used, or excluded with a per-sample reason"
+  },
+  "sample_qc": "exclude a sample if >5% of the deployed model's probes are missing, or if its mean beta over model probes is >5 SD from the cohort mean. Every exclusion logged per sample with the reason.",
+  "seed": 20260810,
+  "r10_seed": 20260807,
+  "n_permutations": 1000,
+  "expectations": {
+    "probes": 392489,
+    "luad_tumours": 471,
+    "keap1_mutant_luad": 84,
+    "R10_keap1_auroc": 0.9098375784422296,
+    "R10_sex_auroc": 1.0,
+    "gate_repro_auroc": 0.88
+  },
+  "hard_constraints": [
+    "data-request-2026-08/ is READ-ONLY",
+    "nsclc-rwpr-study/sealed/ never opened",
+    "CPTAC labels out of scope"
+  ],
+  "relates_to": [
+    "R10 KEAP1 phenotype AUROC 0.910 (CI 0.869-0.946), sex control 1.000",
+    "R08 methylation adds nothing prognostically in TCGA lung (C=0.486)",
+    "R07 methylation->TKI response inconclusive, MDE 0.685 at n=69"
+  ]
+}

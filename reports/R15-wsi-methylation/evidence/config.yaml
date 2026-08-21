@@ -1,0 +1,24 @@
+{
+  "report": "R15",
+  "status": "HELD FOR IP - not for publication pending patent filing",
+  "question": "can H&E morphology predict DNA-methylation state, and what does site leakage cost?",
+  "cohort": "760 TCGA patients with BOTH Phikon-v2 WSI features and 450k methylation",
+  "model": "gated attention-MIL, architecture copied verbatim from armC/fl_train.py (the one R12 validated), over tile-level features",
+  "two_arms": {
+    "primary": "GroupKFold on tissue-source site (67 sites) - no site in both train and test. Every scientific claim uses this arm",
+    "diagnostic": "random StratifiedKFold, sites shared - reported ONLY to (a) verify pipeline competence against R12's matched protocol and (b) quantify the site-leakage inflation"
+  },
+  "gate_respecification": "the original >0.90 site-grouped threshold was taken from R12/R13 numbers measured under site-SHARING, and is not comparable. Re-specified: reproduce R12's centralized 0.970 under R12's own protocol. Two prior attempts retained",
+  "Q1": "KEAP1 mutation from WSI vs R10's 0.910 from methylation",
+  "Q2": "genome-wide: how many CpGs are predictable from morphology above a permutation null, does it beat a subtype-only baseline, and in which genomic classes",
+  "Q3": "bulk mean methylation from WSI",
+  "confound_note": "the attention-pooled embedding is supervised by subtype, and subtype tracks methylation strongly (R08 PC4: LUAD/LUSC separable at 0.955). Q2 therefore reports a subtype-only baseline and the increment over it",
+  "seed": 20260814,
+  "expectations": {
+    "matched": 760,
+    "r12_centralized_subtype": 0.97,
+    "r12_cross_site_subtype": 0.755,
+    "r10_keap1_from_methylation": 0.91,
+    "r12_site_balacc": 0.706
+  }
+}

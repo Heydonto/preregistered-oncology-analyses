@@ -1,0 +1,76 @@
+{
+ "config": {
+  "path": "armA/config.yaml",
+  "sha256": "64726b360b3373bfbbe885e755d22d4360cafebd0afa50959d6161a2d4293795"
+ },
+ "data/18193MSKMINDProjectM-OmnibusInventory_DATA_2021-12-20_1540-WITH-TB-and-SCANNER.csv": {
+  "sha256": "9e11d26720304f47d2e8ba941c5530cc102e9e38792fd53c43ee2092e547ec01",
+  "bytes": 101806
+ },
+ "data/FINAL_COHORT_LISTING.csv": {
+  "sha256": "1938507102680d00516d20efd7003c90da48773eb577e8757325668076c73a7b",
+  "bytes": 7103
+ },
+ "data/LUNG_PATHOLOGY_PDL1_GLCM_V3.parquet": {
+  "sha256": "8ab0a7c0ea0fd2e1310b605fae6d0a19733b624c64dbd97dd051a480216d8346",
+  "bytes": 259605
+ },
+ "data/LUNG_PATHOLOGY_PDL1_GLCM_V3_VALIDATION.parquet": {
+  "sha256": "005a21bb698d5a93bbc4b91599de7a987bc72893e367443376f4157e42871a2c",
+  "bytes": 202992
+ },
+ "data/LUNG_RADIOMICS_spacing1.0_MirpOn_Window1350.250_allImageTypes_bw20.parquet": {
+  "sha256": "a22380aad3082b39f5b2591d4ee87d9095586aedd1d76068a5ecb98ab2fba7a0",
+  "bytes": 54619067
+ },
+ "data/LUNG_RADIOMICS_spacing1.0_MirpOn_Window1350.250_allImageTypes_bw20_VALIDATION.parquet": {
+  "sha256": "9fe5acd67402eaaada3557d6e25a5c1ce0023a37213eba9ca4d87204806e0036",
+  "bytes": 16570275
+ },
+ "data/PDL1_SCORE.parquet": {
+  "sha256": "6be187fa329ae029d5eff23bf5ced18f6e76771ab82f4bb615e5d328e732684f",
+  "bytes": 3720
+ },
+ "data/genomic_alterations.syn26838214.csv": {
+  "sha256": "9331a4af9fee5e3c0f9bd8dce0eb60990e41709a195601366abb9a828732f070",
+  "bytes": 50642
+ },
+ "data/genomic_data_v3.parquet": {
+  "sha256": "0a7af47686c1975ae7ed3285c53b97d90e72408fe22af24e55aa22211548c9ef",
+  "bytes": 12129
+ },
+ "data/msk_mind/data_clinical_patient.txt": {
+  "sha256": "3098c9920c80a7df319e499c2531423079197af4af23b99789c39e3fa69633c1",
+  "bytes": 47201
+ },
+ "data/msk_mind/data_clinical_sample.txt": {
+  "sha256": "47f78b8bf003ad5f1445a116fc655de7c2b3ddc844c024241ec6997ab60d3b11",
+  "bytes": 82707
+ },
+ "data/msk_mind/data_mutations.txt": {
+  "sha256": "29e5b1df3225aef745d26720d460ad965ec09cd451829dc27d5d51dac87d0810",
+  "bytes": 745106
+ },
+ "data/msk_mind/data_timeline.txt": {
+  "sha256": "4defc1995f3c755c3b97fd3f8c84bdab2f23c1bf6856dc054ec73b310df01ab5",
+  "bytes": 2212
+ },
+ "data/path_inventory.syn26838213.csv": {
+  "sha256": "4ad023c9c8d944b190643f39b67a3e85eca17e9f298b6a53dbf46062b0cd1735",
+  "bytes": 37109
+ },
+ "data/patient_listing.syn26643039.csv": {
+  "sha256": "fd6756ae6036b4ad3f282c56f7cafeb9391fba32174b8068c568be56825e1c54",
+  "bytes": 95876
+ },
+ "data/rad_inventory.syn26838212.csv": {
+  "sha256": "df9c2bf9ecb9e85884facce7509d5139c053ad48231d265c0b297b8725475dba",
+  "bytes": 27867
+ },
+ "data/tumor_burden.csv": {
+  "sha256": "6b3adbae3b414844bc766cf9e394ce65a9b24e90c822fa981be34c5a7451493a",
+  "bytes": 18923
+ },
+ "_gcs_feature_prefix": "gs://heydonto-quantara-lungcdx/features/phikon-v2/vanguri_pdl1/",
+ "_note": "tumor_burden.csv and the phikon npz files are derived artifacts produced by armA/tumor_burden.py and armA/encode_vanguri.py from sealed pixels"
+}

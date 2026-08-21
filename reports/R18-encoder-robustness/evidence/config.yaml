@@ -1,0 +1,25 @@
+{
+  "question": "is the whole-slide site signature a property of the archive or of Phikon-v2?",
+  "design": "identical tiles (verified byte-identical), identical architecture, folds, hyperparameters and seeds; the encoder is the only difference. facebook/dinov2-large matches Phikon-v2 in model class (Dinov2Model), width (1024), depth (24), SSL algorithm (DINOv2), readout (CLS) and normalisation (ImageNet); it differs in training corpus (LVD-142M natural images vs pan-cancer histology) and patch size (14 vs 16).",
+  "arms": "{phikon-v2, dinov2-large} x {grouped, random} x {subtype, meth}",
+  "metrics": {
+    "inflation": "random - grouped",
+    "relative_inflation": "(random - grouped) / (1 - grouped)",
+    "why_relative": "dinov2-large is not trained on histology so its absolute AUROC is expected to be lower; a smaller absolute inflation could then reflect less signal rather than less leakage. The verdict uses the relative figure."
+  },
+  "published_controls": {
+    "subtype_grouped": 0.799,
+    "subtype_random": 0.9703,
+    "keap1_grouped": 0.664,
+    "meth_mean_inflation": 0.0849
+  },
+  "tol_auroc": 0.01,
+  "tol_inflation": 0.02,
+  "verdict_rules": [
+    "dinov2 subtype relative inflation > 0.05 -> SITE_SIGNATURE_IS_ARCHIVE_NOT_ENCODER",
+    "dinov2 subtype relative inflation < 0.02 -> SITE_SIGNATURE_WAS_ENCODER_SPECIFIC",
+    "otherwise -> INTERMEDIATE",
+    "secondary: sign agreement across all 6 methylation targets -> METHYLATION_LEAKAGE_ALSO_REPRODUCES"
+  ],
+  "status": "HELD FOR IP - not for publication pending patent"
+}

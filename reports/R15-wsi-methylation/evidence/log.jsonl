@@ -1,0 +1,18 @@
+{"t": "2026-08-14T21:12:55Z", "event": "config_written", "sha256": "3d8b9658f679e069bd0cc4fded832dcd636c859cdc5bbf7cc848df5c2c5a5ef3"}
+{"t": "2026-08-14T21:12:55Z", "event": "gate", "gate": "G0_matched", "expected": 760, "observed": 760, "result": "PASS"}
+{"t": "2026-08-14T21:12:55Z", "event": "gate", "gate": "G1_same_cohort", "expected": "both arms cover the same patients", "observed": true, "result": "PASS"}
+{"t": "2026-08-14T21:12:55Z", "event": "gate", "gate": "G2_pipeline_competence", "expected": "random-fold subtype within 0.02 of R12's centralized 0.97", "observed": 0.9703, "result": "PASS"}
+{"t": "2026-08-14T21:12:57Z", "event": "HEADLINE_site_leakage", "subtype_grouped": 0.7992, "subtype_random": 0.9703, "subtype_inflation": 0.171, "keap1_grouped": 0.6642, "keap1_random": 0.666, "keap1_inflation": 0.0018, "note": "identical data/model/hyperparameters; only the fold assignment differs"}
+{"t": "2026-08-14T21:12:57Z", "event": "gate", "gate": "G3_leakage_is_real", "expected": "subtype inflation > 0.05 from fold assignment alone", "observed": 0.171, "result": "PASS"}
+{"t": "2026-08-14T21:13:04Z", "event": "methylation_matrix", "shape": [760, 399579]}
+{"t": "2026-08-14T21:13:04Z", "event": "gate", "gate": "G4_no_site_leakage_in_Q2", "expected": "train/test sites disjoint in every fold", "observed": "verified", "result": "PASS"}
+{"t": "2026-08-14T21:13:04Z", "event": "Q2_start", "probes": 399579}
+{"t": "2026-08-14T21:15:47Z", "event": "gate", "gate": "G5_null_centred", "expected": "permutation null median near zero", "observed": -0.0127, "result": "PASS"}
+{"t": "2026-08-14T21:15:47Z", "event": "Q2_genomewide", "median_rho": 0.0057, "null_median": -0.0127, "null_p95": 0.046, "n_above_null": 110212, "frac": 0.2758, "max_rho": 0.4854, "subtype_only_n_above_null": 220925, "subtype_only_median_rho": 0.0631}
+{"t": "2026-08-14T21:15:47Z", "event": "Q2_context", "context": "Island", "enrichment": 1.005}
+{"t": "2026-08-14T21:15:47Z", "event": "Q2_context", "context": "N_Shore", "enrichment": 0.983}
+{"t": "2026-08-14T21:15:47Z", "event": "Q2_context", "context": "S_Shore", "enrichment": 1.002}
+{"t": "2026-08-14T21:15:47Z", "event": "Q2_context", "context": "N_Shelf", "enrichment": 0.97}
+{"t": "2026-08-14T21:15:47Z", "event": "Q2_context", "context": "S_Shelf", "enrichment": 0.975}
+{"t": "2026-08-14T21:15:47Z", "event": "Q2_context", "context": "OpenSea", "enrichment": 1.008}
+{"t": "2026-08-14T21:15:47Z", "event": "Q3_bulk", "rho": 0.011, "p": 0.762573557477144}

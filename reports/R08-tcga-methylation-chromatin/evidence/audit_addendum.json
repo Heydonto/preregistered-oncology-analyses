@@ -1,0 +1,94 @@
+{
+  "run_dir": "/Users/rezanehzati/Projects/quantara/paper-draft/02-revised-protocol-open-datasets/runs/20260807T130716Z-R08tcgameth-3f8bece",
+  "A_histology_confound": {
+    "KEAP1": {
+      "pooled_frac_sig": 0.2416,
+      "luad_rate": 0.1783,
+      "lusc_rate": 0.0892,
+      "freq_or": 2.217,
+      "freq_p": 0.00019144133189808013,
+      "TCGA-LUAD_frac_sig": 0.2935,
+      "TCGA-LUAD_n_mut": 84,
+      "TCGA-LUSC_frac_sig": 0.0447,
+      "TCGA-LUSC_n_mut": 33
+    },
+    "SMARCA4": {
+      "pooled_frac_sig": 0.0578,
+      "luad_rate": 0.087,
+      "lusc_rate": 0.0297,
+      "freq_or": 3.112,
+      "freq_p": 0.00048578899970106967,
+      "TCGA-LUAD_frac_sig": 0.1129,
+      "TCGA-LUAD_n_mut": 41,
+      "TCGA-LUSC_frac_sig": null,
+      "TCGA-LUSC_n_mut": 11
+    },
+    "KMT2D": {
+      "pooled_frac_sig": 0.20655,
+      "luad_rate": 0.0701,
+      "lusc_rate": 0.2108,
+      "freq_or": 0.282,
+      "freq_p": 2.540108400444873e-09,
+      "TCGA-LUAD_frac_sig": 0.0,
+      "TCGA-LUAD_n_mut": 33,
+      "TCGA-LUSC_frac_sig": 0.0003,
+      "TCGA-LUSC_n_mut": 78
+    }
+  },
+  "B_smoking_confound": {
+    "KEAP1": {
+      "ever_rate": 0.1501,
+      "never_rate": 0.0494,
+      "or": 3.401,
+      "p": 0.010659133260283542,
+      "n_ever": 726,
+      "n_never": 81
+    },
+    "SMARCA4": {
+      "ever_rate": 0.0661,
+      "never_rate": 0.0247,
+      "or": 2.796,
+      "p": 0.2197776805223754,
+      "n_ever": 726,
+      "n_never": 81
+    },
+    "KMT2D": {
+      "ever_rate": 0.1433,
+      "never_rate": 0.0494,
+      "or": 3.219,
+      "p": 0.015480712244690893,
+      "n_ever": 726,
+      "n_never": 81
+    }
+  },
+  "C_q3": {
+    "lr_p": 0.8542028174680439,
+    "cv_cindex_by_seed": [
+      0.6021,
+      0.591,
+      0.5946,
+      0.5939,
+      0.6093,
+      0.5947,
+      0.6021,
+      0.5856
+    ],
+    "cindex_median": 0.5946482963007311,
+    "cindex_range": [
+      0.5856190269493567,
+      0.6092567785003854
+    ],
+    "agrees_with_run": true
+  },
+  "D_q2_power": {
+    "n": 796,
+    "events": 313,
+    "observed_cindex": 0.4858203720977317,
+    "ci95": [
+      0.44955343226240935,
+      0.5228706838194396
+    ],
+    "se_from_bootstrap": 0.018703380499242406,
+    "min_detectable_cindex_80pct": 0.5523991143354199
+  }
+}
